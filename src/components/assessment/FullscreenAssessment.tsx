@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { X, ChevronLeft, ChevronRight, Clock } from "lucide-react";
 import type { Assessment, AssessmentQuestion, UserAnswer } from "@/lib/types";
 import { scoreAssessment } from "@/lib/scoring";
 import { markAssessmentComplete, PASS_THRESHOLD } from "@/lib/progress";
 import { CodingWorkspace } from "./CodingWorkspace";
+import { useAuth } from "@/components/AuthProvider";
 
 // Intelligent coding question detector checking marks and file/script references
 function isCodingQuestion(q: AssessmentQuestion): boolean {
@@ -82,6 +84,19 @@ export function FullscreenAssessment({
 
   const current = questions[index];
   const storageKey = `mst-assessment-draft-${moduleId}-${subSlug}`;
+  const { isAdmin } = useAuth();
+  const router = useRouter();
+  const exitTimerRef = useRef<number | null>(null);
+  const [exitClickCount, setExitClickCount] = useState(0);
+  const codingQuestionActive = isCodingQuestion(current);
+
+  useEffect(() => {
+    return () => {
+      if (exitTimerRef.current) {
+        window.clearTimeout(exitTimerRef.current);
+      }
+    };
+  }, []);
 
   // Time limit for the entire assessment is capped to 45 minutes for project/assignment assessments
   const [totalTimeLimit] = useState(() => {
@@ -187,6 +202,25 @@ export function FullscreenAssessment({
     }
   }, [elapsed, totalTimeLimit, handleSubmit]);
 
+  function handleExitAttempt() {
+    if (!codingQuestionActive) {
+      router.push(`/module/${moduleId}/${subSlug}`);
+      return;
+    }
+
+    if (!isAdmin) {
+      return;
+    }
+
+    if (exitClickCount === 0) {
+      setExitClickCount(1);
+      exitTimerRef.current = window.setTimeout(() => setExitClickCount(0), 2000);
+      return;
+    }
+
+    router.push(`/module/${moduleId}/${subSlug}`);
+  }
+
   const getLiveScore = useCallback(() => {
     let score = 0;
     questions.forEach((q) => {
@@ -271,13 +305,15 @@ export function FullscreenAssessment({
               {questions.length}
             </p>
           </div>
-          <Link
-            href={`/module/${moduleId}/${subSlug}`}
-            className="rounded-full p-2 text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-[var(--bg-muted)] transition"
-            title="Exit assessment"
+          <button
+            type="button"
+            onClick={handleExitAttempt}
+            disabled={codingQuestionActive && !isAdmin}
+            className={`rounded-full p-2 transition ${codingQuestionActive && !isAdmin ? "cursor-not-allowed opacity-50 border border-[var(--border)] bg-[var(--surface-2)] text-[var(--text-muted)]" : "text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-[var(--bg-muted)]"}`}
+            title={codingQuestionActive ? (isAdmin ? "Double-click to exit coding panel" : "Cannot exit until code is submitted") : "Exit assessment"}
           >
             <X size={20} />
-          </Link>
+          </button>
         </div>
       </header>
 
@@ -433,25 +469,31 @@ export function FullscreenAssessment({
       <footer className="flex shrink-0 items-center justify-between border-t border-[var(--border)] bg-[var(--bg)] px-4 py-4 md:px-8">
         <button
           type="button"
-          disabled={index === 0}
+          disabled={index === 0 || codingQuestionActive}
           onClick={() => setIndex((i) => i - 1)}
           className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-strong)] bg-[var(--surface-2)] px-5 py-2.5 text-sm font-semibold text-[var(--text)] hover:bg-[var(--bg-muted)] transition disabled:opacity-30"
+          title={codingQuestionActive ? "Cannot navigate away during coding question" : undefined}
         >
           <ChevronLeft size={16} /> Previous
         </button>
 
-        <Link
-          href={`/module/${moduleId}/${subSlug}`}
-          className="text-xs font-semibold text-[var(--text-muted)] hover:text-mst-red transition"
+        <button
+          type="button"
+          onClick={handleExitAttempt}
+          disabled={codingQuestionActive && !isAdmin}
+          className={`text-xs font-semibold transition ${codingQuestionActive && !isAdmin ? "cursor-not-allowed text-[var(--text-muted)] opacity-50" : "text-[var(--text-muted)] hover:text-mst-red"}`}
+          title={codingQuestionActive ? (isAdmin ? "Double-click to exit coding panel" : "Cannot exit until code is submitted") : "Save and exit lesson"}
         >
           Save & exit lesson
-        </Link>
+        </button>
 
         {index < questions.length - 1 ? (
           <button
             type="button"
+            disabled={codingQuestionActive}
             onClick={() => setIndex((i) => i + 1)}
-            className="inline-flex items-center gap-1.5 rounded-full bg-mst-red hover:bg-mst-red-dark px-6 py-2.5 text-sm font-bold text-white transition"
+            className="inline-flex items-center gap-1.5 rounded-full bg-mst-red hover:bg-mst-red-dark px-6 py-2.5 text-sm font-bold text-white transition disabled:opacity-30"
+            title={codingQuestionActive ? "Cannot navigate away during coding question" : undefined}
           >
             Continue <ChevronRight size={16} />
           </button>

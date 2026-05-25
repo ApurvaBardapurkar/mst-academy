@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Play, RotateCcw, Maximize2, Minimize2, Terminal, Layers, FileText, CheckCircle2, XCircle } from "lucide-react";
 import type { AssessmentQuestion } from "@/lib/types";
 import { useTheme } from "../ThemeProvider";
@@ -98,6 +98,7 @@ export function CodingWorkspace({
   const [customInput, setCustomInput] = useState("");
   const [activeTab, setActiveTab] = useState<"testCases" | "customInput" | "output">("testCases");
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const editorRef = useRef<any>(null);
   
   // Compilation & Output results
   const [compileSuccess, setCompileSuccess] = useState<boolean | null>(null);
@@ -137,6 +138,31 @@ export function CodingWorkspace({
       onChange(defaultStarter);
     }
   }, [language, defaultStarter, value, onChange]);
+
+  function handleEditorMount(editor: any, monaco: any) {
+    editorRef.current = editor;
+
+    editor.updateOptions({
+      contextmenu: false,
+      dragAndDrop: false,
+      copyWithSyntaxHighlighting: false,
+      quickSuggestions: true,
+      mouseWheelZoom: false,
+    });
+
+    editor.onKeyDown((event: any) => {
+      if ((event.ctrlKey || event.metaKey) && [monaco.KeyCode.KeyC, monaco.KeyCode.KeyX, monaco.KeyCode.KeyA].includes(event.keyCode)) {
+        event.preventDefault();
+      }
+    });
+
+    const dom = editor.getDomNode?.();
+    if (dom) {
+      dom.addEventListener("copy", (e: Event) => e.preventDefault());
+      dom.addEventListener("cut", (e: Event) => e.preventDefault());
+      dom.addEventListener("contextmenu", (e: Event) => e.preventDefault());
+    }
+  }
 
   async function runCode() {
     setRunning(true);
@@ -331,6 +357,7 @@ export function CodingWorkspace({
             theme={theme === "dark" ? "vs-dark" : "light"}
             value={editorValue}
             onChange={(v) => onChange(v || "")}
+            onMount={handleEditorMount}
             options={{
               minimap: { enabled: false },
               fontSize: 14,
@@ -338,7 +365,10 @@ export function CodingWorkspace({
               scrollBeyondLastLine: false,
               automaticLayout: true,
               tabSize: 4,
-              formatOnPaste: true,
+              formatOnPaste: false,
+              contextmenu: false,
+              dragAndDrop: false,
+              copyWithSyntaxHighlighting: false,
               scrollbar: {
                 vertical: "visible",
                 horizontal: "visible"
