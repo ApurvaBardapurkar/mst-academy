@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Copy, Check, ChevronLeft, ChevronRight } from "lucide-react";
@@ -110,6 +110,7 @@ export function LessonViewer({
   prevSlug,
   nextSlug,
 }: LessonViewerProps) {
+  const articleRef = useRef<HTMLDivElement | null>(null);
   const [activeHeading, setActiveHeading] = useState<string | null>(null);
   const [validToc, setValidToc] = useState(submodule.toc);
 
@@ -119,6 +120,14 @@ export function LessonViewer({
       .toLowerCase()
       .replace(/[“”"']/g, "")
       .replace(/\s+/g, " ");
+
+  const scrollToHeading = (id: string) => {
+    const container = articleRef.current;
+    if (!container) return;
+    const target = container.querySelector(`#${id}`) as HTMLElement | null;
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   useEffect(() => {
     const t = setTimeout(() => markLessonComplete(moduleId, submodule.slug), 3000);
@@ -235,6 +244,10 @@ export function LessonViewer({
               <li key={item.id}>
                 <a
                   href={`#${item.id}`}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    scrollToHeading(item.id);
+                  }}
                   className={`block rounded-2xl border px-3 py-2 text-sm transition ${
                     activeHeading === item.id
                       ? "border-white/20 bg-white/10 text-[var(--text)]"
@@ -284,7 +297,7 @@ export function LessonViewer({
           <ThemeToggle />
         </header>
 
-        <article className="flex-1 overflow-y-auto px-4 py-8 lg:px-12 lg:py-10" style={{ scrollBehavior: 'smooth' }}>
+        <article ref={articleRef} className="flex-1 overflow-y-auto px-4 py-8 lg:px-12 lg:py-10" style={{ scrollBehavior: 'smooth' }}>
           <LessonContent html={html} />
         </article>
 
