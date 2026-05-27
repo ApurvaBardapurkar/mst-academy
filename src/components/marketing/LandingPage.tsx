@@ -284,7 +284,7 @@ export function LandingPage({
               {
                 id: "normal",
                 title: "Normal User Fellowship",
-                price: "₹4,999",
+                price: "₹19,999",
                 gradient: "bg-gradient-to-br from-emerald-500/15 via-[var(--accent-blue)]/10 to-mst-red/10",
                 tag: "Internship + fraction",
                 bullets: [
@@ -296,7 +296,7 @@ export function LandingPage({
               {
                 id: "courseOnly",
                 title: "Course Only",
-                price: "₹2,999",
+                price: "₹4,999",
                 gradient: "bg-gradient-to-br from-gray-500/10 via-[var(--surface)] to-[var(--bg-elevated)]",
                 tag: "No internship. No fraction.",
                 bullets: [

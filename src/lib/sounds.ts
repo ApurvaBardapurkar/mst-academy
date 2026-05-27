@@ -64,3 +64,14 @@ export function playTick() {
 export function playNavigate() {
   playTone(700, 0.05, "sine", 0.06);
 }
+
+export function playExpand() {
+  playTone(400, 0.08, "sine", 0.08);
+  setTimeout(() => playTone(550, 0.1, "sine", 0.1), 70);
+  setTimeout(() => playTone(720, 0.12, "sine", 0.1), 140);
+}
+
+export function playViolated() {
+  playTone(180, 0.35, "sawtooth", 0.12);
+  setTimeout(() => playTone(140, 0.4, "sawtooth", 0.1), 280);
+}

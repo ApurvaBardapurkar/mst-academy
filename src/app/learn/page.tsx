@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getCurriculum } from "@/lib/curriculum";
-import { LearnExperience } from "@/components/learn/LearnExperience";
+import { LearningRoadmap } from "@/components/learn/LearningRoadmap";
 
 export const metadata: Metadata = {
   title: "Learning Tree — Interactive Blockchain Curriculum",
@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 
 export default function LearnPage() {
   const curriculum = getCurriculum();
-  return <LearnExperience curriculum={curriculum} />;
+  return <LearningRoadmap curriculum={curriculum} />;
 }

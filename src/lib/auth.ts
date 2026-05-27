@@ -69,9 +69,9 @@ export const DEMO_FEES = {
   // Fellowship track pricing
   validator: 9999,
   student: 14999,
-  normal: 4999,
+  normal: 19999,
   // Course-only plan (no fraction / no internship)
-  courseOnly: 2999,
+  courseOnly: 4999,
 } as const;
 
 function loadUsers(): AuthUser[] {

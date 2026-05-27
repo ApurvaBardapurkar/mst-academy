@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { CheckCircle2, XCircle, Clock, Award, CheckSquare, AlertTriangle, Play, HelpCircle, ArrowRight } from "lucide-react";
 import type { AssessmentQuestion, QuestionResult, UserAnswer } from "@/lib/types";
-import { playSuccess, playError } from "@/lib/sounds";
+import { playSuccess, playError, playViolated } from "@/lib/sounds";
 
 interface StoredPayload {
   results: QuestionResult[];
@@ -21,6 +21,8 @@ interface StoredPayload {
   attempted?: number;
   skipped?: number;
   completedAt: string;
+  violated?: boolean;
+  violationCount?: number;
 }
 
 export function AssessmentResults({
@@ -40,7 +42,8 @@ export function AssessmentResults({
       const parsed = JSON.parse(raw) as StoredPayload;
       setData(parsed);
       setTimeout(() => {
-        if (parsed.passed) playSuccess();
+        if (parsed.violated) playViolated();
+        else if (parsed.passed) playSuccess();
         else playError();
       }, 300);
     }
@@ -141,14 +144,26 @@ export function AssessmentResults({
             </p>
           </div>
 
-          {/* PASS / FAIL */}
+          {/* PASS / FAIL / VIOLATED */}
           <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-5 text-center shadow-sm">
             <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Status</p>
-            <p className={`mt-2 text-3xl font-black ${data.passed ? "text-green-500" : "text-amber-500"}`}>
-              {data.passed ? "PASSED" : "REVIEWED"}
+            <p
+              className={`mt-2 text-3xl font-black ${
+                data.violated
+                  ? "text-red-500"
+                  : data.passed
+                    ? "text-green-500"
+                    : "text-amber-500"
+              }`}
+            >
+              {data.violated ? "VIOLATED" : data.passed ? "PASSED" : "REVIEWED"}
             </p>
             <p className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold uppercase">
-              {data.passed ? (
+              {data.violated ? (
+                <span className="text-red-500">
+                  ⚠ Cheating detected ({data.violationCount ?? 0} violations)
+                </span>
+              ) : data.passed ? (
                 <span className="text-green-500">✓ Completed Module</span>
               ) : (
                 <span className="text-amber-500">⚠ Verify Outlines</span>

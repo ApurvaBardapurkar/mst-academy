@@ -102,7 +102,7 @@ function PlanHighlight({ plan }: { plan: PlanId }) {
 
   return (
     <HighlightBox>
-      <strong>Course Only:</strong> Lifetime access to the course at <strong>₹2999</strong>. No fraction.
+      <strong>Course Only:</strong> Lifetime access to the course at <strong>₹4,999</strong>. No fraction.
       No internship. Full lifetime course access only.
     </HighlightBox>
   );
@@ -113,7 +113,7 @@ export function RegisterForm() {
   const searchParams = useSearchParams();
   const { refresh } = useAuth();
 
-  const [plan, setPlan] = useState<PlanId>("student");
+  const [plan, setPlan] = useState<PlanId>("courseOnly");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 

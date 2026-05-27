@@ -22,7 +22,22 @@ import { scoreAssessment } from "@/lib/scoring";
 import { markAssessmentComplete, PASS_THRESHOLD } from "@/lib/progress";
 import { CodingWorkspace } from "./CodingWorkspace";
 import { useAuth } from "@/components/AuthProvider";
-import { playClick, playSelect, playWarning, playSubmit, playNavigate, playSuccess, playError } from "@/lib/sounds";
+import {
+  playClick,
+  playSelect,
+  playWarning,
+  playSubmit,
+  playNavigate,
+  playSuccess,
+  playError,
+  playViolated,
+} from "@/lib/sounds";
+import {
+  AssessmentCameraProctor,
+  requestCameraPermission,
+  CameraRequiredNotice,
+  type CameraViolationType,
+} from "./AssessmentCameraProctor";
 
 function isCodingQuestion(q: AssessmentQuestion): boolean {
   if (["coding", "live_coding"].includes(q.type)) {
@@ -75,16 +90,38 @@ function getQuestionTimeLimit(q: AssessmentQuestion): number {
 const MAX_VIOLATIONS = 3;
 
 /* ─────────────── Warning Modal ─────────────── */
+function violationMessage(type: string) {
+  switch (type) {
+    case "tab_switch":
+      return "You switched away from the assessment tab. This has been logged.";
+    case "fullscreen_exit":
+      return "You exited fullscreen mode. This has been logged.";
+    case "camera_off":
+      return "Your camera was turned off or disconnected. This is treated as cheating.";
+    case "camera_covered":
+      return "Your camera appears blocked or covered. This is treated as cheating.";
+    case "camera_denied":
+      return "Camera access was denied during the assessment. This is treated as cheating.";
+    default:
+      return "A proctoring violation was detected.";
+  }
+}
+
 function ViolationWarningModal({
   type,
   count,
   onContinue,
+  violated,
 }: {
-  type: "tab_switch" | "fullscreen_exit";
+  type: string;
   count: number;
   onContinue: () => void;
+  violated?: boolean;
 }) {
-  useEffect(() => { playWarning(); }, []);
+  useEffect(() => {
+    if (violated) playViolated();
+    else playWarning();
+  }, [violated]);
   const remaining = MAX_VIOLATIONS - count;
   return (
     <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-sm">
@@ -95,12 +132,10 @@ function ViolationWarningModal({
           </div>
         </div>
         <h2 className="mb-2 text-center text-xl font-black text-red-500">
-          Security Violation Detected
+          {violated ? "Assessment Violated" : "Security Violation Detected"}
         </h2>
         <p className="mb-4 text-center text-sm text-[var(--text-muted)]">
-          {type === "tab_switch"
-            ? "You switched away from the assessment tab. This has been logged."
-            : "You exited fullscreen mode. This has been logged."}
+          {violationMessage(type)}
         </p>
         <div className="mb-6 rounded-xl border border-red-500/20 bg-red-500/5 p-4 text-center">
           <p className="text-sm font-bold text-red-500">
@@ -112,7 +147,7 @@ function ViolationWarningModal({
               : "Your assessment is being submitted now."}
           </p>
         </div>
-        {remaining > 0 && (
+        {remaining > 0 && !violated && (
           <button
             type="button"
             onClick={onContinue}
@@ -139,8 +174,19 @@ function EntryConfirmationScreen({
   onBegin: () => void;
 }) {
   const [agreed, setAgreed] = useState(false);
+  const [cameraOk, setCameraOk] = useState(false);
+  const [checkingCamera, setCheckingCamera] = useState(false);
   const questions = assessment.questions;
   const totalMarks = questions.reduce((s, q) => s + q.marks, 0);
+
+  async function enableCamera() {
+    setCheckingCamera(true);
+    const ok = await requestCameraPermission();
+    setCameraOk(ok);
+    setCheckingCamera(false);
+    if (ok) playSuccess();
+    else playError();
+  }
 
   const rules = [
     { icon: Monitor, text: "Fullscreen mode is required throughout the assessment" },
@@ -148,7 +194,8 @@ function EntryConfirmationScreen({
     { icon: Clipboard, text: "Copy, paste, and cut are disabled" },
     { icon: Timer, text: "Assessment is timed — auto-submits when time runs out" },
     { icon: Lock, text: "Right-click and developer tools are blocked" },
-    { icon: AlertTriangle, text: "3 violations will auto-submit your assessment" },
+    { icon: AlertTriangle, text: "Camera must stay ON — cheating triggers violation" },
+    { icon: ShieldAlert, text: "3 violations = assessment violated & auto-submitted" },
   ];
 
   return (
@@ -193,6 +240,20 @@ function EntryConfirmationScreen({
         </ul>
 
         {/* Agreement checkbox */}
+        <div className="mb-4">
+          <CameraRequiredNotice ok={cameraOk} />
+          {!cameraOk && (
+            <button
+              type="button"
+              onClick={enableCamera}
+              disabled={checkingCamera}
+              className="mt-3 w-full rounded-full border border-emerald-500/40 bg-emerald-500/10 px-6 py-3 text-sm font-bold text-emerald-600 transition hover:bg-emerald-500/20 dark:text-emerald-400"
+            >
+              {checkingCamera ? "Checking camera…" : "Enable camera to continue"}
+            </button>
+          )}
+        </div>
+
         <label className="mb-6 flex cursor-pointer items-start gap-3 rounded-xl border border-[var(--border)] bg-[var(--bg)] p-4 transition hover:border-mst-red/50">
           <input
             type="checkbox"
@@ -207,8 +268,11 @@ function EntryConfirmationScreen({
 
         <button
           type="button"
-          onClick={onBegin}
-          disabled={!agreed}
+          onClick={() => {
+            playSubmit();
+            onBegin();
+          }}
+          disabled={!agreed || !cameraOk}
           className="w-full rounded-full bg-mst-red px-6 py-3.5 text-sm font-bold text-white transition hover:bg-mst-red-dark disabled:cursor-not-allowed disabled:opacity-40"
         >
           Begin Assessment
@@ -253,13 +317,20 @@ export function FullscreenAssessment({
   const [tabSwitchCount, setTabSwitchCount] = useState(0);
   const [fullscreenExitCount, setFullscreenExitCount] = useState(0);
   const [warningModal, setWarningModal] = useState<{
-    type: "tab_switch" | "fullscreen_exit";
+    type: string;
     count: number;
+    violated?: boolean;
   } | null>(null);
+  const [cameraViolationCount, setCameraViolationCount] = useState(0);
+  const [assessmentViolated, setAssessmentViolated] = useState(false);
   const tabSwitchRef = useRef(0);
   const fullscreenExitRef = useRef(0);
+  const cameraViolationRef = useRef(0);
   const hasAutoSubmitted = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const totalViolationCount =
+    tabSwitchCount + fullscreenExitCount + cameraViolationCount;
 
   useEffect(() => {
     return () => {
@@ -333,7 +404,8 @@ export function FullscreenAssessment({
       answerList
     );
     const pct = Math.round((totalEarned / totalMax) * 100);
-    const passed = pct >= PASS_THRESHOLD;
+    const violatedNow = assessmentViolated || totalViolationCount >= MAX_VIOLATIONS;
+    const passed = !violatedNow && pct >= PASS_THRESHOLD;
     const durationSec = Math.floor((Date.now() - startedAt) / 1000);
 
     const attempted = answerList.filter(a => a.value.trim().length > 0 || a.selectedKey).length;
@@ -355,6 +427,8 @@ export function FullscreenAssessment({
       attempted,
       skipped,
       completedAt: new Date().toISOString(),
+      violated: assessmentViolated || totalViolationCount >= MAX_VIOLATIONS,
+      violationCount: totalViolationCount,
     };
 
     sessionStorage.setItem(
@@ -368,7 +442,18 @@ export function FullscreenAssessment({
     }
 
     window.location.href = `/module/${moduleId}/${subSlug}/assessment/results`;
-  }, [answers, moduleId, questions, startedAt, submoduleId, submoduleTitle, subSlug, storageKey]);
+  }, [
+    answers,
+    moduleId,
+    questions,
+    startedAt,
+    submoduleId,
+    submoduleTitle,
+    subSlug,
+    storageKey,
+    assessmentViolated,
+    totalViolationCount,
+  ]);
 
   // Auto-submit when time is up
   useEffect(() => {
@@ -385,6 +470,24 @@ export function FullscreenAssessment({
     handleSubmit();
   }, [handleSubmit, isAdmin]);
 
+  const handleCameraViolation = useCallback(
+    (type: CameraViolationType) => {
+      if (isAdmin) return;
+      cameraViolationRef.current += 1;
+      setCameraViolationCount(cameraViolationRef.current);
+      const total =
+        tabSwitchRef.current + fullscreenExitRef.current + cameraViolationRef.current;
+      if (total >= MAX_VIOLATIONS) {
+        setAssessmentViolated(true);
+        setWarningModal({ type, count: total, violated: true });
+        triggerAutoSubmit();
+      } else {
+        setWarningModal({ type, count: total });
+      }
+    },
+    [isAdmin, triggerAutoSubmit]
+  );
+
   /* ─── Fullscreen enforcement ─── */
   const requestFullscreen = useCallback(() => {
     try {
@@ -400,13 +503,15 @@ export function FullscreenAssessment({
     const handleFullscreenChange = () => {
       if (!document.fullscreenElement && assessmentStarted) {
         fullscreenExitRef.current += 1;
-        const count = fullscreenExitRef.current;
-        setFullscreenExitCount(count);
-
-        if (count >= MAX_VIOLATIONS) {
+        setFullscreenExitCount(fullscreenExitRef.current);
+        const total =
+          tabSwitchRef.current + fullscreenExitRef.current + cameraViolationRef.current;
+        if (total >= MAX_VIOLATIONS) {
+          setAssessmentViolated(true);
+          setWarningModal({ type: "fullscreen_exit", count: total, violated: true });
           triggerAutoSubmit();
         } else {
-          setWarningModal({ type: "fullscreen_exit", count });
+          setWarningModal({ type: "fullscreen_exit", count: total });
         }
       }
     };
@@ -422,13 +527,15 @@ export function FullscreenAssessment({
     const handleVisibilityChange = () => {
       if (document.hidden) {
         tabSwitchRef.current += 1;
-        const count = tabSwitchRef.current;
-        setTabSwitchCount(count);
-
-        if (count >= MAX_VIOLATIONS) {
+        setTabSwitchCount(tabSwitchRef.current);
+        const total =
+          tabSwitchRef.current + fullscreenExitRef.current + cameraViolationRef.current;
+        if (total >= MAX_VIOLATIONS) {
+          setAssessmentViolated(true);
+          setWarningModal({ type: "tab_switch", count: total, violated: true });
           triggerAutoSubmit();
         } else {
-          setWarningModal({ type: "tab_switch", count });
+          setWarningModal({ type: "tab_switch", count: total });
         }
       }
     };
@@ -560,8 +667,6 @@ export function FullscreenAssessment({
   const hasCodingSubmission = codingQuestionActive && !!currentAnswer?.codingResults;
   const progress = ((index + 1) / questions.length) * 100;
   const totalMaxMarks = questions.reduce((s, q) => s + q.marks, 0);
-  const totalViolations = tabSwitchCount + fullscreenExitCount;
-
   return (
     <div
       ref={containerRef}
@@ -569,13 +674,34 @@ export function FullscreenAssessment({
       className="assessment-lockdown flex h-full flex-col bg-[var(--bg)] text-[var(--text)] transition-colors duration-250"
       style={{ userSelect: "none", WebkitUserSelect: "none" } as React.CSSProperties}
     >
+      {!isAdmin && (
+        <AssessmentCameraProctor
+          active={assessmentStarted && !assessmentViolated}
+          onViolation={handleCameraViolation}
+        />
+      )}
+
       {/* Warning Modal */}
       {warningModal && (
         <ViolationWarningModal
           type={warningModal.type}
           count={warningModal.count}
+          violated={warningModal.violated}
           onContinue={handleWarningDismiss}
         />
+      )}
+
+      {assessmentViolated && (
+        <div className="fixed inset-0 z-[190] flex items-center justify-center bg-black/80 backdrop-blur-md">
+          <div className="mx-4 max-w-md rounded-2xl border-2 border-red-500 bg-red-950/40 p-10 text-center">
+            <p className="text-3xl font-black uppercase tracking-widest text-red-500">
+              Violated
+            </p>
+            <p className="mt-3 text-sm text-red-200">
+              Cheating or proctoring rules were broken. Your assessment is being submitted.
+            </p>
+          </div>
+        </div>
       )}
 
       {/* TOP HEADER */}
@@ -590,11 +716,11 @@ export function FullscreenAssessment({
         </div>
         <div className="flex items-center gap-6">
           {/* Violation indicator */}
-          {totalViolations > 0 && (
+          {totalViolationCount > 0 && (
             <div className="flex items-center gap-1.5 rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1.5">
               <AlertTriangle size={12} className="text-red-500" />
               <span className="text-[10px] font-bold text-red-500">
-                {totalViolations}/{MAX_VIOLATIONS * 2}
+                {assessmentViolated ? "VIOLATED" : `${totalViolationCount}/${MAX_VIOLATIONS}`}
               </span>
             </div>
           )}
