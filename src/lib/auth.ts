@@ -69,7 +69,7 @@ export const DEMO_FEES = {
   // Fellowship track pricing
   validator: 9999,
   student: 14999,
-  normal: 19999,
+  normal: 4999,
   // Course-only plan (no fraction / no internship)
   courseOnly: 2999,
 } as const;
@@ -218,6 +218,11 @@ function registerUser(
   users.push(user);
   saveUsers(users);
   setSession(user);
+
+  if (typeof window !== "undefined") {
+    import("./coins").then(({ addCoins }) => addCoins(25));
+  }
+
   return { ok: true, user };
 }
 

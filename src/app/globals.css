@@ -2948,6 +2948,44 @@ body {
   letter-spacing: -0.03em;
 }
 
+@keyframes coin-wiggle {
+  0%, 100% { transform: rotate(-8deg) scale(1); }
+  50% { transform: rotate(8deg) scale(1.15); }
+}
+
+@keyframes coin-burst-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+@keyframes coin-float-up {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-28px);
+  }
+}
+
+.animate-coin-wiggle {
+  animation: coin-wiggle 0.6s ease-in-out infinite;
+}
+
+.coin-burst {
+  animation: coin-burst-pop 0.5s ease-out;
+}
+
+.coin-claim-ready {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+.coin-float-amount {
+  animation: coin-float-up 1s ease-out forwards;
+}
+
 /* ─── Assessment lockdown ──────────────────────────────── */
 
 .assessment-lockdown {

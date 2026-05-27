@@ -11,6 +11,12 @@ import {
   registerValidator,
   dashboardPath,
 } from "@/lib/auth";
+import {
+  isValidIndianMobile,
+  isPhoneVerified,
+  sendOtp,
+  verifyOtp,
+} from "@/lib/otp";
 import { useAuth } from "@/components/AuthProvider";
 import {
   AuthShell,
@@ -70,7 +76,7 @@ function PlanHighlight({ plan }: { plan: PlanId }) {
       <HighlightBox>
         <strong>Validator Fellowship:</strong> Lifetime access to the full course +{" "}
         <strong>1 fraction of MST for 19 years</strong>. You receive{" "}
-        <strong>$MSTC coins</strong> as reward. 100% money-back guarantee + PPO chance.
+        <strong>$MSTC coins</strong> as reward + PPO chance for top performers.
       </HighlightBox>
     );
   }
@@ -79,8 +85,8 @@ function PlanHighlight({ plan }: { plan: PlanId }) {
     return (
       <HighlightBox>
         <strong>Student Fellowship:</strong> Lifetime access to the full course +{" "}
-        <strong>paid 2-month internship</strong> + <strong>1 fraction worth ₹5500</strong>. 100%
-        money-back guarantee + PPO chance.
+        <strong>paid 2-month internship</strong> + <strong>1 fraction worth ₹5500</strong> + PPO
+        chance.
       </HighlightBox>
     );
   }
@@ -89,8 +95,7 @@ function PlanHighlight({ plan }: { plan: PlanId }) {
     return (
       <HighlightBox>
         <strong>Normal User Fellowship:</strong> Lifetime access to the full course +{" "}
-        <strong>2-month internship</strong> + <strong>fraction</strong>. 100% money-back guarantee + PPO
-        chance.
+        <strong>2-month internship</strong> + <strong>fraction</strong> + PPO chance.
       </HighlightBox>
     );
   }
@@ -98,7 +103,7 @@ function PlanHighlight({ plan }: { plan: PlanId }) {
   return (
     <HighlightBox>
       <strong>Course Only:</strong> Lifetime access to the course at <strong>₹2999</strong>. No fraction.
-      No internship. 100% money-back guarantee.
+      No internship. Full lifetime course access only.
     </HighlightBox>
   );
 }
@@ -124,6 +129,12 @@ export function RegisterForm() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const [otpSent, setOtpSent] = useState(false);
+  const [otpCode, setOtpCode] = useState("");
+  const [demoOtp, setDemoOtp] = useState("");
+  const [phoneVerified, setPhoneVerified] = useState(false);
+  const [otpLoading, setOtpLoading] = useState(false);
+
   const selectedPlan = useMemo(
     () => PLAN_OPTIONS.find((p) => p.id === plan)!,
     [plan]
@@ -136,10 +147,40 @@ export function RegisterForm() {
     if (PLAN_OPTIONS.some((p) => p.id === normalized)) setPlan(normalized);
   }, [searchParams]);
 
+  function handleSendOtp() {
+    setError("");
+    setOtpLoading(true);
+    const result = sendOtp(phone);
+    setOtpLoading(false);
+    if (!result.ok) {
+      setError(result.error);
+      return;
+    }
+    setOtpSent(true);
+    setDemoOtp(result.demoCode);
+    setPhoneVerified(false);
+  }
+
+  function handleVerifyOtp() {
+    setError("");
+    if (verifyOtp(phone, otpCode)) {
+      setPhoneVerified(true);
+      setDemoOtp("");
+    } else {
+      setError("Invalid or expired OTP. Please try again.");
+    }
+  }
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
     setLoading(true);
+
+    if (!phoneVerified && !isPhoneVerified(phone)) {
+      setLoading(false);
+      setError("Please verify your mobile number with OTP first.");
+      return;
+    }
 
     if (password !== confirmPassword) {
       setLoading(false);
@@ -246,20 +287,78 @@ export function RegisterForm() {
 
         <div>
           <FieldLabel htmlFor="phone" required>
-            Phone Number
+            Mobile Number
           </FieldLabel>
-          <TextInput
-            id="phone"
-            type="tel"
-            required
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            placeholder="+91 XXXXX XXXXX"
-          />
+          <div className="flex gap-2">
+            <TextInput
+              id="phone"
+              type="tel"
+              required
+              value={phone}
+              onChange={(e) => {
+                setPhone(e.target.value);
+                setPhoneVerified(false);
+                setOtpSent(false);
+              }}
+              placeholder="10-digit mobile number"
+              className="flex-1"
+              disabled={phoneVerified}
+            />
+            {!phoneVerified && (
+              <button
+                type="button"
+                onClick={handleSendOtp}
+                disabled={otpLoading || !isValidIndianMobile(phone)}
+                className="shrink-0 rounded-xl bg-[var(--bg-muted)] px-4 py-3 text-xs font-bold text-[var(--text)] transition hover:bg-mst-red/10 hover:text-mst-red disabled:opacity-50"
+              >
+                {otpLoading ? "…" : otpSent ? "Resend" : "Send OTP"}
+              </button>
+            )}
+          </div>
+          {phoneVerified && (
+            <p className="mt-2 text-xs font-semibold text-green-600 dark:text-green-400">
+              ✓ Mobile verified
+            </p>
+          )}
         </div>
 
-        {/* Plan toggle (after mobile no) */}
-        <div>
+        {otpSent && !phoneVerified && (
+          <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-muted)] p-4">
+            <FieldLabel htmlFor="otp" required>
+              Enter OTP
+            </FieldLabel>
+            <div className="mt-2 flex gap-2">
+              <TextInput
+                id="otp"
+                inputMode="numeric"
+                maxLength={6}
+                required
+                value={otpCode}
+                onChange={(e) =>
+                  setOtpCode(e.target.value.replace(/\D/g, "").slice(0, 6))
+                }
+                placeholder="6-digit code"
+                className="flex-1 tracking-[0.3em]"
+              />
+              <button
+                type="button"
+                onClick={handleVerifyOtp}
+                className="shrink-0 rounded-xl bg-gradient-to-r from-mst-red to-red-600 px-4 py-3 text-xs font-bold text-white"
+              >
+                Verify
+              </button>
+            </div>
+            {demoOtp && (
+              <p className="mt-2 text-xs text-[var(--text-muted)]">
+                Demo OTP (payment gateway pending):{" "}
+                <strong className="font-mono text-mst-red">{demoOtp}</strong>
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* Plan toggle (after mobile verified) */}
+        <div className={phoneVerified ? "" : "pointer-events-none opacity-50"}>
           <FieldLabel required>I am choosing</FieldLabel>
           <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
             {PLAN_OPTIONS.map((p) => (
@@ -301,6 +400,7 @@ export function RegisterForm() {
           </div>
         </div>
 
+        <div className={phoneVerified ? "" : "pointer-events-none opacity-50"}>
         {/* Plan-specific fields */}
         {plan === "student" && (
           <>
@@ -396,6 +496,7 @@ export function RegisterForm() {
 
         {/* Fee display */}
         <DemoFee amount={selectedPlan.price} />
+        </div>
 
         {/* Password */}
         <div>

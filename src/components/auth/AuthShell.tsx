@@ -12,7 +12,7 @@ export function AuthShell({
 }) {
   return (
     <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center bg-[var(--bg)] px-4 py-12">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-lg">
         <Link
           href="/"
           className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--text-muted)] transition hover:text-mst-red"

@@ -249,8 +249,9 @@ export function LandingPage({
               Lifetime access + internship + rewards
             </h2>
             <p className="mt-5 text-lg text-[var(--text-muted)]">
-              Choose your track below. Includes <strong>100% money-back guarantee</strong> and a
-              <strong> PPO chance</strong> for strong performers.
+              Choose your track below. Earn <strong>$MSTC coins</strong> daily, build your{" "}
+              <strong>streak</strong>, and compete on the leaderboard for{" "}
+              <strong>PPO opportunities</strong>.
             </p>
           </div>
 
@@ -264,8 +265,8 @@ export function LandingPage({
                 tag: "1 fraction for 19 years",
                 bullets: [
                   "Lifetime course access",
-                  "$MSTC coin rewards (long-term)",
-                  "Money-back guarantee + PPO chance",
+                  "$MSTC coin rewards (19 years)",
+                  "PPO chance for top performers",
                 ],
               },
               {
@@ -283,7 +284,7 @@ export function LandingPage({
               {
                 id: "normal",
                 title: "Normal User Fellowship",
-                price: "₹19,999",
+                price: "₹4,999",
                 gradient: "bg-gradient-to-br from-emerald-500/15 via-[var(--accent-blue)]/10 to-mst-red/10",
                 tag: "Internship + fraction",
                 bullets: [
@@ -301,7 +302,7 @@ export function LandingPage({
                 bullets: [
                   "Lifetime course access",
                   "No fraction / no internship",
-                  "Money-back guarantee",
+                  "Daily $MSTC coin streak rewards",
                 ],
               },
             ].map((card, i) => (
@@ -372,10 +373,10 @@ export function LandingPage({
                 </p>
               </div>
               <Link
-                href="/learn"
+                href="/leaderboard"
                 className="inline-flex items-center gap-2 rounded-2xl border border-[var(--border-strong)] bg-[var(--surface)] px-5 py-3 text-sm font-bold text-[var(--text)] transition hover:border-mst-red hover:bg-[var(--bg-muted)]"
               >
-                Start Learning
+                View full leaderboard
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

@@ -17,7 +17,9 @@ import {
   GraduationCap,
   Shield,
   Users,
+  Trophy,
 } from "lucide-react";
+import { NavbarCoinStreak } from "@/components/NavbarCoinStreak";
 
 export function Navbar() {
   const { user, ready, logout, isAdmin } = useAuth();
@@ -63,6 +65,13 @@ export function Navbar() {
             Curriculum
           </Link>
           <Link
+            href="/leaderboard"
+            className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-[var(--nav-text)]/70 transition hover:bg-white/10 hover:text-[var(--nav-text)]"
+          >
+            <Trophy size={16} />
+            Leaderboard
+          </Link>
+          <Link
             href="/learn"
             className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-[var(--nav-text)]/70 transition hover:bg-white/10 hover:text-[var(--nav-text)]"
           >
@@ -100,6 +109,7 @@ export function Navbar() {
 
         {/* Right side */}
         <div className="flex items-center gap-2">
+          <NavbarCoinStreak />
           <ThemeToggle />
 
           {ready && user ? (
@@ -170,6 +180,14 @@ export function Navbar() {
             >
               <GraduationCap size={18} />
               Curriculum
+            </Link>
+            <Link
+              href="/leaderboard"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-[var(--nav-text)] transition hover:bg-white/10"
+            >
+              <Trophy size={18} />
+              Leaderboard
             </Link>
             <Link
               href="/learn"
