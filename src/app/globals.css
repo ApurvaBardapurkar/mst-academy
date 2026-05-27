@@ -2818,6 +2818,65 @@ body {
 .stagger-5 { animation-delay: 0.5s; }
 .stagger-6 { animation-delay: 0.6s; }
 
+@keyframes float-orb {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(12px, -18px) scale(1.05);
+  }
+  66% {
+    transform: translate(-10px, 12px) scale(0.95);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.hero-orb {
+  animation: float-orb 14s ease-in-out infinite;
+}
+
+.hero-orb-delay-1 {
+  animation-delay: -4s;
+}
+
+.hero-orb-delay-2 {
+  animation-delay: -8s;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.landing-glow {
+  background: radial-gradient(
+    ellipse 80% 60% at 50% -20%,
+    rgba(227, 30, 36, 0.18),
+    transparent 70%
+  );
+}
+
+[data-theme="dark"] .landing-glow {
+  background: radial-gradient(
+    ellipse 80% 60% at 50% -20%,
+    rgba(227, 30, 36, 0.22),
+    transparent 70%
+  );
+}
+
 /* ─── Assessment lockdown ──────────────────────────────── */
 
 .assessment-lockdown {

@@ -1128,7 +1128,7 @@
           "slug": "3-6",
           "filename": "submodule_3_6_consensus_mechanisms.html",
           "title": "Sub-Module 3.6 – Consensus Mechanisms",
-          "subtitle": "",
+          "subtitle": "The complete guide to every algorithm that powers blockchains — from Bitcoin's energy lottery to Ethereum's staked democracy to MST's Trika POSA synthesis. Eight algorithms, one sub-module.",
           "hasAssessment": false,
           "totalMarks": 0,
           "toc": []
@@ -1138,7 +1138,7 @@
           "slug": "3-7",
           "filename": "submodule_3_7_forks_network_evolution.html",
           "title": "Sub-Module 3.7 – Forks & Network Evolution",
-          "subtitle": "",
+          "subtitle": "How blockchains upgrade themselves without a central authority — and why sometimes upgrades tear communities apart permanently. The complete story of soft forks, hard forks, and the great Ethereum split.",
           "hasAssessment": false,
           "totalMarks": 0,
           "toc": []
@@ -1148,7 +1148,7 @@
           "slug": "3-8",
           "filename": "submodule_3_8_merkle_trees_state_management.html",
           "title": "Sub-Module 3.8 – Merkle Trees & State Management",
-          "subtitle": "",
+          "subtitle": "The elegant data structure that lets your mobile phone verify a Bitcoin transaction in milliseconds without downloading the entire 500 GB blockchain. Then: how Ethereum stores the world's entire state in a single hash.",
           "hasAssessment": false,
           "totalMarks": 0,
           "toc": []
@@ -1158,7 +1158,7 @@
           "slug": "3-9",
           "filename": "submodule_3_9_paper_blockchain.html",
           "title": "Sub-Module 3.9 – Hands-On: Build a Paper Blockchain",
-          "subtitle": "",
+          "subtitle": "Stop reading about blockchain. Start building one. Construct a 3-block blockchain by hand — computing real hashes, chaining real blocks, and experiencing tamper-detection firsthand. Then simulate it in your browser.",
           "hasAssessment": false,
           "totalMarks": 0,
           "toc": []
@@ -1170,14 +1170,14 @@
       "slug": "module-4",
       "title": "Cryptography & Wallet Security",
       "phaseId": "phase-1",
-      "description": "7 lessons covering Cryptography & Wallet Security.",
+      "description": "Master the cryptographic primitives behind every wallet, signature, and zero-knowledge proof — then build a working wallet CLI from scratch.",
       "submodules": [
         {
           "id": "4.1",
           "slug": "4-1",
           "filename": "submodule_4_1_public_key_cryptography.html",
           "title": "Sub-Module 4.1 – Public-Key Cryptography",
-          "subtitle": "",
+          "subtitle": "How asymmetric keys power every blockchain wallet, digital signature, and Web3 identity — explained from the ground up, with Alice, Bob, and a padlock.",
           "hasAssessment": false,
           "totalMarks": 0,
           "toc": [
@@ -1236,7 +1236,7 @@
           "slug": "4-2",
           "filename": "submodule_4_2_digital_signatures.html",
           "title": "Sub-Module 4.2 – Digital Signatures",
-          "subtitle": "",
+          "subtitle": "How ECDSA, Ed25519, and Schnorr signatures power every blockchain transaction — and why your wallet's \"send\" button is really a signature machine.",
           "hasAssessment": false,
           "totalMarks": 0,
           "toc": [
@@ -1295,7 +1295,7 @@
           "slug": "4-3",
           "filename": "submodule_4_3_hash_functions_merkle_proofs.html",
           "title": "Sub-Module 4.3 – Hash Functions & Merkle Proofs",
-          "subtitle": "",
+          "subtitle": "How a 10,000-page document becomes a 64-character fingerprint — and how Merkle Trees let you verify one transaction without downloading the entire blockchain.",
           "hasAssessment": false,
           "totalMarks": 0,
           "toc": [
@@ -1354,7 +1354,7 @@
           "slug": "4-4",
           "filename": "submodule_4_4_zero_knowledge_proofs.html",
           "title": "Sub-Module 4.4 – Zero-Knowledge Proofs",
-          "subtitle": "",
+          "subtitle": "Prove your age without revealing your birthdate. Prove a transaction is valid without showing a single detail. The magic behind zkSync, StarkNet, Aztec — and MST's privacy layer.",
           "hasAssessment": false,
           "totalMarks": 0,
           "toc": [
@@ -1413,7 +1413,7 @@
           "slug": "4-5",
           "filename": "submodule_4_5_commitments_vrf.html",
           "title": "Sub-Module 4.5 – Commitments & VRFs",
-          "subtitle": "",
+          "subtitle": "Cryptographic commitments that lock in a decision before revealing it, and VRFs that produce randomness nobody can fake — the engine behind MST gaming and fair loot systems.",
           "hasAssessment": false,
           "totalMarks": 0,
           "toc": [
@@ -1480,7 +1480,7 @@
           "slug": "4-6",
           "filename": "submodule_4_6_post_quantum_cryptography.html",
           "title": "Sub-Module 4.6 – Post-Quantum Cryptography",
-          "subtitle": "",
+          "subtitle": "A sufficiently powerful quantum computer could break ECDSA in hours — threatening every wallet and signature. Why NIST is standardising post-quantum crypto and how MST prepares today.",
           "hasAssessment": false,
           "totalMarks": 0,
           "toc": [
@@ -1539,7 +1539,7 @@
           "slug": "4-7",
           "filename": "submodule_4_7_wallet_cli_and_module4_summary.html",
           "title": "Sub-Module 4.7 – Practical: Build a Wallet CLI",
-          "subtitle": "",
+          "subtitle": "Stop reading about keys — generate them. Build a real command-line wallet: private key, public key, address, sign and verify — all from scratch in Node.js. Every concept from 4.1–4.6 snaps into place.",
           "hasAssessment": false,
           "totalMarks": 0,
           "toc": [

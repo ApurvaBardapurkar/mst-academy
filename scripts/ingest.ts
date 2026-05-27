@@ -278,7 +278,11 @@ function extractLessonMeta(html: string) {
     $(".module-title").first().text().trim() ||
     $("title").text().split("|")[0]?.trim() ||
     "Lesson";
-  const subtitle = $(".module-subtitle").first().text().trim() || "";
+  const subtitle =
+    $(".module-subtitle").first().text().trim() ||
+    $("p.hero-sub").first().text().trim() ||
+    $("p.subtitle").first().text().trim() ||
+    "";
 
   const toc: { id: string; title: string }[] = [];
   $(".section-title, h2.section-title").each((i, el) => {

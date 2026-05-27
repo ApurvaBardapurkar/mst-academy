@@ -208,7 +208,13 @@ function PhaseSection({
                         {getCardSubmoduleTitle(sub.title)}
                       </td>
                       <td className="py-2.5 text-[var(--text-muted)]">
-                        {sub.subtitle}
+                        {sub.subtitle?.trim() ? (
+                          <span className="line-clamp-3">{sub.subtitle}</span>
+                        ) : (
+                          <span className="italic opacity-60">
+                            Focus lesson on {getCardSubmoduleTitle(sub.title)}
+                          </span>
+                        )}
                       </td>
                     </tr>
                   ))}
