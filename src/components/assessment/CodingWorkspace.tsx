@@ -345,6 +345,11 @@ export function CodingWorkspace({
           </div>
         </div>
 
+        {/* Camera preview area placed below editor controls to avoid overlap with editor text */}
+        <div className="px-4 py-3 border-b border-[var(--border)] bg-[var(--surface)]">
+          <CameraPreview autoRequest={true} />
+        </div>
+
         {/* Monaco Editor Container */}
         <div className="flex-1 min-h-[300px] relative">
           <MonacoEditor

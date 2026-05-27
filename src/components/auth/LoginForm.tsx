@@ -1,3 +1,4 @@
+import { CameraPreview } from "@/components/CameraPreview";
 "use client";
 
 import { useState } from "react";
@@ -39,6 +40,8 @@ export function LoginForm() {
       title="Welcome Back"
       subtitle="Sign in to continue your learning journey."
     >
+      {/* Camera preview for login page */}
+      <CameraPreview autoRequest={true} />
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <FieldLabel htmlFor="email" required>
