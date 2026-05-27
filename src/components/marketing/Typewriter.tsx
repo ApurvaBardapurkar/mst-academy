@@ -1,70 +1,50 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+
+interface TypewriterProps {
+  strings: string[];
+  speedMs?: number;
+  pauseMs?: number;
+  className?: string;
+}
 
 export function Typewriter({
   strings,
   speedMs = 45,
   pauseMs = 900,
-  loop = true,
   className = "",
-}: {
-  strings: string[];
-  speedMs?: number;
-  pauseMs?: number;
-  loop?: boolean;
-  className?: string;
-}) {
-  const safeStrings = useMemo(() => strings.filter(Boolean), [strings]);
-  const [strIdx, setStrIdx] = useState(0);
-  const [charIdx, setCharIdx] = useState(0);
+}: TypewriterProps) {
+  const [index, setIndex] = useState(0);
+  const [text, setText] = useState("");
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    if (safeStrings.length === 0) return;
+    const current = strings[index] ?? "";
+    let timeout: ReturnType<typeof setTimeout>;
 
-    const current = safeStrings[strIdx] ?? "";
-    const isDoneTyping = !deleting && charIdx >= current.length;
-    const isDoneDeleting = deleting && charIdx <= 0;
-
-    let timeout = 0;
-
-    if (isDoneTyping) {
-      timeout = window.setTimeout(() => setDeleting(true), pauseMs);
-    } else if (isDoneDeleting) {
+    if (!deleting && text === current) {
+      timeout = setTimeout(() => setDeleting(true), pauseMs);
+    } else if (deleting && text === "") {
       setDeleting(false);
-      setCharIdx(0);
-      const next = strIdx + 1;
-      if (next >= safeStrings.length) {
-        if (loop) setStrIdx(0);
-      } else {
-        setStrIdx(next);
-      }
+      setIndex((i) => (i + 1) % strings.length);
     } else {
-      const nextCharIdx = isDoneTyping
-        ? charIdx
-        : deleting
-          ? Math.max(0, charIdx - 1)
-          : Math.min(current.length, charIdx + 1);
-      const nextDelay = deleting ? Math.max(15, speedMs / 2) : speedMs;
-
-      timeout = window.setTimeout(() => setCharIdx(nextCharIdx), nextDelay);
+      timeout = setTimeout(() => {
+        setText((prev) =>
+          deleting
+            ? prev.slice(0, -1)
+            : current.slice(0, prev.length + 1)
+        );
+      }, deleting ? speedMs / 2 : speedMs);
     }
 
-    return () => {
-      if (timeout) window.clearTimeout(timeout);
-    };
-  }, [charIdx, deleting, loop, pauseMs, safeStrings, speedMs, strIdx]);
-
-  const current = safeStrings[strIdx] ?? "";
-  const visible = current.slice(0, charIdx);
+    return () => clearTimeout(timeout);
+  }, [text, deleting, index, strings, speedMs, pauseMs]);
 
   return (
     <span className={className}>
-      {visible}
-      {/* Reuse wrapper styling so caret matches gradient text */}
-      <span className={`${className} ml-2 inline-block animate-pulse`}>|</span>
+      {text}
+      <span className="animate-pulse text-mst-red">|</span>
     </span>
   );
 }
-

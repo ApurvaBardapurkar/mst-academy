@@ -98,8 +98,8 @@ const phases = [
 const stats = [
   { value: "4", label: "Phases" },
   { value: "21", label: "Modules" },
-  { value: "122+", label: "Lessons" },
-  { value: "Live", label: "Assessments" },
+  { value: "122+", label: "Submodules" },
+  { value: "130+", label: "Hours" },
 ];
 
 const topics = [
