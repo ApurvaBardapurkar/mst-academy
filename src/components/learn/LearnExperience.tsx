@@ -92,20 +92,25 @@ export function LearnExperience({ curriculum }: { curriculum: Curriculum }) {
   }
 
   function togglePhase(phaseId: string) {
-    setExpandedPhases((prev) => {
-      const next = new Set(prev);
-      if (next.has(phaseId)) next.delete(phaseId);
-      else next.add(phaseId);
-      return next;
+    // Avax-style UX: keep only ONE phase expanded at a time.
+    setExpandedPhases(new Set([phaseId]));
+
+    // Auto-expand the active module inside that phase (if any).
+    const activeMod = curriculum.modules.find((m) => {
+      if (m.phaseId !== phaseId) return false;
+      const slugs = m.submodules.map((s) => s.slug);
+      return (
+        getModuleStatus(m.id, allModuleIds, slugs, getSlugs) === "active"
+      );
     });
+    setExpandedModules(activeMod ? new Set([activeMod.id]) : new Set());
   }
 
   function toggleModule(moduleId: number) {
+    // Avax-style UX: keep only ONE module expanded at a time.
     setExpandedModules((prev) => {
-      const next = new Set(prev);
-      if (next.has(moduleId)) next.delete(moduleId);
-      else next.add(moduleId);
-      return next;
+      if (prev.has(moduleId)) return new Set();
+      return new Set([moduleId]);
     });
   }
 

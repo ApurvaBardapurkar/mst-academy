@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   COLLEGES,
   DEMO_FEES,
+  registerNonValidator,
   registerStudent,
   registerValidator,
   dashboardPath,
@@ -22,34 +23,118 @@ import {
   TextInput,
 } from "./AuthShell";
 
-type UserType = "student" | "validator" | "normal";
+type PlanId = "student" | "validator" | "normal" | "courseOnly";
+
+const PLAN_OPTIONS: {
+  id: PlanId;
+  label: string;
+  emoji: string;
+  price: number;
+  desc: string;
+}[] = [
+  {
+    id: "validator",
+    label: "Validator Fellowship",
+    emoji: "🔐",
+    price: DEMO_FEES.validator,
+    desc: "Lifetime course + 1 fraction (19 years rewards).",
+  },
+  {
+    id: "student",
+    label: "Student Fellowship",
+    emoji: "🎓",
+    price: DEMO_FEES.student,
+    desc: "Lifetime course + 2-month paid internship + ₹5500 fraction.",
+  },
+  {
+    id: "normal",
+    label: "Normal User Fellowship",
+    emoji: "👤",
+    price: DEMO_FEES.normal,
+    desc: "Lifetime course + 2-month internship + fraction.",
+  },
+  {
+    id: "courseOnly",
+    label: "Course Only",
+    emoji: "📚",
+    price: DEMO_FEES.courseOnly,
+    desc: "Lifetime course. No fraction. No internship.",
+  },
+];
 
 const VALIDATOR_ID_PLACEHOLDER_URL = "https://example.com/validator-id-card.pdf";
 
-const USER_TYPES: { id: UserType; label: string; emoji: string; desc: string; price: number }[] = [
-  { id: "student", label: "Student", emoji: "🎓", desc: "Enroll in courses & earn certifications", price: DEMO_FEES.student },
-  { id: "validator", label: "Validator", emoji: "🔐", desc: "Validate transactions & earn rewards", price: DEMO_FEES.validator },
-  { id: "normal", label: "Normal User", emoji: "👤", desc: "Access all courses & content", price: DEMO_FEES.normal },
-];
+function PlanHighlight({ plan }: { plan: PlanId }) {
+  if (plan === "validator") {
+    return (
+      <HighlightBox>
+        <strong>Validator Fellowship:</strong> Lifetime access to the full course +{" "}
+        <strong>1 fraction of MST for 19 years</strong>. You receive{" "}
+        <strong>$MSTC coins</strong> as reward. 100% money-back guarantee + PPO chance.
+      </HighlightBox>
+    );
+  }
+
+  if (plan === "student") {
+    return (
+      <HighlightBox>
+        <strong>Student Fellowship:</strong> Lifetime access to the full course +{" "}
+        <strong>paid 2-month internship</strong> + <strong>1 fraction worth ₹5500</strong>. 100%
+        money-back guarantee + PPO chance.
+      </HighlightBox>
+    );
+  }
+
+  if (plan === "normal") {
+    return (
+      <HighlightBox>
+        <strong>Normal User Fellowship:</strong> Lifetime access to the full course +{" "}
+        <strong>2-month internship</strong> + <strong>fraction</strong>. 100% money-back guarantee + PPO
+        chance.
+      </HighlightBox>
+    );
+  }
+
+  return (
+    <HighlightBox>
+      <strong>Course Only:</strong> Lifetime access to the course at <strong>₹2999</strong>. No fraction.
+      No internship. 100% money-back guarantee.
+    </HighlightBox>
+  );
+}
 
 export function RegisterForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { refresh } = useAuth();
-  const [userType, setUserType] = useState<UserType>("student");
+
+  const [plan, setPlan] = useState<PlanId>("student");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+
   const [college, setCollege] = useState<string>(COLLEGES[0]);
   const [collegeOther, setCollegeOther] = useState("");
   const [studentIdFile, setStudentIdFile] = useState<File | null>(null);
   const [validatorIdFile, setValidatorIdFile] = useState<File | null>(null);
+
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const selectedType = USER_TYPES.find((t) => t.id === userType)!;
+  const selectedPlan = useMemo(
+    () => PLAN_OPTIONS.find((p) => p.id === plan)!,
+    [plan]
+  );
+
+  useEffect(() => {
+    const raw = searchParams.get("plan");
+    if (!raw) return;
+    const normalized = raw.trim() as PlanId;
+    if (PLAN_OPTIONS.some((p) => p.id === normalized)) setPlan(normalized);
+  }, [searchParams]);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -66,12 +151,13 @@ export function RegisterForm() {
       | { ok: true; user: { role: string } }
       | { ok: false; error: string };
 
-    if (userType === "validator") {
+    if (plan === "validator") {
       if (!validatorIdFile) {
         setLoading(false);
         setError("Validator ID card upload is required.");
         return;
       }
+
       result = registerValidator({
         fullName,
         email,
@@ -79,25 +165,34 @@ export function RegisterForm() {
         password,
         idCardFileName: validatorIdFile.name,
       });
-    } else {
-      if (userType === "student" && !studentIdFile) {
+    } else if (plan === "student") {
+      if (!studentIdFile) {
         setLoading(false);
         setError("Student ID card upload is required.");
         return;
       }
-      if (userType === "student" && college === "Other" && !collegeOther.trim()) {
+      if (college === "Other" && !collegeOther.trim()) {
         setLoading(false);
         setError("Please enter your college name.");
         return;
       }
+
       result = registerStudent({
         fullName,
         email,
         phone,
         password,
-        college: userType === "student" ? college : "N/A",
-        collegeOther: userType === "student" && college === "Other" ? collegeOther : undefined,
-        idCardFileName: userType === "student" ? studentIdFile!.name : "normal-user",
+        college: college === "Other" ? collegeOther : college,
+        collegeOther: college === "Other" ? collegeOther : undefined,
+        idCardFileName: studentIdFile.name,
+      });
+    } else {
+      // normal + course-only both map to non-validator role in this demo
+      result = registerNonValidator({
+        fullName,
+        email,
+        phone,
+        password,
       });
     }
 
@@ -106,47 +201,93 @@ export function RegisterForm() {
       setError(result.error);
       return;
     }
+
     refresh();
-    router.push(
-      dashboardPath(result.user.role as "student" | "validator")
-    );
+    router.push(dashboardPath(result.user.role as any));
   }
 
   return (
     <AuthShell
       title="Create Account"
-      subtitle="Choose your role and get started."
+      subtitle="Choose your track and price — then enroll."
     >
       <div className="mb-5">
         <DemoFeeNote />
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Role selection */}
+        {/* Common fields */}
         <div>
-          <FieldLabel required>I am registering as</FieldLabel>
-          <div className="mt-2 grid grid-cols-3 gap-2">
-            {USER_TYPES.map((t) => (
+          <FieldLabel htmlFor="fullName" required>
+            Full Name
+          </FieldLabel>
+          <TextInput
+            id="fullName"
+            required
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+            placeholder="Your full name"
+          />
+        </div>
+
+        <div>
+          <FieldLabel htmlFor="email" required>
+            Email
+          </FieldLabel>
+          <TextInput
+            id="email"
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@example.com"
+          />
+        </div>
+
+        <div>
+          <FieldLabel htmlFor="phone" required>
+            Phone Number
+          </FieldLabel>
+          <TextInput
+            id="phone"
+            type="tel"
+            required
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder="+91 XXXXX XXXXX"
+          />
+        </div>
+
+        {/* Plan toggle (after mobile no) */}
+        <div>
+          <FieldLabel required>I am choosing</FieldLabel>
+          <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
+            {PLAN_OPTIONS.map((p) => (
               <button
-                key={t.id}
+                key={p.id}
                 type="button"
-                onClick={() => { setUserType(t.id); setError(""); }}
+                onClick={() => {
+                  setPlan(p.id);
+                  setError("");
+                }}
                 className={`relative flex flex-col items-center gap-1 rounded-xl border-2 px-2 py-3 text-center transition-all ${
-                  userType === t.id
+                  plan === p.id
                     ? "border-mst-red bg-mst-red/5 shadow-md shadow-mst-red/10"
                     : "border-[var(--border)] bg-[var(--bg)] hover:border-[var(--text-muted)]/40"
                 }`}
               >
-                <span className="text-xl">{t.emoji}</span>
-                <span className={`text-xs font-bold ${
-                  userType === t.id ? "text-mst-red" : "text-[var(--text)]"
-                }`}>
-                  {t.label}
+                <span className="text-xl">{p.emoji}</span>
+                <span
+                  className={`text-[10px] font-bold uppercase tracking-wider ${
+                    plan === p.id ? "text-mst-red" : "text-[var(--text)]"
+                  }`}
+                >
+                  {p.id === "courseOnly" ? "Course Only" : p.label.split(" ")[0]}
                 </span>
-                <span className="text-[10px] leading-tight text-[var(--text-muted)]">
-                  Rs {t.price.toLocaleString("en-IN")}
+                <span className="text-[10px] font-semibold leading-tight text-[var(--text-muted)]">
+                  ₹{p.price.toLocaleString("en-IN")}
                 </span>
-                {userType === t.id && (
+                {plan === p.id && (
                   <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-mst-red text-[8px] text-white">
                     ✓
                   </span>
@@ -154,65 +295,99 @@ export function RegisterForm() {
               </button>
             ))}
           </div>
+
+          <div className="mt-4">
+            <PlanHighlight plan={plan} />
+          </div>
         </div>
 
-        {/* Common fields */}
-        <div>
-          <FieldLabel htmlFor="fullName" required>Full Name</FieldLabel>
-          <TextInput id="fullName" required value={fullName} onChange={(e) => setFullName(e.target.value)} placeholder="Your full name" />
-        </div>
-        <div>
-          <FieldLabel htmlFor="email" required>Email</FieldLabel>
-          <TextInput id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" />
-        </div>
-        <div>
-          <FieldLabel htmlFor="phone" required>Phone Number</FieldLabel>
-          <TextInput id="phone" type="tel" required value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+91 XXXXX XXXXX" />
-        </div>
-
-        {/* Student-specific fields */}
-        {userType === "student" && (
+        {/* Plan-specific fields */}
+        {plan === "student" && (
           <>
             <div>
-              <FieldLabel htmlFor="college" required>College</FieldLabel>
-              <SelectInput id="college" value={college} onChange={(e) => setCollege(e.target.value)}>
+              <FieldLabel htmlFor="college" required>
+                College
+              </FieldLabel>
+              <SelectInput
+                id="college"
+                value={college}
+                onChange={(e) => setCollege(e.target.value)}
+              >
                 {COLLEGES.map((c) => (
-                  <option key={c} value={c}>{c}</option>
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
                 ))}
               </SelectInput>
             </div>
+
             {college === "Other" && (
               <div>
-                <FieldLabel htmlFor="collegeOther" required>Enter College Name</FieldLabel>
-                <TextInput id="collegeOther" required value={collegeOther} onChange={(e) => setCollegeOther(e.target.value)} placeholder="Your college name" />
+                <FieldLabel htmlFor="collegeOther" required>
+                  Enter College Name
+                </FieldLabel>
+                <TextInput
+                  id="collegeOther"
+                  required
+                  value={collegeOther}
+                  onChange={(e) => setCollegeOther(e.target.value)}
+                  placeholder="Your college name"
+                />
               </div>
             )}
+
             <div>
-              <FieldLabel htmlFor="studentId" required>Student ID Card Upload</FieldLabel>
-              <TextInput id="studentId" type="file" accept="image/*,.pdf" required onChange={(e) => setStudentIdFile(e.target.files?.[0] ?? null)} />
+              <FieldLabel htmlFor="studentId" required>
+                Student ID Card Upload
+              </FieldLabel>
+              <TextInput
+                id="studentId"
+                type="file"
+                accept="image/*,.pdf"
+                required
+                onChange={(e) =>
+                  setStudentIdFile(e.target.files?.[0] ?? null)
+                }
+              />
               {studentIdFile && (
-                <p className="mt-1 text-xs text-[var(--text-muted)]">Selected: {studentIdFile.name}</p>
+                <p className="mt-1 text-xs text-[var(--text-muted)]">
+                  Selected: {studentIdFile.name}
+                </p>
               )}
             </div>
-            <HighlightBox>
-              Internship Opportunity available for eligible students who meet the required assessment criteria.
-            </HighlightBox>
           </>
         )}
 
-        {/* Validator-specific fields */}
-        {userType === "validator" && (
+        {plan === "validator" && (
           <>
             <div>
-              <FieldLabel htmlFor="validatorId" required>Validator ID Card Upload</FieldLabel>
-              <TextInput id="validatorId" type="file" accept="image/*,.pdf" required onChange={(e) => setValidatorIdFile(e.target.files?.[0] ?? null)} />
+              <FieldLabel htmlFor="validatorId" required>
+                Validator ID Card Upload
+              </FieldLabel>
+              <TextInput
+                id="validatorId"
+                type="file"
+                accept="image/*,.pdf"
+                required
+                onChange={(e) =>
+                  setValidatorIdFile(e.target.files?.[0] ?? null)
+                }
+              />
               {validatorIdFile && (
-                <p className="mt-1 text-xs text-[var(--text-muted)]">Selected: {validatorIdFile.name}</p>
+                <p className="mt-1 text-xs text-[var(--text-muted)]">
+                  Selected: {validatorIdFile.name}
+                </p>
               )}
             </div>
+
             <p className="text-sm text-[var(--text-muted)]">
               Don&apos;t have a Validator ID Card?{" "}
-              <a href={VALIDATOR_ID_PLACEHOLDER_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-mst-red hover:underline">
+              <a
+                href={VALIDATOR_ID_PLACEHOLDER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-mst-red hover:underline"
+              >
                 Download Validator ID Card
               </a>
             </p>
@@ -220,16 +395,37 @@ export function RegisterForm() {
         )}
 
         {/* Fee display */}
-        <DemoFee amount={selectedType.price} />
+        <DemoFee amount={selectedPlan.price} />
 
         {/* Password */}
         <div>
-          <FieldLabel htmlFor="password" required>Password</FieldLabel>
-          <TextInput id="password" type="password" required minLength={6} autoComplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <FieldLabel htmlFor="password" required>
+            Password
+          </FieldLabel>
+          <TextInput
+            id="password"
+            type="password"
+            required
+            minLength={6}
+            autoComplete="new-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
+
         <div>
-          <FieldLabel htmlFor="confirmPassword" required>Confirm Password</FieldLabel>
-          <TextInput id="confirmPassword" type="password" required minLength={6} autoComplete="new-password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+          <FieldLabel htmlFor="confirmPassword" required>
+            Confirm Password
+          </FieldLabel>
+          <TextInput
+            id="confirmPassword"
+            type="password"
+            required
+            minLength={6}
+            autoComplete="new-password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
         </div>
 
         {error && (
@@ -252,3 +448,4 @@ export function RegisterForm() {
     </AuthShell>
   );
 }
+

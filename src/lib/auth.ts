@@ -40,7 +40,7 @@ export interface RegisterNonValidatorInput {
   email: string;
   phone: string;
   password: string;
-  blockchainLevel: BlockchainLevel;
+  blockchainLevel?: BlockchainLevel;
 }
 
 const SESSION_KEY = "mst-academy-session";
@@ -66,10 +66,12 @@ export const BLOCKCHAIN_LEVELS: BlockchainLevel[] = [
 ];
 
 export const DEMO_FEES = {
-  student: 2999,
-  validator: 2999,
-  normal: 6999,
-  nonValidator: 8999,
+  // Fellowship track pricing
+  validator: 9999,
+  student: 14999,
+  normal: 19999,
+  // Course-only plan (no fraction / no internship)
+  courseOnly: 2999,
 } as const;
 
 function loadUsers(): AuthUser[] {

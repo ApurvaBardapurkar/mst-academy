@@ -235,6 +235,198 @@ export function LandingPage({
         </div>
       </section>
 
+      {/* Fellowship funnel + pricing */}
+      <section
+        id="fellowship"
+        className="relative border-b border-[var(--border)] bg-[var(--bg)] py-24 sm:py-32"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-mst-red">
+              Fellowship Enrollment
+            </p>
+            <h2 className="mt-4 text-4xl font-black tracking-tight text-[var(--text)] sm:text-5xl">
+              Lifetime access + internship + rewards
+            </h2>
+            <p className="mt-5 text-lg text-[var(--text-muted)]">
+              Choose your track below. Includes <strong>100% money-back guarantee</strong> and a
+              <strong> PPO chance</strong> for strong performers.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                id: "validator",
+                title: "Validator Fellowship",
+                price: "₹9,999",
+                gradient: "bg-gradient-to-br from-mst-red/25 via-mst-red/10 to-[var(--accent-cyan)]/15",
+                tag: "1 fraction for 19 years",
+                bullets: [
+                  "Lifetime course access",
+                  "$MSTC coin rewards (long-term)",
+                  "Money-back guarantee + PPO chance",
+                ],
+              },
+              {
+                id: "student",
+                title: "Student Fellowship",
+                price: "₹14,999",
+                gradient: "bg-gradient-to-br from-[var(--accent-purple)]/20 via-mst-red/10 to-amber-500/10",
+                tag: "Paid internship + fraction",
+                bullets: [
+                  "Lifetime course access",
+                  "Paid internship (2 months)",
+                  "1 fraction worth ₹5,500",
+                ],
+              },
+              {
+                id: "normal",
+                title: "Normal User Fellowship",
+                price: "₹19,999",
+                gradient: "bg-gradient-to-br from-emerald-500/15 via-[var(--accent-blue)]/10 to-mst-red/10",
+                tag: "Internship + fraction",
+                bullets: [
+                  "Lifetime course access",
+                  "Internship (2 months)",
+                  "Fraction allocation",
+                ],
+              },
+              {
+                id: "courseOnly",
+                title: "Course Only",
+                price: "₹2,999",
+                gradient: "bg-gradient-to-br from-gray-500/10 via-[var(--surface)] to-[var(--bg-elevated)]",
+                tag: "No internship. No fraction.",
+                bullets: [
+                  "Lifetime course access",
+                  "No fraction / no internship",
+                  "Money-back guarantee",
+                ],
+              },
+            ].map((card, i) => (
+              <RevealSection key={card.id} delay={i * 70}>
+                <div
+                  className={`relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-7 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-mst-red/30 hover:shadow-2xl`}
+                >
+                  <div className={`absolute inset-0 opacity-90 ${card.gradient}`} />
+                  <div className="relative">
+                    <div className="flex items-center justify-between gap-4">
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)]">
+                          {card.tag}
+                        </p>
+                        <h3 className="mt-3 text-xl font-black text-[var(--text)]">
+                          {card.title}
+                        </h3>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-2xl font-black text-gradient-red">
+                          {card.price}
+                        </p>
+                        <p className="mt-1 text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                          One-time enrollment
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-5 space-y-2">
+                      {card.bullets.map((b) => (
+                        <div
+                          key={b}
+                          className="flex items-start gap-2 text-sm text-[var(--text-muted)]"
+                        >
+                          <span className="mt-0.5 h-2 w-2 rounded-full bg-mst-red" />
+                          <span>{b}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="mt-6">
+                      <Link
+                        href={`/register?plan=${card.id}`}
+                        className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-mst-red to-red-600 px-5 py-3.5 text-sm font-bold text-white shadow-lg shadow-mst-red/25 transition hover:shadow-xl"
+                      >
+                        Enroll with this plan
+                        <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </RevealSection>
+            ))}
+          </div>
+
+          {/* Leaderboard */}
+          <div className="mt-14 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-8 shadow-sm">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-mst-red">
+                  Leaderboard
+                </p>
+                <h3 className="mt-3 text-2xl font-black text-[var(--text)]">
+                  Top performers get fellowship bonuses
+                </h3>
+                <p className="mt-2 text-sm text-[var(--text-muted)]">
+                  Rank updates automatically from progress in the Learning Tree.
+                </p>
+              </div>
+              <Link
+                href="/learn"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[var(--border-strong)] bg-[var(--surface)] px-5 py-3 text-sm font-bold text-[var(--text)] transition hover:border-mst-red hover:bg-[var(--bg-muted)]"
+              >
+                Start Learning
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            <div className="mt-7 overflow-x-auto">
+              <table className="w-full min-w-[520px] text-left text-sm">
+                <thead>
+                  <tr className="border-b border-[var(--border)] text-xs uppercase tracking-wider text-[var(--text-muted)]">
+                    <th className="py-3 pr-3">Rank</th>
+                    <th className="py-3 pr-3">Learner</th>
+                    <th className="py-3 pr-3">Completed</th>
+                    <th className="py-3 pr-3">Score</th>
+                    <th className="py-3 pr-3">Reward</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { rank: 1, name: "Aarav K.", done: "18 modules", score: "92%", reward: "₹7,500 bonus" },
+                    { rank: 2, name: "Diya S.", done: "16 modules", score: "88%", reward: "$MSTC coins" },
+                    { rank: 3, name: "Rohan P.", done: "15 modules", score: "85%", reward: "Internship Priority" },
+                    { rank: 4, name: "Sara M.", done: "14 modules", score: "83%", reward: "PPO Boost" },
+                    { rank: 5, name: "Kabir T.", done: "13 modules", score: "80%", reward: "Achievement badge" },
+                  ].map((row) => (
+                    <tr
+                      key={row.rank}
+                      className="border-b border-[var(--border)]/60 last:border-b-0"
+                    >
+                      <td className="py-3 pr-3 font-bold text-mst-red">
+                        #{row.rank}
+                      </td>
+                      <td className="py-3 pr-3 font-semibold text-[var(--text)]">
+                        {row.name}
+                      </td>
+                      <td className="py-3 pr-3 text-[var(--text-muted)]">
+                        {row.done}
+                      </td>
+                      <td className="py-3 pr-3 text-[var(--text-muted)]">
+                        {row.score}
+                      </td>
+                      <td className="py-3 pr-3 text-[var(--text-muted)]">
+                        {row.reward}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Stats */}
       <section
         id="stats"
