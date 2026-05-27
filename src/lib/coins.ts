@@ -49,7 +49,8 @@ export function addCoins(amount: number) {
 
 /** Base daily reward + streak bonus */
 export function dailyRewardForStreak(streak: number): number {
-  return 10 + Math.min(streak, 30) * 2;
+  // Increased base reward and streak multiplier as an enhancement
+  return 20 + Math.min(streak, 30) * 3;
 }
 
 export function canClaimDaily(): boolean {

@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import { Play, RotateCcw, Maximize2, Minimize2, Terminal, Layers, FileText, CheckCircle2, XCircle } from "lucide-react";
 import type { AssessmentQuestion } from "@/lib/types";
 import { useTheme } from "../ThemeProvider";
+import { sanitizeHtml } from "@/lib/text";
 
 const MonacoEditor = dynamic(() => import("@monaco-editor/react"), { ssr: false });
 
@@ -267,7 +268,7 @@ export function CodingWorkspace({
           <div
             className="prose prose-sm max-w-none text-[var(--text)] leading-relaxed mb-6"
             style={{ color: "var(--text)" }}
-            dangerouslySetInnerHTML={{ __html: question.text }}
+            dangerouslySetInnerHTML={{ __html: sanitizeHtml(question.text) }}
           />
 
           {question.starterCode && (

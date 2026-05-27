@@ -14,16 +14,10 @@ import {
   BookOpen,
 } from "lucide-react";
 
+// Styles correspond to left, center, right positions (2nd, 1st, 3rd)
 const PODIUM_STYLES = [
   {
-    order: "order-2 sm:order-2",
-    height: "h-24 sm:h-36",
-    medal: "text-amber-400",
-    bg: "from-amber-500/30 to-amber-600/10",
-    label: "1st",
-    scale: "scale-105 sm:scale-110",
-  },
-  {
+    // left — 2nd place (silver)
     order: "order-1 sm:order-1",
     height: "h-20 sm:h-28",
     medal: "text-gray-300",
@@ -32,9 +26,19 @@ const PODIUM_STYLES = [
     scale: "",
   },
   {
+    // center — 1st place (gold)
+    order: "order-2 sm:order-2",
+    height: "h-24 sm:h-36",
+    medal: "text-amber-400",
+    bg: "from-amber-500/30 to-amber-600/10",
+    label: "1st",
+    scale: "scale-105 sm:scale-110",
+  },
+  {
+    // right — 3rd place (bronze)
     order: "order-3 sm:order-3",
     height: "h-16 sm:h-24",
-    medal: "text-amber-700",
+    medal: "text-orange-600",
     bg: "from-orange-700/25 to-orange-800/10",
     label: "3rd",
     scale: "",

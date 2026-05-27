@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { CheckCircle2, XCircle, ChevronLeft } from "lucide-react";
 import type { AssessmentQuestion, QuestionResult, UserAnswer } from "@/lib/types";
+import { sanitizeHtml } from "@/lib/text";
 
 interface StoredPayload {
   results: QuestionResult[];
@@ -99,7 +100,7 @@ export function AssessmentReview({
                 {q && (
                   <div
                     className="text-sm md:text-base text-[var(--text)] leading-relaxed font-semibold mb-6"
-                    dangerouslySetInnerHTML={{ __html: q.text }}
+                    dangerouslySetInnerHTML={{ __html: sanitizeHtml(q.text) }}
                   />
                 )}
 
@@ -238,11 +239,9 @@ export function AssessmentReview({
                   <div
                     className="prose prose-sm max-w-none text-xs text-[var(--text-muted)] leading-relaxed"
                     dangerouslySetInnerHTML={{
-                      __html:
-                        r.explanation ||
-                        r.modelAnswer ||
-                        q?.modelAnswer ||
-                        "No explanation provided.",
+                      __html: sanitizeHtml(
+                        r.explanation || r.modelAnswer || q?.modelAnswer || "No explanation provided."
+                      ),
                     }}
                   />
                 </div>

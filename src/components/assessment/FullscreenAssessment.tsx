@@ -32,6 +32,7 @@ import {
   playError,
   playViolated,
 } from "@/lib/sounds";
+import { sanitizeHtml } from "@/lib/text";
 import {
   AssessmentCameraProctor,
   requestCameraPermission,
@@ -798,7 +799,7 @@ export function FullscreenAssessment({
               {/* Question Text */}
               <div
                 className="text-base md:text-lg leading-relaxed text-[var(--text)] font-semibold mb-8"
-                dangerouslySetInnerHTML={{ __html: current.text }}
+                dangerouslySetInnerHTML={{ __html: sanitizeHtml(current.text) }}
               />
 
               {/* MCQ Options */}

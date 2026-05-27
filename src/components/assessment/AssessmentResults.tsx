@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { CheckCircle2, XCircle, Clock, Award, CheckSquare, AlertTriangle, Play, HelpCircle, ArrowRight } from "lucide-react";
 import type { AssessmentQuestion, QuestionResult, UserAnswer } from "@/lib/types";
 import { playSuccess, playError, playViolated } from "@/lib/sounds";
+import { sanitizeHtml } from "@/lib/text";
 
 interface StoredPayload {
   results: QuestionResult[];
@@ -269,7 +270,7 @@ export function AssessmentResults({
                   {q && (
                     <div
                       className="text-sm md:text-base text-[var(--text)] leading-relaxed font-semibold mb-6"
-                      dangerouslySetInnerHTML={{ __html: q.text }}
+                      dangerouslySetInnerHTML={{ __html: sanitizeHtml(q.text) }}
                     />
                   )}
 
@@ -424,11 +425,9 @@ export function AssessmentResults({
                     <div
                       className="prose prose-sm max-w-none text-xs text-[var(--text-muted)] leading-relaxed"
                       dangerouslySetInnerHTML={{
-                        __html:
-                          r.explanation ||
-                          r.modelAnswer ||
-                          q?.modelAnswer ||
-                          "No detailed explanation provided.",
+                        __html: sanitizeHtml(
+                          r.explanation || r.modelAnswer || q?.modelAnswer || "No detailed explanation provided."
+                        ),
                       }}
                     />
                   </div>

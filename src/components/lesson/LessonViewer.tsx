@@ -74,8 +74,11 @@ function CodeBlock({ code, language }: { code: string; language: string }) {
   );
 }
 
+import { sanitizeHtml } from "@/lib/text";
+
 function cleanHtml(html: string): string {
-  return html
+  const s = sanitizeHtml(html);
+  return s
     .replace(/<p>\s*[-–—]\s+/g, "<p>• ")
     .replace(/<li>\s*[-–—]\s+/g, "<li>")
     .replace(/>\s*-\s{2,}/g, "> ")

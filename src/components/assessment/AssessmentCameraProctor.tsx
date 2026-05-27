@@ -112,7 +112,8 @@ export function AssessmentCameraProctor({
   if (!active) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 z-[150] flex flex-col items-end gap-2">
+    // Top-right on larger screens, centered at top on narrow screens to avoid overlapping footer controls
+    <div className="fixed z-[150] top-4 right-4 left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 flex flex-col items-end gap-2">
       <div className="flex items-center gap-2 rounded-full border border-emerald-500/40 bg-black/80 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-emerald-400 shadow-lg backdrop-blur-md">
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
@@ -126,7 +127,7 @@ export function AssessmentCameraProctor({
           muted
           playsInline
           autoPlay
-          className="h-24 w-32 object-cover sm:h-28 sm:w-36"
+          className="h-20 w-28 object-cover sm:h-28 sm:w-36"
         />
         <div className="flex items-center justify-center gap-1 bg-black/90 px-2 py-1 text-[9px] font-bold text-[var(--text-muted)]">
           <Video className="h-3 w-3 text-emerald-500" />

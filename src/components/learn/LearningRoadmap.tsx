@@ -202,6 +202,8 @@ const ModuleCardNode = memo(function ModuleCardNode({ data }: { data: ModuleNode
   return (
     <motion.div
       initial={false}
+      whileTap={{ scale: 0.98 }}
+      whileHover={{ scale: active ? 1.03 : 1.01 }}
       animate={{
         opacity: dimmed ? 0.35 : 1,
         scale: active ? 1.03 : 1,
@@ -306,6 +308,8 @@ const SubmoduleChipNode = memo(function SubmoduleChipNode({
   return (
     <motion.div
       initial={false}
+      whileTap={{ scale: 0.96 }}
+      whileHover={{ scale: active ? 1.07 : 1.02 }}
       animate={{
         opacity: dimmed ? 0.35 : 1,
         scale: active ? 1.05 : 1,
