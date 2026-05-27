@@ -1,6 +1,6 @@
-import { CameraPreview } from "@/components/CameraPreview";
 "use client";
 
+import { CameraPreview } from "@/components/CameraPreview";
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

@@ -504,6 +504,19 @@ export function LessonViewer({
 
   const lessonTitle = getLessonDisplayTitle(submodule.title, submodule.id);
 
+  // Build TOC and insert an 'Assessment' link after the Glossary entry when present
+  const tocWithAssessment: Array<{ id: string; title: string; isAssessment?: boolean }> = (() => {
+    const arr = Array.isArray(validToc) ? [...validToc] : [];
+    const idx = arr.findIndex((it) => {
+      const t = normalizeText(it.title);
+      return t.includes("glossary") || t.includes("key terms") || t.includes("glossary key");
+    });
+    if (idx !== -1) {
+      arr.splice(idx + 1, 0, { id: "assessment-link", title: "Assessment", isAssessment: true });
+    }
+    return arr;
+  })();
+
   return (
     <div className="flex min-h-[calc(100vh-4rem)] bg-[var(--bg)]" suppressHydrationWarning>
       {/* Left Sidebar */}
@@ -550,68 +563,48 @@ export function LessonViewer({
             </button>
             {leftTocOpen && (
               <nav className="px-3 pb-3 space-y-0.5 max-h-[40vh] overflow-y-auto">
-                {validToc.map((item, idx) => (
-                  <button
-                    key={item.id}
-                    type="button"
-                    onClick={() => scrollToHeading(item.id)}
-                    className={`group flex w-full items-start gap-2.5 rounded-lg px-2.5 py-2 text-left text-xs transition ${
-                      activeHeading === item.id
-                        ? "bg-mst-red/15 text-mst-red font-semibold"
-                        : "text-white/60 hover:bg-white/5 hover:text-white"
-                    }`}
-                  >
-                    <span className={`mt-px flex h-4 w-4 shrink-0 items-center justify-center rounded text-[9px] font-bold ${
-                      activeHeading === item.id
-                        ? "bg-mst-red text-white"
-                        : "bg-white/10 text-white/40 group-hover:bg-white/15"
-                    }`}>
-                      {idx + 1}
-                    </span>
-                    <span className="leading-tight line-clamp-2">{item.title}</span>
-                  </button>
-                ))}
+                {tocWithAssessment.map((item, idx) => {
+                  if ((item as any).isAssessment) {
+                    return (
+                      <Link
+                        key={item.id}
+                        href={`/module/${moduleId}/${submodule.slug}/assessment`}
+                        className={`group flex w-full items-start gap-2.5 rounded-lg px-2.5 py-2 text-left text-xs transition text-white/60 hover:bg-white/5 hover:text-white`}
+                      >
+                        <span className={`mt-px flex h-4 w-4 shrink-0 items-center justify-center rounded text-[9px] font-bold bg-white/10 text-white/40`}>
+                          {idx + 1}
+                        </span>
+                        <span className="leading-tight line-clamp-2">{item.title}</span>
+                      </Link>
+                    );
+                  }
+                  return (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => scrollToHeading(item.id)}
+                      className={`group flex w-full items-start gap-2.5 rounded-lg px-2.5 py-2 text-left text-xs transition ${
+                        activeHeading === item.id
+                          ? "bg-mst-red/15 text-mst-red font-semibold"
+                          : "text-white/60 hover:bg-white/5 hover:text-white"
+                      }`}>
+                      <span className={`mt-px flex h-4 w-4 shrink-0 items-center justify-center rounded text-[9px] font-bold ${
+                        activeHeading === item.id
+                          ? "bg-mst-red text-white"
+                          : "bg-white/10 text-white/40 group-hover:bg-white/15"
+                      }`}>
+                        {idx + 1}
+                      </span>
+                      <span className="leading-tight line-clamp-2">{item.title}</span>
+                    </button>
+                  );
+                })}
               </nav>
             )}
           </div>
         )}
 
-        {/* Lesson list */}
-        <nav className="flex-1 overflow-y-auto p-3 space-y-1">
-          <p className="mb-2 px-2 text-[10px] font-bold uppercase tracking-widest text-white/30">
-            All Lessons
-          </p>
-          {mod.submodules.map((sub, subIdx) => {
-            const subLocked = mounted && isSubmoduleLocked(moduleLocked, subIdx, moduleId, mod.submodules);
-            return (
-              <div key={sub.slug}>
-                {(() => {
-                  const cleanTitle = getCardSubmoduleTitle(sub.title);
-                  const displayTitle = cleanTitle.length > 25 ? cleanTitle.slice(0, 25) + "..." : cleanTitle;
-                  return subLocked ? (
-                    <div className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-medium text-white/25 cursor-not-allowed border border-transparent">
-                      <Lock size={10} />
-                      <span className="font-bold">{sub.id}</span>
-                      <span className="ml-0.5">{displayTitle}</span>
-                    </div>
-                  ) : (
-                    <Link
-                      href={`/module/${moduleId}/${sub.slug}`}
-                      className={`block rounded-xl px-3 py-2 text-xs font-medium transition ${
-                        sub.slug === submodule.slug
-                          ? "bg-mst-red/15 text-mst-red border border-mst-red/20"
-                          : "text-white/60 hover:bg-white/5 hover:text-white border border-transparent"
-                      }`}
-                    >
-                      <span className="font-bold">{sub.id}</span>
-                      <span className="ml-1.5">{displayTitle}</span>
-                    </Link>
-                  );
-                })()}
-              </div>
-            );
-          })}
-        </nav>
+        {/* NOTE: 'All Lessons' list removed from left sidebar per UX request. */}
 
         {/* Bottom actions */}
         <div className="space-y-2 border-t border-white/10 p-4">
