@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Typewriter } from "@/components/marketing/Typewriter";
 import {
   TreePine,
   Monitor,
@@ -130,7 +131,16 @@ export default function HomePage() {
 
             <h1 className="mt-8 text-4xl font-black leading-[1.1] tracking-tight text-[var(--text)] sm:text-5xl lg:text-6xl">
               Master Blockchain Development{" "}
-              <span className="text-gradient-red">From Zero to Production</span>
+              <Typewriter
+                strings={[
+                  "From Zero to Production",
+                  "Learn • Build • Deploy",
+                  "Go from Fundamentals to Capstone",
+                ]}
+                speedMs={42}
+                pauseMs={900}
+                className="text-gradient-red"
+              />
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">
@@ -149,7 +159,7 @@ export default function HomePage() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
               <Link
-                href="#curriculum"
+                href="/academy-overview"
                 className="inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] bg-[var(--surface)] px-8 py-3.5 font-semibold text-[var(--text)] transition-all hover:border-mst-red hover:bg-[var(--bg-muted)]"
               >
                 Explore Curriculum
