@@ -3,9 +3,9 @@ import { getCurriculum } from "@/lib/curriculum";
 import { AcademyOverview } from "@/components/marketing/AcademyOverview";
 
 export const metadata: Metadata = {
-  title: "Curriculum Overview | MST Blockchain Academy",
+  title: "Curriculum Overview | Masterstroke Academy",
   description:
-    "Explore the full MST Blockchain Academy programme — 4 phases, 21 modules, 122+ submodules, and 130+ hours of structured Web3 learning.",
+    "Explore the full Masterstroke Academy programme — 4 phases, 21 modules, 122+ submodules, and 130+ hours of structured Web3 learning.",
 };
 
 export default function AcademyOverviewPage() {

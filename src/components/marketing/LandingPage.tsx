@@ -123,7 +123,7 @@ export function LandingPage({
           <div className="mx-auto flex max-w-4xl flex-1 flex-col items-center justify-center text-center">
             <p className="animate-fade-in inline-flex items-center gap-2 rounded-full border border-mst-red/30 bg-gradient-to-r from-mst-red/15 via-[var(--surface)]/50 to-[var(--accent-purple)]/15 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-mst-red shadow-lg shadow-mst-red/10 backdrop-blur-md">
               <Sparkles className="h-4 w-4 animate-pulse-subtle" />
-              MST Blockchain Academy
+              Masterstroke Academy
             </p>
 
             <h1 className="text-display animate-slide-up mt-10 font-black text-[var(--text)]">
