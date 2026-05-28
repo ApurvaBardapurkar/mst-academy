@@ -12,7 +12,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Because external API responses are non‑deterministic, and different nodes might get different results, breaking consensus.",
+          "text": "Because external API responses are non-deterministic, and different nodes might get different results, breaking consensus.",
           "isCorrect": true
         },
         {
@@ -45,7 +45,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Single point of failure — if the oracle operator is compromised or goes offline, the dApp is affected.",
+          "text": "Single point of failure - if the oracle operator is compromised or goes offline, the dApp is affected.",
           "isCorrect": true
         },
         {
@@ -144,7 +144,7 @@
       "options": [
         {
           "key": "A",
-          "text": "WASMify uses zero‑knowledge proofs to verify off‑chain computation, eliminating the need to trust any node operator.",
+          "text": "WASMify uses zero-knowledge proofs to verify off-chain computation, eliminating the need to trust any node operator.",
           "isCorrect": true
         },
         {
@@ -177,7 +177,7 @@
       "options": [
         {
           "key": "A",
-          "text": "It can process large, complex data off‑chain and only submit a small ZK proof on‑chain, saving gas and maintaining privacy.",
+          "text": "It can process large, complex data off-chain and only submit a small ZK proof on-chain, saving gas and maintaining privacy.",
           "isCorrect": true
         },
         {
@@ -197,8 +197,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "WASMify enables heavy computation off‑chain, reducing on‑chain data requirements to a tiny proof — ideal for IoT streams, ML models, and private data.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>WASMify enables heavy computation off‑chain, reducing on‑chain data requirements to a tiny proof — ideal for IoT streams, ML models, and private data.</p>"
+      "explanation": "WASMify enables heavy computation off-chain, reducing on-chain data requirements to a tiny proof - ideal for IoT streams, ML models, and private data.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>WASMify enables heavy computation off-chain, reducing on-chain data requirements to a tiny proof - ideal for IoT streams, ML models, and private data.</p>"
     },
     {
       "id": "q7",
@@ -272,11 +272,11 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "Which of the following is a realistic use case for a ZK‑powered oracle like WASMify?",
+      "text": "Which of the following is a realistic use case for a ZK-powered oracle like WASMify?",
       "options": [
         {
           "key": "A",
-          "text": "Verifying that a cargo container maintained a specific temperature range using IoT sensor data, without revealing the full data log on‑chain.",
+          "text": "Verifying that a cargo container maintained a specific temperature range using IoT sensor data, without revealing the full data log on-chain.",
           "isCorrect": true
         },
         {
@@ -286,7 +286,7 @@
         },
         {
           "key": "C",
-          "text": "Validating a simple ERC‑20 transfer.",
+          "text": "Validating a simple ERC-20 transfer.",
           "isCorrect": false
         },
         {
@@ -296,8 +296,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "ZK oracles excel at complex, private data verification — processing large sensor logs and proving compliance without exposing sensitive data.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>ZK oracles excel at complex, private data verification — processing large sensor logs and proving compliance without exposing sensitive data.</p>"
+      "explanation": "ZK oracles excel at complex, private data verification - processing large sensor logs and proving compliance without exposing sensitive data.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>ZK oracles excel at complex, private data verification - processing large sensor logs and proving compliance without exposing sensitive data.</p>"
     },
     {
       "id": "q10",
@@ -309,7 +309,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Because it requires bridging the trustless, deterministic on‑chain world with the non‑deterministic, trust‑based off‑chain world without reintroducing centralisation.",
+          "text": "Because it requires bridging the trustless, deterministic on-chain world with the non-deterministic, trust-based off-chain world without reintroducing centralisation.",
           "isCorrect": true
         },
         {
@@ -329,8 +329,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "The Oracle Problem is fundamentally about maintaining blockchain's trustless properties while still gaining access to real‑world data — a delicate balance.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>The Oracle Problem is fundamentally about maintaining blockchain's trustless properties while still gaining access to real‑world data — a delicate balance.</p>"
+      "explanation": "The Oracle Problem is fundamentally about maintaining blockchain's trustless properties while still gaining access to real-world data - a delicate balance.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>The Oracle Problem is fundamentally about maintaining blockchain's trustless properties while still gaining access to real-world data - a delicate balance.</p>"
     }
   ]
 }

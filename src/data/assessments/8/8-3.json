@@ -126,7 +126,7 @@
         },
         {
           "key": "D",
-          "text": "By importing a MST plugin that auto‑configures the network.",
+          "text": "By importing a MST plugin that auto-configures the network.",
           "isCorrect": false
         }
       ],
@@ -140,7 +140,7 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "What is the primary benefit of Hardhat's plugin‑based architecture?",
+      "text": "What is the primary benefit of Hardhat's plugin-based architecture?",
       "options": [
         {
           "key": "A",

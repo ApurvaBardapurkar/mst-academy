@@ -114,7 +114,7 @@ const PhaseCardNode = memo(function PhaseCardNode({
       className="relative"
     >
       <div
-        className={`group relative w-[min(100vw-3rem,320px)] max-w-[320px] sm:w-[300px] md:w-[320px] rounded-3xl border border-[var(--border)] bg-[var(--surface)]/70 backdrop-blur-md p-5 sm:p-6 shadow-lg`}
+        className={`group relative w-[min(100vw-3rem,420px)] max-w-[420px] sm:w-[360px] md:w-[420px] rounded-3xl border border-[var(--border)] bg-[var(--surface)]/70 backdrop-blur-md p-5 sm:p-6 shadow-lg`}
         style={{
           boxShadow: active
             ? `0 18px 60px ${color}33`
@@ -220,7 +220,7 @@ const ModuleCardNode = memo(function ModuleCardNode({ data }: { data: ModuleNode
       }}
     >
       <div
-        className={`w-[min(100vw-3rem,300px)] max-w-[300px] rounded-3xl border bg-[var(--surface)]/80 backdrop-blur-md p-4 sm:p-5 shadow-md transition-all duration-300 ${
+        className={`w-[min(100vw-3rem,380px)] max-w-[380px] rounded-3xl border bg-[var(--surface)]/80 backdrop-blur-md p-4 sm:p-5 shadow-md transition-all duration-300 ${
           active
             ? "border-[var(--border-strong)]"
             : locked
@@ -325,7 +325,7 @@ const SubmoduleChipNode = memo(function SubmoduleChipNode({
       style={{ cursor: locked ? "not-allowed" : "pointer", pointerEvents: locked ? "none" : "auto" }}
     >
       <div
-        className={`w-[min(100vw-3.5rem,260px)] max-w-[260px] rounded-2xl border bg-[var(--surface)]/80 backdrop-blur-md p-3 shadow-sm transition-all duration-300 ${
+        className={`w-[min(100vw-3.5rem,320px)] max-w-[320px] rounded-2xl border bg-[var(--surface)]/80 backdrop-blur-md p-3 shadow-sm transition-all duration-300 ${
           active
             ? "border-[var(--border-strong)] shadow-xl"
             : locked
@@ -385,7 +385,7 @@ function CameraController({ targetNodeIds }: { targetNodeIds: string[] }) {
           nodes: targetNodeIds.map((id) => ({ id })) as any,
           padding: 0.12,
           duration: 750,
-          minZoom: 0.35,
+          minZoom: 0.25,
           maxZoom: 1.1,
         });
       } catch {
@@ -1030,7 +1030,7 @@ export function LearningRoadmap({ curriculum }: { curriculum: Curriculum }) {
             zoomOnPinch
             fitView={false}
             proOptions={{ hideAttribution: true }}
-            minZoom={isMobile ? 0.5 : 0.4}
+            minZoom={isMobile ? 0.5 : 0.25}
             maxZoom={1.4}
             defaultViewport={{ x: isMobile ? 8 : 40, y: 20, zoom: isMobile ? 0.85 : 0.95 }}
           >

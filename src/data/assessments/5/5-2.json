@@ -22,7 +22,7 @@
         },
         {
           "key": "C",
-          "text": "Unlimited – new bitcoins can be created by miners forever",
+          "text": "Unlimited - new bitcoins can be created by miners forever",
           "isCorrect": false
         },
         {
@@ -32,8 +32,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Bitcoin's code hard‑codes the maximum supply at exactly 21 million coins. This is a mathematical guarantee from the halving schedule, not a policy that can be changed.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B – 21 million</div><p>Bitcoin's code hard‑codes the maximum supply at exactly 21 million coins. This is a mathematical guarantee from the halving schedule, not a policy that can be changed.</p>"
+      "explanation": "Bitcoin's code hard-codes the maximum supply at exactly 21 million coins. This is a mathematical guarantee from the halving schedule, not a policy that can be changed.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - 21 million</div><p>Bitcoin's code hard-codes the maximum supply at exactly 21 million coins. This is a mathematical guarantee from the halving schedule, not a policy that can be changed.</p>"
     },
     {
       "id": "q2",
@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "The Halving reduces the number of new bitcoins created per block. It happens automatically every 210,000 blocks (~4 years). The total supply does not get cut – only the rate of new issuance slows.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B – Block reward cut in half every 210,000 blocks</div><p>The Halving reduces the number of new bitcoins created per block. It happens automatically every 210,000 blocks (~4 years). The total supply does not get cut – only the rate of new issuance slows.</p>"
+      "explanation": "The Halving reduces the number of new bitcoins created per block. It happens automatically every 210,000 blocks (~4 years). The total supply does not get cut - only the rate of new issuance slows.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Block reward cut in half every 210,000 blocks</div><p>The Halving reduces the number of new bitcoins created per block. It happens automatically every 210,000 blocks (~4 years). The total supply does not get cut - only the rate of new issuance slows.</p>"
     },
     {
       "id": "q3",
@@ -99,7 +99,7 @@
       ],
       "correctAnswer": "A",
       "explanation": "When Satoshi mined the Genesis Block, miners earned 50 BTC per block. After three halvings (2012, 2016, 2020), the reward has declined to 3.125 BTC (as of 2024).",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A – 50 BTC</div><p>When Satoshi mined the Genesis Block, miners earned 50 BTC per block. After three halvings (2012, 2016, 2020), the reward has declined to 3.125 BTC (as of 2024).</p>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A - 50 BTC</div><p>When Satoshi mined the Genesis Block, miners earned 50 BTC per block. After three halvings (2012, 2016, 2020), the reward has declined to 3.125 BTC (as of 2024).</p>"
     },
     {
       "id": "q4",
@@ -121,7 +121,7 @@
         },
         {
           "key": "C",
-          "text": "\"A purely peer‑to‑peer electronic cash system\"",
+          "text": "\"A purely peer-to-peer electronic cash system\"",
           "isCorrect": false
         },
         {
@@ -131,8 +131,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Satoshi embedded the front‑page headline from The Times (London) as a timestamp and a political statement about the banking system Bitcoin was designed to circumvent.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B – The Times headline</div><p>Satoshi embedded the front‑page headline from The Times (London) as a timestamp and a political statement about the banking system Bitcoin was designed to circumvent.</p>"
+      "explanation": "Satoshi embedded the front-page headline from The Times (London) as a timestamp and a political statement about the banking system Bitcoin was designed to circumvent.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - The Times headline</div><p>Satoshi embedded the front-page headline from The Times (London) as a timestamp and a political statement about the banking system Bitcoin was designed to circumvent.</p>"
     },
     {
       "id": "q5",
@@ -164,8 +164,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Bitcoin's fixed supply (21M), mining process (Proof‑of‑Work), and role as a store of value mirror gold's monetary properties. It cannot be printed at will.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B – Shares properties with gold</div><p>Bitcoin's fixed supply (21M), mining process (Proof‑of‑Work), and role as a store of value mirror gold's monetary properties. It cannot be printed at will.</p>"
+      "explanation": "Bitcoin's fixed supply (21M), mining process (Proof-of-Work), and role as a store of value mirror gold's monetary properties. It cannot be printed at will.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Shares properties with gold</div><p>Bitcoin's fixed supply (21M), mining process (Proof-of-Work), and role as a store of value mirror gold's monetary properties. It cannot be printed at will.</p>"
     },
     {
       "id": "q6",
@@ -192,13 +192,13 @@
         },
         {
           "key": "D",
-          "text": "Never – mining rewards continue forever",
+          "text": "Never - mining rewards continue forever",
           "isCorrect": false
         }
       ],
       "correctAnswer": "C",
       "explanation": "Because the block reward halves every 4 years, it will eventually drop below 1 satoshi and become zero. By that time, all 21 million BTC will have been mined. Miners will then rely solely on transaction fees.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C – Around 2140</div><p>Because the block reward halves every 4 years, it will eventually drop below 1 satoshi and become zero. By that time, all 21 million BTC will have been mined. Miners will then rely solely on transaction fees.</p>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - Around 2140</div><p>Because the block reward halves every 4 years, it will eventually drop below 1 satoshi and become zero. By that time, all 21 million BTC will have been mined. Miners will then rely solely on transaction fees.</p>"
     },
     {
       "id": "q7",
@@ -208,8 +208,8 @@
       "marks": 2,
       "text": "\"Bitcoin's supply is controlled by the Bitcoin Foundation, which can increase the 21 million cap if needed to prevent deflation.\"",
       "correctAnswer": "FALSE",
-      "explanation": "1 mark: States FALSE and mentions that no central authority controls Bitcoin.+1 mark: Explains that the 21M cap is hard‑coded and changing it requires a hard fork that the community would reject.",
-      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> States FALSE and mentions that no central authority controls Bitcoin.<br><strong>+1 mark:</strong> Explains that the 21M cap is hard‑coded and changing it requires a hard fork that the community would reject.</p>",
+      "explanation": "1 mark: States FALSE and mentions that no central authority controls Bitcoin.+1 mark: Explains that the 21M cap is hard-coded and changing it requires a hard fork that the community would reject.",
+      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> States FALSE and mentions that no central authority controls Bitcoin.<br><strong>+1 mark:</strong> Explains that the 21M cap is hard-coded and changing it requires a hard fork that the community would reject.</p>",
       "tfVerdict": "FALSE"
     },
     {
@@ -220,8 +220,8 @@
       "marks": 2,
       "text": "\"If fewer miners participate in the Bitcoin network, the block time will become longer than 10 minutes until more miners join.\"",
       "correctAnswer": "FALSE",
-      "explanation": "1 mark: States FALSE and mentions the difficulty adjustment.+1 mark: Explains that difficulty adjusts every 2,016 blocks to maintain 10‑minute block times, so fewer miners do NOT permanently increase block time.",
-      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> States FALSE and mentions the difficulty adjustment.<br><strong>+1 mark:</strong> Explains that difficulty adjusts every 2,016 blocks to maintain 10‑minute block times, so fewer miners do NOT permanently increase block time.</p>",
+      "explanation": "1 mark: States FALSE and mentions the difficulty adjustment.+1 mark: Explains that difficulty adjusts every 2,016 blocks to maintain 10-minute block times, so fewer miners do NOT permanently increase block time.",
+      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> States FALSE and mentions the difficulty adjustment.<br><strong>+1 mark:</strong> Explains that difficulty adjusts every 2,016 blocks to maintain 10-minute block times, so fewer miners do NOT permanently increase block time.</p>",
       "tfVerdict": "FALSE"
     }
   ]

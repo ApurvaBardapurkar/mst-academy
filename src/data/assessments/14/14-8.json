@@ -12,7 +12,7 @@
       "options": [
         {
           "key": "A",
-          "text": "A high‑throughput L1 using Trika POSA with 4,000+ TPS and sub‑paisa fees.",
+          "text": "A high-throughput L1 using Trika POSA with 4,000+ TPS and sub-paisa fees.",
           "isCorrect": true
         },
         {
@@ -27,7 +27,7 @@
         },
         {
           "key": "D",
-          "text": "A completely off‑chain state channel network.",
+          "text": "A completely off-chain state channel network.",
           "isCorrect": false
         }
       ],
@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Permissioned zones allow confidentiality and control without losing the benefits of public‑chain anchoring.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Permissioned zones allow confidentiality and control without losing the benefits of public‑chain anchoring.</p>"
+      "explanation": "Permissioned zones allow confidentiality and control without losing the benefits of public-chain anchoring.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Permissioned zones allow confidentiality and control without losing the benefits of public-chain anchoring.</p>"
     },
     {
       "id": "q3",
@@ -78,7 +78,7 @@
       "options": [
         {
           "key": "A",
-          "text": "To off‑load heavy computation off‑chain while providing ZK proofs for on‑chain verification.",
+          "text": "To off-load heavy computation off-chain while providing ZK proofs for on-chain verification.",
           "isCorrect": true
         },
         {
@@ -93,13 +93,13 @@
         },
         {
           "key": "D",
-          "text": "To store large files on‑chain.",
+          "text": "To store large files on-chain.",
           "isCorrect": false
         }
       ],
       "correctAnswer": "A",
-      "explanation": "WASMify enables trustless off‑chain compute, reducing L1 load for heavy computations without creating a separate state layer.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>WASMify enables trustless off‑chain compute, reducing L1 load for heavy computations without creating a separate state layer.</p>"
+      "explanation": "WASMify enables trustless off-chain compute, reducing L1 load for heavy computations without creating a separate state layer.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>WASMify enables trustless off-chain compute, reducing L1 load for heavy computations without creating a separate state layer.</p>"
     },
     {
       "id": "q4",
@@ -107,7 +107,7 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "What is a major drawback of the Ethereum L2‑centric scaling approach?",
+      "text": "What is a major drawback of the Ethereum L2-centric scaling approach?",
       "options": [
         {
           "key": "A",
@@ -144,12 +144,12 @@
       "options": [
         {
           "key": "A",
-          "text": "Reliance on third‑party Optimistic Rollup bridges.",
+          "text": "Reliance on third-party Optimistic Rollup bridges.",
           "isCorrect": true
         },
         {
           "key": "B",
-          "text": "High‑throughput Trika POSA consensus.",
+          "text": "High-throughput Trika POSA consensus.",
           "isCorrect": false
         },
         {
@@ -159,7 +159,7 @@
         },
         {
           "key": "D",
-          "text": "WASMify for off‑chain computation.",
+          "text": "WASMify for off-chain computation.",
           "isCorrect": false
         }
       ],
@@ -185,10 +185,10 @@
       "type": "true_false",
       "difficulty": "Medium",
       "marks": 2,
-      "text": "\"WASMify can completely replace the need for high TPS on the MST L1, because all computation can be done off‑chain.\"",
+      "text": "\"WASMify can completely replace the need for high TPS on the MST L1, because all computation can be done off-chain.\"",
       "correctAnswer": "FALSE",
-      "explanation": "1 mark: Correctly states FALSE. +1 mark: Justification explains the difference between computation off‑loading and transaction settlement throughput.",
-      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> Correctly states FALSE. <strong>+1 mark:</strong> Justification explains the difference between computation off‑loading and transaction settlement throughput.</p>",
+      "explanation": "1 mark: Correctly states FALSE. +1 mark: Justification explains the difference between computation off-loading and transaction settlement throughput.",
+      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> Correctly states FALSE. <strong>+1 mark:</strong> Justification explains the difference between computation off-loading and transaction settlement throughput.</p>",
       "tfVerdict": "FALSE"
     },
     {
@@ -197,7 +197,7 @@
       "type": "descriptive",
       "difficulty": "Hard",
       "marks": 16,
-      "text": "Explain how MST's scaling approach avoids the fragmentation problems of Ethereum's L2‑centric ecosystem, with a specific focus on an enterprise user (such as a national supply‑chain consortium)."
+      "text": "Explain how MST's scaling approach avoids the fragmentation problems of Ethereum's L2-centric ecosystem, with a specific focus on an enterprise user (such as a national supply-chain consortium)."
     }
   ]
 }

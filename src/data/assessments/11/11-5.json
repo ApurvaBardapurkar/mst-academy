@@ -41,11 +41,11 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "Why are MST's sub‑paisa fees critical for RWA tokenization?",
+      "text": "Why are MST's sub-paisa fees critical for RWA tokenization?",
       "options": [
         {
           "key": "A",
-          "text": "They enable frequent dividend distributions and micro‑investments without gas costs exceeding the value transferred.",
+          "text": "They enable frequent dividend distributions and micro-investments without gas costs exceeding the value transferred.",
           "isCorrect": true
         },
         {
@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Low fees make small, recurring on‑chain actions (like monthly dividends to many holders) economically feasible.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Low fees make small, recurring on‑chain actions (like monthly dividends to many holders) economically feasible.</p>"
+      "explanation": "Low fees make small, recurring on-chain actions (like monthly dividends to many holders) economically feasible.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Low fees make small, recurring on-chain actions (like monthly dividends to many holders) economically feasible.</p>"
     },
     {
       "id": "q3",
@@ -78,7 +78,7 @@
       "options": [
         {
           "key": "A",
-          "text": "By providing trustless verification of off‑chain events (like rental payments) via ZK proofs, triggering on‑chain actions.",
+          "text": "By providing trustless verification of off-chain events (like rental payments) via ZK proofs, triggering on-chain actions.",
           "isCorrect": true
         },
         {
@@ -98,8 +98,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "WASMify bridges the off‑chain and on‑chain worlds without a trusted third party, by verifying real‑world data and posting proofs on‑chain.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>WASMify bridges the off‑chain and on‑chain worlds without a trusted third party, by verifying real‑world data and posting proofs on‑chain.</p>"
+      "explanation": "WASMify bridges the off-chain and on-chain worlds without a trusted third party, by verifying real-world data and posting proofs on-chain.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>WASMify bridges the off-chain and on-chain worlds without a trusted third party, by verifying real-world data and posting proofs on-chain.</p>"
     },
     {
       "id": "q4",
@@ -111,28 +111,28 @@
       "options": [
         {
           "key": "A",
-          "text": "ERC‑3643 (T‑REX)",
+          "text": "ERC-3643 (T-REX)",
           "isCorrect": true
         },
         {
           "key": "B",
-          "text": "ERC‑20",
+          "text": "ERC-20",
           "isCorrect": false
         },
         {
           "key": "C",
-          "text": "ERC‑721",
+          "text": "ERC-721",
           "isCorrect": false
         },
         {
           "key": "D",
-          "text": "ERC‑1155",
+          "text": "ERC-1155",
           "isCorrect": false
         }
       ],
       "correctAnswer": "A",
-      "explanation": "ERC‑3643 enforces transfer restrictions based on an identity registry, ensuring only whitelisted addresses can hold the token.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>ERC‑3643 enforces transfer restrictions based on an identity registry, ensuring only whitelisted addresses can hold the token.</p>"
+      "explanation": "ERC-3643 enforces transfer restrictions based on an identity registry, ensuring only whitelisted addresses can hold the token.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>ERC-3643 enforces transfer restrictions based on an identity registry, ensuring only whitelisted addresses can hold the token.</p>"
     },
     {
       "id": "q5",

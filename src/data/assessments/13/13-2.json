@@ -12,7 +12,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Speed and simplicity — one transaction, low gas, easy to implement.",
+          "text": "Speed and simplicity - one transaction, low gas, easy to implement.",
           "isCorrect": true
         },
         {
@@ -27,7 +27,7 @@
         },
         {
           "key": "D",
-          "text": "Zero‑knowledge proof verification.",
+          "text": "Zero-knowledge proof verification.",
           "isCorrect": false
         }
       ],
@@ -45,7 +45,7 @@
       "options": [
         {
           "key": "A",
-          "text": "By using median aggregation — the outlier is ignored as long as the majority is honest.",
+          "text": "By using median aggregation - the outlier is ignored as long as the majority is honest.",
           "isCorrect": true
         },
         {
@@ -78,7 +78,7 @@
       "options": [
         {
           "key": "A",
-          "text": "ZK Oracle (WASMify) — processes data off‑chain, submits only a proof.",
+          "text": "ZK Oracle (WASMify) - processes data off-chain, submits only a proof.",
           "isCorrect": true
         },
         {
@@ -98,8 +98,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "ZK oracles can process large, private data off‑chain and only submit a tiny proof on‑chain — ideal for IoT, identity, and AI use cases.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>ZK oracles can process large, private data off‑chain and only submit a tiny proof on‑chain — ideal for IoT, identity, and AI use cases.</p>"
+      "explanation": "ZK oracles can process large, private data off-chain and only submit a tiny proof on-chain - ideal for IoT, identity, and AI use cases.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>ZK oracles can process large, private data off-chain and only submit a tiny proof on-chain - ideal for IoT, identity, and AI use cases.</p>"
     },
     {
       "id": "q4",
@@ -111,7 +111,7 @@
       "options": [
         {
           "key": "A",
-          "text": "The API itself becomes the single point of failure — source‑level diversity is as important as node diversity.",
+          "text": "The API itself becomes the single point of failure - source-level diversity is as important as node diversity.",
           "isCorrect": true
         },
         {
@@ -164,8 +164,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Sub‑paisa gas fees mean that multi‑node oracle updates and ZK proof verifications are affordable, enabling architectures that would bankrupt a project on Ethereum.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Sub‑paisa gas fees mean that multi‑node oracle updates and ZK proof verifications are affordable, enabling architectures that would bankrupt a project on Ethereum.</p>"
+      "explanation": "Sub-paisa gas fees mean that multi-node oracle updates and ZK proof verifications are affordable, enabling architectures that would bankrupt a project on Ethereum.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Sub-paisa gas fees mean that multi-node oracle updates and ZK proof verifications are affordable, enabling architectures that would bankrupt a project on Ethereum.</p>"
     },
     {
       "id": "q6",
@@ -187,8 +187,8 @@
       "marks": 2,
       "text": "\"For a production DeFi lending protocol handling ₹100 crore in TVL, a centralised oracle is acceptable as long as the oracle server has 99.9% uptime.\"",
       "correctAnswer": "FALSE",
-      "explanation": "1 mark: Correctly states FALSE. +1 mark: Justification addresses the trust model (hacking, bribery), downtime during critical periods, and the disproportionate cost‑benefit of using a more robust oracle on a low‑fee chain like MST.",
-      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> Correctly states FALSE. <strong>+1 mark:</strong> Justification addresses the trust model (hacking, bribery), downtime during critical periods, and the disproportionate cost‑benefit of using a more robust oracle on a low‑fee chain like MST.</p>",
+      "explanation": "1 mark: Correctly states FALSE. +1 mark: Justification addresses the trust model (hacking, bribery), downtime during critical periods, and the disproportionate cost-benefit of using a more robust oracle on a low-fee chain like MST.",
+      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> Correctly states FALSE. <strong>+1 mark:</strong> Justification addresses the trust model (hacking, bribery), downtime during critical periods, and the disproportionate cost-benefit of using a more robust oracle on a low-fee chain like MST.</p>",
       "tfVerdict": "FALSE"
     },
     {
@@ -197,7 +197,7 @@
       "type": "other",
       "difficulty": "Medium",
       "marks": 6,
-      "text": "A DeFi protocol needs an ETH/USD price feed updated every hour. Compare the annual oracle cost using (a) a centralised oracle, (b) Chainlink with 7 nodes, and (c) a WASMify ZK oracle — on both Ethereum and MST."
+      "text": "A DeFi protocol needs an ETH/USD price feed updated every hour. Compare the annual oracle cost using (a) a centralised oracle, (b) Chainlink with 7 nodes, and (c) a WASMify ZK oracle - on both Ethereum and MST."
     }
   ]
 }

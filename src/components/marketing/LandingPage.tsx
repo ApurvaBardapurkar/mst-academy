@@ -150,20 +150,14 @@ export function LandingPage({
 
             <div className="animate-slide-up stagger-3 mt-12 flex flex-wrap items-center justify-center gap-4">
               <Link
-                href="/learn"
+                href="#fellowship"
                 className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-mst-red via-red-600 to-mst-red bg-[length:200%_100%] px-10 py-4 text-lg font-bold text-white shadow-xl shadow-mst-red/30 transition hover:shadow-2xl hover:shadow-mst-red/40 animate-gradient"
               >
                 <span className="btn-shimmer absolute inset-0" />
                 <span className="relative flex items-center gap-2">
-                  Start Learning
+                  Explore Plans
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </span>
-              </Link>
-              <Link
-                href="/academy-overview"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-[var(--border-strong)] bg-[var(--surface)]/80 px-10 py-4 text-lg font-bold text-[var(--text)] backdrop-blur-md transition hover:border-mst-red hover:bg-[var(--bg-muted)]"
-              >
-                Explore Curriculum
               </Link>
             </div>
 
@@ -259,50 +253,58 @@ export function LandingPage({
             {[
               {
                 id: "validator",
+                detailHref: "/plans/validator",
                 title: "Validator Fellowship",
-                price: "₹9,999",
+                price: "Rs 9,999",
+                original: "Rs 14,999",
                 gradient: "bg-gradient-to-br from-mst-red/25 via-mst-red/10 to-[var(--accent-cyan)]/15",
-                tag: "1 fraction for 19 years",
+                tag: "Validator portal + stakeholder access",
                 bullets: [
                   "Lifetime course access",
-                  "$MSTC coin rewards (19 years)",
-                  "PPO chance for top performers",
+                  "Dedicated validator portal",
+                  "1 fraction + 19 years daily MSTC rewards",
                 ],
               },
               {
                 id: "student",
+                detailHref: "/plans/student",
                 title: "Student Fellowship",
-                price: "₹14,999",
+                price: "Rs 14,999",
+                original: "Rs 24,999",
                 gradient: "bg-gradient-to-br from-[var(--accent-purple)]/20 via-mst-red/10 to-amber-500/10",
-                tag: "Paid internship + fraction",
+                tag: "Student ID scholarship",
                 bullets: [
                   "Lifetime course access",
-                  "Paid internship (2 months)",
-                  "1 fraction worth ₹5,500",
+                  "Paid internship with real-world projects",
+                  "1 fraction + 19 years daily MSTC rewards",
                 ],
               },
               {
                 id: "normal",
-                title: "Normal User Fellowship",
-                price: "₹19,999",
+                detailHref: "/plans/working-professional",
+                title: "Working Professional Fellowship",
+                price: "Rs 19,999",
+                original: "Rs 24,999",
                 gradient: "bg-gradient-to-br from-emerald-500/15 via-[var(--accent-blue)]/10 to-mst-red/10",
-                tag: "Internship + fraction",
+                tag: "Career transition focused",
                 bullets: [
                   "Lifetime course access",
-                  "Internship (2 months)",
-                  "Fraction allocation",
+                  "Paid internship with industry mentors",
+                  "1 fraction + 19 years daily MSTC rewards",
                 ],
               },
               {
                 id: "courseOnly",
+                detailHref: "/plans/course-only",
                 title: "Course Only",
-                price: "₹4,999",
+                price: "Rs 4,999",
+                original: "Rs 9,999",
                 gradient: "bg-gradient-to-br from-gray-500/10 via-[var(--surface)] to-[var(--bg-elevated)]",
-                tag: "No internship. No fraction.",
+                tag: "Foundation track offer",
                 bullets: [
                   "Lifetime course access",
                   "No fraction / no internship",
-                  "Daily $MSTC coin streak rewards",
+                  "Guided curriculum + assessments",
                 ],
               },
             ].map((card, i) => (
@@ -322,6 +324,9 @@ export function LandingPage({
                         </h3>
                       </div>
                       <div className="text-right">
+                        <p className="text-xs font-semibold text-[var(--text-muted)] line-through">
+                          {card.original}
+                        </p>
                         <p className="text-2xl font-black text-gradient-red">
                           {card.price}
                         </p>
@@ -345,11 +350,11 @@ export function LandingPage({
 
                     <div className="mt-6">
                       <Link
-                        href={`/register?plan=${card.id}`}
-                        className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-mst-red to-red-600 px-5 py-3.5 text-sm font-bold text-white shadow-lg shadow-mst-red/25 transition hover:shadow-xl"
+                        href={card.detailHref}
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-[var(--border-strong)] bg-[var(--surface)] px-5 py-3 text-sm font-bold text-[var(--text)] transition hover:border-mst-red hover:bg-[var(--bg-muted)]"
                       >
-                        Enroll with this plan
-                        <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        Explore this plan
+                        <ChevronRight className="h-4 w-4" />
                       </Link>
                     </div>
                   </div>
@@ -656,20 +661,14 @@ export function LandingPage({
             </p>
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
               <Link
-                href="/register"
+                href="#fellowship"
                 className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-mst-red to-red-600 px-10 py-4 text-lg font-bold text-white shadow-xl shadow-mst-red/30 transition hover:shadow-2xl"
               >
                 <span className="btn-shimmer absolute inset-0" />
                 <span className="relative flex items-center gap-2">
-                  Get Started
+                  Explore Plans
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </span>
-              </Link>
-              <Link
-                href="/learn"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-[var(--border-strong)] bg-[var(--surface)] px-10 py-4 text-lg font-bold text-[var(--text)] transition hover:border-mst-red"
-              >
-                Open Learning Tree
               </Link>
             </div>
           </RevealSection>

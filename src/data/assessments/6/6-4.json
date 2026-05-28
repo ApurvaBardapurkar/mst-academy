@@ -32,8 +32,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "SARAL (Secure Authentication and Recovery Abstraction Layer) replaces seed phrases with biometric login, secure enclaves, and social recovery. It is specifically designed to eliminate the seed phrase terror identified in Sub‑Module 6.3.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n        <p>SARAL (Secure Authentication and Recovery Abstraction Layer) replaces seed phrases with biometric login, secure enclaves, and social recovery. It is specifically designed to eliminate the seed phrase terror identified in Sub‑Module 6.3.</p>"
+      "explanation": "SARAL (Secure Authentication and Recovery Abstraction Layer) replaces seed phrases with biometric login, secure enclaves, and social recovery. It is specifically designed to eliminate the seed phrase terror identified in Sub-Module 6.3.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n        <p>SARAL (Secure Authentication and Recovery Abstraction Layer) replaces seed phrases with biometric login, secure enclaves, and social recovery. It is specifically designed to eliminate the seed phrase terror identified in Sub-Module 6.3.</p>"
     },
     {
       "id": "q2",
@@ -55,7 +55,7 @@
         },
         {
           "key": "C",
-          "text": "Trika POSA combines fast committee‑based block production with decentralised validator election, avoiding Solana's fragility.",
+          "text": "Trika POSA combines fast committee-based block production with decentralised validator election, avoiding Solana's fragility.",
           "isCorrect": true
         },
         {
@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "C",
-      "explanation": "Trika POSA uses an elected committee for fast finality but rotates the committee and keeps hardware requirements low, so the validator set remains decentralised. Solana's PoH is fast but fragile — no mempool, manual restarts after outages, and expensive hardware that centralises validators.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C — Explanation</div>\n        <p>Trika POSA uses an elected committee for fast finality but rotates the committee and keeps hardware requirements low, so the validator set remains decentralised. Solana's PoH is fast but fragile — no mempool, manual restarts after outages, and expensive hardware that centralises validators.</p>"
+      "explanation": "Trika POSA uses an elected committee for fast finality but rotates the committee and keeps hardware requirements low, so the validator set remains decentralised. Solana's PoH is fast but fragile - no mempool, manual restarts after outages, and expensive hardware that centralises validators.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - Explanation</div>\n        <p>Trika POSA uses an elected committee for fast finality but rotates the committee and keeps hardware requirements low, so the validator set remains decentralised. Solana's PoH is fast but fragile - no mempool, manual restarts after outages, and expensive hardware that centralises validators.</p>"
     },
     {
       "id": "q3",
@@ -83,7 +83,7 @@
         },
         {
           "key": "B",
-          "text": "WASMify runs off‑chain computation on MST executor nodes and verifies it with ZK proofs, eliminating separate trust assumptions.",
+          "text": "WASMify runs off-chain computation on MST executor nodes and verifies it with ZK proofs, eliminating separate trust assumptions.",
           "isCorrect": true
         },
         {
@@ -93,13 +93,13 @@
         },
         {
           "key": "D",
-          "text": "WASMify relies on a multisig of trusted validators to attest to off‑chain data.",
+          "text": "WASMify relies on a multisig of trusted validators to attest to off-chain data.",
           "isCorrect": false
         }
       ],
       "correctAnswer": "B",
       "explanation": "WASMify executes WebAssembly modules (Rust, C, Python) on executor nodes, then submits a ZK proof on chain. Validators verify the proof, not the data. This eliminates the need to trust an external oracle network. Chainlink requires trusting a set of oracle nodes; WASMify requires trusting only the ZK proof, which is mathematically verifiable.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n        <p>WASMify executes WebAssembly modules (Rust, C, Python) on executor nodes, then submits a ZK proof on chain. Validators verify the proof, not the data. This eliminates the need to trust an external oracle network. Chainlink requires trusting a set of oracle nodes; WASMify requires trusting only the ZK proof, which is mathematically verifiable.</p>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n        <p>WASMify executes WebAssembly modules (Rust, C, Python) on executor nodes, then submits a ZK proof on chain. Validators verify the proof, not the data. This eliminates the need to trust an external oracle network. Chainlink requires trusting a set of oracle nodes; WASMify requires trusting only the ZK proof, which is mathematically verifiable.</p>"
     },
     {
       "id": "q4",
@@ -107,7 +107,7 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "Which pillar provides the legal framework for tokenising real‑world assets like real estate?",
+      "text": "Which pillar provides the legal framework for tokenising real-world assets like real estate?",
       "options": [
         {
           "key": "A",
@@ -131,8 +131,8 @@
         }
       ],
       "correctAnswer": "C",
-      "explanation": "RWA Orbitals combine smart contract templates with jurisdiction‑specific legal wrappers, linking on‑chain tokens to legally enforceable physical asset deeds. This bridges the gap between code and courts.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C — Explanation</div>\n        <p>RWA Orbitals combine smart contract templates with jurisdiction‑specific legal wrappers, linking on‑chain tokens to legally enforceable physical asset deeds. This bridges the gap between code and courts.</p>"
+      "explanation": "RWA Orbitals combine smart contract templates with jurisdiction-specific legal wrappers, linking on-chain tokens to legally enforceable physical asset deeds. This bridges the gap between code and courts.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - Explanation</div>\n        <p>RWA Orbitals combine smart contract templates with jurisdiction-specific legal wrappers, linking on-chain tokens to legally enforceable physical asset deeds. This bridges the gap between code and courts.</p>"
     },
     {
       "id": "q5",
@@ -144,7 +144,7 @@
       "options": [
         {
           "key": "A",
-          "text": "WASMify's ZK proofs for off‑chain data",
+          "text": "WASMify's ZK proofs for off-chain data",
           "isCorrect": false
         },
         {
@@ -165,7 +165,7 @@
       ],
       "correctAnswer": "B",
       "explanation": "The Hybrid L1 architecture allows permissioned zones where data is encrypted and only accessible to authorised nodes. This is ideal for regulated industries like healthcare that need both blockchain integrity and data privacy.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n        <p>The Hybrid L1 architecture allows permissioned zones where data is encrypted and only accessible to authorised nodes. This is ideal for regulated industries like healthcare that need both blockchain integrity and data privacy.</p>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n        <p>The Hybrid L1 architecture allows permissioned zones where data is encrypted and only accessible to authorised nodes. This is ideal for regulated industries like healthcare that need both blockchain integrity and data privacy.</p>"
     },
     {
       "id": "q6",
@@ -197,8 +197,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "SARAL's threshold signature scheme splits the key across the user's device and relay nodes. Recovery uses social guardians or biometrics on a new device to reconstruct the key. No single entity can recover the wallet alone — it requires a threshold of trusted parties.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n        <p>SARAL's threshold signature scheme splits the key across the user's device and relay nodes. Recovery uses social guardians or biometrics on a new device to reconstruct the key. No single entity can recover the wallet alone — it requires a threshold of trusted parties.</p>"
+      "explanation": "SARAL's threshold signature scheme splits the key across the user's device and relay nodes. Recovery uses social guardians or biometrics on a new device to reconstruct the key. No single entity can recover the wallet alone - it requires a threshold of trusted parties.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n        <p>SARAL's threshold signature scheme splits the key across the user's device and relay nodes. Recovery uses social guardians or biometrics on a new device to reconstruct the key. No single entity can recover the wallet alone - it requires a threshold of trusted parties.</p>"
     },
     {
       "id": "q7",
@@ -206,7 +206,7 @@
       "type": "mcq",
       "difficulty": "Medium",
       "marks": 1,
-      "text": "Why can't Ethereum's public‑only model serve enterprise use cases like private medical records?",
+      "text": "Why can't Ethereum's public-only model serve enterprise use cases like private medical records?",
       "options": [
         {
           "key": "A",
@@ -215,7 +215,7 @@
         },
         {
           "key": "B",
-          "text": "Every transaction and piece of data on Ethereum is publicly visible — there is no native privacy.",
+          "text": "Every transaction and piece of data on Ethereum is publicly visible - there is no native privacy.",
           "isCorrect": true
         },
         {
@@ -231,7 +231,7 @@
       ],
       "correctAnswer": "B",
       "explanation": "Ethereum is a fully transparent ledger. All state is public. Enterprises handling sensitive data (healthcare, finance, legal) cannot comply with data protection laws if all records are visible to anyone. MST's Hybrid L1 adds permissioned zones to solve this while keeping the same consensus layer.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n        <p>Ethereum is a fully transparent ledger. All state is public. Enterprises handling sensitive data (healthcare, finance, legal) cannot comply with data protection laws if all records are visible to anyone. MST's Hybrid L1 adds permissioned zones to solve this while keeping the same consensus layer.</p>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n        <p>Ethereum is a fully transparent ledger. All state is public. Enterprises handling sensitive data (healthcare, finance, legal) cannot comply with data protection laws if all records are visible to anyone. MST's Hybrid L1 adds permissioned zones to solve this while keeping the same consensus layer.</p>"
     },
     {
       "id": "q8",
@@ -263,8 +263,8 @@
         }
       ],
       "correctAnswer": "C",
-      "explanation": "The AI & Identity pillar includes an on‑chain permission system where users can define granular, revocable rules for AI agents. These rules are enforced by smart contracts, not by trusting the AI provider.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C — Explanation</div>\n        <p>The AI &amp; Identity pillar includes an on‑chain permission system where users can define granular, revocable rules for AI agents. These rules are enforced by smart contracts, not by trusting the AI provider.</p>"
+      "explanation": "The AI & Identity pillar includes an on-chain permission system where users can define granular, revocable rules for AI agents. These rules are enforced by smart contracts, not by trusting the AI provider.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - Explanation</div>\n        <p>The AI &amp; Identity pillar includes an on-chain permission system where users can define granular, revocable rules for AI agents. These rules are enforced by smart contracts, not by trusting the AI provider.</p>"
     },
     {
       "id": "q9",
@@ -281,7 +281,7 @@
         },
         {
           "key": "B",
-          "text": "MST integrates NIST‑approved post‑quantum cryptographic algorithms into its wallet, consensus, and transaction layers.",
+          "text": "MST integrates NIST-approved post-quantum cryptographic algorithms into its wallet, consensus, and transaction layers.",
           "isCorrect": true
         },
         {
@@ -296,8 +296,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "MST is integrating CRYSTALS‑Kyber and CRYSTALS‑Dilithium (NIST‑approved post‑quantum algorithms) at the foundational layers. This allows a gradual migration to quantum‑safe cryptography without a disruptive hard fork.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n        <p>MST is integrating CRYSTALS‑Kyber and CRYSTALS‑Dilithium (NIST‑approved post‑quantum algorithms) at the foundational layers. This allows a gradual migration to quantum‑safe cryptography without a disruptive hard fork.</p>"
+      "explanation": "MST is integrating CRYSTALS-Kyber and CRYSTALS-Dilithium (NIST-approved post-quantum algorithms) at the foundational layers. This allows a gradual migration to quantum-safe cryptography without a disruptive hard fork.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n        <p>MST is integrating CRYSTALS-Kyber and CRYSTALS-Dilithium (NIST-approved post-quantum algorithms) at the foundational layers. This allows a gradual migration to quantum-safe cryptography without a disruptive hard fork.</p>"
     },
     {
       "id": "q10",
@@ -305,7 +305,7 @@
       "type": "mcq",
       "difficulty": "Medium",
       "marks": 1,
-      "text": "A developer wants to run an existing Python machine‑learning model on chain to detect fraudulent transactions. Which pillar makes this possible without a separate oracle service?",
+      "text": "A developer wants to run an existing Python machine-learning model on chain to detect fraudulent transactions. Which pillar makes this possible without a separate oracle service?",
       "options": [
         {
           "key": "A",
@@ -330,7 +330,7 @@
       ],
       "correctAnswer": "B",
       "explanation": "WASMify allows developers to compile Python (via Pyodide or similar) to WebAssembly, deploy it to MST executor nodes, and have the output verified by ZK proofs. This brings heavy computation on chain without trusting an external oracle.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n        <p>WASMify allows developers to compile Python (via Pyodide or similar) to WebAssembly, deploy it to MST executor nodes, and have the output verified by ZK proofs. This brings heavy computation on chain without trusting an external oracle.</p>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n        <p>WASMify allows developers to compile Python (via Pyodide or similar) to WebAssembly, deploy it to MST executor nodes, and have the output verified by ZK proofs. This brings heavy computation on chain without trusting an external oracle.</p>"
     },
     {
       "id": "q11",
@@ -340,8 +340,8 @@
       "marks": 2,
       "text": "\"MST's Hybrid L1 is essentially a sidechain with a bridge, similar to Polygon.\"",
       "correctAnswer": "FALSE",
-      "explanation": "1 mark: Correctly states FALSE and identifies that MST's zones share consensus, unlike a sidechain.+1 mark: Explains that there is no bridge between zones, making the security model fundamentally different from Polygon's bridge‑dependent architecture.",
-      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div>\n        <p><strong>1 mark:</strong> Correctly states FALSE and identifies that MST's zones share consensus, unlike a sidechain.<br><strong>+1 mark:</strong> Explains that there is no bridge between zones, making the security model fundamentally different from Polygon's bridge‑dependent architecture.</p>",
+      "explanation": "1 mark: Correctly states FALSE and identifies that MST's zones share consensus, unlike a sidechain.+1 mark: Explains that there is no bridge between zones, making the security model fundamentally different from Polygon's bridge-dependent architecture.",
+      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div>\n        <p><strong>1 mark:</strong> Correctly states FALSE and identifies that MST's zones share consensus, unlike a sidechain.<br><strong>+1 mark:</strong> Explains that there is no bridge between zones, making the security model fundamentally different from Polygon's bridge-dependent architecture.</p>",
       "tfVerdict": "FALSE"
     },
     {
@@ -352,8 +352,8 @@
       "marks": 2,
       "text": "\"SARAL wallets are custodial because MST relay nodes hold key shares and could theoretically collude to steal user funds.\"",
       "correctAnswer": "FALSE",
-      "explanation": "1 mark: Correctly states FALSE and identifies that SARAL is non‑custodial (the user's device share is required).+1 mark: Explains the threshold mechanism — no single relay node can reconstruct the key, and collusion requires compromising both the user's biometric and a threshold of independent relay nodes.",
-      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div>\n        <p><strong>1 mark:</strong> Correctly states FALSE and identifies that SARAL is non‑custodial (the user's device share is required).<br><strong>+1 mark:</strong> Explains the threshold mechanism — no single relay node can reconstruct the key, and collusion requires compromising both the user's biometric and a threshold of independent relay nodes.</p>",
+      "explanation": "1 mark: Correctly states FALSE and identifies that SARAL is non-custodial (the user's device share is required).+1 mark: Explains the threshold mechanism - no single relay node can reconstruct the key, and collusion requires compromising both the user's biometric and a threshold of independent relay nodes.",
+      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div>\n        <p><strong>1 mark:</strong> Correctly states FALSE and identifies that SARAL is non-custodial (the user's device share is required).<br><strong>+1 mark:</strong> Explains the threshold mechanism - no single relay node can reconstruct the key, and collusion requires compromising both the user's biometric and a threshold of independent relay nodes.</p>",
       "tfVerdict": "FALSE"
     },
     {
@@ -362,9 +362,9 @@
       "type": "descriptive",
       "difficulty": "Medium",
       "marks": 3,
-      "text": "Explain how WASMify eliminates the \"oracle tax\" that Ethereum developers face. In your answer, describe what an oracle tax is, how WASMify works differently, and why ZK proofs are important to the architecture. (100–150 words)",
-      "explanation": "The oracle tax refers to the additional cost, latency, and trust assumptions that Ethereum developers incur when their smart contracts need off‑chain data. Because Ethereum contracts cannot make HTTP requests or run heavy computation, developers must pay third‑party oracle networks like Chainlink to fetch and validate external data.\nWASMify eliminates this by running off‑chain computation natively on MST. Developers write modules in Rust, C, or Python, compile them to WebAssembly, and deploy them to MST executor nodes. After execution, the node generates a ZK proof that the computation was correct. The proof is verified on chain — a cheap operation.\nZK proofs are critical because they make the result trustless. The developer does not need to trust the executor node. The proof mathematically guarantees correctness. This replaces the oracle network's trust assumptions with cryptographic verification.",
-      "modelAnswer": "<div class=\"answer-box-label\">📝 Sample Answer — Marks Breakdown</div>\n        <p>The oracle tax refers to the additional cost, latency, and trust assumptions that Ethereum developers incur when their smart contracts need off‑chain data. Because Ethereum contracts cannot make HTTP requests or run heavy computation, developers must pay third‑party oracle networks like Chainlink to fetch and validate external data.</p>\n        <p>WASMify eliminates this by running off‑chain computation natively on MST. Developers write modules in Rust, C, or Python, compile them to WebAssembly, and deploy them to MST executor nodes. After execution, the node generates a ZK proof that the computation was correct. The proof is verified on chain — a cheap operation.</p>\n        <p>ZK proofs are critical because they make the result <strong>trustless</strong>. The developer does not need to trust the executor node. The proof mathematically guarantees correctness. This replaces the oracle network's trust assumptions with cryptographic verification.</p>\n        <div class=\"marks-bd\"><span>Scoring:</span> 1 mark for explaining the oracle tax. 1 mark for describing WASMify's execution model. 1 mark for explaining the role of ZK proofs in making the result trustless.</div>"
+      "text": "Explain how WASMify eliminates the \"oracle tax\" that Ethereum developers face. In your answer, describe what an oracle tax is, how WASMify works differently, and why ZK proofs are important to the architecture. (100 - 150 words)",
+      "explanation": "The oracle tax refers to the additional cost, latency, and trust assumptions that Ethereum developers incur when their smart contracts need off-chain data. Because Ethereum contracts cannot make HTTP requests or run heavy computation, developers must pay third-party oracle networks like Chainlink to fetch and validate external data.\nWASMify eliminates this by running off-chain computation natively on MST. Developers write modules in Rust, C, or Python, compile them to WebAssembly, and deploy them to MST executor nodes. After execution, the node generates a ZK proof that the computation was correct. The proof is verified on chain - a cheap operation.\nZK proofs are critical because they make the result trustless. The developer does not need to trust the executor node. The proof mathematically guarantees correctness. This replaces the oracle network's trust assumptions with cryptographic verification.",
+      "modelAnswer": "<div class=\"answer-box-label\">📝 Sample Answer - Marks Breakdown</div>\n        <p>The oracle tax refers to the additional cost, latency, and trust assumptions that Ethereum developers incur when their smart contracts need off-chain data. Because Ethereum contracts cannot make HTTP requests or run heavy computation, developers must pay third-party oracle networks like Chainlink to fetch and validate external data.</p>\n        <p>WASMify eliminates this by running off-chain computation natively on MST. Developers write modules in Rust, C, or Python, compile them to WebAssembly, and deploy them to MST executor nodes. After execution, the node generates a ZK proof that the computation was correct. The proof is verified on chain - a cheap operation.</p>\n        <p>ZK proofs are critical because they make the result <strong>trustless</strong>. The developer does not need to trust the executor node. The proof mathematically guarantees correctness. This replaces the oracle network's trust assumptions with cryptographic verification.</p>\n        <div class=\"marks-bd\"><span>Scoring:</span> 1 mark for explaining the oracle tax. 1 mark for describing WASMify's execution model. 1 mark for explaining the role of ZK proofs in making the result trustless.</div>"
     },
     {
       "id": "q14",
@@ -372,9 +372,9 @@
       "type": "descriptive",
       "difficulty": "Medium",
       "marks": 3,
-      "text": "How does the RWA Orbitals pillar solve the problem of legal enforceability for tokenised real‑world assets? Explain the three components of an RWA Orbital and why each is necessary. (100–150 words)",
-      "explanation": "An RWA Orbital consists of three components: a smart contract template, a legal wrapper agreement, and an oracle connection.\nSmart contract template: This is the on‑chain logic (e.g., an ERC‑721 for fractional ownership) that records token IDs, owners, and transfers immutably on chain.\nLegal wrapper agreement: This is a jurisdiction‑specific legal contract (e.g., under Indian property law) that explicitly links the on‑chain token to the physical asset deed. Without this, a court would not recognise the token as proof of ownership.\nOracle connection: This verifies real‑world events (e.g., that a property deed was registered with the sub‑registrar) before the token is minted. On MST, this is typically a WASMify module with ZK verification.\nTogether, these three components bridge the gap between blockchain immutability and legal enforceability — solving the problem that has kept tokenised assets in a legal grey zone.",
-      "modelAnswer": "<div class=\"answer-box-label\">📝 Sample Answer — Marks Breakdown</div>\n        <p>An RWA Orbital consists of three components: a smart contract template, a legal wrapper agreement, and an oracle connection.</p>\n        <p><strong>Smart contract template:</strong> This is the on‑chain logic (e.g., an ERC‑721 for fractional ownership) that records token IDs, owners, and transfers immutably on chain.</p>\n        <p><strong>Legal wrapper agreement:</strong> This is a jurisdiction‑specific legal contract (e.g., under Indian property law) that explicitly links the on‑chain token to the physical asset deed. Without this, a court would not recognise the token as proof of ownership.</p>\n        <p><strong>Oracle connection:</strong> This verifies real‑world events (e.g., that a property deed was registered with the sub‑registrar) before the token is minted. On MST, this is typically a WASMify module with ZK verification.</p>\n        <p>Together, these three components bridge the gap between blockchain immutability and legal enforceability — solving the problem that has kept tokenised assets in a legal grey zone.</p>\n        <div class=\"marks-bd\"><span>Scoring:</span> 1 mark for naming all three components. 1 mark for explaining the legal wrapper's role in court enforceability. 1 mark for describing how the oracle verifies real‑world events before minting.</div>"
+      "text": "How does the RWA Orbitals pillar solve the problem of legal enforceability for tokenised real-world assets? Explain the three components of an RWA Orbital and why each is necessary. (100 - 150 words)",
+      "explanation": "An RWA Orbital consists of three components: a smart contract template, a legal wrapper agreement, and an oracle connection.\nSmart contract template: This is the on-chain logic (e.g., an ERC-721 for fractional ownership) that records token IDs, owners, and transfers immutably on chain.\nLegal wrapper agreement: This is a jurisdiction-specific legal contract (e.g., under Indian property law) that explicitly links the on-chain token to the physical asset deed. Without this, a court would not recognise the token as proof of ownership.\nOracle connection: This verifies real-world events (e.g., that a property deed was registered with the sub-registrar) before the token is minted. On MST, this is typically a WASMify module with ZK verification.\nTogether, these three components bridge the gap between blockchain immutability and legal enforceability - solving the problem that has kept tokenised assets in a legal grey zone.",
+      "modelAnswer": "<div class=\"answer-box-label\">📝 Sample Answer - Marks Breakdown</div>\n        <p>An RWA Orbital consists of three components: a smart contract template, a legal wrapper agreement, and an oracle connection.</p>\n        <p><strong>Smart contract template:</strong> This is the on-chain logic (e.g., an ERC-721 for fractional ownership) that records token IDs, owners, and transfers immutably on chain.</p>\n        <p><strong>Legal wrapper agreement:</strong> This is a jurisdiction-specific legal contract (e.g., under Indian property law) that explicitly links the on-chain token to the physical asset deed. Without this, a court would not recognise the token as proof of ownership.</p>\n        <p><strong>Oracle connection:</strong> This verifies real-world events (e.g., that a property deed was registered with the sub-registrar) before the token is minted. On MST, this is typically a WASMify module with ZK verification.</p>\n        <p>Together, these three components bridge the gap between blockchain immutability and legal enforceability - solving the problem that has kept tokenised assets in a legal grey zone.</p>\n        <div class=\"marks-bd\"><span>Scoring:</span> 1 mark for naming all three components. 1 mark for explaining the legal wrapper's role in court enforceability. 1 mark for describing how the oracle verifies real-world events before minting.</div>"
     },
     {
       "id": "q15",
@@ -382,9 +382,9 @@
       "type": "descriptive",
       "difficulty": "Hard",
       "marks": 15,
-      "text": "You are the CTO of a fintech startup building a platform for fractional ownership of agricultural land in India. Farmers can tokenise their land, investors can buy fractional tokens, and rental income from the land is distributed automatically. The platform must: (1) comply with Indian land laws, (2) allow farmers to log in with just a fingerprint (most do not use email), (3) keep investor identities private from the public but auditable by regulators, and (4) run crop yield verification software written in C++ that currently runs on the startup's servers. Select the three most critical MST pillars for this project and justify each selection in 100–150 words per pillar.",
-      "explanation": "Pillar 1: RWA Orbitals (5 marks). This is the most critical pillar. Tokenising agricultural land requires a legally enforceable link between the on‑chain token and the physical land deed. RWA Orbitals provide the jurisdiction‑specific legal wrapper for Indian property law, combined with a smart contract template for fractional ownership. Without this, the tokens would have no legal standing and the entire project would be unviable. The oracle component of the Orbital verifies that the land deed is registered with the sub‑registrar before minting tokens, preventing fraudulent tokenisation.\nPillar 2: SARAL (5 marks). The target users are farmers, many of whom do not have email addresses and are not comfortable with seed phrases. SARAL's biometric authentication (fingerprint) allows farmers to create and access wallets with zero technical friction. The social recovery mechanism ensures they can regain access if they lose their phone — critical for users who may not have backup devices or understand account recovery procedures. Without SARAL, farmer onboarding would be the single largest point of failure for the entire platform.\nPillar 3: WASMify (5 marks). The startup already has working crop yield verification software written in C++. Rewriting it in Solidity would be expensive, error‑prone, and functionally limited (Solidity cannot perform the image processing and statistical analysis that the C++ code does). WASMify allows the startup to compile their existing C++ code to WebAssembly, deploy it to MST executor nodes, and have the yield verification results trustlessly verified by ZK proofs. This brings the existing codebase on chain without a rewrite, and eliminates the need for a separate oracle to feed yield data to the smart contracts.",
-      "modelAnswer": "<div class=\"answer-box-label\">📝 Sample Answer (for examiner reference) — Marks Breakdown</div>\n        <p><strong>Pillar 1: RWA Orbitals (5 marks).</strong> This is the most critical pillar. Tokenising agricultural land requires a legally enforceable link between the on‑chain token and the physical land deed. RWA Orbitals provide the jurisdiction‑specific legal wrapper for Indian property law, combined with a smart contract template for fractional ownership. Without this, the tokens would have no legal standing and the entire project would be unviable. The oracle component of the Orbital verifies that the land deed is registered with the sub‑registrar before minting tokens, preventing fraudulent tokenisation.</p>\n        <p><strong>Pillar 2: SARAL (5 marks).</strong> The target users are farmers, many of whom do not have email addresses and are not comfortable with seed phrases. SARAL's biometric authentication (fingerprint) allows farmers to create and access wallets with zero technical friction. The social recovery mechanism ensures they can regain access if they lose their phone — critical for users who may not have backup devices or understand account recovery procedures. Without SARAL, farmer onboarding would be the single largest point of failure for the entire platform.</p>\n        <p><strong>Pillar 3: WASMify (5 marks).</strong> The startup already has working crop yield verification software written in C++. Rewriting it in Solidity would be expensive, error‑prone, and functionally limited (Solidity cannot perform the image processing and statistical analysis that the C++ code does). WASMify allows the startup to compile their existing C++ code to WebAssembly, deploy it to MST executor nodes, and have the yield verification results trustlessly verified by ZK proofs. This brings the existing codebase on chain without a rewrite, and eliminates the need for a separate oracle to feed yield data to the smart contracts.</p>\n        <div class=\"marks-bd\"><span>Scoring:</span> 5 marks per pillar (correct selection + clear justification linking the pillar's specific features to the requirements in the scenario). Partial credit for correct selection with weak or generic justification. Total 15 marks.</div>"
+      "text": "You are the CTO of a fintech startup building a platform for fractional ownership of agricultural land in India. Farmers can tokenise their land, investors can buy fractional tokens, and rental income from the land is distributed automatically. The platform must: (1) comply with Indian land laws, (2) allow farmers to log in with just a fingerprint (most do not use email), (3) keep investor identities private from the public but auditable by regulators, and (4) run crop yield verification software written in C++ that currently runs on the startup's servers. Select the three most critical MST pillars for this project and justify each selection in 100 - 150 words per pillar.",
+      "explanation": "Pillar 1: RWA Orbitals (5 marks). This is the most critical pillar. Tokenising agricultural land requires a legally enforceable link between the on-chain token and the physical land deed. RWA Orbitals provide the jurisdiction-specific legal wrapper for Indian property law, combined with a smart contract template for fractional ownership. Without this, the tokens would have no legal standing and the entire project would be unviable. The oracle component of the Orbital verifies that the land deed is registered with the sub-registrar before minting tokens, preventing fraudulent tokenisation.\nPillar 2: SARAL (5 marks). The target users are farmers, many of whom do not have email addresses and are not comfortable with seed phrases. SARAL's biometric authentication (fingerprint) allows farmers to create and access wallets with zero technical friction. The social recovery mechanism ensures they can regain access if they lose their phone - critical for users who may not have backup devices or understand account recovery procedures. Without SARAL, farmer onboarding would be the single largest point of failure for the entire platform.\nPillar 3: WASMify (5 marks). The startup already has working crop yield verification software written in C++. Rewriting it in Solidity would be expensive, error-prone, and functionally limited (Solidity cannot perform the image processing and statistical analysis that the C++ code does). WASMify allows the startup to compile their existing C++ code to WebAssembly, deploy it to MST executor nodes, and have the yield verification results trustlessly verified by ZK proofs. This brings the existing codebase on chain without a rewrite, and eliminates the need for a separate oracle to feed yield data to the smart contracts.",
+      "modelAnswer": "<div class=\"answer-box-label\">📝 Sample Answer (for examiner reference) - Marks Breakdown</div>\n        <p><strong>Pillar 1: RWA Orbitals (5 marks).</strong> This is the most critical pillar. Tokenising agricultural land requires a legally enforceable link between the on-chain token and the physical land deed. RWA Orbitals provide the jurisdiction-specific legal wrapper for Indian property law, combined with a smart contract template for fractional ownership. Without this, the tokens would have no legal standing and the entire project would be unviable. The oracle component of the Orbital verifies that the land deed is registered with the sub-registrar before minting tokens, preventing fraudulent tokenisation.</p>\n        <p><strong>Pillar 2: SARAL (5 marks).</strong> The target users are farmers, many of whom do not have email addresses and are not comfortable with seed phrases. SARAL's biometric authentication (fingerprint) allows farmers to create and access wallets with zero technical friction. The social recovery mechanism ensures they can regain access if they lose their phone - critical for users who may not have backup devices or understand account recovery procedures. Without SARAL, farmer onboarding would be the single largest point of failure for the entire platform.</p>\n        <p><strong>Pillar 3: WASMify (5 marks).</strong> The startup already has working crop yield verification software written in C++. Rewriting it in Solidity would be expensive, error-prone, and functionally limited (Solidity cannot perform the image processing and statistical analysis that the C++ code does). WASMify allows the startup to compile their existing C++ code to WebAssembly, deploy it to MST executor nodes, and have the yield verification results trustlessly verified by ZK proofs. This brings the existing codebase on chain without a rewrite, and eliminates the need for a separate oracle to feed yield data to the smart contracts.</p>\n        <div class=\"marks-bd\"><span>Scoring:</span> 5 marks per pillar (correct selection + clear justification linking the pillar's specific features to the requirements in the scenario). Partial credit for correct selection with weak or generic justification. Total 15 marks.</div>"
     }
   ]
 }

@@ -12,7 +12,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Eliminating seed phrases while maintaining non‑custodial key control",
+          "text": "Eliminating seed phrases while maintaining non-custodial key control",
           "isCorrect": true
         },
         {
@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Three shares: device secure enclave, MST key‑management node, and encrypted OAuth cloud backup. A 2‑of‑3 threshold is required to sign.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div>\n                <p>Three shares: device secure enclave, MST key‑management node, and encrypted OAuth cloud backup. A 2‑of‑3 threshold is required to sign.</p>"
+      "explanation": "Three shares: device secure enclave, MST key-management node, and encrypted OAuth cloud backup. A 2-of-3 threshold is required to sign.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div>\n                <p>Three shares: device secure enclave, MST key-management node, and encrypted OAuth cloud backup. A 2-of-3 threshold is required to sign.</p>"
     },
     {
       "id": "q3",
@@ -83,17 +83,17 @@
         },
         {
           "key": "B",
-          "text": "AES‑256 encryption",
+          "text": "AES-256 encryption",
           "isCorrect": false
         },
         {
           "key": "C",
-          "text": "Hashing with SHA‑256",
+          "text": "Hashing with SHA-256",
           "isCorrect": false
         },
         {
           "key": "D",
-          "text": "Public‑key cryptography",
+          "text": "Public-key cryptography",
           "isCorrect": false
         }
       ],
@@ -164,8 +164,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "The device share is stored in the hardware‑isolated Secure Enclave (iOS) or StrongBox (Android), accessible only after biometric authentication.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div>\n                <p>The device share is stored in the hardware‑isolated Secure Enclave (iOS) or StrongBox (Android), accessible only after biometric authentication.</p>"
+      "explanation": "The device share is stored in the hardware-isolated Secure Enclave (iOS) or StrongBox (Android), accessible only after biometric authentication.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div>\n                <p>The device share is stored in the hardware-isolated Secure Enclave (iOS) or StrongBox (Android), accessible only after biometric authentication.</p>"
     },
     {
       "id": "q6",
@@ -173,7 +173,7 @@
       "type": "mcq",
       "difficulty": "Hard",
       "marks": 1,
-      "text": "Can a single MST key‑management node steal user funds?",
+      "text": "Can a single MST key-management node steal user funds?",
       "options": [
         {
           "key": "A",
@@ -197,8 +197,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "The node holds only one share. Threshold signing (2‑of‑3) requires cooperation from the user's biometric or the recovery service. The node alone cannot produce a valid signature.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div>\n                <p>The node holds only one share. Threshold signing (2‑of‑3) requires cooperation from the user's biometric or the recovery service. The node alone cannot produce a valid signature.</p>"
+      "explanation": "The node holds only one share. Threshold signing (2-of-3) requires cooperation from the user's biometric or the recovery service. The node alone cannot produce a valid signature.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div>\n                <p>The node holds only one share. Threshold signing (2-of-3) requires cooperation from the user's biometric or the recovery service. The node alone cannot produce a valid signature.</p>"
     },
     {
       "id": "q7",
@@ -206,9 +206,9 @@
       "type": "other",
       "difficulty": "Hard",
       "marks": 4,
-      "text": "A user's SARAL wallet has shares on: (a) their iPhone Secure Enclave, (b) MST key‑management node, and (c) Google Drive backup. The user's iPhone is stolen. The thief cannot unlock the phone (biometric unknown). The user buys a new iPhone, signs into Google, and initiates SARAL recovery. <strong>Which two shares cooperate to sign the recovery transaction? Explain why the stolen device's share is not a security risk even though it still exists on the stolen phone.</strong>",
-      "explanation": "Which two shares cooperate? The MST key‑management node share and the Google Drive backup share (recovered via OAuth on the new device). Why is the stolen device's share not a risk? The stolen device share is locked inside the Secure Enclave, which requires biometric authentication to access. The thief cannot unlock it without the user's fingerprint or face. Even if the thief extracted the enclave data (extremely difficult), the share alone cannot sign a transaction — it requires a second share to meet the 2‑of‑3 threshold. Therefore, the funds remain safe.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Expected Answer &amp; Marks Breakdown (4 marks)</div>\n                <p><strong>Which two shares cooperate?</strong> The MST key‑management node share and the Google Drive backup share (recovered via OAuth on the new device). <strong>Why is the stolen device's share not a risk?</strong> The stolen device share is locked inside the Secure Enclave, which requires biometric authentication to access. The thief cannot unlock it without the user's fingerprint or face. Even if the thief extracted the enclave data (extremely difficult), the share alone cannot sign a transaction — it requires a second share to meet the 2‑of‑3 threshold. Therefore, the funds remain safe.</p>\n                <div class=\"marks-bd\">\n                    <span>Marks breakdown (4 marks):</span><br>\n                    • <strong>1 mark:</strong> Identifies the two cooperating shares correctly (node + cloud backup).<br>\n                    • <strong>1 mark:</strong> States that the stolen device share is inaccessible due to biometric lock.<br>\n                    • <strong>1 mark:</strong> Explains the threshold property: a single share cannot sign.<br>\n                    • <strong>1 mark:</strong> Concludes that the funds remain secure despite the stolen device.\n                </div>"
+      "text": "A user's SARAL wallet has shares on: (a) their iPhone Secure Enclave, (b) MST key-management node, and (c) Google Drive backup. The user's iPhone is stolen. The thief cannot unlock the phone (biometric unknown). The user buys a new iPhone, signs into Google, and initiates SARAL recovery. <strong>Which two shares cooperate to sign the recovery transaction? Explain why the stolen device's share is not a security risk even though it still exists on the stolen phone.</strong>",
+      "explanation": "Which two shares cooperate? The MST key-management node share and the Google Drive backup share (recovered via OAuth on the new device). Why is the stolen device's share not a risk? The stolen device share is locked inside the Secure Enclave, which requires biometric authentication to access. The thief cannot unlock it without the user's fingerprint or face. Even if the thief extracted the enclave data (extremely difficult), the share alone cannot sign a transaction - it requires a second share to meet the 2-of-3 threshold. Therefore, the funds remain safe.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Expected Answer &amp; Marks Breakdown (4 marks)</div>\n                <p><strong>Which two shares cooperate?</strong> The MST key-management node share and the Google Drive backup share (recovered via OAuth on the new device). <strong>Why is the stolen device's share not a risk?</strong> The stolen device share is locked inside the Secure Enclave, which requires biometric authentication to access. The thief cannot unlock it without the user's fingerprint or face. Even if the thief extracted the enclave data (extremely difficult), the share alone cannot sign a transaction - it requires a second share to meet the 2-of-3 threshold. Therefore, the funds remain safe.</p>\n                <div class=\"marks-bd\">\n                    <span>Marks breakdown (4 marks):</span><br>\n                    • <strong>1 mark:</strong> Identifies the two cooperating shares correctly (node + cloud backup).<br>\n                    • <strong>1 mark:</strong> States that the stolen device share is inaccessible due to biometric lock.<br>\n                    • <strong>1 mark:</strong> Explains the threshold property: a single share cannot sign.<br>\n                    • <strong>1 mark:</strong> Concludes that the funds remain secure despite the stolen device.\n                </div>"
     },
     {
       "id": "q8",
@@ -228,9 +228,9 @@
       "type": "descriptive",
       "difficulty": "Hard",
       "marks": 6,
-      "text": "Explain, with reference to specific cryptographic techniques, how SARAL achieves <strong>non‑custodial self‑sovereignty</strong> while eliminating seed phrases. Your answer must cover: (a) the role of Distributed Key Generation, (b) threshold ECDSA for transaction signing, and (c) how the user maintains control even though a third‑party node holds one key share.",
-      "explanation": "Model Answer: SARAL replaces the traditional single‑private‑key model with a 2‑of‑3 threshold scheme. (a) Distributed Key Generation (DKG): Instead of generating a key on one device, the user's phone, an MST key‑management node, and a cloud backup service jointly run a multi‑party computation that outputs three shares of an ECDSA private key. The full private key never exists in memory anywhere, eliminating the single point of failure. (b) Threshold ECDSA: To sign a transaction, any two of the three shares must cooperate via a threshold signing protocol. The user's device (unlocked by biometric) and the MST node jointly produce a valid signature without ever combining their shares. The signature is indistinguishable from one produced by a normal single key, so it is accepted by the MST network. (c) User control despite third‑party share: The MST node holds only one share and cannot sign alone. The user's biometric authorises the local share, and together they meet the threshold. Even if the node is compromised, it cannot move funds without the user's biometric or the cloud backup share. The user never surrenders custody because no single party ever holds enough shares to act independently. This achieves self‑sovereignty without a seed phrase.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Model Answer &amp; Marks Breakdown (6 marks)</div>\n                <p><strong>Model Answer:</strong> SARAL replaces the traditional single‑private‑key model with a 2‑of‑3 threshold scheme. <strong>(a) Distributed Key Generation (DKG):</strong> Instead of generating a key on one device, the user's phone, an MST key‑management node, and a cloud backup service jointly run a multi‑party computation that outputs three <em>shares</em> of an ECDSA private key. The full private key never exists in memory anywhere, eliminating the single point of failure. <strong>(b) Threshold ECDSA:</strong> To sign a transaction, any two of the three shares must cooperate via a threshold signing protocol. The user's device (unlocked by biometric) and the MST node jointly produce a valid signature without ever combining their shares. The signature is indistinguishable from one produced by a normal single key, so it is accepted by the MST network. <strong>(c) User control despite third‑party share:</strong> The MST node holds only one share and cannot sign alone. The user's biometric authorises the local share, and together they meet the threshold. Even if the node is compromised, it cannot move funds without the user's biometric or the cloud backup share. The user never surrenders custody because no single party ever holds enough shares to act independently. This achieves self‑sovereignty without a seed phrase.</p>\n                <div class=\"marks-bd\">\n                    <span>Marks breakdown (6 marks):</span><br>\n                    • <strong>2 marks:</strong> Accurately explains DKG and its role in never creating a full key.<br>\n                    • <strong>2 marks:</strong> Describes threshold ECDSA and how two shares jointly sign without revealing the key.<br>\n                    • <strong>2 marks:</strong> Explains why the node holding a share does not compromise user control, referencing the threshold and the necessity of the user's biometric share.\n                </div>"
+      "text": "Explain, with reference to specific cryptographic techniques, how SARAL achieves <strong>non-custodial self-sovereignty</strong> while eliminating seed phrases. Your answer must cover: (a) the role of Distributed Key Generation, (b) threshold ECDSA for transaction signing, and (c) how the user maintains control even though a third-party node holds one key share.",
+      "explanation": "Model Answer: SARAL replaces the traditional single-private-key model with a 2-of-3 threshold scheme. (a) Distributed Key Generation (DKG): Instead of generating a key on one device, the user's phone, an MST key-management node, and a cloud backup service jointly run a multi-party computation that outputs three shares of an ECDSA private key. The full private key never exists in memory anywhere, eliminating the single point of failure. (b) Threshold ECDSA: To sign a transaction, any two of the three shares must cooperate via a threshold signing protocol. The user's device (unlocked by biometric) and the MST node jointly produce a valid signature without ever combining their shares. The signature is indistinguishable from one produced by a normal single key, so it is accepted by the MST network. (c) User control despite third-party share: The MST node holds only one share and cannot sign alone. The user's biometric authorises the local share, and together they meet the threshold. Even if the node is compromised, it cannot move funds without the user's biometric or the cloud backup share. The user never surrenders custody because no single party ever holds enough shares to act independently. This achieves self-sovereignty without a seed phrase.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Model Answer &amp; Marks Breakdown (6 marks)</div>\n                <p><strong>Model Answer:</strong> SARAL replaces the traditional single-private-key model with a 2-of-3 threshold scheme. <strong>(a) Distributed Key Generation (DKG):</strong> Instead of generating a key on one device, the user's phone, an MST key-management node, and a cloud backup service jointly run a multi-party computation that outputs three <em>shares</em> of an ECDSA private key. The full private key never exists in memory anywhere, eliminating the single point of failure. <strong>(b) Threshold ECDSA:</strong> To sign a transaction, any two of the three shares must cooperate via a threshold signing protocol. The user's device (unlocked by biometric) and the MST node jointly produce a valid signature without ever combining their shares. The signature is indistinguishable from one produced by a normal single key, so it is accepted by the MST network. <strong>(c) User control despite third-party share:</strong> The MST node holds only one share and cannot sign alone. The user's biometric authorises the local share, and together they meet the threshold. Even if the node is compromised, it cannot move funds without the user's biometric or the cloud backup share. The user never surrenders custody because no single party ever holds enough shares to act independently. This achieves self-sovereignty without a seed phrase.</p>\n                <div class=\"marks-bd\">\n                    <span>Marks breakdown (6 marks):</span><br>\n                    • <strong>2 marks:</strong> Accurately explains DKG and its role in never creating a full key.<br>\n                    • <strong>2 marks:</strong> Describes threshold ECDSA and how two shares jointly sign without revealing the key.<br>\n                    • <strong>2 marks:</strong> Explains why the node holding a share does not compromise user control, referencing the threshold and the necessity of the user's biometric share.\n                </div>"
     },
     {
       "id": "q10",
@@ -238,9 +238,9 @@
       "type": "descriptive",
       "difficulty": "Medium",
       "marks": 2,
-      "text": "In 100–150 words, describe how SARAL enables wallet recovery without a seed phrase when a user loses their phone. Mention the cryptographic roles of the OAuth cloud backup and the MST key‑management node.",
-      "explanation": "Model Answer: When a user loses their phone, they install the SARAL‑enabled app on a new device and sign into the same Google/Apple account. The SARAL SDK retrieves the encrypted key share stored in the user's cloud account via OAuth. The MST key‑management node, which holds its own independent share, cooperatively runs a threshold signing protocol with the recovered cloud share. Together, they authorise a transaction that migrates funds to a new wallet address created on the new device. The lost device's share (now inaccessible) is not needed because the 2‑of‑3 threshold can be met with the node share and the cloud backup share. At no point is any single party able to move funds alone — the node cannot act without the cloud share, and the cloud share is encrypted and useless without the node's cooperation.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Model Answer &amp; Marks Breakdown</div>\n                <p><strong>Model Answer:</strong> When a user loses their phone, they install the SARAL‑enabled app on a new device and sign into the same Google/Apple account. The SARAL SDK retrieves the encrypted key share stored in the user's cloud account via OAuth. The MST key‑management node, which holds its own independent share, cooperatively runs a threshold signing protocol with the recovered cloud share. Together, they authorise a transaction that migrates funds to a new wallet address created on the new device. The lost device's share (now inaccessible) is not needed because the 2‑of‑3 threshold can be met with the node share and the cloud backup share. At no point is any single party able to move funds alone — the node cannot act without the cloud share, and the cloud share is encrypted and useless without the node's cooperation.</p>\n                <div class=\"marks-bd\">\n                    <span>Marks breakdown (2 marks):</span><br>\n                    • <strong>1 mark:</strong> Clearly describes the recovery flow (new device → OAuth → retrieve encrypted share → cooperate with MST node).<br>\n                    • <strong>1 mark:</strong> Explains the 2‑of‑3 threshold and that the node + cloud share suffice, maintaining non‑custodial security.\n                </div>"
+      "text": "In 100 - 150 words, describe how SARAL enables wallet recovery without a seed phrase when a user loses their phone. Mention the cryptographic roles of the OAuth cloud backup and the MST key-management node.",
+      "explanation": "Model Answer: When a user loses their phone, they install the SARAL-enabled app on a new device and sign into the same Google/Apple account. The SARAL SDK retrieves the encrypted key share stored in the user's cloud account via OAuth. The MST key-management node, which holds its own independent share, cooperatively runs a threshold signing protocol with the recovered cloud share. Together, they authorise a transaction that migrates funds to a new wallet address created on the new device. The lost device's share (now inaccessible) is not needed because the 2-of-3 threshold can be met with the node share and the cloud backup share. At no point is any single party able to move funds alone - the node cannot act without the cloud share, and the cloud share is encrypted and useless without the node's cooperation.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Model Answer &amp; Marks Breakdown</div>\n                <p><strong>Model Answer:</strong> When a user loses their phone, they install the SARAL-enabled app on a new device and sign into the same Google/Apple account. The SARAL SDK retrieves the encrypted key share stored in the user's cloud account via OAuth. The MST key-management node, which holds its own independent share, cooperatively runs a threshold signing protocol with the recovered cloud share. Together, they authorise a transaction that migrates funds to a new wallet address created on the new device. The lost device's share (now inaccessible) is not needed because the 2-of-3 threshold can be met with the node share and the cloud backup share. At no point is any single party able to move funds alone - the node cannot act without the cloud share, and the cloud share is encrypted and useless without the node's cooperation.</p>\n                <div class=\"marks-bd\">\n                    <span>Marks breakdown (2 marks):</span><br>\n                    • <strong>1 mark:</strong> Clearly describes the recovery flow (new device → OAuth → retrieve encrypted share → cooperate with MST node).<br>\n                    • <strong>1 mark:</strong> Explains the 2-of-3 threshold and that the node + cloud share suffice, maintaining non-custodial security.\n                </div>"
     }
   ]
 }

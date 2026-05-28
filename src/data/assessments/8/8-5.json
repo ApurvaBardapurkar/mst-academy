@@ -32,8 +32,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "A mapping provides O(1) constant‑time lookup and is the standard for balance tracking. Arrays would require loops and gas‑heavy searches.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: B</div><p>A mapping provides O(1) constant‑time lookup and is the standard for balance tracking. Arrays would require loops and gas‑heavy searches.</p>"
+      "explanation": "A mapping provides O(1) constant-time lookup and is the standard for balance tracking. Arrays would require loops and gas-heavy searches.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: B</div><p>A mapping provides O(1) constant-time lookup and is the standard for balance tracking. Arrays would require loops and gas-heavy searches.</p>"
     },
     {
       "id": "q2",
@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "All value types in Solidity have a zero‑value default: uint is 0, bool is false, address is 0x0. Mappings return the default for any unset key.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: B</div><p>All value types in Solidity have a zero‑value default: <code>uint</code> is 0, <code>bool</code> is false, <code>address</code> is 0x0. Mappings return the default for any unset key.</p>"
+      "explanation": "All value types in Solidity have a zero-value default: uint is 0, bool is false, address is 0x0. Mappings return the default for any unset key.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: B</div><p>All value types in Solidity have a zero-value default: <code>uint</code> is 0, <code>bool</code> is false, <code>address</code> is 0x0. Mappings return the default for any unset key.</p>"
     },
     {
       "id": "q3",
@@ -74,7 +74,7 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "Why is it recommended to use <code>calldata</code> instead of <code>memory</code> for read‑only array parameters in external functions?",
+      "text": "Why is it recommended to use <code>calldata</code> instead of <code>memory</code> for read-only array parameters in external functions?",
       "options": [
         {
           "key": "A",
@@ -131,8 +131,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Mappings are storage‑only and have no length or iteration capability. Use an auxiliary array if you need to enumerate keys.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Mappings are storage‑only and have no length or iteration capability. Use an auxiliary array if you need to enumerate keys.</p>"
+      "explanation": "Mappings are storage-only and have no length or iteration capability. Use an auxiliary array if you need to enumerate keys.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Mappings are storage-only and have no length or iteration capability. Use an auxiliary array if you need to enumerate keys.</p>"
     },
     {
       "id": "q5",
@@ -144,12 +144,12 @@
       "options": [
         {
           "key": "A",
-          "text": "It packs them into a single 32‑byte storage slot.",
+          "text": "It packs them into a single 32-byte storage slot.",
           "isCorrect": true
         },
         {
           "key": "B",
-          "text": "Each uint128 occupies its own 32‑byte slot.",
+          "text": "Each uint128 occupies its own 32-byte slot.",
           "isCorrect": false
         },
         {
@@ -164,8 +164,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "The Solidity compiler packs consecutive small value types into single storage slots. Two uint128 values fit perfectly into one 32‑byte slot, reducing storage costs.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>The Solidity compiler packs consecutive small value types into single storage slots. Two <code>uint128</code> values fit perfectly into one 32‑byte slot, reducing storage costs.</p>"
+      "explanation": "The Solidity compiler packs consecutive small value types into single storage slots. Two uint128 values fit perfectly into one 32-byte slot, reducing storage costs.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>The Solidity compiler packs consecutive small value types into single storage slots. Two <code>uint128</code> values fit perfectly into one 32-byte slot, reducing storage costs.</p>"
     },
     {
       "id": "q6",

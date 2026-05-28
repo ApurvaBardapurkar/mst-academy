@@ -55,13 +55,6 @@
     <p><strong>3. Scalability:</strong> The network can process a high volume of transactions quickly and cheaply. Scalability means the chain can handle global demand - thousands or millions of transactions per second - without fees becoming prohibitive.</p>
     <p>The trilemma claims that improving one property inevitably forces a sacrifice in at least one of the other two. A highly secure and decentralised chain (like Bitcoin) must limit its throughput because every transaction must be validated by thousands of nodes. A highly scalable and secure chain (like some enterprise blockchains) may achieve speed by limiting validator access, sacrificing decentralisation. A highly scalable and decentralised chain might do so by reducing security guarantees (e.g., using a less robust consensus mechanism).</p>
 
-    <div class="callout analogy">
-        <div class="callout-label">🚂 Indian Railways Analogy</div>
-        <p>Think of Indian Railways as a blockchain. <strong>Security</strong> is like the safety systems - signals, brakes, and track inspections that prevent accidents. <strong>Decentralisation</strong> is like having thousands of stations across India, from metro cities to remote villages, so everyone has access. <strong>Scalability</strong> is the number of trains and passengers the network can handle per day. Indian Railways faces its own trilemma: running more trains (scalability) on the same tracks increases collision risk (security), while building stations in every village (decentralisation) slows down express services (scalability). The solution? Multiple layers - local trains for short distances, express trains for long routes, and the Vande Bharat semi-high-speed service for premium corridors. Blockchains use similar layered approaches (L1 + L2) to address their trilemma.</p>
-    </div>
-
-    <p><strong>The mathematical intuition behind the trilemma:</strong> At its core, the trilemma is a consequence of the CAP theorem in distributed systems (Consistency, Availability, Partition tolerance - pick two). In a blockchain context, if every node must validate every transaction (full decentralisation + full security), the throughput is limited by the slowest node and the network latency between nodes. If you want higher throughput, you must either reduce the number of validators (less decentralised) or accept that some transactions might not be validated by all nodes (less secure). There is no mathematical proof that the trilemma is unsolvable - it is an empirical observation. New cryptographic techniques (like ZK proofs) and network engineering innovations may eventually "bend" the triangle, but no chain has fully broken it yet.</p>
-
     <div class="diagram-wrap">
         <div class="diagram-title">FIGURE 14.1-A · The Scalability Trilemma Visualised</div>
         <pre>                          SECURITY
@@ -89,30 +82,6 @@
     <p>Security is primarily determined by the <strong>consensus mechanism</strong> and the <strong>cost of attacking the network</strong>. In Proof-of-Work, the cost is the electricity and hardware required to control 51% of the hash rate. In Proof-of-Stake, the cost is the amount of staked capital that can be slashed if an attack is detected. A chain with a $1 billion market cap where attacking requires $500 million in staked tokens is far more secure than a chain where attacking costs only $50,000.</p>
     <p><strong>Why security limits scalability:</strong> Every transaction must be verified by a sufficient number of independent nodes to ensure security. The more nodes that must reach consensus, the slower the process. A chain with 100,000 validators (highly decentralised and secure) takes longer to reach consensus than a chain with 21 validators (less decentralised, but faster). This is the direct trade-off: more verifiers = more time = less throughput.</p>
 
-    <p><strong>Types of blockchain security attacks:</strong> Understanding the trilemma requires understanding what "security" actually protects against. Here are the primary attack vectors that security measures must prevent:</p>
-    <div class="feature-list">
-        <div class="feature-item">
-            <div class="feature-num">1</div>
-            <div class="feature-title">51% Attack (Majority Attack)</div>
-            <div class="feature-desc">An attacker gains control of more than half the network's consensus power (hash rate in PoW, staked tokens in PoS). They can then double-spend coins, prevent transactions from being confirmed, and reverse recent blocks. The cost of this attack is the primary measure of chain security.</div>
-        </div>
-        <div class="feature-item">
-            <div class="feature-num">2</div>
-            <div class="feature-title">Sybil Attack</div>
-            <div class="feature-desc">An attacker creates thousands of fake identities (nodes) to overwhelm the network. PoW prevents this by requiring each "identity" to prove computational work. PoS prevents it by requiring each validator to lock real capital. Without these mechanisms, an attacker with 1,000 fake nodes could outvote honest participants.</div>
-        </div>
-        <div class="feature-item">
-            <div class="feature-num">3</div>
-            <div class="feature-title">Long-Range Attack</div>
-            <div class="feature-desc">In PoS systems, an attacker who held a majority stake in the past (even if they sold it since) could theoretically create an alternative chain history. This is prevented by checkpointing and "weak subjectivity" - requiring new nodes to start from a trusted recent state, not from the genesis block.</div>
-        </div>
-        <div class="feature-item">
-            <div class="feature-num">4</div>
-            <div class="feature-title">Censorship Attack</div>
-            <div class="feature-desc">Validators selectively exclude certain transactions from blocks. In a highly centralised chain with few validators, this is easy. In a decentralised chain with thousands of independent validators, censoring a transaction requires convincing every block producer to exclude it - practically impossible.</div>
-        </div>
-    </div>
-
     <div class="callout key">
         <div class="callout-label">🔑 The Cost of Attack</div>
         <p>Bitcoin's security is measured in hash power: the cost to rent enough ASIC miners to control 51% of the network for an hour is estimated at over $500,000. Ethereum's security is measured in staked ETH: a 51% attack would require purchasing and staking over $30 billion worth of ETH, which would then be slashed. MST's Parlia consensus combines stake-weighted validator election with PoA-style round-robin block production, creating a high cost of attack while maintaining throughput.</p>
@@ -126,13 +95,6 @@
     <p><strong>2. Trustlessness:</strong> You don't need to trust any single entity to behave honestly. You trust the mathematics and the economic incentives that make it irrational for any participant to cheat.</p>
     <p><strong>3. Resilience:</strong> If a data centre goes down, a decentralised network continues to operate. If the founding company disappears, the chain lives on. Bitcoin has survived over a decade without Satoshi Nakamoto.</p>
     <p><strong>Why decentralisation limits scalability:</strong> Every additional node that must validate transactions adds latency. If you have 10,000 nodes distributed globally, they must all communicate, agree on block order, and synchronise state. This takes time. Reducing the number of validators improves speed but sacrifices decentralisation. This is the second leg of the trilemma.</p>
-
-    <div class="callout analogy">
-        <div class="callout-label">🏘️ Indian Context: The Panchayat Analogy</div>
-        <p>India's Panchayati Raj system is a real-world example of decentralisation. Decisions are made at the village level (Gram Panchayat), the block level (Panchayat Samiti), and the district level (Zilla Parishad). This ensures that every village has a voice - no single authority can override local needs. But this decentralisation comes at a cost: decision-making is slow. A road repair that a centralised government could approve in a day might take weeks as it passes through three levels of governance. Similarly, a highly decentralised blockchain with 55,000+ validators (like MST) must balance the need for broad participation with the need for fast block production. MST achieves this by using a rotating committee of active validators per epoch, so not every validator needs to sign every block - but every validator has a fair chance of being selected.</p>
-    </div>
-
-    <p><strong>Measuring decentralisation - the Nakamoto Coefficient:</strong> The <strong>Nakamoto Coefficient</strong> is a metric that measures how many entities you need to compromise to control a blockchain. For Bitcoin, the Nakamoto Coefficient for mining is approximately 4 (the top 4 mining pools control over 51% of hash rate). For Ethereum, it is around 3 (Lido, Coinbase, and Kraken control over 50% of staked ETH). A higher Nakamoto Coefficient means better decentralisation. MST's fractional staking model, which distributes validator slots across thousands of independent stakers, aims for a high Nakamoto Coefficient by preventing stake concentration.</p>
 
     <div class="section-label">06 &nbsp; Scalability - The Demand That Never Ends</div>
     <h2 class="section-title">Transactions Per Second, Block Size, and the Global Audience</h2>
@@ -155,30 +117,6 @@
     </table>
 
     <p>MST's Parlia consensus combines the efficiency of Proof-of-Authority round-robin block production with the decentralisation of stake-weighted validator elections. By allowing <strong>fractional validator participation</strong> - where users can purchase fractional ownership in validator nodes without running their own infrastructure - MST dramatically expands the validator set (55,000+ validators) while maintaining high throughput (4,000+ TPS). This is a deliberate architectural choice to push the trilemma's boundaries, using economic incentives and efficient block propagation to improve all three dimensions simultaneously.</p>
-
-    <div class="callout key">
-        <div class="callout-label">🔑 Why MST's Approach Is Different</div>
-        <p>Most high-TPS chains achieve speed by reducing the validator count. Solana has ~2,000 validators but requires expensive hardware ($5,000+ per node). BNB Chain has only 29 active validators. MST takes a different path: it maintains a large validator set (55,000+) by lowering the barrier to entry through fractional staking, while using Parlia's efficient round-robin block production to maintain speed. The key insight is that not every validator needs to validate every block - a rotating committee of active block producers handles block creation, while the broader validator set provides economic security and governance participation. This is similar to how a parliament works: not every citizen votes on every law, but every citizen elects representatives who do.</p>
-    </div>
-
-    <p><strong>The impact of the trilemma on real users in India:</strong> The trilemma is not just a theoretical debate - it directly affects users. Consider three real scenarios:</p>
-    <div class="feature-list">
-        <div class="feature-item">
-            <div class="feature-num">1</div>
-            <div class="feature-title">Sending a UPI-style payment on-chain</div>
-            <div class="feature-desc">On Bitcoin (high security, low scalability), this takes 10 minutes and costs $2-$50 in fees. On Ethereum, it takes 12 seconds and costs $1-$10. On MST (high scalability), it takes 3 seconds and costs less than $0.001. For a kirana store owner in rural India processing hundreds of small transactions daily, only MST-level fees are viable.</div>
-        </div>
-        <div class="feature-item">
-            <div class="feature-num">2</div>
-            <div class="feature-title">Deploying a smart contract for a college hackathon</div>
-            <div class="feature-desc">On Ethereum, deploying a simple ERC-20 token costs $50-$200 in gas. For a college student in Lucknow, that is a week's hostel rent. On MST, the same deployment costs less than $0.01. The trilemma's scalability dimension directly determines whether blockchain development is accessible to Indian students.</div>
-        </div>
-        <div class="feature-item">
-            <div class="feature-num">3</div>
-            <div class="feature-title">Running a decentralised lending protocol</div>
-            <div class="feature-desc">On a highly centralised chain (like XRP with 55 validators), the protocol is cheap and fast but the operator can be compelled to freeze user funds. On Ethereum, it is censorship-resistant but expensive. On MST, with 55,000+ validators and low fees, the protocol gets the censorship resistance of a decentralised chain with the affordability of a fast chain - the ideal balance for DeFi in emerging markets.</div>
-        </div>
-    </div>
 
     <div class="section-label">08 &nbsp; Beyond the Trilemma - Layer 2s, Sharding, and Modular Chains</div>
     <h2 class="section-title">How the Industry Is Trying to Break the Impossible Triangle</h2>
@@ -209,12 +147,6 @@
         <div class="glossary-card"><div class="g-term">Parlia (PoSA)</div><div class="g-def">MST's consensus mechanism combining Proof-of-Authority efficiency with stake-weighted validator elections for high throughput and decentralisation.</div></div>
         <div class="glossary-card"><div class="g-term">Fractional Staking</div><div class="g-def">A model allowing users to own a fraction of a validator node, lowering barriers to participation and expanding the validator set.</div></div>
         <div class="glossary-card"><div class="g-term">Layer 2</div><div class="g-def">A secondary protocol built on top of a base blockchain (L1) that processes transactions off-chain and settles them on the L1.</div></div>
-        <div class="glossary-card"><div class="g-term">Nakamoto Coefficient</div><div class="g-def">A metric measuring the minimum number of independent entities that must collude to compromise a blockchain. A higher coefficient indicates stronger decentralisation.</div></div>
-        <div class="glossary-card"><div class="g-term">51% Attack</div><div class="g-def">An attack where an entity controls more than half the network's consensus power (hash rate or stake), enabling double-spending and transaction censorship.</div></div>
-        <div class="glossary-card"><div class="g-term">Sybil Attack</div><div class="g-def">An attack where an adversary creates many fake identities to gain disproportionate influence. Prevented by requiring proof of work or proof of stake from each participant.</div></div>
-        <div class="glossary-card"><div class="g-term">Block Propagation Time</div><div class="g-def">The time it takes for a newly produced block to reach all validators in the network. Larger blocks and more validators increase propagation time, affecting both security and scalability.</div></div>
-        <div class="glossary-card"><div class="g-term">Modular Blockchain</div><div class="g-def">A blockchain architecture that separates execution, settlement, consensus, and data availability into different specialised layers, each optimised independently.</div></div>
-        <div class="glossary-card"><div class="g-term">Censorship Resistance</div><div class="g-def">The property that no single entity can prevent a valid transaction from being included in the blockchain. Directly tied to decentralisation - more independent validators make censorship harder.</div></div>
     </div>
 
     <div class="page-footer">

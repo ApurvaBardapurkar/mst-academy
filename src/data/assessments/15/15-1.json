@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Governance tokens represent membership and voting power. They are typically ERC‑20 tokens with delegation capabilities.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Governance tokens represent membership and voting power. They are typically ERC‑20 tokens with delegation capabilities.</p>"
+      "explanation": "Governance tokens represent membership and voting power. They are typically ERC-20 tokens with delegation capabilities.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Governance tokens represent membership and voting power. They are typically ERC-20 tokens with delegation capabilities.</p>"
     },
     {
       "id": "q3",
@@ -131,8 +131,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "OpenZeppelin's Governor contract provides a full DAO framework including proposal lifecycle, voting, and execution. Combined with TimelockController, it's the standard for on‑chain governance.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>OpenZeppelin's Governor contract provides a full DAO framework including proposal lifecycle, voting, and execution. Combined with TimelockController, it's the standard for on‑chain governance.</p>"
+      "explanation": "OpenZeppelin's Governor contract provides a full DAO framework including proposal lifecycle, voting, and execution. Combined with TimelockController, it's the standard for on-chain governance.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>OpenZeppelin's Governor contract provides a full DAO framework including proposal lifecycle, voting, and execution. Combined with TimelockController, it's the standard for on-chain governance.</p>"
     },
     {
       "id": "q5",
@@ -159,7 +159,7 @@
         },
         {
           "key": "D",
-          "text": "The number of times a proposal can be re‑submitted.",
+          "text": "The number of times a proposal can be re-submitted.",
           "isCorrect": false
         }
       ],
@@ -197,8 +197,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "On expensive chains, voting costs can discourage participation. MST's sub‑paisa fees democratize access to governance.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>On expensive chains, voting costs can discourage participation. MST's sub‑paisa fees democratize access to governance.</p>"
+      "explanation": "On expensive chains, voting costs can discourage participation. MST's sub-paisa fees democratize access to governance.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>On expensive chains, voting costs can discourage participation. MST's sub-paisa fees democratize access to governance.</p>"
     },
     {
       "id": "q7",
@@ -220,7 +220,7 @@
         },
         {
           "key": "C",
-          "text": "Voting is done entirely off‑chain.",
+          "text": "Voting is done entirely off-chain.",
           "isCorrect": false
         },
         {
@@ -239,7 +239,7 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "Which of the following is a common criticism of simple token‑weighted voting (1 token = 1 vote)?",
+      "text": "Which of the following is a common criticism of simple token-weighted voting (1 token = 1 vote)?",
       "options": [
         {
           "key": "A",

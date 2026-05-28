@@ -27,13 +27,13 @@
         },
         {
           "key": "D",
-          "text": "It is faster than a single‑key wallet.",
+          "text": "It is faster than a single-key wallet.",
           "isCorrect": false
         }
       ],
       "correctAnswer": "A",
-      "explanation": "A multisig requires M‑of‑N signatures, so even if one key is compromised, funds cannot be moved without the other signers.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>A multisig requires M‑of‑N signatures, so even if one key is compromised, funds cannot be moved without the other signers.</p>"
+      "explanation": "A multisig requires M-of-N signatures, so even if one key is compromised, funds cannot be moved without the other signers.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>A multisig requires M-of-N signatures, so even if one key is compromised, funds cannot be moved without the other signers.</p>"
     },
     {
       "id": "q2",
@@ -78,7 +78,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Diversifying the treasury into multiple asset classes — stablecoins, blue‑chip crypto, yield‑bearing assets, and strategic holdings.",
+          "text": "Diversifying the treasury into multiple asset classes - stablecoins, blue-chip crypto, yield-bearing assets, and strategic holdings.",
           "isCorrect": true
         },
         {
@@ -98,8 +98,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "The endowment model diversifies the treasury to reduce risk, ensure operational resilience, and capture long‑term growth.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>The endowment model diversifies the treasury to reduce risk, ensure operational resilience, and capture long‑term growth.</p>"
+      "explanation": "The endowment model diversifies the treasury to reduce risk, ensure operational resilience, and capture long-term growth.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>The endowment model diversifies the treasury to reduce risk, ensure operational resilience, and capture long-term growth.</p>"
     },
     {
       "id": "q4",
@@ -131,8 +131,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Over‑concentration in a single volatile asset, especially the DAO's own token, creates insolvency risk during market downturns.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Over‑concentration in a single volatile asset, especially the DAO's own token, creates insolvency risk during market downturns.</p>"
+      "explanation": "Over-concentration in a single volatile asset, especially the DAO's own token, creates insolvency risk during market downturns.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Over-concentration in a single volatile asset, especially the DAO's own token, creates insolvency risk during market downturns.</p>"
     },
     {
       "id": "q5",
@@ -144,12 +144,12 @@
       "options": [
         {
           "key": "A",
-          "text": "SpendingLimit module — allows a designated address to spend up to a certain amount per day without full multisig approval.",
+          "text": "SpendingLimit module - allows a designated address to spend up to a certain amount per day without full multisig approval.",
           "isCorrect": true
         },
         {
           "key": "B",
-          "text": "ERC‑20 module.",
+          "text": "ERC-20 module.",
           "isCorrect": false
         },
         {
@@ -164,8 +164,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "The SpendingLimit module enables efficient day‑to‑day operations by delegating limited spending authority to a designated address.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>The SpendingLimit module enables efficient day‑to‑day operations by delegating limited spending authority to a designated address.</p>"
+      "explanation": "The SpendingLimit module enables efficient day-to-day operations by delegating limited spending authority to a designated address.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>The SpendingLimit module enables efficient day-to-day operations by delegating limited spending authority to a designated address.</p>"
     },
     {
       "id": "q6",
@@ -177,7 +177,7 @@
       "options": [
         {
           "key": "A",
-          "text": "By integrating the Governor contract with a Timelock and the Gnosis Safe, so the execution is triggered on‑chain.",
+          "text": "By integrating the Governor contract with a Timelock and the Gnosis Safe, so the execution is triggered on-chain.",
           "isCorrect": true
         },
         {
@@ -206,7 +206,7 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "Why is MST's sub‑paisa gas fee particularly beneficial for treasury management?",
+      "text": "Why is MST's sub-paisa gas fee particularly beneficial for treasury management?",
       "options": [
         {
           "key": "A",
@@ -243,7 +243,7 @@
       "options": [
         {
           "key": "A",
-          "text": "12–24 months of operating expenses in stablecoins.",
+          "text": "12 - 24 months of operating expenses in stablecoins.",
           "isCorrect": true
         },
         {
@@ -258,7 +258,7 @@
         },
         {
           "key": "D",
-          "text": "Zero — the DAO should not hold stablecoins.",
+          "text": "Zero - the DAO should not hold stablecoins.",
           "isCorrect": false
         }
       ],
@@ -276,7 +276,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Smart contract risk — a bug in the yield farm contract could lead to loss of principal.",
+          "text": "Smart contract risk - a bug in the yield farm contract could lead to loss of principal.",
           "isCorrect": true
         },
         {
@@ -296,8 +296,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Yield farming involves interacting with external smart contracts, which carry bug and exploit risks. Always use audited, battle‑tested protocols.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Yield farming involves interacting with external smart contracts, which carry bug and exploit risks. Always use audited, battle‑tested protocols.</p>"
+      "explanation": "Yield farming involves interacting with external smart contracts, which carry bug and exploit risks. Always use audited, battle-tested protocols.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Yield farming involves interacting with external smart contracts, which carry bug and exploit risks. Always use audited, battle-tested protocols.</p>"
     },
     {
       "id": "q10",
@@ -309,7 +309,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Gnosis Safe contracts are EVM‑compatible and can be deployed on MST; the Safe UI can be configured to use an MST RPC.",
+          "text": "Gnosis Safe contracts are EVM-compatible and can be deployed on MST; the Safe UI can be configured to use an MST RPC.",
           "isCorrect": true
         },
         {
@@ -329,8 +329,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Because MST is fully EVM‑compatible, Gnosis Safe contracts work identically. The UI can connect to an MST RPC endpoint.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Because MST is fully EVM‑compatible, Gnosis Safe contracts work identically. The UI can connect to an MST RPC endpoint.</p>"
+      "explanation": "Because MST is fully EVM-compatible, Gnosis Safe contracts work identically. The UI can connect to an MST RPC endpoint.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Because MST is fully EVM-compatible, Gnosis Safe contracts work identically. The UI can connect to an MST RPC endpoint.</p>"
     }
   ]
 }

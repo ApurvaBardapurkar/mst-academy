@@ -83,7 +83,7 @@
         },
         {
           "key": "B",
-          "text": "Prettier – Code formatter",
+          "text": "Prettier - Code formatter",
           "isCorrect": false
         },
         {
@@ -116,7 +116,7 @@
         },
         {
           "key": "B",
-          "text": "Allow updates that do not change the leftmost non‑zero digit — any 6.x.x version.",
+          "text": "Allow updates that do not change the leftmost non-zero digit - any 6.x.x version.",
           "isCorrect": true
         },
         {

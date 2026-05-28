@@ -8,7 +8,7 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "Which hash algorithm does Ethereum (and MST Blockchain, as an EVM-compatible chain) use internally — including for the <code>keccak256()</code> Solidity opcode?",
+      "text": "Which hash algorithm does Ethereum (and MST Blockchain, as an EVM-compatible chain) use internally - including for the <code>keccak256()</code> Solidity opcode?",
       "options": [
         {
           "key": "A",
@@ -32,8 +32,8 @@
         }
       ],
       "correctAnswer": "C",
-      "explanation": "Ethereum chose Keccak-256 (the 2012 SHA-3 competition winner) for all internal operations — including address derivation, transaction hashing, and the keccak256() Solidity built-in. Bitcoin uses SHA-256. MD5 is a broken 128-bit hash not used in any serious blockchain. BLAKE2b is a modern high-speed hash used in some contexts (e.g., Zcash) but not Ethereum/MST.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C — Explanation</div>\n        <p>Ethereum chose <strong>Keccak-256</strong> (the 2012 SHA-3 competition winner) for all internal operations — including address derivation, transaction hashing, and the <code>keccak256()</code> Solidity built-in. Bitcoin uses SHA-256. MD5 is a broken 128-bit hash not used in any serious blockchain. BLAKE2b is a modern high-speed hash used in some contexts (e.g., Zcash) but not Ethereum/MST.</p>\n        <div class=\"marks-bd\"><span>Common trap:</span> Ethereum's Keccak-256 is NOT identical to NIST's final SHA-3 standard — they use different padding. They produce different outputs for the same input.</div>"
+      "explanation": "Ethereum chose Keccak-256 (the 2012 SHA-3 competition winner) for all internal operations - including address derivation, transaction hashing, and the keccak256() Solidity built-in. Bitcoin uses SHA-256. MD5 is a broken 128-bit hash not used in any serious blockchain. BLAKE2b is a modern high-speed hash used in some contexts (e.g., Zcash) but not Ethereum/MST.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - Explanation</div>\n        <p>Ethereum chose <strong>Keccak-256</strong> (the 2012 SHA-3 competition winner) for all internal operations - including address derivation, transaction hashing, and the <code>keccak256()</code> Solidity built-in. Bitcoin uses SHA-256. MD5 is a broken 128-bit hash not used in any serious blockchain. BLAKE2b is a modern high-speed hash used in some contexts (e.g., Zcash) but not Ethereum/MST.</p>\n        <div class=\"marks-bd\"><span>Common trap:</span> Ethereum's Keccak-256 is NOT identical to NIST's final SHA-3 standard - they use different padding. They produce different outputs for the same input.</div>"
     },
     {
       "id": "q2",
@@ -60,13 +60,13 @@
         },
         {
           "key": "D",
-          "text": "Variable — depends on input content",
+          "text": "Variable - depends on input content",
           "isCorrect": false
         }
       ],
       "correctAnswer": "C",
-      "explanation": "SHA-256 always produces exactly 256 bits = 32 bytes = 64 hexadecimal characters — regardless of input size. Hash \"a\" (1 byte) or a 50 MB video — the output is always 64 hex chars. This is the \"Fixed Output Size\" property. It's what makes block header PrevHash fields a predictable 32 bytes.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C — Explanation</div>\n        <p>SHA-256 always produces exactly <strong>256 bits</strong> = 32 bytes = 64 hexadecimal characters — regardless of input size. Hash \"a\" (1 byte) or a 50 MB video — the output is always 64 hex chars. This is the \"Fixed Output Size\" property. It's what makes block header PrevHash fields a predictable 32 bytes.</p>"
+      "explanation": "SHA-256 always produces exactly 256 bits = 32 bytes = 64 hexadecimal characters - regardless of input size. Hash \"a\" (1 byte) or a 50 MB video - the output is always 64 hex chars. This is the \"Fixed Output Size\" property. It's what makes block header PrevHash fields a predictable 32 bytes.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - Explanation</div>\n        <p>SHA-256 always produces exactly <strong>256 bits</strong> = 32 bytes = 64 hexadecimal characters - regardless of input size. Hash \"a\" (1 byte) or a 50 MB video - the output is always 64 hex chars. This is the \"Fixed Output Size\" property. It's what makes block header PrevHash fields a predictable 32 bytes.</p>"
     },
     {
       "id": "q3",
@@ -98,8 +98,8 @@
         }
       ],
       "correctAnswer": "C",
-      "explanation": "The avalanche effect is the property that a minimal input change causes a drastic output change — roughly half the output bits flip. Changing \"Hello!\" to \"Hello.\" (one character) produces a completely different SHA-256 hash. This is critical for blockchain: it means any tampering with a block's data changes its hash dramatically — making subtle, undetectable forgery impossible.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C — Explanation</div>\n        <p>The <strong>avalanche effect</strong> is the property that a minimal input change causes a drastic output change — roughly half the output bits flip. Changing \"Hello!\" to \"Hello.\" (one character) produces a completely different SHA-256 hash. This is critical for blockchain: it means any tampering with a block's data changes its hash dramatically — making subtle, undetectable forgery impossible.</p>"
+      "explanation": "The avalanche effect is the property that a minimal input change causes a drastic output change - roughly half the output bits flip. Changing \"Hello!\" to \"Hello.\" (one character) produces a completely different SHA-256 hash. This is critical for blockchain: it means any tampering with a block's data changes its hash dramatically - making subtle, undetectable forgery impossible.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - Explanation</div>\n        <p>The <strong>avalanche effect</strong> is the property that a minimal input change causes a drastic output change - roughly half the output bits flip. Changing \"Hello!\" to \"Hello.\" (one character) produces a completely different SHA-256 hash. This is critical for blockchain: it means any tampering with a block's data changes its hash dramatically - making subtle, undetectable forgery impossible.</p>"
     },
     {
       "id": "q4",
@@ -111,28 +111,28 @@
       "options": [
         {
           "key": "A",
-          "text": "Determinism — same fingerprint always produces the same hash",
+          "text": "Determinism - same fingerprint always produces the same hash",
           "isCorrect": false
         },
         {
           "key": "B",
-          "text": "Fixed output size — the hash is smaller than the fingerprint image",
+          "text": "Fixed output size - the hash is smaller than the fingerprint image",
           "isCorrect": false
         },
         {
           "key": "C",
-          "text": "Pre-image resistance — the hash cannot be reversed to reconstruct the original fingerprint",
+          "text": "Pre-image resistance - the hash cannot be reversed to reconstruct the original fingerprint",
           "isCorrect": true
         },
         {
           "key": "D",
-          "text": "Collision resistance — no two fingerprints produce the same hash",
+          "text": "Collision resistance - no two fingerprints produce the same hash",
           "isCorrect": false
         }
       ],
       "correctAnswer": "C",
-      "explanation": "Pre-image resistance (one-way property) is what makes storing a biometric hash secure. Even if an attacker steals the entire hash database, they cannot compute the original fingerprint from the hash — the function is irreversible. Note that Determinism (A) and Collision Resistance (D) are also relevant properties for Aadhaar's functioning, but they are not what makes it secure against database theft — that specific security property is pre-image resistance.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C — Explanation</div>\n        <p><strong>Pre-image resistance</strong> (one-way property) is what makes storing a biometric hash secure. Even if an attacker steals the entire hash database, they cannot compute the original fingerprint from the hash — the function is irreversible. Note that Determinism (A) and Collision Resistance (D) are also relevant properties for Aadhaar's functioning, but they are not what makes it <em>secure</em> against database theft — that specific security property is pre-image resistance.</p>\n        <div class=\"marks-bd\"><span>Exam tip:</span> When a question asks specifically about \"protecting stored data\" or \"security against database breaches,\" the answer is pre-image resistance.</div>"
+      "explanation": "Pre-image resistance (one-way property) is what makes storing a biometric hash secure. Even if an attacker steals the entire hash database, they cannot compute the original fingerprint from the hash - the function is irreversible. Note that Determinism (A) and Collision Resistance (D) are also relevant properties for Aadhaar's functioning, but they are not what makes it secure against database theft - that specific security property is pre-image resistance.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - Explanation</div>\n        <p><strong>Pre-image resistance</strong> (one-way property) is what makes storing a biometric hash secure. Even if an attacker steals the entire hash database, they cannot compute the original fingerprint from the hash - the function is irreversible. Note that Determinism (A) and Collision Resistance (D) are also relevant properties for Aadhaar's functioning, but they are not what makes it <em>secure</em> against database theft - that specific security property is pre-image resistance.</p>\n        <div class=\"marks-bd\"><span>Exam tip:</span> When a question asks specifically about \"protecting stored data\" or \"security against database breaches,\" the answer is pre-image resistance.</div>"
     },
     {
       "id": "q5",

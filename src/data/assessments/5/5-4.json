@@ -17,7 +17,7 @@
         },
         {
           "key": "B",
-          "text": "A native coin exists at the protocol level and pays gas; a token is a smart‑contract asset that requires gas in the native coin to move.",
+          "text": "A native coin exists at the protocol level and pays gas; a token is a smart-contract asset that requires gas in the native coin to move.",
           "isCorrect": true
         },
         {
@@ -32,8 +32,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "The native coin is the protocol‑level asset used exclusively for gas. Tokens are smart‑contract‑based and cannot pay gas fees. This is the foundational distinction in blockchain economics.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: B</div><p>The native coin is the protocol‑level asset used exclusively for gas. Tokens are smart‑contract‑based and cannot pay gas fees. This is the foundational distinction in blockchain economics.</p>"
+      "explanation": "The native coin is the protocol-level asset used exclusively for gas. Tokens are smart-contract-based and cannot pay gas fees. This is the foundational distinction in blockchain economics.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: B</div><p>The native coin is the protocol-level asset used exclusively for gas. Tokens are smart-contract-based and cannot pay gas fees. This is the foundational distinction in blockchain economics.</p>"
     },
     {
       "id": "q2",
@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "C",
-      "explanation": "Gas fees are always paid in the native coin. Without MSTC, the wallet cannot even submit the transaction. This is a protocol‑level requirement, not a wallet limitation.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: C</div><p>Gas fees are always paid in the native coin. Without MSTC, the wallet cannot even submit the transaction. This is a protocol‑level requirement, not a wallet limitation.</p>"
+      "explanation": "Gas fees are always paid in the native coin. Without MSTC, the wallet cannot even submit the transaction. This is a protocol-level requirement, not a wallet limitation.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: C</div><p>Gas fees are always paid in the native coin. Without MSTC, the wallet cannot even submit the transaction. This is a protocol-level requirement, not a wallet limitation.</p>"
     },
     {
       "id": "q3",
@@ -74,7 +74,7 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "Why does an ERC‑20 token transfer cost approximately 65,000 gas while a native coin transfer costs only 21,000 gas?",
+      "text": "Why does an ERC-20 token transfer cost approximately 65,000 gas while a native coin transfer costs only 21,000 gas?",
       "options": [
         {
           "key": "A",
@@ -98,8 +98,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "ERC‑20 transfers call the transfer() function, which reads and writes storage slots (SLOAD, SSTORE) and emits events (LOG3). These additional opcodes add ~44,000 gas on top of the 21,000 base cost. The value transferred does not affect the gas cost.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: B</div><p>ERC‑20 transfers call the <code>transfer()</code> function, which reads and writes storage slots (SLOAD, SSTORE) and emits events (LOG3). These additional opcodes add ~44,000 gas on top of the 21,000 base cost. The value transferred does not affect the gas cost.</p>"
+      "explanation": "ERC-20 transfers call the transfer() function, which reads and writes storage slots (SLOAD, SSTORE) and emits events (LOG3). These additional opcodes add ~44,000 gas on top of the 21,000 base cost. The value transferred does not affect the gas cost.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: B</div><p>ERC-20 transfers call the <code>transfer()</code> function, which reads and writes storage slots (SLOAD, SSTORE) and emits events (LOG3). These additional opcodes add ~44,000 gas on top of the 21,000 base cost. The value transferred does not affect the gas cost.</p>"
     },
     {
       "id": "q4",
@@ -164,8 +164,8 @@
         }
       ],
       "correctAnswer": "C",
-      "explanation": "MSTC is a volatile native coin, not a stablecoin. Its price fluctuates with the market. A rupee‑pegged stablecoin would be a separate ERC‑20 token deployed on MST, not the native asset.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: C</div><p>MSTC is a volatile native coin, not a stablecoin. Its price fluctuates with the market. A rupee‑pegged stablecoin would be a separate ERC‑20 token deployed on MST, not the native asset.</p>"
+      "explanation": "MSTC is a volatile native coin, not a stablecoin. Its price fluctuates with the market. A rupee-pegged stablecoin would be a separate ERC-20 token deployed on MST, not the native asset.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: C</div><p>MSTC is a volatile native coin, not a stablecoin. Its price fluctuates with the market. A rupee-pegged stablecoin would be a separate ERC-20 token deployed on MST, not the native asset.</p>"
     },
     {
       "id": "q6",
@@ -173,10 +173,10 @@
       "type": "true_false",
       "difficulty": "Medium",
       "marks": 2,
-      "text": "\"If a dApp on MST uses a relayer to pay gas fees on behalf of users, the transactions become genuinely free — no native coin is consumed at all.\"",
+      "text": "\"If a dApp on MST uses a relayer to pay gas fees on behalf of users, the transactions become genuinely free - no native coin is consumed at all.\"",
       "correctAnswer": "FALSE",
-      "explanation": "1 mark: Correctly states FALSE.+1 mark: Justification explains that validators still receive MSTC for their work, the economic layer persists, and that truly free transactions would break the network's denial‑of‑service protection. Must mention that gas is still consumed by the relayer.",
-      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> Correctly states FALSE.<br><strong>+1 mark:</strong> Justification explains that validators still receive MSTC for their work, the economic layer persists, and that truly free transactions would break the network's denial‑of‑service protection. Must mention that gas is still consumed by the relayer.</p>",
+      "explanation": "1 mark: Correctly states FALSE.+1 mark: Justification explains that validators still receive MSTC for their work, the economic layer persists, and that truly free transactions would break the network's denial-of-service protection. Must mention that gas is still consumed by the relayer.",
+      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> Correctly states FALSE.<br><strong>+1 mark:</strong> Justification explains that validators still receive MSTC for their work, the economic layer persists, and that truly free transactions would break the network's denial-of-service protection. Must mention that gas is still consumed by the relayer.</p>",
       "tfVerdict": "FALSE"
     },
     {
@@ -197,7 +197,7 @@
       "type": "other",
       "difficulty": "Medium",
       "marks": 6,
-      "text": "Calculate the total gas fee for an ERC‑20 token transfer on Ethereum and MST, then compare the results."
+      "text": "Calculate the total gas fee for an ERC-20 token transfer on Ethereum and MST, then compare the results."
     }
   ]
 }

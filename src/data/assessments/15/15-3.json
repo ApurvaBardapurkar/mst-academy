@@ -87,11 +87,11 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 3,
-      "text": "Why are MST's sub‑paisa fees particularly advantageous for DAO proposal lifecycles?",
+      "text": "Why are MST's sub-paisa fees particularly advantageous for DAO proposal lifecycles?",
       "options": [
         {
           "key": "A",
-          "text": "They allow every stage — proposal creation, voting, queuing, and execution — to be affordable for all token holders, encouraging broad participation.",
+          "text": "They allow every stage - proposal creation, voting, queuing, and execution - to be affordable for all token holders, encouraging broad participation.",
           "isCorrect": true
         },
         {
@@ -111,8 +111,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "On high‑fee chains, only whales can afford to interact with the governance lifecycle. MST's low fees democratize every step of the process.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>On high‑fee chains, only whales can afford to interact with the governance lifecycle. MST's low fees democratize every step of the process.</p>"
+      "explanation": "On high-fee chains, only whales can afford to interact with the governance lifecycle. MST's low fees democratize every step of the process.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>On high-fee chains, only whales can afford to interact with the governance lifecycle. MST's low fees democratize every step of the process.</p>"
     }
   ]
 }

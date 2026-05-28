@@ -8,11 +8,11 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "What is the recommended first segment of a 5‑minute Demo Day pitch?",
+      "text": "What is the recommended first segment of a 5-minute Demo Day pitch?",
       "options": [
         {
           "key": "A",
-          "text": "Technical architecture deep‑dive",
+          "text": "Technical architecture deep-dive",
           "isCorrect": false
         },
         {
@@ -50,7 +50,7 @@
         },
         {
           "key": "B",
-          "text": "Switch to your pre‑recorded backup video and explain you prepared for this scenario",
+          "text": "Switch to your pre-recorded backup video and explain you prepared for this scenario",
           "isCorrect": true
         },
         {
@@ -149,12 +149,12 @@
         },
         {
           "key": "B",
-          "text": "A soul‑bound NFT (SBT) on MST mainnet (Chain ID 4646)",
+          "text": "A soul-bound NFT (SBT) on MST mainnet (Chain ID 4646)",
           "isCorrect": true
         },
         {
           "key": "C",
-          "text": "An ERC‑20 token that can be traded",
+          "text": "An ERC-20 token that can be traded",
           "isCorrect": false
         },
         {
@@ -164,8 +164,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "The certificate is an on‑chain, non‑transferable soul‑bound token minted directly on MST mainnet.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ B</div><p>The certificate is an on‑chain, non‑transferable soul‑bound token minted directly on MST mainnet.</p>"
+      "explanation": "The certificate is an on-chain, non-transferable soul-bound token minted directly on MST mainnet.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ B</div><p>The certificate is an on-chain, non-transferable soul-bound token minted directly on MST mainnet.</p>"
     },
     {
       "id": "q6",
@@ -209,7 +209,7 @@
       "type": "true_false_justification",
       "difficulty": "Hard",
       "marks": 2,
-      "text": "\"The MST Demo Day rubric does not consider the business model — only technical implementation matters.\"",
+      "text": "\"The MST Demo Day rubric does not consider the business model - only technical implementation matters.\"",
       "correctAnswer": "FALSE",
       "explanation": "📊 2 marks: FALSE + mention of rubric criteria or need for business viability.",
       "modelAnswer": "<div class=\"answer-box-label\">📊 2 marks: FALSE + mention of rubric criteria or need for business viability.</div>",
@@ -222,8 +222,8 @@
       "difficulty": "Medium",
       "marks": 2,
       "text": "List four things you should have prepared BEFORE stepping onto the Demo Day stage (virtual or physical).",
-      "explanation": "Backup pre‑recorded demo video, pre‑funded demo wallet with tokens, clean browser with only the dApp tab open, rehearsed answers to the most common Q&A questions, a slide with contract addresses and Explorer links, a stable internet connection (wired if possible).",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Model Answer (any four)</div>\n        <p>Backup pre‑recorded demo video, pre‑funded demo wallet with tokens, clean browser with only the dApp tab open, rehearsed answers to the most common Q&amp;A questions, a slide with contract addresses and Explorer links, a stable internet connection (wired if possible).</p>\n        <div class=\"marks-bd\"><span>2 marks:</span> 0.5 per correct item.</div>"
+      "explanation": "Backup pre-recorded demo video, pre-funded demo wallet with tokens, clean browser with only the dApp tab open, rehearsed answers to the most common Q&A questions, a slide with contract addresses and Explorer links, a stable internet connection (wired if possible).",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Model Answer (any four)</div>\n        <p>Backup pre-recorded demo video, pre-funded demo wallet with tokens, clean browser with only the dApp tab open, rehearsed answers to the most common Q&amp;A questions, a slide with contract addresses and Explorer links, a stable internet connection (wired if possible).</p>\n        <div class=\"marks-bd\"><span>2 marks:</span> 0.5 per correct item.</div>"
     },
     {
       "id": "q11",
@@ -232,8 +232,8 @@
       "difficulty": "Medium",
       "marks": 2,
       "text": "Why is it important to show a transaction on MST Explorer during your live demo, even if you already demonstrated the same action in the dApp UI?",
-      "explanation": "It proves the transaction actually happened on the mainnet — not a mockup or testnet. It builds immediate trust with judges who can verify the details themselves. It also demonstrates that you understand the full stack and are proud of your on‑chain footprint.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Model Answer</div>\n        <p>It proves the transaction actually happened on the mainnet — not a mockup or testnet. It builds immediate trust with judges who can verify the details themselves. It also demonstrates that you understand the full stack and are proud of your on‑chain footprint.</p>\n        <div class=\"marks-bd\"><span>2 marks:</span> credibility/trust + mainnet proof.</div>"
+      "explanation": "It proves the transaction actually happened on the mainnet - not a mockup or testnet. It builds immediate trust with judges who can verify the details themselves. It also demonstrates that you understand the full stack and are proud of your on-chain footprint.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Model Answer</div>\n        <p>It proves the transaction actually happened on the mainnet - not a mockup or testnet. It builds immediate trust with judges who can verify the details themselves. It also demonstrates that you understand the full stack and are proud of your on-chain footprint.</p>\n        <div class=\"marks-bd\"><span>2 marks:</span> credibility/trust + mainnet proof.</div>"
     },
     {
       "id": "q12",
@@ -241,7 +241,7 @@
       "type": "other",
       "difficulty": "Hard",
       "marks": 5,
-      "text": "Write and submit a <strong>5‑minute Demo Day script</strong> for your capstone project. The script must include:\n        <br>• A hook (first 45 seconds) that grabs attention.\n        <br>• Clear problem statement with a real‑world statistic or story.\n        <br>• Description of how your dApp solves it, mentioning at least two MST protocols (e.g., Trika POSA, SARAL, WASMify, FortunaX).\n        <br>• A planned live demo flow (what you’d show, in what order).\n        <br>• A closing call to action (what you want from the judges).\n        <br><br>\n        <strong>Evaluation criteria:</strong>",
+      "text": "Write and submit a <strong>5-minute Demo Day script</strong> for your capstone project. The script must include:\n        <br>• A hook (first 45 seconds) that grabs attention.\n        <br>• Clear problem statement with a real-world statistic or story.\n        <br>• Description of how your dApp solves it, mentioning at least two MST protocols (e.g., Trika POSA, SARAL, WASMify, FortunaX).\n        <br>• A planned live demo flow (what you’d show, in what order).\n        <br>• A closing call to action (what you want from the judges).\n        <br><br>\n        <strong>Evaluation criteria:</strong>",
       "explanation": "2 marks: Hook is compelling and relevant (personal story or statistic).\n          1 mark: Clearly mentions specific MST protocols and why they matter.\n          1 mark: Demo flow is practical and matches the dApp’s core feature.\n          1 mark: Closing includes a specific ask (grant, partnership, mentorship).",
       "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div>\n        <p>\n          <strong>2 marks:</strong> Hook is compelling and relevant (personal story or statistic).\n          <br><strong>1 mark:</strong> Clearly mentions specific MST protocols and why they matter.\n          <br><strong>1 mark:</strong> Demo flow is practical and matches the dApp’s core feature.\n          <br><strong>1 mark:</strong> Closing includes a specific ask (grant, partnership, mentorship).\n        </p>\n        <div class=\"marks-bd\"><span>Total: 5 marks.</span> Partial credit for missing elements.</div>"
     }

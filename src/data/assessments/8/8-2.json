@@ -107,7 +107,7 @@
       "type": "true_false",
       "difficulty": "Medium",
       "marks": 2,
-      "text": "\"If I accidentally commit my private key to a public GitHub repository, I can simply delete the file and make a new commit – the key is now safe because it's no longer in the latest version of the code.\"",
+      "text": "\"If I accidentally commit my private key to a public GitHub repository, I can simply delete the file and make a new commit - the key is now safe because it's no longer in the latest version of the code.\"",
       "correctAnswer": "FALSE",
       "explanation": "1 mark: Correctly states FALSE and explains that the key remains in Git history.+1 mark: Mentions that funds must be moved immediately and/or that Git history must be rewritten (not just a new commit).",
       "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> Correctly states FALSE and explains that the key remains in Git history.<br><strong>+1 mark:</strong> Mentions that funds must be moved immediately and/or that Git history must be rewritten (not just a new commit).</p>",

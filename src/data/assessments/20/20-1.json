@@ -8,7 +8,7 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "Anita writes Solidity code daily, deploys contracts on testnet using Hardhat, and spends her afternoons gas‑optimising a staking pool. Which role describes her?",
+      "text": "Anita writes Solidity code daily, deploys contracts on testnet using Hardhat, and spends her afternoons gas-optimising a staking pool. Which role describes her?",
       "options": [
         {
           "key": "A",
@@ -32,8 +32,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Writing and deploying smart contracts in Solidity is the core responsibility of a Smart Contract Engineer. A frontend developer builds the UI, a community manager moderates chat, and DevRel writes tutorials — they may code but not as their primary daily output.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n        <p>Writing and deploying smart contracts in Solidity is the core responsibility of a <strong>Smart Contract Engineer</strong>. A frontend developer builds the UI, a community manager moderates chat, and DevRel writes tutorials — they may code but not as their primary daily output.</p>"
+      "explanation": "Writing and deploying smart contracts in Solidity is the core responsibility of a Smart Contract Engineer. A frontend developer builds the UI, a community manager moderates chat, and DevRel writes tutorials - they may code but not as their primary daily output.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n        <p>Writing and deploying smart contracts in Solidity is the core responsibility of a <strong>Smart Contract Engineer</strong>. A frontend developer builds the UI, a community manager moderates chat, and DevRel writes tutorials - they may code but not as their primary daily output.</p>"
     },
     {
       "id": "q2",
@@ -55,7 +55,7 @@
         },
         {
           "key": "C",
-          "text": "On‑Chain Data Analyst",
+          "text": "On-Chain Data Analyst",
           "isCorrect": true
         },
         {
@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "C",
-      "explanation": "An On‑Chain Data Analyst uses tools like Dune to query blockchain data with SQL. A Subgraph Developer writes indexer code (AssemblyScript/GraphQL), not primarily SQL dashboards. An auditor reviews contract code; a researcher designs algorithms.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C — Explanation</div>\n        <p>An <strong>On‑Chain Data Analyst</strong> uses tools like Dune to query blockchain data with SQL. A Subgraph Developer writes indexer code (AssemblyScript/GraphQL), not primarily SQL dashboards. An auditor reviews contract code; a researcher designs algorithms.</p>"
+      "explanation": "An On-Chain Data Analyst uses tools like Dune to query blockchain data with SQL. A Subgraph Developer writes indexer code (AssemblyScript/GraphQL), not primarily SQL dashboards. An auditor reviews contract code; a researcher designs algorithms.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - Explanation</div>\n        <p>An <strong>On-Chain Data Analyst</strong> uses tools like Dune to query blockchain data with SQL. A Subgraph Developer writes indexer code (AssemblyScript/GraphQL), not primarily SQL dashboards. An auditor reviews contract code; a researcher designs algorithms.</p>"
     },
     {
       "id": "q3",
@@ -99,7 +99,7 @@
       ],
       "correctAnswer": "C",
       "explanation": "DevRel bridges the protocol and its developer community through education and advocacy. Community Managers focus on user engagement and moderation, while DevRel specifically targets developers with technical content.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C — Explanation</div>\n        <p><strong>DevRel</strong> bridges the protocol and its developer community through education and advocacy. Community Managers focus on user engagement and moderation, while DevRel specifically targets <em>developers</em> with technical content.</p>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - Explanation</div>\n        <p><strong>DevRel</strong> bridges the protocol and its developer community through education and advocacy. Community Managers focus on user engagement and moderation, while DevRel specifically targets <em>developers</em> with technical content.</p>"
     },
     {
       "id": "q4",
@@ -126,13 +126,13 @@
         },
         {
           "key": "D",
-          "text": "On‑Chain Data Analyst",
+          "text": "On-Chain Data Analyst",
           "isCorrect": false
         }
       ],
       "correctAnswer": "C",
       "explanation": "Slither and Echidna are smart contract security tools used exclusively by auditors and security engineers. Frontend and data roles do not use these tools.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C — Explanation</div>\n        <p><strong>Slither and Echidna</strong> are smart contract security tools used exclusively by auditors and security engineers. Frontend and data roles do not use these tools.</p>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - Explanation</div>\n        <p><strong>Slither and Echidna</strong> are smart contract security tools used exclusively by auditors and security engineers. Frontend and data roles do not use these tools.</p>"
     },
     {
       "id": "q5",
@@ -159,13 +159,13 @@
         },
         {
           "key": "D",
-          "text": "Full‑Stack dApp Engineer",
+          "text": "Full-Stack dApp Engineer",
           "isCorrect": false
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Community Manager focuses on engagement, events, and moderation — without a primary coding responsibility. DevRel also does community but with a technical developer‑facing focus, often writing code tutorials.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n        <p><strong>Community Manager</strong> focuses on engagement, events, and moderation — without a primary coding responsibility. DevRel also does community but with a technical developer‑facing focus, often writing code tutorials.</p>"
+      "explanation": "Community Manager focuses on engagement, events, and moderation - without a primary coding responsibility. DevRel also does community but with a technical developer-facing focus, often writing code tutorials.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n        <p><strong>Community Manager</strong> focuses on engagement, events, and moderation - without a primary coding responsibility. DevRel also does community but with a technical developer-facing focus, often writing code tutorials.</p>"
     }
   ]
 }

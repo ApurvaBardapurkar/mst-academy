@@ -8,7 +8,7 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "What is the primary purpose of staking in a Proof‑of‑Stake blockchain?",
+      "text": "What is the primary purpose of staking in a Proof-of-Stake blockchain?",
       "options": [
         {
           "key": "A",
@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Liquid staking tokens let you earn staking rewards while also using the derivative in lending, liquidity pools, or yield farms — composability at its best.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Liquid staking tokens let you earn staking rewards while also using the derivative in lending, liquidity pools, or yield farms — composability at its best.</p>"
+      "explanation": "Liquid staking tokens let you earn staking rewards while also using the derivative in lending, liquidity pools, or yield farms - composability at its best.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Liquid staking tokens let you earn staking rewards while also using the derivative in lending, liquidity pools, or yield farms - composability at its best.</p>"
     },
     {
       "id": "q3",
@@ -98,8 +98,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Yield farming begins with providing capital to a protocol — either as a lender, liquidity provider, or staker. That earns base yield, which can then be further optimized.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Yield farming begins with providing capital to a protocol — either as a lender, liquidity provider, or staker. That earns base yield, which can then be further optimized.</p>"
+      "explanation": "Yield farming begins with providing capital to a protocol - either as a lender, liquidity provider, or staker. That earns base yield, which can then be further optimized.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Yield farming begins with providing capital to a protocol - either as a lender, liquidity provider, or staker. That earns base yield, which can then be further optimized.</p>"
     },
     {
       "id": "q4",
@@ -131,8 +131,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Harvesting is the act of collecting earned rewards. Most farmers then compound — selling a portion and reinvesting to grow their position.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Harvesting is the act of collecting earned rewards. Most farmers then compound — selling a portion and reinvesting to grow their position.</p>"
+      "explanation": "Harvesting is the act of collecting earned rewards. Most farmers then compound - selling a portion and reinvesting to grow their position.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Harvesting is the act of collecting earned rewards. Most farmers then compound - selling a portion and reinvesting to grow their position.</p>"
     },
     {
       "id": "q5",
@@ -177,7 +177,7 @@
       "options": [
         {
           "key": "A",
-          "text": "It aligns long‑term incentives by giving more rewards and voting power to users who lock tokens.",
+          "text": "It aligns long-term incentives by giving more rewards and voting power to users who lock tokens.",
           "isCorrect": true
         },
         {
@@ -197,8 +197,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "veTokenomics ensures that the most influence and highest rewards go to those who commit to the protocol long‑term, reducing mercenary behavior.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>veTokenomics ensures that the most influence and highest rewards go to those who commit to the protocol long‑term, reducing mercenary behavior.</p>"
+      "explanation": "veTokenomics ensures that the most influence and highest rewards go to those who commit to the protocol long-term, reducing mercenary behavior.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>veTokenomics ensures that the most influence and highest rewards go to those who commit to the protocol long-term, reducing mercenary behavior.</p>"
     },
     {
       "id": "q7",
@@ -230,8 +230,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Low gas means you can harvest daily or even hourly, capturing compound interest fully. On high‑fee chains, frequent harvesting is unprofitable.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Low gas means you can harvest daily or even hourly, capturing compound interest fully. On high‑fee chains, frequent harvesting is unprofitable.</p>"
+      "explanation": "Low gas means you can harvest daily or even hourly, capturing compound interest fully. On high-fee chains, frequent harvesting is unprofitable.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Low gas means you can harvest daily or even hourly, capturing compound interest fully. On high-fee chains, frequent harvesting is unprofitable.</p>"
     },
     {
       "id": "q8",
@@ -243,22 +243,22 @@
       "options": [
         {
           "key": "A",
-          "text": "Annual Percentage Yield — it reflects the compounded return over a year.",
+          "text": "Annual Percentage Yield - it reflects the compounded return over a year.",
           "isCorrect": true
         },
         {
           "key": "B",
-          "text": "Average Payout Yield — the mean daily return.",
+          "text": "Average Payout Yield - the mean daily return.",
           "isCorrect": false
         },
         {
           "key": "C",
-          "text": "Automated Protocol Yield — a technical term for smart contract earnings.",
+          "text": "Automated Protocol Yield - a technical term for smart contract earnings.",
           "isCorrect": false
         },
         {
           "key": "D",
-          "text": "All‑time Profit Yearly — total profit since inception.",
+          "text": "All-time Profit Yearly - total profit since inception.",
           "isCorrect": false
         }
       ],

@@ -83,7 +83,7 @@
         },
         {
           "key": "B",
-          "text": "The Diamond Problem – ambiguity when multiple parent contracts define the same function",
+          "text": "The Diamond Problem - ambiguity when multiple parent contracts define the same function",
           "isCorrect": true
         },
         {

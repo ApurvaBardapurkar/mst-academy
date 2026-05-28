@@ -33,7 +33,7 @@
       ],
       "correctAnswer": "B",
       "explanation": "A Private Limited Company offers limited liability, allows equity structuring (ESOPs, investment rounds), and is acceptable for MST grants. Sole proprietorships expose personal assets. Unregistered partnerships lack legal clarity.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n                <p>A Private Limited Company offers limited liability, allows equity structuring (ESOPs, investment rounds), and is acceptable for MST grants. Sole proprietorships expose personal assets. Unregistered partnerships lack legal clarity.</p>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n                <p>A Private Limited Company offers limited liability, allows equity structuring (ESOPs, investment rounds), and is acceptable for MST grants. Sole proprietorships expose personal assets. Unregistered partnerships lack legal clarity.</p>"
     },
     {
       "id": "q2",
@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Without an IP assignment, the code remains the personal property of the founder who wrote it. If that founder leaves, the company loses the right to use the code — a fatal blow.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n                <p>Without an IP assignment, the code remains the personal property of the founder who wrote it. If that founder leaves, the company loses the right to use the code — a fatal blow.</p>"
+      "explanation": "Without an IP assignment, the code remains the personal property of the founder who wrote it. If that founder leaves, the company loses the right to use the code - a fatal blow.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n                <p>Without an IP assignment, the code remains the personal property of the founder who wrote it. If that founder leaves, the company loses the right to use the code - a fatal blow.</p>"
     },
     {
       "id": "q3",
@@ -99,7 +99,7 @@
       ],
       "correctAnswer": "B",
       "explanation": "A vesting cliff means no tokens are released until a specified time (commonly 12 months). After the cliff, tokens unlock gradually (monthly) over the remaining vesting period.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n                <p>A vesting cliff means no tokens are released until a specified time (commonly 12 months). After the cliff, tokens unlock gradually (monthly) over the remaining vesting period.</p>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n                <p>A vesting cliff means no tokens are released until a specified time (commonly 12 months). After the cliff, tokens unlock gradually (monthly) over the remaining vesting period.</p>"
     },
     {
       "id": "q4",
@@ -131,8 +131,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "A sink removes tokens from circulation, creating deflationary pressure. Buy‑back‑and‑burn is a classic sink. Minting and airdrops increase supply — they are sources, not sinks.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n                <p>A sink removes tokens from circulation, creating deflationary pressure. Buy‑back‑and‑burn is a classic sink. Minting and airdrops increase supply — they are sources, not sinks.</p>"
+      "explanation": "A sink removes tokens from circulation, creating deflationary pressure. Buy-back-and-burn is a classic sink. Minting and airdrops increase supply - they are sources, not sinks.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n                <p>A sink removes tokens from circulation, creating deflationary pressure. Buy-back-and-burn is a classic sink. Minting and airdrops increase supply - they are sources, not sinks.</p>"
     },
     {
       "id": "q5",
@@ -165,7 +165,7 @@
       ],
       "correctAnswer": "B",
       "explanation": "While deep technical skills are crucial, without someone to define the product vision and someone to drive user adoption, a startup cannot succeed. The three roles must be complementary.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n                <p>While deep technical skills are crucial, without someone to define the product vision and someone to drive user adoption, a startup cannot succeed. The three roles must be complementary.</p>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n                <p>While deep technical skills are crucial, without someone to define the product vision and someone to drive user adoption, a startup cannot succeed. The three roles must be complementary.</p>"
     },
     {
       "id": "q6",
@@ -182,7 +182,7 @@
         },
         {
           "key": "B",
-          "text": "To align long‑term incentives and prevent immediate dumping by founders",
+          "text": "To align long-term incentives and prevent immediate dumping by founders",
           "isCorrect": true
         },
         {
@@ -198,7 +198,7 @@
       ],
       "correctAnswer": "B",
       "explanation": "Vesting ensures founders stay committed to the project for years, not days. Without it, a founder could sell all their tokens immediately after launch and abandon the protocol.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n                <p>Vesting ensures founders stay committed to the project for years, not days. Without it, a founder could sell all their tokens immediately after launch and abandon the protocol.</p>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n                <p>Vesting ensures founders stay committed to the project for years, not days. Without it, a founder could sell all their tokens immediately after launch and abandon the protocol.</p>"
     },
     {
       "id": "q7",
@@ -206,7 +206,7 @@
       "type": "true_false",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "\"A solo founder with no co‑founders is generally viewed as a strong indicator of success by Web3 venture capitalists.\"",
+      "text": "\"A solo founder with no co-founders is generally viewed as a strong indicator of success by Web3 venture capitalists.\"",
       "correctAnswer": "FALSE",
       "tfVerdict": "FALSE"
     },
@@ -216,9 +216,9 @@
       "type": "descriptive",
       "difficulty": "Hard",
       "marks": 8,
-      "text": "Using your own capstone project (or a hypothetical MST‑based dApp), complete the following:",
-      "explanation": "2 marks — Legal: Correct entity choice (Pvt Ltd / DAO) with sound justification. Mention of IP assignment.\n                3 marks — Tokenomics: Clear supply, allocation percentages, defined utility, vesting schedule, and at least one sink mechanism.\n                2 marks — Team: Identification of the three roles with names/skills and a justified equity split (with vesting).\n                1 mark — Checklist: Completed 20‑point checklist submitted as PDF.",
-      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div>\n                <p><strong>2 marks — Legal:</strong> Correct entity choice (Pvt Ltd / DAO) with sound justification. Mention of IP assignment.<br>\n                <strong>3 marks — Tokenomics:</strong> Clear supply, allocation percentages, defined utility, vesting schedule, and at least one sink mechanism.<br>\n                <strong>2 marks — Team:</strong> Identification of the three roles with names/skills and a justified equity split (with vesting).<br>\n                <strong>1 mark — Checklist:</strong> Completed 20‑point checklist submitted as PDF.</p>\n                <div class=\"marks-bd\"><span>Note:</span> The total answer should be approximately 800‑1000 words. Use bullet points for allocation breakdown.</div>"
+      "text": "Using your own capstone project (or a hypothetical MST-based dApp), complete the following:",
+      "explanation": "2 marks - Legal: Correct entity choice (Pvt Ltd / DAO) with sound justification. Mention of IP assignment.\n                3 marks - Tokenomics: Clear supply, allocation percentages, defined utility, vesting schedule, and at least one sink mechanism.\n                2 marks - Team: Identification of the three roles with names/skills and a justified equity split (with vesting).\n                1 mark - Checklist: Completed 20-point checklist submitted as PDF.",
+      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div>\n                <p><strong>2 marks - Legal:</strong> Correct entity choice (Pvt Ltd / DAO) with sound justification. Mention of IP assignment.<br>\n                <strong>3 marks - Tokenomics:</strong> Clear supply, allocation percentages, defined utility, vesting schedule, and at least one sink mechanism.<br>\n                <strong>2 marks - Team:</strong> Identification of the three roles with names/skills and a justified equity split (with vesting).<br>\n                <strong>1 mark - Checklist:</strong> Completed 20-point checklist submitted as PDF.</p>\n                <div class=\"marks-bd\"><span>Note:</span> The total answer should be approximately 800-1000 words. Use bullet points for allocation breakdown.</div>"
     }
   ]
 }

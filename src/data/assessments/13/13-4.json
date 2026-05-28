@@ -8,7 +8,7 @@
       "type": "other",
       "difficulty": "Medium",
       "marks": 15,
-      "text": "Complete the pseudocode for a WASM module that checks whether a shipment's average temperature over a journey was below 5°C. Then write the corresponding Solidity snippet for the on‑chain verification and release logic."
+      "text": "Complete the pseudocode for a WASM module that checks whether a shipment's average temperature over a journey was below 5°C. Then write the corresponding Solidity snippet for the on-chain verification and release logic."
     }
   ]
 }

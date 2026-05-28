@@ -43,28 +43,28 @@ const PLAN_OPTIONS: {
     label: "Validator Fellowship",
     emoji: "🔐",
     price: DEMO_FEES.validator,
-    desc: "Lifetime course + 1 fraction (19 years rewards).",
+    desc: "Validator portal + 1 fraction + 19 years daily MSTC rewards.",
   },
   {
     id: "student",
     label: "Student Fellowship",
     emoji: "🎓",
     price: DEMO_FEES.student,
-    desc: "Lifetime course + 2-month paid internship + ₹5500 fraction.",
+    desc: "Student ID scholarship + paid internship + 1 fraction rewards.",
   },
   {
     id: "normal",
-    label: "Normal User Fellowship",
+    label: "Working Professional Fellowship",
     emoji: "👤",
     price: DEMO_FEES.normal,
-    desc: "Lifetime course + 2-month internship + fraction.",
+    desc: "Paid internship + 1 fraction + industry mentor support.",
   },
   {
     id: "courseOnly",
     label: "Course Only",
     emoji: "📚",
     price: DEMO_FEES.courseOnly,
-    desc: "Lifetime course. No fraction. No internship.",
+    desc: "Course only at foundation offer. No fraction. No internship.",
   },
 ];
 
@@ -74,9 +74,8 @@ function PlanHighlight({ plan }: { plan: PlanId }) {
   if (plan === "validator") {
     return (
       <HighlightBox>
-        <strong>Validator Fellowship:</strong> Lifetime access to the full course +{" "}
-        <strong>1 fraction of MST for 19 years</strong>. You receive{" "}
-        <strong>$MSTC coins</strong> as reward + PPO chance for top performers.
+        <strong>Validator Fellowship:</strong> Dedicated validator portal + stakeholder access +{" "}
+        <strong>1 fraction with 19 years daily MSTC rewards</strong>. Internship is not included in validator track.
       </HighlightBox>
     );
   }
@@ -84,9 +83,8 @@ function PlanHighlight({ plan }: { plan: PlanId }) {
   if (plan === "student") {
     return (
       <HighlightBox>
-        <strong>Student Fellowship:</strong> Lifetime access to the full course +{" "}
-        <strong>paid 2-month internship</strong> + <strong>1 fraction worth ₹5500</strong> + PPO
-        chance.
+        <strong>Student Fellowship:</strong> Valid student ID unlocks scholarship pricing +{" "}
+        <strong>paid internship</strong> + <strong>1 fraction with 19 years daily MSTC rewards</strong>.
       </HighlightBox>
     );
   }
@@ -94,8 +92,8 @@ function PlanHighlight({ plan }: { plan: PlanId }) {
   if (plan === "normal") {
     return (
       <HighlightBox>
-        <strong>Normal User Fellowship:</strong> Lifetime access to the full course +{" "}
-        <strong>2-month internship</strong> + <strong>fraction</strong> + PPO chance.
+        <strong>Working Professional Fellowship:</strong> Lifetime access to the full course +{" "}
+        <strong>paid internship</strong> + <strong>1 fraction with 19 years daily MSTC rewards</strong> + industry mentor support.
       </HighlightBox>
     );
   }

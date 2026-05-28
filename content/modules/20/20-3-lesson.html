@@ -74,27 +74,6 @@
 
 <p>Web3 technical interviews are fundamentally different from Web2. They test not just algorithmic thinking but <strong>security awareness, gas intuition, and EVM-specific design patterns</strong>. A candidate who writes a perfectly functional contract that silently accepts reentrancy will fail. One who catches the reentrancy bug during the interview and explains it will get hired - even if the contract isn't perfect.</p>
 
-<div class="callout key">
-    <div class="callout-label">🔑 The Interview Success Formula</div>
-    <p>After analysing feedback from 50+ Web3 technical interviews, a clear pattern emerges: <strong>candidates who talk through their thinking score 40% higher than silent coders</strong>. The interview is not a code golf contest - it is a conversation. The interviewer wants to see: (1) Can you break down a complex problem? (2) Do you instinctively think about security? (3) Can you explain trade-offs? (4) Would you be a good collaborator? Even if your code has a bug, narrating your approach shows engineering maturity. Practice the "think-aloud" technique: verbalise every decision as you make it. "I'm choosing a mapping here instead of an array because we need O(1) lookups and don't need to iterate."</p>
-</div>
-
-<p><strong>Web2 vs Web3 interviews - key differences:</strong></p>
-<div class="table-wrap">
-    <table>
-        <thead><tr><th>Aspect</th><th>Web2 Interview (Google, Meta)</th><th>Web3 Interview (Uniswap, Aave)</th></tr></thead>
-        <tbody>
-            <tr><td><strong>Language</strong></td><td>Python, Java, C++ (interviewer's choice)</td><td>Solidity (always), sometimes Rust or TypeScript</td></tr>
-            <tr><td><strong>Primary focus</strong></td><td>Algorithms and data structures (LeetCode-style)</td><td>Smart contract design, security patterns, gas optimisation</td></tr>
-            <tr><td><strong>Security importance</strong></td><td>Low (mentioned but not critical)</td><td>Critical (reentrancy, access control, overflow - can fail you alone)</td></tr>
-            <tr><td><strong>System design</strong></td><td>Distributed systems (load balancers, databases)</td><td>Protocol architecture (contracts, oracles, indexers, L2s)</td></tr>
-            <tr><td><strong>Testing expectations</strong></td><td>Mention unit tests</td><td>Demonstrate fuzz testing, invariant testing, and security tooling</td></tr>
-            <tr><td><strong>Unique topics</strong></td><td>Concurrency, caching, API design</td><td>MEV, flash loans, proxy upgrades, EIP standards</td></tr>
-            <tr><td><strong>Preparation path</strong></td><td>LeetCode, system design books</td><td>Solidity puzzles, Ethernaut, Damn Vulnerable DeFi, Code4rena</td></tr>
-        </tbody>
-    </table>
-</div>
-
 
 <!-- ═══════════════════════════════════════════════════
      SECTION 3: BACKGROUND / HISTORY
@@ -255,78 +234,6 @@
 
 </div>
 
-<!-- SECTION 5B: DETAILED WALKTHROUGH -->
-<div class="section-label">05B &nbsp; Detailed Code Walkthrough</div>
-<h2 class="section-title">Solving a Time-Locked Vault - Step by Step</h2>
-<p>Let's walk through a complete interview solution for Pattern 2 (Time-Locked Vault) to demonstrate the "think-aloud" technique and proper interview pacing.</p>
-
-<p><strong>Problem statement:</strong> "Implement a vault where the owner deposits ETH, and a beneficiary can withdraw only after a deadline. The owner can emergency-withdraw at any time. Include events for all state changes."</p>
-
-<p><strong>Step 1 (Minutes 0-2): Clarify requirements</strong></p>
-<p>"Before I start coding, I want to clarify a few things. Can there be multiple deposits? I'll assume yes. Should the deadline be set at deployment or per-deposit? I'll go with deployment for simplicity. Can the beneficiary do a partial withdrawal? I'll assume full withdrawal only. Is the emergency withdraw by the owner subject to any timelock? I'll assume no - it's a true emergency escape."</p>
-
-<p><strong>Step 2 (Minutes 2-5): Define state variables and structure</strong></p>
-<div class="code-block-wrap"><pre>// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
-
-contract TimeLockVault {
-    address public immutable owner;
-    address public immutable beneficiary;
-    uint256 public immutable deadline;
-    bool public withdrawn;
-
-    event Deposited(address indexed sender, uint256 amount);
-    event Withdrawn(address indexed to, uint256 amount);
-    event EmergencyWithdrawn(address indexed to, uint256 amount);
-
-    modifier onlyOwner() {
-        require(msg.sender == owner, "Not owner");
-        _;
-    }
-
-    constructor(address _beneficiary, uint256 _lockDuration) {
-        owner = msg.sender;
-        beneficiary = _beneficiary;
-        deadline = block.timestamp + _lockDuration;
-    }
-}</pre></div>
-<p>"I'm using immutable for owner, beneficiary, and deadline because they're set once and never change - saves gas on reads. The withdrawn flag prevents double-withdrawal."</p>
-
-<p><strong>Step 3 (Minutes 5-12): Implement core functions</strong></p>
-<div class="code-block-wrap"><pre>    function deposit() external payable onlyOwner {
-        require(msg.value &gt; 0, "Must send ETH");
-        emit Deposited(msg.sender, msg.value);
-    }
-
-    function withdraw() external {
-        require(msg.sender == beneficiary, "Not beneficiary");
-        require(block.timestamp &gt;= deadline, "Too early");
-        require(!withdrawn, "Already withdrawn");
-        withdrawn = true;
-
-        uint256 amount = address(this).balance;
-        (bool success, ) = beneficiary.call{value: amount}("");
-        require(success, "Transfer failed");
-        emit Withdrawn(beneficiary, amount);
-    }
-
-    function emergencyWithdraw() external onlyOwner {
-        uint256 amount = address(this).balance;
-        require(amount &gt; 0, "No funds");
-        (bool success, ) = owner.call{value: amount}("");
-        require(success, "Transfer failed");
-        emit EmergencyWithdrawn(owner, amount);
-    }</pre></div>
-<p>"I'm using .call instead of .transfer because .transfer has a 2300 gas limit that can fail with smart contract recipients. I set withdrawn = true before the external call to follow the checks-effects-interactions pattern and prevent reentrancy. For a production contract, I'd also add a nonReentrant modifier from OpenZeppelin."</p>
-
-<p><strong>Step 4 (Minutes 12-15): Discuss trade-offs and limitations</strong></p>
-<p>"A few things to note: block.timestamp can be manipulated by miners by about 15 seconds, so this is suitable for locks of hours or days, not seconds. The emergency withdraw does not have a timelock, which means the owner could drain funds before the beneficiary's deadline - a potential trust issue. In production, I might add a governance mechanism or a timelock on the emergency withdrawal itself. I'd also write fuzz tests to verify that no combination of deposit and withdrawal amounts can leave the contract in an inconsistent state."</p>
-
-<div class="callout insight">
-    <div class="callout-label">💡 Why This Answer Scores High</div>
-    <p>This solution hits all four evaluation criteria: <strong>Correctness</strong> (30%) - all functions work correctly with proper requires. <strong>Security</strong> (30%) - checks-effects-interactions pattern, .call over .transfer, reentrancy awareness. <strong>Gas Efficiency</strong> (20%) - immutable variables, no unnecessary storage. <strong>Communication</strong> (20%) - the candidate explained every decision and discussed limitations. Even if the code had a minor bug, the discussion of trade-offs would still earn significant marks.</p>
-</div>
-
 <!-- System Design Section -->
 <div class="section-title" style="margin-top:40px;">System Design: The 4-Step Framework</div>
 <p>In a system design round, you're asked to design a protocol from scratch - e.g., “Design a decentralised exchange on MST.” Use this structure:</p>
@@ -424,55 +331,6 @@ contract TimeLockVault {
       <div class="feature-desc"><strong>Rohit, Delhi.</strong> He drew on a virtual whiteboard: CollateralManager, InterestRateModel, Oracle. He mentioned liquidation thresholds, health factor calculation, and why they use Compound's model. The feedback: “Great structure, but forgot flash loan attack prevention.” He still got an offer because he discussed it when prompted.</div>
     </div>
   </div>
-  <div class="feature-item">
-    <div class="feature-num" style="background: var(--green);">🏗️</div>
-    <div class="feature-content">
-      <div class="feature-title">Chainlink - Take-Home: "Build an escrow with oracle integration"</div>
-      <div class="feature-desc"><strong>Amit, Hyderabad.</strong> Given 4 hours. He built an escrow that released funds only when a Chainlink price feed confirmed the asset value exceeded a threshold. He included comprehensive Foundry fuzz tests, a detailed README with architecture diagrams, and a deployment script for MST testnet. The reviewer highlighted his test quality and documentation as differentiators.</div>
-    </div>
-  </div>
-  <div class="feature-item">
-    <div class="feature-num" style="background: var(--accent);">🔐</div>
-    <div class="feature-content">
-      <div class="feature-title">MST Labs - Live Coding: "Fix the bugs in this staking contract"</div>
-      <div class="feature-desc"><strong>Priya, Chennai.</strong> MST-native interviews sometimes present a buggy contract and ask you to identify and fix the issues. Priya found 4 bugs in 20 minutes: a reentrancy vulnerability in withdraw(), a missing access control on setRewardRate(), an arithmetic overflow in reward calculation (pre-0.8 Solidity), and a front-running risk in the claim function. She prioritised them by severity and explained the fix for each.</div>
-    </div>
-  </div>
-</div>
-
-<div class="section-label">08B &nbsp; Preparation Resources</div>
-<h2 class="section-title">The 4-Week Interview Preparation Plan</h2>
-<p>If you have 4 weeks before a technical interview, follow this structured preparation plan:</p>
-
-<div class="diagram-wrap">
-  <div class="diagram-title">FIGURE 20.3-C - 4-Week Interview Prep Schedule</div>
-  <pre>  Week 1: FOUNDATIONS
-  - Complete Ethernaut (all 30 levels) - teaches security patterns
-  - Review the 7 core patterns and implement each from scratch
-  - Practice writing contracts on a timer (20 minutes per problem)
-
-  Week 2: SECURITY DEEP DIVE
-  - Complete Damn Vulnerable DeFi (all challenges)
-  - Study the top 10 smart contract vulnerabilities (SWC registry)
-  - Practice identifying bugs in provided code samples
-
-  Week 3: SYSTEM DESIGN + GAS OPTIMISATION
-  - Design 3 protocols from scratch (DEX, lending, NFT marketplace)
-  - Practice explaining architecture decisions out loud (record yourself)
-  - Optimise one of your existing contracts for gas (measure before/after)
-
-  Week 4: MOCK INTERVIEWS + REVIEW
-  - Do 3 mock interviews with peers (timed, with feedback)
-  - Review all weak areas identified in mocks
-  - Prepare MST-specific talking points (SARAL, WASMify, Trika POSA)
-  - Rest the day before - fatigue kills interview performance
-  </pre>
-  <div class="diagram-caption">Consistency beats intensity. 2 hours per day for 4 weeks is far more effective than 56 hours in the final weekend.</div>
-</div>
-
-<div class="callout key">
-    <div class="callout-label">🔑 Free Resources for Practice</div>
-    <p><strong>Ethernaut</strong> (OpenZeppelin) - interactive Solidity security challenges. <strong>Damn Vulnerable DeFi</strong> - DeFi-specific exploitation puzzles. <strong>Solidity by Example</strong> - clean code patterns with explanations. <strong>Code4rena</strong> and <strong>Sherlock</strong> - competitive audit contests where you find real bugs in real contracts. <strong>Foundry Book</strong> - official documentation for Foundry testing and fuzzing. All of these are free and directly relevant to interview preparation.</p>
 </div>
 
 
@@ -535,26 +393,6 @@ contract TimeLockVault {
   <div class="glossary-item">
     <div class="glossary-term">EIP-2981 (Royalty Standard)</div>
     <div class="glossary-def">A standard that enables NFT marketplaces to retrieve royalty payment information, ensuring creators earn from secondary sales.</div>
-  </div>
-  <div class="glossary-item">
-    <div class="glossary-term">Checks-Effects-Interactions</div>
-    <div class="glossary-def">A Solidity security pattern where you first check conditions (require), then update state (effects), and finally make external calls (interactions). Prevents reentrancy by ensuring state is finalised before any external call.</div>
-  </div>
-  <div class="glossary-item">
-    <div class="glossary-term">Ethernaut</div>
-    <div class="glossary-def">An interactive Solidity security wargame by OpenZeppelin with 30+ levels, each teaching a different vulnerability. The standard first step in Web3 interview preparation.</div>
-  </div>
-  <div class="glossary-item">
-    <div class="glossary-term">Damn Vulnerable DeFi</div>
-    <div class="glossary-def">A collection of DeFi-focused smart contract hacking challenges. Teaches flash loan attacks, price manipulation, and other DeFi-specific vulnerabilities.</div>
-  </div>
-  <div class="glossary-item">
-    <div class="glossary-term">Health Factor</div>
-    <div class="glossary-def">A metric in lending protocols that represents the safety of a user's collateral position. When it drops below 1, the position is eligible for liquidation.</div>
-  </div>
-  <div class="glossary-item">
-    <div class="glossary-term">Flash Loan Attack</div>
-    <div class="glossary-def">An exploit where an attacker borrows a large amount of tokens in a single transaction (no collateral needed), manipulates a protocol's state, and repays the loan - all atomically. A common interview discussion topic.</div>
   </div>
 </div>
 

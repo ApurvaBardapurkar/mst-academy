@@ -45,12 +45,12 @@
       "options": [
         {
           "key": "A",
-          "text": "A ZK‑SNARK proof that the shuffled deck is a valid permutation of the standard deck",
+          "text": "A ZK-SNARK proof that the shuffled deck is a valid permutation of the standard deck",
           "isCorrect": true
         },
         {
           "key": "B",
-          "text": "A multi‑party computation among all players",
+          "text": "A multi-party computation among all players",
           "isCorrect": false
         },
         {
@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "SatvaShuffle generates a ZK‑SNARK proof that the committed Merkle root corresponds to a valid permutation of a standard 52‑card deck. Players can verify this proof without seeing the cards.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div>\n                <p>SatvaShuffle generates a ZK‑SNARK proof that the committed Merkle root corresponds to a valid permutation of a standard 52‑card deck. Players can verify this proof without seeing the cards.</p>"
+      "explanation": "SatvaShuffle generates a ZK-SNARK proof that the committed Merkle root corresponds to a valid permutation of a standard 52-card deck. Players can verify this proof without seeing the cards.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div>\n                <p>SatvaShuffle generates a ZK-SNARK proof that the committed Merkle root corresponds to a valid permutation of a standard 52-card deck. Players can verify this proof without seeing the cards.</p>"
     },
     {
       "id": "q3",
@@ -83,7 +83,7 @@
         },
         {
           "key": "B",
-          "text": "Each spin outcome is pre‑determined by the operator and locked on‑chain",
+          "text": "Each spin outcome is pre-determined by the operator and locked on-chain",
           "isCorrect": false
         },
         {
@@ -98,8 +98,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Klethesia enforces RTP statistically over a large number of spins. The smart contract monitors cumulative RTP and can take action (freezing payouts, flagging) if it deviates beyond the acceptable band, providing an automated, on‑chain enforcement mechanism.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div>\n                <p>Klethesia enforces RTP statistically over a large number of spins. The smart contract monitors cumulative RTP and can take action (freezing payouts, flagging) if it deviates beyond the acceptable band, providing an automated, on‑chain enforcement mechanism.</p>"
+      "explanation": "Klethesia enforces RTP statistically over a large number of spins. The smart contract monitors cumulative RTP and can take action (freezing payouts, flagging) if it deviates beyond the acceptable band, providing an automated, on-chain enforcement mechanism.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div>\n                <p>Klethesia enforces RTP statistically over a large number of spins. The smart contract monitors cumulative RTP and can take action (freezing payouts, flagging) if it deviates beyond the acceptable band, providing an automated, on-chain enforcement mechanism.</p>"
     },
     {
       "id": "q4",
@@ -140,7 +140,7 @@
       "type": "mcq",
       "difficulty": "Hard",
       "marks": 1,
-      "text": "In SatvaShuffle, why is the Merkle root of the shuffled deck published on‑chain before any cards are dealt?",
+      "text": "In SatvaShuffle, why is the Merkle root of the shuffled deck published on-chain before any cards are dealt?",
       "options": [
         {
           "key": "A",
@@ -173,9 +173,9 @@
       "type": "true_false",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "\"On MST, game developers must write their own fairness algorithms — the blockchain does not provide any built‑in gaming fairness protocols.\"",
-      "explanation": "MST provides three built‑in fairness protocols: FortunaX (randomness), SatvaShuffle (card shuffling), and Klethesia (slot RTP). Game developers inherit fairness from the protocol layer; they do not need to implement their own.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Answer: FALSE</div>\n                <p>MST provides three built‑in fairness protocols: FortunaX (randomness), SatvaShuffle (card shuffling), and Klethesia (slot RTP). Game developers inherit fairness from the protocol layer; they do not need to implement their own.</p>"
+      "text": "\"On MST, game developers must write their own fairness algorithms - the blockchain does not provide any built-in gaming fairness protocols.\"",
+      "explanation": "MST provides three built-in fairness protocols: FortunaX (randomness), SatvaShuffle (card shuffling), and Klethesia (slot RTP). Game developers inherit fairness from the protocol layer; they do not need to implement their own.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Answer: FALSE</div>\n                <p>MST provides three built-in fairness protocols: FortunaX (randomness), SatvaShuffle (card shuffling), and Klethesia (slot RTP). Game developers inherit fairness from the protocol layer; they do not need to implement their own.</p>"
     },
     {
       "id": "q7",
@@ -185,8 +185,8 @@
       "marks": 2,
       "text": "\"Klethesia guarantees that every individual spin of a slot machine pays out exactly the advertised RTP percentage.\"",
       "correctAnswer": "FALSE",
-      "explanation": "1 mark: Correctly states FALSE.\n                +1 mark: Explains that RTP is a statistical guarantee over many spins, not a per‑spin guarantee, and mentions the epoch or band enforcement.",
-      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div>\n                <p><strong>1 mark:</strong> Correctly states FALSE.<br>\n                <strong>+1 mark:</strong> Explains that RTP is a statistical guarantee over many spins, not a per‑spin guarantee, and mentions the epoch or band enforcement.</p>",
+      "explanation": "1 mark: Correctly states FALSE.\n                +1 mark: Explains that RTP is a statistical guarantee over many spins, not a per-spin guarantee, and mentions the epoch or band enforcement.",
+      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div>\n                <p><strong>1 mark:</strong> Correctly states FALSE.<br>\n                <strong>+1 mark:</strong> Explains that RTP is a statistical guarantee over many spins, not a per-spin guarantee, and mentions the epoch or band enforcement.</p>",
       "tfVerdict": "FALSE"
     },
     {
@@ -195,9 +195,9 @@
       "type": "descriptive",
       "difficulty": "Medium",
       "marks": 2,
-      "text": "In 100–150 words, explain why a player can trust the outcome of a rummy hand on MST using SatvaShuffle, even if the game operator is dishonest. Reference the commitment scheme and the ZK proof in your answer.",
-      "explanation": "Model Answer: A player can trust the outcome because SatvaShuffle uses a commitment scheme and ZK proofs to make cheating mathematically impossible. Before the hand, the operator publishes a Merkle root of the shuffled deck on‑chain, cryptographically committing to the card order. A ZK‑SNARK proof verifies that this root represents a valid permutation of a standard 52‑card deck. During play, cards are revealed via Merkle proofs from that root — if the operator tried to change the deck, the proofs would fail. After the hand, the full deck is revealed and players can recompute the Merkle root to confirm no cards were added or removed. The operator cannot alter the shuffle after seeing player actions because the commitment is on‑chain and irreversible.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Model Answer &amp; Marks Breakdown</div>\n                <p><strong>Model Answer:</strong> A player can trust the outcome because SatvaShuffle uses a commitment scheme and ZK proofs to make cheating mathematically impossible. Before the hand, the operator publishes a Merkle root of the shuffled deck on‑chain, cryptographically committing to the card order. A ZK‑SNARK proof verifies that this root represents a valid permutation of a standard 52‑card deck. During play, cards are revealed via Merkle proofs from that root — if the operator tried to change the deck, the proofs would fail. After the hand, the full deck is revealed and players can recompute the Merkle root to confirm no cards were added or removed. The operator cannot alter the shuffle after seeing player actions because the commitment is on‑chain and irreversible.</p>\n                <div class=\"marks-bd\">\n                    <span>Marks breakdown (2 marks):</span><br>\n                    • <strong>1 mark:</strong> Describes the commitment (Merkle root) and how it prevents post‑hoc deck manipulation.<br>\n                    • <strong>1 mark:</strong> Mentions the ZK proof of valid permutation and the final deck verification.\n                </div>"
+      "text": "In 100 - 150 words, explain why a player can trust the outcome of a rummy hand on MST using SatvaShuffle, even if the game operator is dishonest. Reference the commitment scheme and the ZK proof in your answer.",
+      "explanation": "Model Answer: A player can trust the outcome because SatvaShuffle uses a commitment scheme and ZK proofs to make cheating mathematically impossible. Before the hand, the operator publishes a Merkle root of the shuffled deck on-chain, cryptographically committing to the card order. A ZK-SNARK proof verifies that this root represents a valid permutation of a standard 52-card deck. During play, cards are revealed via Merkle proofs from that root - if the operator tried to change the deck, the proofs would fail. After the hand, the full deck is revealed and players can recompute the Merkle root to confirm no cards were added or removed. The operator cannot alter the shuffle after seeing player actions because the commitment is on-chain and irreversible.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Model Answer &amp; Marks Breakdown</div>\n                <p><strong>Model Answer:</strong> A player can trust the outcome because SatvaShuffle uses a commitment scheme and ZK proofs to make cheating mathematically impossible. Before the hand, the operator publishes a Merkle root of the shuffled deck on-chain, cryptographically committing to the card order. A ZK-SNARK proof verifies that this root represents a valid permutation of a standard 52-card deck. During play, cards are revealed via Merkle proofs from that root - if the operator tried to change the deck, the proofs would fail. After the hand, the full deck is revealed and players can recompute the Merkle root to confirm no cards were added or removed. The operator cannot alter the shuffle after seeing player actions because the commitment is on-chain and irreversible.</p>\n                <div class=\"marks-bd\">\n                    <span>Marks breakdown (2 marks):</span><br>\n                    • <strong>1 mark:</strong> Describes the commitment (Merkle root) and how it prevents post-hoc deck manipulation.<br>\n                    • <strong>1 mark:</strong> Mentions the ZK proof of valid permutation and the final deck verification.\n                </div>"
     }
   ]
 }

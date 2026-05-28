@@ -22,12 +22,12 @@
         },
         {
           "key": "C",
-          "text": "Deutsch‑Jozsa algorithm",
+          "text": "Deutsch-Jozsa algorithm",
           "isCorrect": false
         },
         {
           "key": "D",
-          "text": "Bernstein‑Vazirani algorithm",
+          "text": "Bernstein-Vazirani algorithm",
           "isCorrect": false
         }
       ],
@@ -41,7 +41,7 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "What is the primary mathematical problem that lattice‑based post‑quantum cryptography relies on?",
+      "text": "What is the primary mathematical problem that lattice-based post-quantum cryptography relies on?",
       "options": [
         {
           "key": "A",
@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "C",
-      "explanation": "Lattice‑based schemes like Kyber and Dilithium are built on the Module‑LWE problem. Options A and B are broken by Shor's algorithm.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C</div><p>Lattice‑based schemes like Kyber and Dilithium are built on the Module‑LWE problem. Options A and B are broken by Shor's algorithm.</p>"
+      "explanation": "Lattice-based schemes like Kyber and Dilithium are built on the Module-LWE problem. Options A and B are broken by Shor's algorithm.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C</div><p>Lattice-based schemes like Kyber and Dilithium are built on the Module-LWE problem. Options A and B are broken by Shor's algorithm.</p>"
     },
     {
       "id": "q3",
@@ -74,21 +74,21 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "Which of the following has NOT been selected by NIST as a post‑quantum cryptographic standard?",
+      "text": "Which of the following has NOT been selected by NIST as a post-quantum cryptographic standard?",
       "options": [
         {
           "key": "A",
-          "text": "CRYSTALS‑Kyber",
+          "text": "CRYSTALS-Kyber",
           "isCorrect": false
         },
         {
           "key": "B",
-          "text": "RSA‑OAEP",
+          "text": "RSA-OAEP",
           "isCorrect": true
         },
         {
           "key": "C",
-          "text": "CRYSTALS‑Dilithium",
+          "text": "CRYSTALS-Dilithium",
           "isCorrect": false
         },
         {
@@ -98,8 +98,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "RSA‑OAEP is a classical encryption scheme that is vulnerable to Shor's algorithm. NIST selected Kyber, Dilithium, Falcon, and SPHINCS+.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>RSA‑OAEP is a classical encryption scheme that is vulnerable to Shor's algorithm. NIST selected Kyber, Dilithium, Falcon, and SPHINCS+.</p>"
+      "explanation": "RSA-OAEP is a classical encryption scheme that is vulnerable to Shor's algorithm. NIST selected Kyber, Dilithium, Falcon, and SPHINCS+.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>RSA-OAEP is a classical encryption scheme that is vulnerable to Shor's algorithm. NIST selected Kyber, Dilithium, Falcon, and SPHINCS+.</p>"
     },
     {
       "id": "q4",
@@ -121,12 +121,12 @@
         },
         {
           "key": "C",
-          "text": "Transactions require both ECDSA and a post‑quantum signature",
+          "text": "Transactions require both ECDSA and a post-quantum signature",
           "isCorrect": true
         },
         {
           "key": "D",
-          "text": "A hard fork creates a new post‑quantum chain",
+          "text": "A hard fork creates a new post-quantum chain",
           "isCorrect": false
         }
       ],
@@ -140,11 +140,11 @@
       "type": "mcq",
       "difficulty": "Medium",
       "marks": 1,
-      "text": "How does Grover's algorithm affect the security of SHA‑256?",
+      "text": "How does Grover's algorithm affect the security of SHA-256?",
       "options": [
         {
           "key": "A",
-          "text": "It breaks SHA‑256 completely",
+          "text": "It breaks SHA-256 completely",
           "isCorrect": false
         },
         {
@@ -164,8 +164,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Grover's algorithm provides a quadratic speedup. For a 256‑bit hash, classical brute‑force is 2²⁵⁶; quantum reduces it to 2¹²⁸, which is still infeasible.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>Grover's algorithm provides a quadratic speedup. For a 256‑bit hash, classical brute‑force is 2²⁵⁶; quantum reduces it to 2¹²⁸, which is still infeasible.</p>"
+      "explanation": "Grover's algorithm provides a quadratic speedup. For a 256-bit hash, classical brute-force is 2²⁵⁶; quantum reduces it to 2¹²⁸, which is still infeasible.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>Grover's algorithm provides a quadratic speedup. For a 256-bit hash, classical brute-force is 2²⁵⁶; quantum reduces it to 2¹²⁸, which is still infeasible.</p>"
     },
     {
       "id": "q6",
@@ -197,8 +197,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Falcon produces signatures around 0.7 KB vs Dilithium's 2.5 KB, making it more suitable for space‑constrained transactions, though signing is more complex.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>Falcon produces signatures around 0.7 KB vs Dilithium's 2.5 KB, making it more suitable for space‑constrained transactions, though signing is more complex.</p>"
+      "explanation": "Falcon produces signatures around 0.7 KB vs Dilithium's 2.5 KB, making it more suitable for space-constrained transactions, though signing is more complex.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>Falcon produces signatures around 0.7 KB vs Dilithium's 2.5 KB, making it more suitable for space-constrained transactions, though signing is more complex.</p>"
     },
     {
       "id": "q7",
@@ -230,8 +230,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Adversaries can store on‑chain ECDSA signatures now, and later, with a quantum computer, extract private keys — a retroactive break of all past transactions.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>Adversaries can store on‑chain ECDSA signatures now, and later, with a quantum computer, extract private keys — a retroactive break of all past transactions.</p>"
+      "explanation": "Adversaries can store on-chain ECDSA signatures now, and later, with a quantum computer, extract private keys - a retroactive break of all past transactions.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>Adversaries can store on-chain ECDSA signatures now, and later, with a quantum computer, extract private keys - a retroactive break of all past transactions.</p>"
     },
     {
       "id": "q8",
@@ -239,11 +239,11 @@
       "type": "mcq",
       "difficulty": "Medium",
       "marks": 1,
-      "text": "Which of the following is a hash‑based post‑quantum signature scheme selected by NIST?",
+      "text": "Which of the following is a hash-based post-quantum signature scheme selected by NIST?",
       "options": [
         {
           "key": "A",
-          "text": "CRYSTALS‑Kyber",
+          "text": "CRYSTALS-Kyber",
           "isCorrect": false
         },
         {
@@ -263,8 +263,8 @@
         }
       ],
       "correctAnswer": "C",
-      "explanation": "SPHINCS+ is a stateless hash‑based signature scheme that does not rely on lattice assumptions; it is built purely on the security of hash functions.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C</div><p>SPHINCS+ is a stateless hash‑based signature scheme that does not rely on lattice assumptions; it is built purely on the security of hash functions.</p>"
+      "explanation": "SPHINCS+ is a stateless hash-based signature scheme that does not rely on lattice assumptions; it is built purely on the security of hash functions.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C</div><p>SPHINCS+ is a stateless hash-based signature scheme that does not rely on lattice assumptions; it is built purely on the security of hash functions.</p>"
     },
     {
       "id": "q9",
@@ -281,23 +281,23 @@
         },
         {
           "key": "B",
-          "text": "A Dilithium post‑quantum keypair is generated alongside the ECDSA keypair",
+          "text": "A Dilithium post-quantum keypair is generated alongside the ECDSA keypair",
           "isCorrect": true
         },
         {
           "key": "C",
-          "text": "The wallet refuses to create until a quantum‑safe network exists",
+          "text": "The wallet refuses to create until a quantum-safe network exists",
           "isCorrect": false
         },
         {
           "key": "D",
-          "text": "The user is prompted to manually import a post‑quantum key",
+          "text": "The user is prompted to manually import a post-quantum key",
           "isCorrect": false
         }
       ],
       "correctAnswer": "B",
-      "explanation": "SARAL's secure enclave generates a Dilithium keypair during onboarding, binding it to the user's identity on‑chain. This allows seamless future migration without user action.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>SARAL's secure enclave generates a Dilithium keypair during onboarding, binding it to the user's identity on‑chain. This allows seamless future migration without user action.</p>"
+      "explanation": "SARAL's secure enclave generates a Dilithium keypair during onboarding, binding it to the user's identity on-chain. This allows seamless future migration without user action.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>SARAL's secure enclave generates a Dilithium keypair during onboarding, binding it to the user's identity on-chain. This allows seamless future migration without user action.</p>"
     },
     {
       "id": "q10",
@@ -305,16 +305,16 @@
       "type": "mcq",
       "difficulty": "Hard",
       "marks": 1,
-      "text": "Why are STARKs considered inherently quantum‑resistant, whereas SNARKs are not?",
+      "text": "Why are STARKs considered inherently quantum-resistant, whereas SNARKs are not?",
       "options": [
         {
           "key": "A",
-          "text": "STARKs use lattice‑based cryptography",
+          "text": "STARKs use lattice-based cryptography",
           "isCorrect": false
         },
         {
           "key": "B",
-          "text": "STARKs rely only on collision‑resistant hash functions, not number‑theoretic assumptions",
+          "text": "STARKs rely only on collision-resistant hash functions, not number-theoretic assumptions",
           "isCorrect": true
         },
         {
@@ -324,13 +324,13 @@
         },
         {
           "key": "D",
-          "text": "STARKs are encrypted with AES‑256",
+          "text": "STARKs are encrypted with AES-256",
           "isCorrect": false
         }
       ],
       "correctAnswer": "B",
-      "explanation": "SNARKs often depend on elliptic curve pairings, which are vulnerable to Shor's algorithm. STARKs use hash functions as their sole cryptographic building block, making them quantum‑safe.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>SNARKs often depend on elliptic curve pairings, which are vulnerable to Shor's algorithm. STARKs use hash functions as their sole cryptographic building block, making them quantum‑safe.</p>"
+      "explanation": "SNARKs often depend on elliptic curve pairings, which are vulnerable to Shor's algorithm. STARKs use hash functions as their sole cryptographic building block, making them quantum-safe.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>SNARKs often depend on elliptic curve pairings, which are vulnerable to Shor's algorithm. STARKs use hash functions as their sole cryptographic building block, making them quantum-safe.</p>"
     },
     {
       "id": "q11",
@@ -338,10 +338,10 @@
       "type": "true_false",
       "difficulty": "Medium",
       "marks": 2,
-      "text": "\"Shor's algorithm can break SHA‑256 hash functions.\"",
+      "text": "\"Shor's algorithm can break SHA-256 hash functions.\"",
       "correctAnswer": "FALSE",
-      "explanation": "1 mark: States FALSE and correctly identifies that Shor's algorithm targets factorisation/discrete log.+1 mark: Explains that Grover's algorithm (not Shor's) is the relevant quantum algorithm for hash functions, and that SHA‑256 remains secure with 128‑bit post‑quantum security.",
-      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> States FALSE and correctly identifies that Shor's algorithm targets factorisation/discrete log.<br><strong>+1 mark:</strong> Explains that Grover's algorithm (not Shor's) is the relevant quantum algorithm for hash functions, and that SHA‑256 remains secure with 128‑bit post‑quantum security.</p>",
+      "explanation": "1 mark: States FALSE and correctly identifies that Shor's algorithm targets factorisation/discrete log.+1 mark: Explains that Grover's algorithm (not Shor's) is the relevant quantum algorithm for hash functions, and that SHA-256 remains secure with 128-bit post-quantum security.",
+      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> States FALSE and correctly identifies that Shor's algorithm targets factorisation/discrete log.<br><strong>+1 mark:</strong> Explains that Grover's algorithm (not Shor's) is the relevant quantum algorithm for hash functions, and that SHA-256 remains secure with 128-bit post-quantum security.</p>",
       "tfVerdict": "FALSE"
     },
     {
@@ -350,10 +350,10 @@
       "type": "true_false",
       "difficulty": "Medium",
       "marks": 2,
-      "text": "\"MST's SARAL wallet currently uses only post‑quantum signatures for all transactions.\"",
+      "text": "\"MST's SARAL wallet currently uses only post-quantum signatures for all transactions.\"",
       "correctAnswer": "FALSE",
-      "explanation": "1 mark: Correctly identifies FALSE and mentions that ECDSA is still used.+1 mark: Describes the dual‑key generation in SARAL and the planned future enforcement.",
-      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> Correctly identifies FALSE and mentions that ECDSA is still used.<br><strong>+1 mark:</strong> Describes the dual‑key generation in SARAL and the planned future enforcement.</p>",
+      "explanation": "1 mark: Correctly identifies FALSE and mentions that ECDSA is still used.+1 mark: Describes the dual-key generation in SARAL and the planned future enforcement.",
+      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> Correctly identifies FALSE and mentions that ECDSA is still used.<br><strong>+1 mark:</strong> Describes the dual-key generation in SARAL and the planned future enforcement.</p>",
       "tfVerdict": "FALSE"
     },
     {
@@ -362,10 +362,10 @@
       "type": "true_false",
       "difficulty": "Medium",
       "marks": 2,
-      "text": "\"A 256‑bit AES key is considered quantum‑safe because Grover's algorithm would require 2¹²⁸ operations, which remains infeasible.\"",
+      "text": "\"A 256-bit AES key is considered quantum-safe because Grover's algorithm would require 2¹²⁸ operations, which remains infeasible.\"",
       "correctAnswer": "TRUE",
-      "explanation": "1 mark: States TRUE.+1 mark: Explains Grover's √N effect and why 2¹²⁸ is still infeasible, contrasting with a 128‑bit key.",
-      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> States TRUE.<br><strong>+1 mark:</strong> Explains Grover's √N effect and why 2¹²⁸ is still infeasible, contrasting with a 128‑bit key.</p>",
+      "explanation": "1 mark: States TRUE.+1 mark: Explains Grover's √N effect and why 2¹²⁸ is still infeasible, contrasting with a 128-bit key.",
+      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> States TRUE.<br><strong>+1 mark:</strong> Explains Grover's √N effect and why 2¹²⁸ is still infeasible, contrasting with a 128-bit key.</p>",
       "tfVerdict": "TRUE"
     },
     {
@@ -386,7 +386,7 @@
       "type": "true_false",
       "difficulty": "Hard",
       "marks": 2,
-      "text": "\"If MST successfully transitions to post‑quantum signatures, all previously recorded ECDSA‑signed transactions on the chain will become immune to retroactive forgery.\"",
+      "text": "\"If MST successfully transitions to post-quantum signatures, all previously recorded ECDSA-signed transactions on the chain will become immune to retroactive forgery.\"",
       "correctAnswer": "FALSE",
       "explanation": "1 mark: States FALSE and correctly identifies that old signatures remain vulnerable.+1 mark: Explains the retroactive private key recovery and why migration before quantum arrival is essential.",
       "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> States FALSE and correctly identifies that old signatures remain vulnerable.<br><strong>+1 mark:</strong> Explains the retroactive private key recovery and why migration before quantum arrival is essential.</p>",

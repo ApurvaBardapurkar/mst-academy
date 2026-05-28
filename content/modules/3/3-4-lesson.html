@@ -66,25 +66,6 @@
 
 <p>Blockchain solves this not by making humans more trustworthy, but by <strong>removing the need to trust any human</strong>. The immutability guarantee comes from mathematics - specifically from the properties of cryptographic hash functions applied recursively across a distributed network.</p>
 
-<h3 style="font-size:18px;font-weight:800;color:var(--ink);margin:28px 0 16px;">The Scale of Record Tampering in India</h3>
-
-<p>To appreciate why immutability matters, consider the scope of the problem in India. According to a 2019 report by Transparency International India, an estimated 62% of land disputes in Indian courts originate from tampered or forged revenue records. The National Crime Records Bureau (NCRB) data shows that document forgery cases have risen by over 300% in the last two decades. In the municipal bond market, auditors have uncovered instances where financial statements were retroactively altered to secure higher credit ratings. In the education sector, the University Grants Commission has flagged over 23 fake universities that issued fabricated degree certificates - documents that existed in no verifiable registry.</p>
-
-<p>Each of these problems shares a common root: <strong>mutable records controlled by a single authority</strong>. Whether it is a Sub-Registrar's office in Tamil Nadu, a university examination cell in Uttar Pradesh, or a municipal corporation in Maharashtra - the entity that writes the record also has the power to alter it. The fox guards the henhouse.</p>
-
-<div class="callout analogy">
-  <div class="callout-label">🔑 The Marble vs. the Whiteboard</div>
-  <p>Think of traditional records as writing on a whiteboard. Anyone with a duster can erase and rewrite. A blockchain record is like carving into marble. Once engraved, the only way to "change" it is to destroy the entire marble slab and carve a new one - and in a blockchain, that slab is replicated across thousands of locations simultaneously. Destroying one copy does nothing; every other copy still holds the original truth. This is not a policy decision. It is a physical constraint of the system's design.</p>
-</div>
-
-<h3 style="font-size:18px;font-weight:800;color:var(--ink);margin:28px 0 16px;">How Traditional Databases Handle Modifications</h3>
-
-<p>In a conventional SQL database, an administrator with sufficient privileges can execute a simple command like <code>UPDATE land_records SET owner = 'Fraudster' WHERE plot_id = '3B'</code>. The database engine happily overwrites the old value. Even if an audit log exists, the same administrator can often truncate or modify that log. Backups can be overwritten. Access logs can be deleted. The entire history of a record can be rewritten by a single compromised insider.</p>
-
-<p>Some systems use "append-only" logs or write-ahead logs (WAL), but these are still controlled by the database administrator. A determined attacker with root access can modify the WAL, restore from a tampered backup, or simply drop the audit table entirely. The fundamental problem remains: <strong>security depends on the integrity of the people who manage the system</strong>.</p>
-
-<p>Blockchain eliminates this dependency entirely. There is no "root" user. There is no single server to compromise. The data is replicated across thousands of independent nodes, each of which independently verifies every modification against the cryptographic hash chain. Altering any record requires simultaneously compromising more than half of all these independent operators - a feat that is not merely difficult but economically irrational at scale.</p>
-
 
 <!-- 04 HOW HASH CHAINING CREATES IMMUTABILITY -->
 <div class="section-label">04 &nbsp; The Mechanism - How Hash Chaining Creates Immutability</div>
@@ -138,58 +119,6 @@
   <div class="callout-label">🗝️ The Core Insight</div>
   <p>Blockchain immutability is not enforced by an access control policy. It is not enforced by a law. It is enforced by the mathematical property that <strong>you cannot change any data without changing its hash</strong>, and you cannot change the hash without invalidating every subsequent block. The only way to "successfully" tamper is to redo ALL the subsequent computational work - faster than the entire honest network. At Bitcoin's scale, this requires more energy than a small nation consumes.</p>
 </div>
-
-<h3 style="font-size:18px;font-weight:800;color:var(--ink);margin:28px 0 16px;">The Energy of Immutability - Quantifying the Cost of Tampering</h3>
-
-<p>Let us put concrete numbers to the cost of tampering with Bitcoin's blockchain. As of 2024, Bitcoin's network hashrate exceeds 500 exahashes per second (EH/s). Each exahash represents one quintillion (10<sup>18</sup>) SHA-256 hash computations per second. To recompute even a single block, an attacker must find a nonce that satisfies the current difficulty target - a task that takes the entire honest network approximately 10 minutes of collective effort.</p>
-
-<p>To alter a block from one month ago (approximately 4,320 blocks deep), the attacker would need to recompute all 4,320 subsequent blocks faster than the honest network adds new ones. Even with 51% of the network's hashpower (a theoretical impossibility given the current distribution), the attacker would need approximately 4,320 blocks worth of computational work, consuming roughly 8 billion kilowatt-hours of electricity - equivalent to the annual electricity consumption of a country like Sri Lanka. The hardware cost alone would exceed $10 billion.</p>
-
-<div class="callout insight">
-  <div class="callout-label">💡 Immutability Is Not Binary - It Is a Spectrum</div>
-  <p>A common misconception is that blockchain immutability is absolute - either a record is immutable or it is not. In reality, immutability is a spectrum determined by three factors: (1) the depth of the block (deeper = harder to change), (2) the total consensus power of the network (larger network = more expensive to attack), and (3) the consensus mechanism's finality properties (BFT finality in MST is deterministic; Bitcoin's is probabilistic). A transaction in Bitcoin's genesis block is the most immutable data in human history. A transaction in a small altcoin's latest block is barely more immutable than a row in a PostgreSQL database.</p>
-</div>
-
-<h3 style="font-size:18px;font-weight:800;color:var(--ink);margin:28px 0 16px;">Immutability Across Consensus Mechanisms</h3>
-
-<table class="cost-table">
-  <thead>
-    <tr>
-      <th>Consensus Type</th>
-      <th>Immutability Guarantee</th>
-      <th>Reversal Difficulty</th>
-      <th>Example Blockchain</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Proof-of-Work (Nakamoto Consensus)</td>
-      <td>Probabilistic - gets stronger with each confirmation</td>
-      <td>Requires outpacing the honest network's hashrate for the duration of the attack</td>
-      <td>Bitcoin, Litecoin</td>
-    </tr>
-    <tr>
-      <td>Proof-of-Stake (Casper/Tendermint)</td>
-      <td>Deterministic after finality checkpoint (every epoch)</td>
-      <td>Requires corrupting 2/3+ of staked value; attackers lose their entire stake through slashing</td>
-      <td>Ethereum (post-Merge)</td>
-    </tr>
-    <tr>
-      <td>Trika POSA (MST)</td>
-      <td>BFT finality in 2 blocks (~6 seconds)</td>
-      <td>Requires controlling 11/21 Cabinet validators AND their staked MSTC; slashing destroys attacker's capital</td>
-      <td>MST Blockchain</td>
-    </tr>
-    <tr>
-      <td>Delegated Proof-of-Stake</td>
-      <td>BFT finality after supermajority validator vote</td>
-      <td>Requires bribing 2/3+ of elected delegates; social and economic consequences are severe</td>
-      <td>EOS, Tron</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>The key takeaway is that immutability is an emergent property of the system's economic and cryptographic design. It is not a feature that can be "turned on" by a setting. It arises from the combination of hash chaining (making tampering detectable), consensus (making tampering require majority cooperation), and economic incentives (making tampering financially devastating for the attacker).</p>
 
 
 <!-- 05 THE 51% ATTACK -->
@@ -315,55 +244,6 @@
 </div>
 
 
-<!-- 07B TYPES OF IMMUTABILITY -->
-<div class="section-label">07B &nbsp; Types of Immutability Across Blockchain Architectures</div>
-<h2 class="section-title">Not All Blockchains Are Equally Immutable</h2>
-
-<p>A common misconception among beginners is that all blockchains offer the same level of immutability. In reality, the strength of immutability varies dramatically depending on the blockchain's architecture, consensus mechanism, and network size. Understanding these differences is critical when choosing a blockchain for a specific application.</p>
-
-<div class="feature-list">
-  <div class="feature-item">
-    <div class="feature-num" style="background:var(--blue);">🔷</div>
-    <div class="feature-content">
-      <div class="feature-title">Public Permissionless Blockchains (Bitcoin, Ethereum, MST)</div>
-      <div class="feature-desc">These offer the strongest immutability. Anyone can join the network and validate transactions. The more participants, the harder it is to tamper. Bitcoin's immutability is backed by hundreds of exahashes of computational power. Ethereum's is backed by billions of dollars in staked ETH. MST combines stake-weighted security with BFT finality. No single entity, government, or corporation can unilaterally alter the history. This is why public chains are preferred for land records, financial transactions, and any application where the integrity of the record must survive even a hostile government.</div>
-    </div>
-  </div>
-  <div class="feature-item">
-    <div class="feature-num" style="background:var(--orange);">🔶</div>
-    <div class="feature-content">
-      <div class="feature-title">Permissioned (Consortium) Blockchains (Hyperledger Fabric, R3 Corda)</div>
-      <div class="feature-desc">These are run by a known set of organizations - for example, a group of banks or hospitals. Immutability is weaker because the participants know each other and could collude. If 3 out of 5 banks in a consortium agree to alter a record, they can. However, the fact that multiple independent organizations must agree still provides stronger guarantees than a single centralized database. Permissioned chains are common in India's banking sector - the Indian Banks' Blockchain Infrastructure Company (IBBIC) uses a consortium model for trade finance. The immutability here depends on the governance agreements between participants, not on mathematical impossibility.</div>
-    </div>
-  </div>
-  <div class="feature-item">
-    <div class="feature-num" style="background:var(--red);">🔴</div>
-    <div class="feature-content">
-      <div class="feature-title">Private Blockchains (Single-Organization Chains)</div>
-      <div class="feature-desc">A blockchain run entirely by one organization (e.g., a company's internal audit trail) offers the weakest immutability. While the hash chain still makes tampering detectable, the single operator controls all the nodes and can, in theory, rewrite the entire chain without external accountability. Private blockchains are essentially cryptographically linked databases - they provide tamper-evidence but not true immutability. They are useful for internal audit trails where the goal is to detect unauthorized changes by employees, not to resist a determined organizational decision to alter records.</div>
-    </div>
-  </div>
-</div>
-
-<div class="callout insight">
-  <div class="callout-label">💡 Choosing the Right Level</div>
-  <p>For your capstone project, consider the immutability requirements of your application. If the application protects citizens against government or corporate tampering (land records, voting, whistleblower protection), use a public chain like MST. If the application coordinates between known enterprises (supply chain, inter-bank settlements), a permissioned zone within MST's hybrid architecture may be appropriate. If you just need an internal audit trail, even a private chain works - but ask yourself whether a blockchain is really needed at all.</p>
-</div>
-
-<h3 style="font-size:18px;font-weight:800;color:var(--ink);margin:28px 0 16px;">Historical Exceptions - When Immutability Was Overridden</h3>
-
-<p>Even on public blockchains, immutability has been overridden in extraordinary circumstances. The most famous example is the <strong>Ethereum DAO hack of 2016</strong>. An attacker exploited a vulnerability in "The DAO" smart contract and drained approximately $60 million worth of ETH. The Ethereum community voted to hard-fork the chain - essentially reversing the hack by creating a new version of the blockchain where the stolen funds were returned. The original chain continued as <strong>Ethereum Classic</strong>, whose community rejected the fork on the principle that "code is law" and immutability should never be violated.</p>
-
-<p>This event raised a fundamental philosophical question: <strong>should immutability ever be overridden?</strong> Those who support the fork argue that immutability serves humans, not the other way around, and that preventing a $60 million theft justifies an exception. Those who oppose it argue that if the community can reverse transactions once, the guarantee of immutability is permanently weakened - who decides which thefts are "big enough" to justify a fork?</p>
-
-<p>For MST's architecture, this question is addressed through governance. MST's Trika POSA includes a structured governance process where such extreme decisions can be debated and voted on by the community. However, the BFT finality model makes such situations less likely in the first place - once a block is finalized by the Cabinet validators, it cannot be reorganized even by the block producers themselves.</p>
-
-<div class="callout warning">
-  <div class="callout-label">⚠️ The Immutability Social Contract</div>
-  <p>Remember: blockchain immutability is ultimately maintained by social consensus. The hash chain makes tampering <strong>detectable</strong>. The consensus mechanism makes it <strong>expensive</strong>. But the community's commitment to never override the chain is what makes it <strong>trustworthy</strong>. A blockchain whose community regularly hard-forks to reverse transactions is not truly immutable - it is merely a database with extra steps. The value of Bitcoin's immutability comes not just from its hashrate but from the community's unwavering refusal to reverse transactions, no matter how painful the consequences.</p>
-</div>
-
-
 <!-- 08 ASSESSMENT PREP -->
 <div class="section-label">08 &nbsp; Assessment Preparation</div>
 <h2 class="section-title">Top Facts - Know These Cold</h2>
@@ -423,10 +303,6 @@
   <div class="glossary-item"><div class="glossary-term">BFT Finality</div><div class="glossary-def">Byzantine Fault Tolerant finality - used by MST Trika POSA. Once 2/3+ validators sign a block, it is cryptographically finalized and cannot be reversed, unlike Bitcoin's probabilistic finality.</div></div>
   <div class="glossary-item"><div class="glossary-term">Slashing</div><div class="glossary-def">The automatic burning of a PoS validator's staked tokens as punishment for malicious behaviour (e.g., double-signing). Makes 51% attacks on PoS chains economically devastating for the attacker.</div></div>
   <div class="glossary-item"><div class="glossary-term">Longest Chain Rule</div><div class="glossary-def">Bitcoin's rule for resolving competing chains: the valid chain with the most accumulated computational work wins. This is what makes a successful 51% attack possible - the attacker's chain has more work.</div></div>
-  <div class="glossary-item"><div class="glossary-term">Cascade Effect</div><div class="glossary-def">The chain reaction caused by altering any block - its hash changes, which invalidates every subsequent block's PrevHash pointer, propagating the invalidity through the entire remaining chain.</div></div>
-  <div class="glossary-item"><div class="glossary-term">Hash Chaining</div><div class="glossary-def">The technique of including the hash of the previous block in the current block's header, creating a cryptographic chain where each block depends on all prior blocks. The fundamental mechanism enabling blockchain immutability.</div></div>
-  <div class="glossary-item"><div class="glossary-term">Probabilistic Finality</div><div class="glossary-def">A finality model (used by Bitcoin) where the certainty that a transaction will not be reversed increases with each confirmation but theoretically never reaches 100%. In practice, 6 confirmations is considered irreversible.</div></div>
-  <div class="glossary-item"><div class="glossary-term">Deterministic Finality</div><div class="glossary-def">A finality model (used by MST Trika POSA and Tendermint-based chains) where once a supermajority of validators signs off on a block, it is mathematically final and cannot be reversed under any circumstances.</div></div>
 </div>
 
 <div class="page-footer">

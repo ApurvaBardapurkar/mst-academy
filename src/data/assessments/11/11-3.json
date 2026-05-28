@@ -8,7 +8,7 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "What is the primary purpose of over‑collateralization in DeFi lending?",
+      "text": "What is the primary purpose of over-collateralization in DeFi lending?",
       "options": [
         {
           "key": "A",
@@ -32,8 +32,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Over‑collateralization ensures the protocol always has more value locked than borrowed, so even if a borrower defaults, the collateral sale covers the debt.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Over‑collateralization ensures the protocol always has more value locked than borrowed, so even if a borrower defaults, the collateral sale covers the debt.</p>"
+      "explanation": "Over-collateralization ensures the protocol always has more value locked than borrowed, so even if a borrower defaults, the collateral sale covers the debt.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Over-collateralization ensures the protocol always has more value locked than borrowed, so even if a borrower defaults, the collateral sale covers the debt.</p>"
     },
     {
       "id": "q2",
@@ -74,7 +74,7 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "What happens to the interest rate in a utilization‑based model when utilization exceeds the optimal level (kink)?",
+      "text": "What happens to the interest rate in a utilization-based model when utilization exceeds the optimal level (kink)?",
       "options": [
         {
           "key": "A",
@@ -111,7 +111,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Extremely low gas fees make micro‑loans and frequent compounding economically viable.",
+          "text": "Extremely low gas fees make micro-loans and frequent compounding economically viable.",
           "isCorrect": true
         },
         {
@@ -131,8 +131,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Sub‑paisa fees remove the economic barrier to small loans and active management, opening DeFi lending to a global audience.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Sub‑paisa fees remove the economic barrier to small loans and active management, opening DeFi lending to a global audience.</p>"
+      "explanation": "Sub-paisa fees remove the economic barrier to small loans and active management, opening DeFi lending to a global audience.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Sub-paisa fees remove the economic barrier to small loans and active management, opening DeFi lending to a global audience.</p>"
     },
     {
       "id": "q5",

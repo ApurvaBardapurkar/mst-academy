@@ -9,12 +9,14 @@ export type CameraViolationType = "camera_off" | "camera_covered" | "camera_deni
 interface AssessmentCameraProctorProps {
   active: boolean;
   onViolation: (type: CameraViolationType) => void;
+  placement?: "top" | "bottom";
 }
 
 /** Samples video frames for camera-off / covered-camera heuristics. */
 export function AssessmentCameraProctor({
   active,
   onViolation,
+  placement = "top",
 }: AssessmentCameraProctorProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
@@ -112,8 +114,13 @@ export function AssessmentCameraProctor({
   if (!active) return null;
 
   return (
-    // Top-right on larger screens, centered at top on narrow screens to avoid overlapping footer controls
-    <div className="fixed z-[150] top-4 right-4 left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 flex flex-col items-end gap-2">
+    <div
+      className={`fixed z-[150] flex flex-col items-end gap-2 ${
+        placement === "bottom"
+          ? "bottom-4 right-4 left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0"
+          : "top-4 right-4 left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0"
+      }`}
+    >
       <div className="flex items-center gap-2 rounded-full border border-emerald-500/40 bg-black/80 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-emerald-400 shadow-lg backdrop-blur-md">
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />

@@ -108,20 +108,20 @@ export function Navbar() {
         </nav>
 
         {/* Right side */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
           <NavbarCoinStreak />
           <ThemeToggle />
 
           {ready && user ? (
-            <div className="hidden items-center gap-2 sm:flex">
+            <div className="flex items-center gap-2">
               <Link
                 href={dashboardHref}
-                className="flex items-center gap-2 rounded-lg border border-white/10 px-3.5 py-2 text-sm font-medium text-[var(--nav-text)] transition hover:border-mst-red/50 hover:bg-mst-red/10"
+                className="flex items-center gap-2 rounded-lg border border-white/10 px-2.5 py-2 text-xs font-medium text-[var(--nav-text)] transition hover:border-mst-red/50 hover:bg-mst-red/10 sm:px-3.5 sm:text-sm"
               >
                 <div className="flex h-6 w-6 items-center justify-center rounded-full bg-mst-red text-[10px] font-bold text-white">
                   {user.fullName?.charAt(0).toUpperCase()}
                 </div>
-                <span className="max-w-[100px] truncate">{user.fullName?.split(" ")[0]}</span>
+                <span className="hidden max-w-[100px] truncate sm:inline">{user.fullName?.split(" ")[0]}</span>
               </Link>
               <button
                 type="button"
@@ -153,7 +153,7 @@ export function Navbar() {
 
           <Link
             href="/learn"
-            className="rounded-xl bg-gradient-to-r from-mst-red to-red-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-mst-red/25 transition hover:shadow-mst-red/40 hover:brightness-110 active:scale-[0.98]"
+            className="hidden rounded-xl bg-gradient-to-r from-mst-red to-red-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-mst-red/25 transition hover:shadow-mst-red/40 hover:brightness-110 active:scale-[0.98] sm:inline-block"
           >
             Start Learning
           </Link>

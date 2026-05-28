@@ -98,8 +98,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "external functions can only be called from outside the contract (by users, dApps, or other contracts). They cannot be called from within the contract using this.functionName() – only external calls. This slightly reduces gas costs compared to public functions.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>external functions can only be called from outside the contract (by users, dApps, or other contracts). They cannot be called from within the contract using this.functionName() – only external calls. This slightly reduces gas costs compared to public functions.</p>"
+      "explanation": "external functions can only be called from outside the contract (by users, dApps, or other contracts). They cannot be called from within the contract using this.functionName() - only external calls. This slightly reduces gas costs compared to public functions.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>external functions can only be called from outside the contract (by users, dApps, or other contracts). They cannot be called from within the contract using this.functionName() - only external calls. This slightly reduces gas costs compared to public functions.</p>"
     },
     {
       "id": "q4",
@@ -131,8 +131,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "A view function can read blockchain state (state variables, balances, block info) but cannot modify it. A pure function cannot read OR write state – it operates only on its input parameters. Both are free to call externally.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>A view function can read blockchain state (state variables, balances, block info) but cannot modify it. A pure function cannot read OR write state – it operates only on its input parameters. Both are free to call externally.</p>"
+      "explanation": "A view function can read blockchain state (state variables, balances, block info) but cannot modify it. A pure function cannot read OR write state - it operates only on its input parameters. Both are free to call externally.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>A view function can read blockchain state (state variables, balances, block info) but cannot modify it. A pure function cannot read OR write state - it operates only on its input parameters. Both are free to call externally.</p>"
     },
     {
       "id": "q5",
@@ -149,7 +149,7 @@
         },
         {
           "key": "B",
-          "text": "It tells the compiler the variable is set only in the constructor, allowing it to be stored in bytecode instead of storage – saving gas on every read",
+          "text": "It tells the compiler the variable is set only in the constructor, allowing it to be stored in bytecode instead of storage - saving gas on every read",
           "isCorrect": true
         },
         {
@@ -177,12 +177,12 @@
       "options": [
         {
           "key": "A",
-          "text": "The greeting is updated anyway – the require statement is just a warning",
+          "text": "The greeting is updated anyway - the require statement is just a warning",
           "isCorrect": false
         },
         {
           "key": "B",
-          "text": "The transaction reverts – the state is NOT changed, but gas is still consumed for the attempted computation",
+          "text": "The transaction reverts - the state is NOT changed, but gas is still consumed for the attempted computation",
           "isCorrect": true
         },
         {
@@ -192,13 +192,13 @@
         },
         {
           "key": "D",
-          "text": "The contract self‑destructs to protect its data",
+          "text": "The contract self-destructs to protect its data",
           "isCorrect": false
         }
       ],
       "correctAnswer": "B",
-      "explanation": "When require fails, the entire transaction reverts – all state changes are undone. However, the gas used up to the point of failure is NOT refunded. The caller pays for the attempted computation, and the contract state remains exactly as it was.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>When require fails, the entire transaction reverts – all state changes are undone. However, the gas used up to the point of failure is NOT refunded. The caller pays for the attempted computation, and the contract state remains exactly as it was.</p>"
+      "explanation": "When require fails, the entire transaction reverts - all state changes are undone. However, the gas used up to the point of failure is NOT refunded. The caller pays for the attempted computation, and the contract state remains exactly as it was.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>When require fails, the entire transaction reverts - all state changes are undone. However, the gas used up to the point of failure is NOT refunded. The caller pays for the attempted computation, and the contract state remains exactly as it was.</p>"
     },
     {
       "id": "q7",
@@ -220,8 +220,8 @@
       "marks": 1,
       "text": "\"If a function is marked as <strong>view</strong>, it can still modify state variables as long as it doesn't use the <strong>public</strong> visibility modifier.\"",
       "correctAnswer": "FALSE",
-      "explanation": "1 mark for correctly stating FALSE and explaining that view is a compile‑time constraint preventing state modification, unrelated to visibility.",
-      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p>1 mark for correctly stating FALSE and explaining that view is a compile‑time constraint preventing state modification, unrelated to visibility.</p>",
+      "explanation": "1 mark for correctly stating FALSE and explaining that view is a compile-time constraint preventing state modification, unrelated to visibility.",
+      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p>1 mark for correctly stating FALSE and explaining that view is a compile-time constraint preventing state modification, unrelated to visibility.</p>",
       "tfVerdict": "FALSE"
     },
     {

@@ -8,7 +8,7 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "What is the primary advantage of using WebAssembly (WASM) for off‑chain oracle computation?",
+      "text": "What is the primary advantage of using WebAssembly (WASM) for off-chain oracle computation?",
       "options": [
         {
           "key": "A",
@@ -32,8 +32,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "WASM allows developers to write in familiar languages (Rust, C, Python) and run code off‑chain, with ZK proofs guaranteeing correct execution.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>WASM allows developers to write in familiar languages (Rust, C, Python) and run code off‑chain, with ZK proofs guaranteeing correct execution.</p>"
+      "explanation": "WASM allows developers to write in familiar languages (Rust, C, Python) and run code off-chain, with ZK proofs guaranteeing correct execution.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>WASM allows developers to write in familiar languages (Rust, C, Python) and run code off-chain, with ZK proofs guaranteeing correct execution.</p>"
     },
     {
       "id": "q2",
@@ -41,7 +41,7 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "What does a zero‑knowledge proof in WASMify guarantee?",
+      "text": "What does a zero-knowledge proof in WASMify guarantee?",
       "options": [
         {
           "key": "A",
@@ -55,7 +55,7 @@
         },
         {
           "key": "C",
-          "text": "That the smart contract is bug‑free.",
+          "text": "That the smart contract is bug-free.",
           "isCorrect": false
         },
         {
@@ -78,12 +78,12 @@
       "options": [
         {
           "key": "A",
-          "text": "By calling a pre‑deployed verifier contract that mathematically checks the proof without re‑executing the computation.",
+          "text": "By calling a pre-deployed verifier contract that mathematically checks the proof without re-executing the computation.",
           "isCorrect": true
         },
         {
           "key": "B",
-          "text": "By re‑running the WASM module on‑chain.",
+          "text": "By re-running the WASM module on-chain.",
           "isCorrect": false
         },
         {
@@ -98,8 +98,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "The verifier contract performs cryptographic verification, which is fast and cheap, without re‑executing the original computation.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>The verifier contract performs cryptographic verification, which is fast and cheap, without re‑executing the original computation.</p>"
+      "explanation": "The verifier contract performs cryptographic verification, which is fast and cheap, without re-executing the original computation.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>The verifier contract performs cryptographic verification, which is fast and cheap, without re-executing the original computation.</p>"
     },
     {
       "id": "q4",
@@ -111,7 +111,7 @@
       "options": [
         {
           "key": "A",
-          "text": "It can process large, private sensor logs off‑chain and only submit a tiny ZK proof on‑chain.",
+          "text": "It can process large, private sensor logs off-chain and only submit a tiny ZK proof on-chain.",
           "isCorrect": true
         },
         {
@@ -131,8 +131,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Supply chain data is voluminous and often private. WASMify's off‑chain processing and ZK proof model is ideal.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Supply chain data is voluminous and often private. WASMify's off‑chain processing and ZK proof model is ideal.</p>"
+      "explanation": "Supply chain data is voluminous and often private. WASMify's off-chain processing and ZK proof model is ideal.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Supply chain data is voluminous and often private. WASMify's off-chain processing and ZK proof model is ideal.</p>"
     },
     {
       "id": "q5",
@@ -177,17 +177,17 @@
       "options": [
         {
           "key": "A",
-          "text": "Chainlink (decentralised oracle network) — mature, battle‑tested for financial price feeds.",
+          "text": "Chainlink (decentralised oracle network) - mature, battle-tested for financial price feeds.",
           "isCorrect": true
         },
         {
           "key": "B",
-          "text": "WASMify — it's cheaper.",
+          "text": "WASMify - it's cheaper.",
           "isCorrect": false
         },
         {
           "key": "C",
-          "text": "Centralised oracle — it's simplest.",
+          "text": "Centralised oracle - it's simplest.",
           "isCorrect": false
         },
         {
@@ -197,8 +197,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "For well‑established price feeds, Chainlink provides the most mature, widely‑used infrastructure. WASMify is better for novel or complex data types.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>For well‑established price feeds, Chainlink provides the most mature, widely‑used infrastructure. WASMify is better for novel or complex data types.</p>"
+      "explanation": "For well-established price feeds, Chainlink provides the most mature, widely-used infrastructure. WASMify is better for novel or complex data types.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>For well-established price feeds, Chainlink provides the most mature, widely-used infrastructure. WASMify is better for novel or complex data types.</p>"
     },
     {
       "id": "q7",
@@ -215,7 +215,7 @@
         },
         {
           "key": "B",
-          "text": "It encrypts the data on‑chain.",
+          "text": "It encrypts the data on-chain.",
           "isCorrect": false
         },
         {
@@ -248,7 +248,7 @@
         },
         {
           "key": "B",
-          "text": "It cannot handle any real‑world data.",
+          "text": "It cannot handle any real-world data.",
           "isCorrect": false
         },
         {
@@ -263,8 +263,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Proof generation is resource‑heavy, though it improves with better hardware and algorithms. It's not suitable for sub‑second latency requirements.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Proof generation is resource‑heavy, though it improves with better hardware and algorithms. It's not suitable for sub‑second latency requirements.</p>"
+      "explanation": "Proof generation is resource-heavy, though it improves with better hardware and algorithms. It's not suitable for sub-second latency requirements.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Proof generation is resource-heavy, though it improves with better hardware and algorithms. It's not suitable for sub-second latency requirements.</p>"
     },
     {
       "id": "q9",
@@ -276,7 +276,7 @@
       "options": [
         {
           "key": "A",
-          "text": "It makes proof verification economically viable for frequent, real‑world applications.",
+          "text": "It makes proof verification economically viable for frequent, real-world applications.",
           "isCorrect": true
         },
         {
@@ -296,8 +296,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "On Ethereum, proof verification costs thousands of rupees, limiting use to occasional high‑value events. On MST, it costs paise, enabling use cases like every shipment or every API call.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>On Ethereum, proof verification costs thousands of rupees, limiting use to occasional high‑value events. On MST, it costs paise, enabling use cases like every shipment or every API call.</p>"
+      "explanation": "On Ethereum, proof verification costs thousands of rupees, limiting use to occasional high-value events. On MST, it costs paise, enabling use cases like every shipment or every API call.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>On Ethereum, proof verification costs thousands of rupees, limiting use to occasional high-value events. On MST, it costs paise, enabling use cases like every shipment or every API call.</p>"
     },
     {
       "id": "q10",
@@ -309,7 +309,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Write Rust → compile to WASM → execute with real data → generate ZK proof → submit proof to MST → verify on‑chain.",
+          "text": "Write Rust → compile to WASM → execute with real data → generate ZK proof → submit proof to MST → verify on-chain.",
           "isCorrect": true
         },
         {
@@ -319,7 +319,7 @@
         },
         {
           "key": "C",
-          "text": "Fetch data → submit to Chainlink → wait for aggregation → read on‑chain.",
+          "text": "Fetch data → submit to Chainlink → wait for aggregation → read on-chain.",
           "isCorrect": false
         },
         {
@@ -329,8 +329,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "The WASMify flow is: code → compile → execute → prove → submit → verify. This order reflects the off‑chain then on‑chain split.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>The WASMify flow is: code → compile → execute → prove → submit → verify. This order reflects the off‑chain then on‑chain split.</p>"
+      "explanation": "The WASMify flow is: code → compile → execute → prove → submit → verify. This order reflects the off-chain then on-chain split.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>The WASMify flow is: code → compile → execute → prove → submit → verify. This order reflects the off-chain then on-chain split.</p>"
     },
     {
       "id": "q11",
@@ -338,7 +338,7 @@
       "type": "descriptive",
       "difficulty": "Hard",
       "marks": 20,
-      "text": "Design a WASMify‑based oracle system for a cold‑chain pharmaceutical shipment verification on MST. Produce a detailed architecture diagram and explain each component."
+      "text": "Design a WASMify-based oracle system for a cold-chain pharmaceutical shipment verification on MST. Produce a detailed architecture diagram and explain each component."
     }
   ]
 }

@@ -313,6 +313,7 @@ export function LessonViewer({
   const [tocOpen, setTocOpen] = useState(false);
   const [readProgress, setReadProgress] = useState(0);
   const [leftTocOpen, setLeftTocOpen] = useState(true);
+  const navRef = useRef<HTMLElement | null>(null);
   const [mounted, setMounted] = useState(false);
   const readTime = estimateReadTime(html);
 
@@ -391,6 +392,15 @@ export function LessonViewer({
   }, []);
 
   useEffect(() => {
+    // When active heading changes, ensure the corresponding TOC item is visible and centered
+    if (!navRef.current || !activeHeading) return;
+    try {
+      const activeEl = navRef.current.querySelector(".bg-mst-red, .text-mst-red, [data-active='true']") as HTMLElement | null;
+      if (activeEl) {
+        activeEl.scrollIntoView({ block: "center", behavior: "smooth" });
+      }
+    } catch {}
+    // fallthrough to existing effect code
     const content = articleRef.current?.querySelector(".lesson-content");
     if (!content) return;
 
@@ -505,8 +515,8 @@ export function LessonViewer({
   const lessonTitle = getLessonDisplayTitle(submodule.title, submodule.id);
 
   // Build TOC and insert an 'Assessment' link after the Glossary entry when present
-  const tocWithAssessment: Array<{ id: string; title: string; isAssessment?: boolean }> = (() => {
-    const arr = Array.isArray(validToc) ? [...validToc] : [];
+  const tocWithAssessment: any[] = (() => {
+    const arr: any[] = Array.isArray(validToc) ? [...(validToc as any[])] : [];
     const idx = arr.findIndex((it) => {
       const t = normalizeText(it.title);
       return t.includes("glossary") || t.includes("key terms") || t.includes("glossary key");
@@ -562,7 +572,7 @@ export function LessonViewer({
               {leftTocOpen ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
             </button>
             {leftTocOpen && (
-              <nav className="px-3 pb-3 space-y-0.5 max-h-[40vh] overflow-y-auto">
+              <nav ref={navRef as any} className="px-3 pb-3 space-y-0.5 max-h-[40vh] overflow-y-auto">
                 {tocWithAssessment.map((item, idx) => {
                   if ((item as any).isAssessment) {
                     return (

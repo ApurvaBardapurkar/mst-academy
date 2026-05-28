@@ -33,7 +33,7 @@
       ],
       "correctAnswer": "B",
       "explanation": "BridgeKey is MST’s native wallet and the recommended extension for dApps on MST mainnet.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ B — BridgeKey</div><p>BridgeKey is MST’s native wallet and the recommended extension for dApps on MST mainnet.</p>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ B - BridgeKey</div><p>BridgeKey is MST’s native wallet and the recommended extension for dApps on MST mainnet.</p>"
     },
     {
       "id": "q2",
@@ -107,7 +107,7 @@
       "type": "other",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "A React dApp connected to MST mainnet must use a different library than ethers.js because MST is not EVM‑compatible.",
+      "text": "A React dApp connected to MST mainnet must use a different library than ethers.js because MST is not EVM-compatible.",
       "correctAnswer": "FALSE",
       "explanation": "✅ 1 mark for FALSE",
       "modelAnswer": "<div class=\"answer-box-label\">✅ 1 mark for FALSE</div>",
@@ -165,9 +165,9 @@
       "type": "descriptive",
       "difficulty": "Medium",
       "marks": 2,
-      "text": "Why is it important to show a transaction link to MST Explorer after a user performs an on‑chain action?",
-      "explanation": "It builds trust by allowing the user to independently verify the transaction on‑chain. It also helps debugging and provides a permanent record. Without it, the user has to blindly trust the frontend.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Model Answer</div>\n        <p>It builds trust by allowing the user to independently verify the transaction on‑chain. It also helps debugging and provides a permanent record. Without it, the user has to blindly trust the frontend.</p>\n        <div class=\"marks-bd\"><span>2 marks:</span> trust/transparency + verification.</div>"
+      "text": "Why is it important to show a transaction link to MST Explorer after a user performs an on-chain action?",
+      "explanation": "It builds trust by allowing the user to independently verify the transaction on-chain. It also helps debugging and provides a permanent record. Without it, the user has to blindly trust the frontend.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Model Answer</div>\n        <p>It builds trust by allowing the user to independently verify the transaction on-chain. It also helps debugging and provides a permanent record. Without it, the user has to blindly trust the frontend.</p>\n        <div class=\"marks-bd\"><span>2 marks:</span> trust/transparency + verification.</div>"
     },
     {
       "id": "q10",
@@ -175,7 +175,7 @@
       "type": "other",
       "difficulty": "Hard",
       "marks": 7,
-      "text": "Submit a production‑ready portfolio page that includes:\n        <br>• A live URL (Vercel/Netlify/IPFS) of your dApp working on MST mainnet (Chain ID 4646).\n        <br>• A GitHub repository with a complete README (following the checklist above).\n        <br>• A 5‑minute demo video (YouTube link or Loom).\n        <br>• Screenshot of the deployed contract verified on MST Explorer.\n        <br><br>\n        <strong>Evaluation criteria:</strong>",
+      "text": "Submit a production-ready portfolio page that includes:\n        <br>• A live URL (Vercel/Netlify/IPFS) of your dApp working on MST mainnet (Chain ID 4646).\n        <br>• A GitHub repository with a complete README (following the checklist above).\n        <br>• A 5-minute demo video (YouTube link or Loom).\n        <br>• Screenshot of the deployed contract verified on MST Explorer.\n        <br><br>\n        <strong>Evaluation criteria:</strong>",
       "explanation": "3 marks: Live dApp works (wallet connects, at least one read & write function works).\n          2 marks: README complete with contract addresses, setup, and architecture diagram.\n          1 mark: Demo video shows core user flow and mentions MST features.\n          1 mark: Verified contract screenshot included in the repo.",
       "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div>\n        <p>\n          <strong>3 marks:</strong> Live dApp works (wallet connects, at least one read &amp; write function works).\n          <br><strong>2 marks:</strong> README complete with contract addresses, setup, and architecture diagram.\n          <br><strong>1 mark:</strong> Demo video shows core user flow and mentions MST features.\n          <br><strong>1 mark:</strong> Verified contract screenshot included in the repo.\n        </p>\n        <div class=\"marks-bd\"><span>Total: 7 marks.</span> Partial credit for incomplete submission.</div>"
     }

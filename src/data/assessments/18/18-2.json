@@ -27,13 +27,13 @@
         },
         {
           "key": "D",
-          "text": "Go‑To‑Market (GTM) strategy",
+          "text": "Go-To-Market (GTM) strategy",
           "isCorrect": false
         }
       ],
       "correctAnswer": "C",
       "explanation": "Mentorship is the only pillar that spans all three tiers. It begins as weekly office hours in initGrant, evolves into bi-weekly 1-on-1 sessions with code review in buildGrant, and becomes monthly strategic advisory in scaleGrant. Security audit is buildGrant only. Legal entity setup and GTM strategy are scaleGrant exclusives.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C — Mentorship</div>\n                <p>Mentorship is the <strong>only pillar that spans all three tiers</strong>. It begins as weekly office hours in initGrant, evolves into bi-weekly 1-on-1 sessions with code review in buildGrant, and becomes monthly strategic advisory in scaleGrant. Security audit is buildGrant only. Legal entity setup and GTM strategy are scaleGrant exclusives.</p>\n                <div class=\"marks-bd\"><span>Memory aid:</span> Mentorship is the thread that runs through the entire program — it starts on day one and continues through scale.</div>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - Mentorship</div>\n                <p>Mentorship is the <strong>only pillar that spans all three tiers</strong>. It begins as weekly office hours in initGrant, evolves into bi-weekly 1-on-1 sessions with code review in buildGrant, and becomes monthly strategic advisory in scaleGrant. Security audit is buildGrant only. Legal entity setup and GTM strategy are scaleGrant exclusives.</p>\n                <div class=\"marks-bd\"><span>Memory aid:</span> Mentorship is the thread that runs through the entire program - it starts on day one and continues through scale.</div>"
     },
     {
       "id": "q2",
@@ -66,7 +66,7 @@
       ],
       "correctAnswer": "B",
       "explanation": "The security audit is a comprehensive professional review covering reentrancy, integer overflow/underflow, access control, front-running, oracle manipulation, flash loan attacks, gas griefing, and upgradeability risks. Architecture review (option A) focuses on design patterns and scalability, not vulnerability detection. Ongoing monitoring (option C) is a scaleGrant service that watches live contracts post-launch.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Security audit</div>\n                <p>The security audit is a comprehensive professional review covering reentrancy, integer overflow/underflow, access control, front-running, oracle manipulation, flash loan attacks, gas griefing, and upgradeability risks. Architecture review (option A) focuses on design patterns and scalability, not vulnerability detection. Ongoing monitoring (option C) is a scaleGrant service that watches live contracts post-launch.</p>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Security audit</div>\n                <p>The security audit is a comprehensive professional review covering reentrancy, integer overflow/underflow, access control, front-running, oracle manipulation, flash loan attacks, gas griefing, and upgradeability risks. Architecture review (option A) focuses on design patterns and scalability, not vulnerability detection. Ongoing monitoring (option C) is a scaleGrant service that watches live contracts post-launch.</p>"
     },
     {
       "id": "q3",
@@ -99,7 +99,7 @@
       ],
       "correctAnswer": "C",
       "explanation": "The liquidity incentives pillar specifically covers liquidity pool seeding (pairing your token with MST on a DEX), yield farming campaign design (attracting LPs with sustainable rewards), and airdrop strategy (distributing tokens to genuine early users). BD introductions (option A) help with partnerships but don't directly seed liquidity. Legal entity setup (option B) handles corporate structure, not market making.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C — Liquidity incentives</div>\n                <p>The liquidity incentives pillar specifically covers <strong>liquidity pool seeding</strong> (pairing your token with MST on a DEX), <strong>yield farming campaign design</strong> (attracting LPs with sustainable rewards), and <strong>airdrop strategy</strong> (distributing tokens to genuine early users). BD introductions (option A) help with partnerships but don't directly seed liquidity. Legal entity setup (option B) handles corporate structure, not market making.</p>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - Liquidity incentives</div>\n                <p>The liquidity incentives pillar specifically covers <strong>liquidity pool seeding</strong> (pairing your token with MST on a DEX), <strong>yield farming campaign design</strong> (attracting LPs with sustainable rewards), and <strong>airdrop strategy</strong> (distributing tokens to genuine early users). BD introductions (option A) help with partnerships but don't directly seed liquidity. Legal entity setup (option B) handles corporate structure, not market making.</p>"
     },
     {
       "id": "q4",
@@ -116,7 +116,7 @@
         },
         {
           "key": "B",
-          "text": "The non-cash value of a buildGrant is approximately $25,000 — two and a half times the $10,000 cash grant.",
+          "text": "The non-cash value of a buildGrant is approximately $25,000 - two and a half times the $10,000 cash grant.",
           "isCorrect": true
         },
         {
@@ -131,8 +131,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "The buildGrant's bundled services (security audit ~$15,000, architecture review ~$3,000, UI/UX budget ~$2,000, mentorship ~$5,000) total approximately $25,000 in market value — two and a half times the $10,000 cash. The scaleGrant's non-cash value is even higher at ~$80,000+. Option A is wrong because initGrant has minimal bundled services (~$2,000). Option C underestimates scaleGrant. Option D is false — all tiers include some non-cash support, notably mentorship.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — buildGrant's non‑cash value is ~$25,000.</div>\n                <p>The buildGrant's bundled services (security audit ~$15,000, architecture review ~$3,000, UI/UX budget ~$2,000, mentorship ~$5,000) total approximately <strong>$25,000</strong> in market value — two and a half times the $10,000 cash. The scaleGrant's non-cash value is even higher at ~$80,000+. Option A is wrong because initGrant has minimal bundled services (~$2,000). Option C underestimates scaleGrant. Option D is false — all tiers include some non-cash support, notably mentorship.</p>\n                <div class=\"marks-bd\"><span>Key principle:</span> When evaluating grant value, always add the estimated market cost of bundled services to the cash amount.</div>"
+      "explanation": "The buildGrant's bundled services (security audit ~$15,000, architecture review ~$3,000, UI/UX budget ~$2,000, mentorship ~$5,000) total approximately $25,000 in market value - two and a half times the $10,000 cash. The scaleGrant's non-cash value is even higher at ~$80,000+. Option A is wrong because initGrant has minimal bundled services (~$2,000). Option C underestimates scaleGrant. Option D is false - all tiers include some non-cash support, notably mentorship.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - buildGrant's non-cash value is ~$25,000.</div>\n                <p>The buildGrant's bundled services (security audit ~$15,000, architecture review ~$3,000, UI/UX budget ~$2,000, mentorship ~$5,000) total approximately <strong>$25,000</strong> in market value - two and a half times the $10,000 cash. The scaleGrant's non-cash value is even higher at ~$80,000+. Option A is wrong because initGrant has minimal bundled services (~$2,000). Option C underestimates scaleGrant. Option D is false - all tiers include some non-cash support, notably mentorship.</p>\n                <div class=\"marks-bd\"><span>Key principle:</span> When evaluating grant value, always add the estimated market cost of bundled services to the cash amount.</div>"
     },
     {
       "id": "q5",
@@ -144,28 +144,28 @@
       "options": [
         {
           "key": "A",
-          "text": "initGrant — it covers all foundational needs.",
+          "text": "initGrant - it covers all foundational needs.",
           "isCorrect": false
         },
         {
           "key": "B",
-          "text": "buildGrant — it includes legal support and BD intros for mainnet projects.",
+          "text": "buildGrant - it includes legal support and BD intros for mainnet projects.",
           "isCorrect": false
         },
         {
           "key": "C",
-          "text": "scaleGrant — it is the only tier that bundles legal entity setup AND BD introductions.",
+          "text": "scaleGrant - it is the only tier that bundles legal entity setup AND BD introductions.",
           "isCorrect": true
         },
         {
           "key": "D",
-          "text": "Any tier — the founder can request specific services regardless of the tier applied for.",
+          "text": "Any tier - the founder can request specific services regardless of the tier applied for.",
           "isCorrect": false
         }
       ],
       "correctAnswer": "C",
-      "explanation": "Legal entity setup (incorporation, ToS drafting, token regulatory assessment) and BD introductions (VC warm intros, enterprise partnerships, exchange listings) are exclusively scaleGrant pillars. buildGrant does not include them — it focuses on technical readiness (audit, architecture, UI/UX). initGrant is for concept-stage projects. Option D is false because support pillars are tier-specific and cannot be mixed and matched arbitrarily. The progressive tier structure ensures services are delivered at the appropriate project maturity level.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C — scaleGrant</div>\n                <p><strong>Legal entity setup</strong> (incorporation, ToS drafting, token regulatory assessment) and <strong>BD introductions</strong> (VC warm intros, enterprise partnerships, exchange listings) are <strong>exclusively scaleGrant pillars</strong>. buildGrant does not include them — it focuses on technical readiness (audit, architecture, UI/UX). initGrant is for concept-stage projects. Option D is false because support pillars are tier-specific and cannot be mixed and matched arbitrarily. The progressive tier structure ensures services are delivered at the appropriate project maturity level.</p>\n                <div class=\"marks-bd\"><span>Trap alert:</span> Builders often assume they can request any service at any tier. The grant program is structured to provide the <em>right</em> support at the <em>right</em> stage — not everything upfront.</div>"
+      "explanation": "Legal entity setup (incorporation, ToS drafting, token regulatory assessment) and BD introductions (VC warm intros, enterprise partnerships, exchange listings) are exclusively scaleGrant pillars. buildGrant does not include them - it focuses on technical readiness (audit, architecture, UI/UX). initGrant is for concept-stage projects. Option D is false because support pillars are tier-specific and cannot be mixed and matched arbitrarily. The progressive tier structure ensures services are delivered at the appropriate project maturity level.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - scaleGrant</div>\n                <p><strong>Legal entity setup</strong> (incorporation, ToS drafting, token regulatory assessment) and <strong>BD introductions</strong> (VC warm intros, enterprise partnerships, exchange listings) are <strong>exclusively scaleGrant pillars</strong>. buildGrant does not include them - it focuses on technical readiness (audit, architecture, UI/UX). initGrant is for concept-stage projects. Option D is false because support pillars are tier-specific and cannot be mixed and matched arbitrarily. The progressive tier structure ensures services are delivered at the appropriate project maturity level.</p>\n                <div class=\"marks-bd\"><span>Trap alert:</span> Builders often assume they can request any service at any tier. The grant program is structured to provide the <em>right</em> support at the <em>right</em> stage - not everything upfront.</div>"
     }
   ]
 }

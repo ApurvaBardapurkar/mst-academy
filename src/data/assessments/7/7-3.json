@@ -32,8 +32,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Trika (triple) POSA stands for Proof of Stake Authority, combining economic Stake, identity‑verified Authority, and Delegation by non‑node token holders.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div>\n        <p>Trika (triple) POSA stands for Proof of Stake Authority, combining economic <strong>Stake</strong>, identity‑verified <strong>Authority</strong>, and <strong>Delegation</strong> by non‑node token holders.</p>"
+      "explanation": "Trika (triple) POSA stands for Proof of Stake Authority, combining economic Stake, identity-verified Authority, and Delegation by non-node token holders.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div>\n        <p>Trika (triple) POSA stands for Proof of Stake Authority, combining economic <strong>Stake</strong>, identity-verified <strong>Authority</strong>, and <strong>Delegation</strong> by non-node token holders.</p>"
     },
     {
       "id": "q2",
@@ -50,7 +50,7 @@
         },
         {
           "key": "B",
-          "text": "Pass identity verification (KYC) and receive an on‑chain Authority Certificate NFT",
+          "text": "Pass identity verification (KYC) and receive an on-chain Authority Certificate NFT",
           "isCorrect": true
         },
         {
@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "After staking, a candidate must undergo KYC verification and be granted an Authority Certificate (on‑chain NFT). This adds reputational accountability beyond economic stake.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div>\n        <p>After staking, a candidate must undergo <strong>KYC verification</strong> and be granted an Authority Certificate (on‑chain NFT). This adds reputational accountability beyond economic stake.</p>"
+      "explanation": "After staking, a candidate must undergo KYC verification and be granted an Authority Certificate (on-chain NFT). This adds reputational accountability beyond economic stake.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div>\n        <p>After staking, a candidate must undergo <strong>KYC verification</strong> and be granted an Authority Certificate (on-chain NFT). This adds reputational accountability beyond economic stake.</p>"
     },
     {
       "id": "q3",
@@ -78,7 +78,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Round‑robin among all authority nodes",
+          "text": "Round-robin among all authority nodes",
           "isCorrect": false
         },
         {
@@ -131,8 +131,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Finality is deterministic and immediate: once ⅔ of the attestation committee's stake weight signs off, the block is sealed. It cannot be reverted without slashing those validators. This is not probabilistic (like Bitcoin's 6‑confirm rule).",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div>\n        <p>Finality is <strong>deterministic and immediate</strong>: once ⅔ of the attestation committee's stake weight signs off, the block is sealed. It cannot be reverted without slashing those validators. This is not probabilistic (like Bitcoin's 6‑confirm rule).</p>"
+      "explanation": "Finality is deterministic and immediate: once ⅔ of the attestation committee's stake weight signs off, the block is sealed. It cannot be reverted without slashing those validators. This is not probabilistic (like Bitcoin's 6-confirm rule).",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div>\n        <p>Finality is <strong>deterministic and immediate</strong>: once ⅔ of the attestation committee's stake weight signs off, the block is sealed. It cannot be reverted without slashing those validators. This is not probabilistic (like Bitcoin's 6-confirm rule).</p>"
     },
     {
       "id": "q5",
@@ -140,11 +140,11 @@
       "type": "mcq",
       "difficulty": "Medium",
       "marks": 1,
-      "text": "What happens if an authority node double‑signs (proposes two conflicting blocks)?",
+      "text": "What happens if an authority node double-signs (proposes two conflicting blocks)?",
       "options": [
         {
           "key": "A",
-          "text": "100% of its self‑stake is slashed (burned), and its Authority Certificate is revoked",
+          "text": "100% of its self-stake is slashed (burned), and its Authority Certificate is revoked",
           "isCorrect": true
         },
         {
@@ -154,7 +154,7 @@
         },
         {
           "key": "C",
-          "text": "Only its delegated stake is affected; self‑stake is safe",
+          "text": "Only its delegated stake is affected; self-stake is safe",
           "isCorrect": false
         },
         {
@@ -164,8 +164,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Double‑signing is the most severe offence. It results in 100% self‑stake slashing (burned) and permanent authority revocation. Delegated stake is also slashed proportionally. This provides a massive economic deterrent.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div>\n        <p>Double‑signing is the most severe offence. It results in <strong>100% self‑stake slashing</strong> (burned) and <strong>permanent authority revocation</strong>. Delegated stake is also slashed proportionally. This provides a massive economic deterrent.</p>"
+      "explanation": "Double-signing is the most severe offence. It results in 100% self-stake slashing (burned) and permanent authority revocation. Delegated stake is also slashed proportionally. This provides a massive economic deterrent.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div>\n        <p>Double-signing is the most severe offence. It results in <strong>100% self-stake slashing</strong> (burned) and <strong>permanent authority revocation</strong>. Delegated stake is also slashed proportionally. This provides a massive economic deterrent.</p>"
     },
     {
       "id": "q6",
@@ -197,8 +197,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Delegation allows non‑validating token holders to stake their MSTC to an authority node. The node's total stake (self + delegated) determines its weight in block proposer selection and rewards. Delegators earn a share of block rewards, minus the node's commission.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div>\n        <p>Delegation allows non‑validating token holders to <strong>stake their MSTC to an authority node</strong>. The node's total stake (self + delegated) determines its weight in block proposer selection and rewards. Delegators earn a share of block rewards, minus the node's commission.</p>"
+      "explanation": "Delegation allows non-validating token holders to stake their MSTC to an authority node. The node's total stake (self + delegated) determines its weight in block proposer selection and rewards. Delegators earn a share of block rewards, minus the node's commission.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div>\n        <p>Delegation allows non-validating token holders to <strong>stake their MSTC to an authority node</strong>. The node's total stake (self + delegated) determines its weight in block proposer selection and rewards. Delegators earn a share of block rewards, minus the node's commission.</p>"
     },
     {
       "id": "q7",
@@ -230,8 +230,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Pure PoS (like Ethereum) can lead to anonymous validators with no reputation at stake. Trika POSA's authority layer ensures validators are known, identifiable entities who can be held accountable off‑chain as well as on‑chain, making the network safer for enterprise adoption while still requiring economic stake.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div>\n        <p>Pure PoS (like Ethereum) can lead to anonymous validators with no reputation at stake. Trika POSA's authority layer ensures validators are <strong>known, identifiable entities</strong> who can be held accountable off‑chain as well as on‑chain, making the network safer for enterprise adoption while still requiring economic stake.</p>"
+      "explanation": "Pure PoS (like Ethereum) can lead to anonymous validators with no reputation at stake. Trika POSA's authority layer ensures validators are known, identifiable entities who can be held accountable off-chain as well as on-chain, making the network safer for enterprise adoption while still requiring economic stake.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div>\n        <p>Pure PoS (like Ethereum) can lead to anonymous validators with no reputation at stake. Trika POSA's authority layer ensures validators are <strong>known, identifiable entities</strong> who can be held accountable off-chain as well as on-chain, making the network safer for enterprise adoption while still requiring economic stake.</p>"
     },
     {
       "id": "q8",
@@ -239,9 +239,9 @@
       "type": "other",
       "difficulty": "Hard",
       "marks": 6,
-      "text": "Below are six steps in the Trika POSA validator election and block production process. <strong>Arrange them in the correct chronological order</strong> (from first to last) and provide a one‑line explanation for each step's role.",
-      "explanation": "Correct order: E → B → A → F → D → C\nStep E (1 mark): Staking and registration — candidate locks MSTC and provides node details.\n        Step B (1 mark): Authority verification — candidate passes KYC and receives Authority Certificate NFT.\n        Step A (1 mark): Delegation — other token holders stake to the authority node, boosting its voting weight.\n        Step F (1 mark): Epoch election — the top 100 nodes by total stake (self + delegated) become the active set for the epoch.\n        Step D (1 mark): VRF selection — for each block slot, a VRF weighted by total stake picks the proposer and committee.\n        Step C (1 mark): Block production and finality — proposer creates block, committee attests, ⅔ stake seals it as final.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Order &amp; Marks Breakdown (6 marks)</div>\n        <p><strong>Correct order: E → B → A → F → D → C</strong></p>\n        <p><strong>Step E (1 mark):</strong> Staking and registration — candidate locks MSTC and provides node details.<br>\n        <strong>Step B (1 mark):</strong> Authority verification — candidate passes KYC and receives Authority Certificate NFT.<br>\n        <strong>Step A (1 mark):</strong> Delegation — other token holders stake to the authority node, boosting its voting weight.<br>\n        <strong>Step F (1 mark):</strong> Epoch election — the top 100 nodes by total stake (self + delegated) become the active set for the epoch.<br>\n        <strong>Step D (1 mark):</strong> VRF selection — for each block slot, a VRF weighted by total stake picks the proposer and committee.<br>\n        <strong>Step C (1 mark):</strong> Block production and finality — proposer creates block, committee attests, ⅔ stake seals it as final.</p>\n        <div class=\"marks-bd\"><span>Scoring:</span> 1 mark for each step placed in the correct position AND accompanied by a correct one‑line explanation. Partial marks may be awarded for correct order without explanation (0.5 per step).</div>"
+      "text": "Below are six steps in the Trika POSA validator election and block production process. <strong>Arrange them in the correct chronological order</strong> (from first to last) and provide a one-line explanation for each step's role.",
+      "explanation": "Correct order: E → B → A → F → D → C\nStep E (1 mark): Staking and registration - candidate locks MSTC and provides node details.\n        Step B (1 mark): Authority verification - candidate passes KYC and receives Authority Certificate NFT.\n        Step A (1 mark): Delegation - other token holders stake to the authority node, boosting its voting weight.\n        Step F (1 mark): Epoch election - the top 100 nodes by total stake (self + delegated) become the active set for the epoch.\n        Step D (1 mark): VRF selection - for each block slot, a VRF weighted by total stake picks the proposer and committee.\n        Step C (1 mark): Block production and finality - proposer creates block, committee attests, ⅔ stake seals it as final.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Order &amp; Marks Breakdown (6 marks)</div>\n        <p><strong>Correct order: E → B → A → F → D → C</strong></p>\n        <p><strong>Step E (1 mark):</strong> Staking and registration - candidate locks MSTC and provides node details.<br>\n        <strong>Step B (1 mark):</strong> Authority verification - candidate passes KYC and receives Authority Certificate NFT.<br>\n        <strong>Step A (1 mark):</strong> Delegation - other token holders stake to the authority node, boosting its voting weight.<br>\n        <strong>Step F (1 mark):</strong> Epoch election - the top 100 nodes by total stake (self + delegated) become the active set for the epoch.<br>\n        <strong>Step D (1 mark):</strong> VRF selection - for each block slot, a VRF weighted by total stake picks the proposer and committee.<br>\n        <strong>Step C (1 mark):</strong> Block production and finality - proposer creates block, committee attests, ⅔ stake seals it as final.</p>\n        <div class=\"marks-bd\"><span>Scoring:</span> 1 mark for each step placed in the correct position AND accompanied by a correct one-line explanation. Partial marks may be awarded for correct order without explanation (0.5 per step).</div>"
     },
     {
       "id": "q9",
@@ -249,7 +249,7 @@
       "type": "true_false",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "\"In Trika POSA, finality is probabilistic — a block is considered final after 6 additional blocks are built on top of it, similar to Bitcoin.\"",
+      "text": "\"In Trika POSA, finality is probabilistic - a block is considered final after 6 additional blocks are built on top of it, similar to Bitcoin.\"",
       "correctAnswer": "FALSE",
       "explanation": "1 mark: Correctly states FALSE and explains that Trika POSA uses ⅔ attestation for immediate, deterministic finality, not probabilistic confirmations.",
       "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div>\n        <p><strong>1 mark:</strong> Correctly states FALSE and explains that Trika POSA uses ⅔ attestation for immediate, deterministic finality, not probabilistic confirmations.</p>",

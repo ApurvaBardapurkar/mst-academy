@@ -1,6 +1,5 @@
 "use client";
 
-import { CameraPreview } from "@/components/CameraPreview";
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -40,8 +39,6 @@ export function LoginForm() {
       title="Welcome Back"
       subtitle="Sign in to continue your learning journey."
     >
-      {/* Camera preview for login page */}
-      <CameraPreview autoRequest={true} />
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <FieldLabel htmlFor="email" required>

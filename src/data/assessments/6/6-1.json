@@ -33,7 +33,7 @@
       ],
       "correctAnswer": "B",
       "explanation": "The Web2 trap is an economic structure, not a technical failure (A), a regulatory issue (C), or a marketing tactic (D). Option B captures the full lifecycle: platform inserts itself as intermediary, locks in both sides, and raises the rent. This is a definition question worth 1 mark.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n        <p>The Web2 trap is an <strong>economic structure</strong>, not a technical failure (A), a regulatory issue (C), or a marketing tactic (D). Option B captures the full lifecycle: platform inserts itself as intermediary, locks in both sides, and raises the rent. This is a definition question worth 1 mark.</p>\n        <div class=\"marks-bd\"><span>Exam tip:</span> When a question asks for “best description”, look for the option that covers cause, mechanism, and consequence.</div>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n        <p>The Web2 trap is an <strong>economic structure</strong>, not a technical failure (A), a regulatory issue (C), or a marketing tactic (D). Option B captures the full lifecycle: platform inserts itself as intermediary, locks in both sides, and raises the rent. This is a definition question worth 1 mark.</p>\n        <div class=\"marks-bd\"><span>Exam tip:</span> When a question asks for “best description”, look for the option that covers cause, mechanism, and consequence.</div>"
     },
     {
       "id": "q2",
@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "C",
-      "explanation": "Commission = 25% of ₹280 = ₹70. GST on commission = 18% of ₹70 = ₹12.60. Packaging = ₹20. Total deductions = ₹70 + ₹12.60 + ₹20 = ₹102.60. Net revenue = ₹280 – ₹102.60 = ₹177.40. This is a straightforward calculation with a clear step by step — 2 marks for correct application.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C — Calculation</div>\n        <p>Commission = 25% of ₹280 = ₹70. GST on commission = 18% of ₹70 = ₹12.60. Packaging = ₹20. Total deductions = ₹70 + ₹12.60 + ₹20 = ₹102.60. Net revenue = ₹280 – ₹102.60 = ₹177.40. This is a straightforward calculation with a clear step by step — 2 marks for correct application.</p>\n        <div class=\"marks-bd\"><span>Common mistake:</span> Applying GST on the total order value instead of only the commission.</div>"
+      "explanation": "Commission = 25% of ₹280 = ₹70. GST on commission = 18% of ₹70 = ₹12.60. Packaging = ₹20. Total deductions = ₹70 + ₹12.60 + ₹20 = ₹102.60. Net revenue = ₹280 - ₹102.60 = ₹177.40. This is a straightforward calculation with a clear step by step - 2 marks for correct application.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - Calculation</div>\n        <p>Commission = 25% of ₹280 = ₹70. GST on commission = 18% of ₹70 = ₹12.60. Packaging = ₹20. Total deductions = ₹70 + ₹12.60 + ₹20 = ₹102.60. Net revenue = ₹280 - ₹102.60 = ₹177.40. This is a straightforward calculation with a clear step by step - 2 marks for correct application.</p>\n        <div class=\"marks-bd\"><span>Common mistake:</span> Applying GST on the total order value instead of only the commission.</div>"
     },
     {
       "id": "q3",
@@ -99,7 +99,7 @@
       ],
       "correctAnswer": "B",
       "explanation": "The platform's refusal to share customer contact information is a data moat. The seller generated value but cannot build an independent business because the platform withholds the customer relationship. This is not about fees (A), visibility (C), or account deletion (D).",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B — Explanation</div>\n        <p>The platform's refusal to share customer contact information is a <strong>data moat</strong>. The seller generated value but cannot build an independent business because the platform withholds the customer relationship. This is not about fees (A), visibility (C), or account deletion (D).</p>\n        <div class=\"marks-bd\"><span>Real world link:</span> The CCI's investigation into Amazon and Flipkart specifically cites data hoarding as anti competitive.</div>"
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B - Explanation</div>\n        <p>The platform's refusal to share customer contact information is a <strong>data moat</strong>. The seller generated value but cannot build an independent business because the platform withholds the customer relationship. This is not about fees (A), visibility (C), or account deletion (D).</p>\n        <div class=\"marks-bd\"><span>Real world link:</span> The CCI's investigation into Amazon and Flipkart specifically cites data hoarding as anti competitive.</div>"
     },
     {
       "id": "q4",
@@ -131,14 +131,14 @@
         }
       ],
       "correctAnswer": "C",
-      "explanation": "Algorithmic control — the surge formula is a black box controlled entirely by the platform. Commission extraction — the platform takes a percentage of the inflated surge fare, so its absolute commission rises. The two levers work together to maximise platform revenue at the driver's expense.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C — Explanation</div>\n        <p><strong>Algorithmic control</strong> — the surge formula is a black box controlled entirely by the platform. <strong>Commission extraction</strong> — the platform takes a percentage of the inflated surge fare, so its absolute commission rises. The two levers work together to maximise platform revenue at the driver's expense.</p>\n        <div class=\"marks-bd\"><span>Key insight:</span> The levers often reinforce each other. Understanding their interplay is critical for both the assessment and for designing Web3 alternatives.</div>"
+      "explanation": "Algorithmic control - the surge formula is a black box controlled entirely by the platform. Commission extraction - the platform takes a percentage of the inflated surge fare, so its absolute commission rises. The two levers work together to maximise platform revenue at the driver's expense.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - Explanation</div>\n        <p><strong>Algorithmic control</strong> - the surge formula is a black box controlled entirely by the platform. <strong>Commission extraction</strong> - the platform takes a percentage of the inflated surge fare, so its absolute commission rises. The two levers work together to maximise platform revenue at the driver's expense.</p>\n        <div class=\"marks-bd\"><span>Key insight:</span> The levers often reinforce each other. Understanding their interplay is critical for both the assessment and for designing Web3 alternatives.</div>"
     },
     {
       "id": "q5",
       "number": 5,
       "type": "mcq",
-      "difficulty": "Medium‑Hard",
+      "difficulty": "Medium-Hard",
       "marks": 3,
       "text": "In a Web3 food delivery protocol on MST, how would the relationship between a restaurant and a customer fundamentally differ from the Web2 model?",
       "options": [
@@ -159,13 +159,13 @@
         },
         {
           "key": "D",
-          "text": "There would be no fees whatsoever — blockchain makes everything free.",
+          "text": "There would be no fees whatsoever - blockchain makes everything free.",
           "isCorrect": false
         }
       ],
       "correctAnswer": "C",
-      "explanation": "The Web3 difference is architectural, not cosmetic (A) or philanthropic (B). Option C captures the three core shifts: (1) Self sovereign identity — customers control their data. (2) Direct relationship — no gatekeeper between restaurant and customer. (3) Token based governance — users and providers vote on protocol rules. Option D is false — blockchain has gas fees, but they are orders of magnitude smaller than platform commissions. This synthesis question tests whether you understand that Web3 is about ownership and governance, not just lower cost. Worth 3 marks.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C — Explanation</div>\n        <p>The Web3 difference is <strong>architectural</strong>, not cosmetic (A) or philanthropic (B). Option C captures the three core shifts: (1) <strong>Self sovereign identity</strong> — customers control their data. (2) <strong>Direct relationship</strong> — no gatekeeper between restaurant and customer. (3) <strong>Token based governance</strong> — users and providers vote on protocol rules. Option D is false — blockchain has gas fees, but they are orders of magnitude smaller than platform commissions. This synthesis question tests whether you understand that Web3 is about ownership and governance, not just lower cost. Worth 3 marks.</p>\n        <div class=\"marks-bd\"><span>Developer's lens:</span> When designing a Web3 dApp, your job is not to remove all costs — it is to ensure that costs are transparent, minimal, and governed by the community.</div>"
+      "explanation": "The Web3 difference is architectural, not cosmetic (A) or philanthropic (B). Option C captures the three core shifts: (1) Self sovereign identity - customers control their data. (2) Direct relationship - no gatekeeper between restaurant and customer. (3) Token based governance - users and providers vote on protocol rules. Option D is false - blockchain has gas fees, but they are orders of magnitude smaller than platform commissions. This synthesis question tests whether you understand that Web3 is about ownership and governance, not just lower cost. Worth 3 marks.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C - Explanation</div>\n        <p>The Web3 difference is <strong>architectural</strong>, not cosmetic (A) or philanthropic (B). Option C captures the three core shifts: (1) <strong>Self sovereign identity</strong> - customers control their data. (2) <strong>Direct relationship</strong> - no gatekeeper between restaurant and customer. (3) <strong>Token based governance</strong> - users and providers vote on protocol rules. Option D is false - blockchain has gas fees, but they are orders of magnitude smaller than platform commissions. This synthesis question tests whether you understand that Web3 is about ownership and governance, not just lower cost. Worth 3 marks.</p>\n        <div class=\"marks-bd\"><span>Developer's lens:</span> When designing a Web3 dApp, your job is not to remove all costs - it is to ensure that costs are transparent, minimal, and governed by the community.</div>"
     }
   ]
 }

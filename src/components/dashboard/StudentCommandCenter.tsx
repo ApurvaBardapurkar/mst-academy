@@ -45,6 +45,10 @@ import {
   TrendingUp,
   Award,
   Clock,
+  Gift,
+  Copy,
+  Wallet,
+  CheckCircle2,
 } from "lucide-react";
 
 function GlassCard({
@@ -98,6 +102,8 @@ export function StudentCommandCenter({ curriculum }: { curriculum: Curriculum })
   const router = useRouter();
   const { user, ready, logout, isAdmin } = useAuth();
   const [mounted, setMounted] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [withdrawRequested, setWithdrawRequested] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
@@ -124,6 +130,18 @@ export function StudentCommandCenter({ curriculum }: { curriculum: Curriculum })
   }
 
   const firstName = user.fullName.split(" ")[0];
+  const referralCode = `MST-${user.id.slice(-6).toUpperCase()}`;
+  const referralLink = `https://masterstroke.academy/register?ref=${referralCode}`;
+  const referralRecords = [
+    { name: "Riya S.", joinedAt: "12 May 2026", status: "Completed course", eligible: true },
+    { name: "Aman K.", joinedAt: "14 May 2026", status: "Completed course", eligible: true },
+    { name: "Neha P.", joinedAt: "16 May 2026", status: "In progress", eligible: false },
+    { name: "Vikram T.", joinedAt: "18 May 2026", status: "Completed course", eligible: true },
+    { name: "Priya M.", joinedAt: "21 May 2026", status: "Completed course", eligible: true },
+    { name: "Rohit D.", joinedAt: "24 May 2026", status: "Completed course", eligible: true },
+  ] as const;
+  const successfulReferrals = referralRecords.filter((record) => record.eligible).length;
+  const withdrawUnlocked = successfulReferrals >= 5;
   const xpPct = Math.round(
     ((analytics.xp % 120) / Math.max(analytics.xpToNext, 1)) * 100
   );
@@ -161,6 +179,7 @@ export function StudentCommandCenter({ curriculum }: { curriculum: Curriculum })
                 { href: "/dashboard/student", icon: LayoutDashboard, label: "Command Center", active: true },
                 { href: "/learn", icon: TreePine, label: "Learning Roadmap" },
                 { href: "/leaderboard", icon: Trophy, label: "Leaderboard" },
+                { href: "#refer-earn", icon: Gift, label: "Refer & Earn" },
               ].map((item) => (
                 <Link
                   key={item.href}
@@ -292,6 +311,15 @@ export function StudentCommandCenter({ curriculum }: { curriculum: Curriculum })
                 </span>
               </p>
             </div>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <a
+                href="#refer-earn"
+                className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-xs font-bold text-emerald-500 transition hover:bg-emerald-500/20"
+              >
+                <Gift className="h-3.5 w-3.5" />
+                Open Refer & Earn
+              </a>
+            </div>
           </motion.section>
 
           {/* Stats grid */}
@@ -317,7 +345,7 @@ export function StudentCommandCenter({ curriculum }: { curriculum: Curriculum })
           </section>
 
           {/* Phase journey */}
-          <section className="mt-8">
+          <section id="refer-earn" className="mt-8 scroll-mt-24">
             <h2 className="mb-4 text-lg font-black text-[var(--text)]">Learning Journey</h2>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {analytics.phaseJourney.map((ph, i) => (
@@ -600,6 +628,110 @@ export function StudentCommandCenter({ curriculum }: { curriculum: Curriculum })
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </GlassCard>
+          </section>
+
+          <section className="mt-8">
+            <h2 className="mb-4 flex items-center gap-2 text-lg font-black text-[var(--text)]">
+              <Gift className="h-5 w-5 text-emerald-500" />
+              Refer &amp; Earn
+            </h2>
+            <div className="grid gap-4 lg:grid-cols-3">
+              <GlassCard className="lg:col-span-1" glow="rgba(34,197,94,0.14)">
+                <p className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                  Your referral code
+                </p>
+                <p className="mt-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 font-mono text-lg font-black text-emerald-500">
+                  {referralCode}
+                </p>
+                <p className="mt-4 text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                  Share link
+                </p>
+                <p className="mt-1 break-all rounded-xl border border-[var(--border)] bg-[var(--bg-muted)] px-3 py-2 text-xs text-[var(--text-muted)]">
+                  {referralLink}
+                </p>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    await navigator.clipboard.writeText(referralLink);
+                    setCopied(true);
+                    window.setTimeout(() => setCopied(false), 1500);
+                  }}
+                  className="mt-4 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-xs font-bold text-[var(--text)] transition hover:border-emerald-500/40 hover:bg-emerald-500/10"
+                >
+                  <Copy className="h-3.5 w-3.5" />
+                  {copied ? "Copied" : "Copy referral link"}
+                </button>
+                <p className="mt-3 text-xs text-[var(--text-muted)]">
+                  Flat reward: <strong className="text-[var(--text)]">Rs 500</strong> per successful referral.
+                </p>
+              </GlassCard>
+
+              <GlassCard className="lg:col-span-2">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                      Referral records
+                    </p>
+                    <p className="mt-1 text-sm text-[var(--text-muted)]">
+                      Withdrawal unlocks after 5 successful referrals where each referee completes the full course.
+                    </p>
+                  </div>
+                  <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-sm font-bold text-emerald-500">
+                    Successful: {successfulReferrals}/5
+                  </div>
+                </div>
+
+                <div className="mt-4 overflow-x-auto">
+                  <table className="w-full min-w-[460px] text-left text-sm">
+                    <thead>
+                      <tr className="border-b border-[var(--border)] text-[10px] uppercase tracking-wider text-[var(--text-muted)]">
+                        <th className="py-2 pr-3">Referee</th>
+                        <th className="py-2 pr-3">Joined</th>
+                        <th className="py-2 pr-3">Status</th>
+                        <th className="py-2 pr-3">Reward</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {referralRecords.map((record) => (
+                        <tr key={`${record.name}-${record.joinedAt}`} className="border-b border-[var(--border)]/60 last:border-b-0">
+                          <td className="py-2 pr-3 font-semibold text-[var(--text)]">{record.name}</td>
+                          <td className="py-2 pr-3 text-[var(--text-muted)]">{record.joinedAt}</td>
+                          <td className="py-2 pr-3">
+                            <span className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-[10px] font-bold ${record.eligible ? "bg-emerald-500/10 text-emerald-500" : "bg-amber-500/10 text-amber-500"}`}>
+                              {record.eligible ? <CheckCircle2 className="h-3 w-3" /> : null}
+                              {record.status}
+                            </span>
+                          </td>
+                          <td className="py-2 pr-3 font-semibold text-[var(--text)]">
+                            {record.eligible ? "Rs 500" : "Pending"}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[var(--border)] bg-[var(--bg-muted)] px-4 py-3">
+                  <div>
+                    <p className="text-sm font-bold text-[var(--text)]">Withdraw Referral Earnings</p>
+                    <p className="text-xs text-[var(--text-muted)]">
+                      {withdrawUnlocked
+                        ? "You can now request withdrawal."
+                        : `Complete ${5 - successfulReferrals} more successful referral(s) to unlock withdrawal.`}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setWithdrawRequested(true)}
+                    disabled={!withdrawUnlocked || withdrawRequested}
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 px-4 py-2 text-xs font-bold text-white disabled:cursor-not-allowed disabled:opacity-40"
+                  >
+                    <Wallet className="h-3.5 w-3.5" />
+                    {withdrawRequested ? "Withdrawal Requested" : "Request Withdrawal"}
+                  </button>
+                </div>
+              </GlassCard>
+            </div>
           </section>
 
           <div className="mt-10 pb-8 text-center">

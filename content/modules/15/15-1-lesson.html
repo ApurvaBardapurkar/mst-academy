@@ -167,50 +167,6 @@ contract MyDAO is Governor, GovernorCountingSimple, GovernorVotes, GovernorVotes
   <div class="diagram-caption">The four phases ensure deliberation, community input, a safety window, and finally unstoppable execution.</div>
 </div>
 
-<!-- 05A VOTING MECHANISMS DEEP DIVE -->
-<div class="section-label">05A &nbsp; Voting Mechanisms Deep Dive</div>
-<h2 class="section-title">How DAOs Actually Decide - Token Voting, Quadratic Voting, and Beyond</h2>
-<p>The voting mechanism is the beating heart of any DAO. Choose the wrong one, and your DAO devolves into a plutocracy or gridlock. Choose the right one, and you unlock genuine collective intelligence. Let us explore the major voting mechanisms in depth, understand their trade-offs, and see which DAOs use each one.</p>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">1. Token-Weighted Voting (1 Token = 1 Vote)</h3>
-<p>This is the simplest and most widely used mechanism. Each governance token entitles the holder to one vote. If you hold 10,000 tokens out of 1,000,000 total, you control 1% of voting power. MakerDAO, Uniswap, and Compound all use this model. It is straightforward to implement using OpenZeppelin's <code>GovernorCountingSimple</code> extension.</p>
-<p><strong>The problem:</strong> Token-weighted voting concentrates power among large holders ("whales"). In practice, a handful of venture capital firms and early team members often hold 30-60% of a governance token's supply. They can pass any proposal they wish, effectively recreating the corporate board they sought to replace. During Uniswap's fee switch debate, a16z's voting power alone was larger than thousands of small holders combined.</p>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">2. Quadratic Voting (QV)</h3>
-<p>Quadratic voting addresses the whale problem mathematically. Instead of 1 token = 1 vote, the cost of each additional vote increases quadratically. Your first vote costs 1 token. Your second vote costs 4 tokens total (2 squared). Your third costs 9 tokens. Your tenth costs 100 tokens. This means a holder with 100 tokens gets 10 votes, while a holder with 10,000 tokens gets only 100 votes - not 100 times more, but only 10 times more. QV ensures that the <em>breadth</em> of support matters more than the <em>depth</em> of any single holder's wallet.</p>
-<p>Gitcoin Grants uses a variant of quadratic voting called <strong>Quadratic Funding</strong> to allocate matching funds. Projects that receive small donations from many people get disproportionately more matching funds than projects funded by a few large donors. This has directed millions of dollars to open-source projects that would otherwise struggle to get funded.</p>
-
-<div class="callout analogy">
-  <div class="callout-label">Indian Context</div>
-  <p>Think of quadratic voting like India's Panchayati Raj system, where every village gets representation regardless of population size. A large city (whale) does not get to override the voices of many small villages (retail holders). The principle is the same: broad participation matters more than concentrated power. Similarly, Indian cooperative banks follow a "one member, one vote" rule under the Banking Regulation Act - no matter how much capital you deposit, your vote counts the same as every other member's. Quadratic voting is a mathematical middle ground between the cooperative model and pure token-weighted voting.</p>
-</div>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">3. Conviction Voting</h3>
-<p>Conviction voting, pioneered by Commons Stack and used by 1Hive's Gardens, is a continuous voting mechanism where your vote accumulates "conviction" over time. Instead of a fixed voting period, you signal your preference and leave your tokens committed. The longer you keep your tokens staked on a proposal, the more conviction it builds. Once conviction crosses a threshold (which depends on the amount being requested from the treasury), the proposal passes automatically.</p>
-<p>This mechanism favors long-term, committed community members over speculators who buy tokens just before a vote. It also eliminates the need for discrete voting periods - proposals can pass at any time as they accumulate enough community conviction. The trade-off is complexity: it is harder for newcomers to understand, and the mathematical threshold function needs careful calibration to avoid proposals passing too quickly or too slowly.</p>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">4. Rage Quit</h3>
-<p>The <strong>rage quit</strong> mechanism, introduced by Moloch DAO, is not a voting method per se but a critical protection for minority holders. If a proposal passes that you strongly disagree with, you can "rage quit" before it executes - burning your governance tokens and withdrawing your proportional share of the treasury. This gives every member an exit option and prevents the majority from expropriating minority assets.</p>
-<p>Moloch DAO was specifically designed for grant-giving, where members pool funds and vote on grants. If a proposal passes to fund a project you consider wasteful, you rage quit and take your money back. This keeps the DAO honest - members will not propose reckless spending if they know others will simply leave and take their share of the treasury with them. The mechanism is named after the ancient deity associated with sacrifice, reflecting the idea that leaving the DAO is a sacrifice of community membership.</p>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">5. Snapshot (Off-Chain) Voting</h3>
-<p>Not all voting needs to happen on-chain. <strong>Snapshot</strong> is a popular off-chain voting tool where token holders sign messages (using their wallet) to cast votes without paying gas fees. The results are stored on IPFS, not on the blockchain. Snapshot votes are typically used for "temperature checks" or non-binding polls before a formal on-chain proposal is submitted. Over 20,000 DAOs use Snapshot, including Aave, ENS, and SushiSwap.</p>
-<p>The limitation is that Snapshot votes are non-binding - the DAO's smart contract does not enforce the result automatically. A separate on-chain transaction is needed to execute the outcome. However, for DAOs on MST, on-chain voting is so inexpensive that Snapshot may become unnecessary - every vote can be directly on-chain, providing both the ease of Snapshot and the enforceability of on-chain governance.</p>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">Voting Mechanisms - Comparison</h3>
-<table class="compare-table">
-  <thead>
-    <tr><th>Mechanism</th><th>How It Works</th><th>Strengths</th><th>Weaknesses</th><th>Used By</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Token-Weighted</td><td>1 token = 1 vote</td><td>Simple, battle-tested</td><td>Whale dominance, plutocracy risk</td><td>MakerDAO, Uniswap, Compound</td></tr>
-    <tr><td>Quadratic Voting</td><td>Cost of votes increases quadratically</td><td>Reduces whale influence, favors breadth</td><td>Sybil attacks (fake identities), complexity</td><td>Gitcoin Grants</td></tr>
-    <tr><td>Conviction Voting</td><td>Votes accumulate conviction over time</td><td>Favors long-term commitment, continuous</td><td>Hard to understand, slow for urgent decisions</td><td>1Hive Gardens, Commons Stack</td></tr>
-    <tr><td>Rage Quit</td><td>Minority can exit with treasury share</td><td>Protects minorities, prevents capture</td><td>Can drain treasury if many exit</td><td>Moloch DAO, DAOhaus</td></tr>
-    <tr><td>Snapshot (Off-Chain)</td><td>Gasless signed messages, non-binding</td><td>Free, accessible, fast</td><td>Not enforceable on-chain</td><td>Aave, ENS, 20,000+ DAOs</td></tr>
-  </tbody>
-</table>
-
 <!-- 06 INTERACTIVE EXAMPLES -->
 <div class="section-label">06 &nbsp; Interactive Examples</div>
 <h2 class="section-title">DAO Governance in Action - Click to Explore</h2>
@@ -257,43 +213,6 @@ governanceToken.delegate(aliceAddress);
   </tbody>
 </table>
 
-<!-- 07A DAO LEGAL STRUCTURES -->
-<div class="section-label">07A &nbsp; DAO Legal Structures</div>
-<h2 class="section-title">Giving a DAO a Legal Identity - From Wyoming to India</h2>
-<p>A DAO exists on the blockchain, but it must interact with the real world - signing leases, opening bank accounts, paying contributors, and dealing with tax authorities. Without a legal wrapper, a DAO is often treated as a general partnership, meaning every token holder could be personally liable for the DAO's debts and legal obligations. This section explores how DAOs acquire legal personhood across different jurisdictions and what options exist for Indian builders.</p>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">Wyoming DAO LLC (United States)</h3>
-<p>In 2021, Wyoming became the first U.S. state to recognize DAOs as a distinct type of Limited Liability Company. Under Wyoming's DAO LLC law (W.S. 17-31-101 through 17-31-116), a DAO can register as an LLC where the operating agreement is supplemented or even replaced by smart contracts. Members enjoy limited liability protection, meaning their personal assets are shielded from the DAO's liabilities. The DAO must designate a registered agent in Wyoming and can be either "member-managed" (all token holders vote) or "algorithmically managed" (smart contracts handle operations autonomously). Several well-known DAOs, including CityDAO, have registered under this framework.</p>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">Foundation Model (Cayman Islands, Switzerland)</h3>
-<p>Many large DeFi protocols use offshore foundations as their legal wrapper. The <strong>Cayman Islands Foundation Company</strong> is popular because it does not have shareholders - it has "supervisors" who oversee the foundation's directors. This structure aligns well with a DAO where no single party "owns" the entity. The foundation can hold intellectual property, enter contracts, and employ contributors, while governance remains on-chain. Uniswap Foundation, Lido Foundation, and Ethereum Foundation all use variations of this model. Switzerland's "Stiftung" (foundation) is another popular option, particularly because Swiss law is favorable to crypto organizations and the Swiss Financial Market Supervisory Authority (FINMA) has provided clear guidance on token classifications.</p>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">The Marshall Islands DAO LLC</h3>
-<p>In 2022, the Republic of the Marshall Islands passed the DAO Act, recognizing DAOs as legal entities with features specifically designed for decentralized governance. The law explicitly allows DAOs to be governed entirely by smart contracts and does not require a physical office or local directors. MIDAO (Marshall Islands DAO) has assisted several projects in registering under this framework, making it one of the most DAO-friendly jurisdictions globally.</p>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">DAOs and Indian Law</h3>
-<div class="callout story">
-  <div class="callout-label">Indian Regulatory Context</div>
-  <p>India does not yet have a specific legal framework for DAOs. However, several existing structures can serve as partial legal wrappers:</p>
-  <p><strong>1. Multi-State Cooperative Society (MSCS Act, 2002):</strong> Indian cooperative societies share philosophical roots with DAOs - member-owned, democratic governance. A DAO focused on Indian users could potentially register as a cooperative society, where the cooperative's bylaws reference the on-chain governance mechanism. The MSCS Act allows societies operating across state boundaries, which mirrors a DAO's borderless nature. India has a long tradition of cooperatives - from Amul (Gujarat Cooperative Milk Marketing Federation) to IFFCO - making this a culturally resonant structure.</p>
-  <p><strong>2. Section 8 Company (Companies Act, 2013):</strong> A non-profit company limited by guarantee could serve as a legal wrapper for a DAO focused on public goods. The company's articles of association could incorporate references to on-chain voting, though enforcement of smart contract decisions through Indian courts remains untested.</p>
-  <p><strong>3. Limited Liability Partnership (LLP):</strong> For smaller DAOs with identified members, an LLP provides liability protection and tax transparency. However, the LLP structure requires designated partners, which conflicts with the permissionless nature of most DAOs.</p>
-  <p><strong>Regulatory considerations:</strong> The Reserve Bank of India and SEBI have not issued specific guidance on DAO governance tokens. If a governance token is classified as a "security" under Indian law, the DAO would need to comply with SEBI's securities regulations, including KYC and accredited investor requirements. The 2022 crypto tax regime (30% flat tax on virtual digital asset gains, 1% TDS on transfers above the threshold) applies to governance token transactions, which could impact participation economics in Indian-focused DAOs. Builders should monitor regulatory developments from MeitY (Ministry of Electronics and Information Technology) and RBI circulars for any future DAO-specific guidance.</p>
-</div>
-
-<table class="compare-table">
-  <thead>
-    <tr><th>Jurisdiction</th><th>Legal Structure</th><th>Limited Liability</th><th>Smart Contract Governance</th><th>Best For</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Wyoming, USA</td><td>DAO LLC</td><td>Yes</td><td>Recognized in operating agreement</td><td>U.S.-focused DAOs, land/real-world asset projects</td></tr>
-    <tr><td>Cayman Islands</td><td>Foundation Company</td><td>Yes</td><td>Foundation directors defer to on-chain votes</td><td>Large DeFi protocols, treasury management</td></tr>
-    <tr><td>Switzerland</td><td>Stiftung (Foundation)</td><td>Yes</td><td>Supported by FINMA guidance</td><td>Ethereum-adjacent projects, research DAOs</td></tr>
-    <tr><td>Marshall Islands</td><td>DAO LLC (DAO Act)</td><td>Yes</td><td>Explicitly allowed by statute</td><td>Fully decentralized, no-office DAOs</td></tr>
-    <tr><td>India</td><td>Cooperative / Section 8 / LLP</td><td>Varies</td><td>Not explicitly recognized</td><td>Indian community DAOs, public goods DAOs</td></tr>
-  </tbody>
-</table>
-
 <!-- 08 MST‑SPECIFIC ADVANTAGES FOR DAOs -->
 <div class="section-label">08 &nbsp; MST-Specific Advantages</div>
 <h2 class="section-title">Why Build Your DAO on MST?</h2>
@@ -319,70 +238,6 @@ governanceToken.delegate(aliceAddress);
       <div class="feature-desc">Moving funds from a DAO treasury - swapping tokens, diversifying, paying contributors - incurs transaction fees. On MST, these are negligible, allowing the DAO to manage its treasury actively without wasting member funds.</div>
     </div>
   </div>
-</div>
-
-<!-- 08A STRUCTURING A DAO ON MST -->
-<div class="section-label">08A &nbsp; Building a DAO on MST</div>
-<h2 class="section-title">Step-by-Step - Designing a Governance Token and DAO Architecture on MST</h2>
-<p>Building a DAO on MST takes advantage of sub-paisa transaction costs, fast finality, and the hybrid permissioned-permissionless architecture. This section walks through the key design decisions you will face when structuring a DAO on MST, from token economics to governance parameters and treasury architecture.</p>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">Step 1: Governance Token Design</h3>
-<p>Your governance token is the foundation of your DAO. On MST, you deploy an ERC-20 token with the ERC-20Votes extension (for delegation and vote checkpointing). Key design decisions include:</p>
-<div class="feature-list">
-  <div class="feature-item">
-    <div class="feature-num">A</div>
-    <div class="feature-content">
-      <div class="feature-title">Fixed supply vs. inflationary</div>
-      <div class="feature-desc">A fixed supply (e.g., 100 million tokens) creates scarcity but can concentrate power among early holders over time. An inflationary model (e.g., 2% annual issuance distributed as staking rewards) dilutes inactive holders and incentivizes ongoing participation. MakerDAO uses a fixed supply with occasional minting and burning; Optimism's OP token has a planned inflation schedule. For an MST-based DAO targeting Indian retail users, a modest inflation schedule that rewards active voters can help maintain healthy participation rates.</div>
-    </div>
-  </div>
-  <div class="feature-item">
-    <div class="feature-num">B</div>
-    <div class="feature-content">
-      <div class="feature-title">Distribution strategy</div>
-      <div class="feature-desc">How you distribute the token determines who governs your DAO from day one. Common approaches include: airdrop to early users (Uniswap-style), retroactive public goods funding (Optimism), liquidity mining (Compound), or a community sale. On MST, the low transaction costs make airdrops to hundreds of thousands of wallets economically feasible - a single airdrop to 500,000 addresses would cost under Rs 3,000 in gas on MST versus over Rs 5 crore on Ethereum mainnet. This opens the door to mass-distribution strategies that were previously impossible.</div>
-    </div>
-  </div>
-  <div class="feature-item">
-    <div class="feature-num">C</div>
-    <div class="feature-content">
-      <div class="feature-title">Vesting and lockups</div>
-      <div class="feature-desc">Team and investor tokens should vest over 2-4 years with a cliff period (typically 6-12 months). This prevents early dumping and aligns long-term incentives. The vesting contract on MST can include automatic delegation, so that vesting tokens still participate in governance even before they are unlocked - a feature that is too gas-expensive to implement on Ethereum but practical on MST.</div>
-    </div>
-  </div>
-</div>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">Step 2: Governance Parameters</h3>
-<p>With sub-paisa voting costs on MST, you can tune your DAO's governance parameters more aggressively than on Ethereum:</p>
-<div class="feature-list">
-  <div class="feature-item">
-    <div class="feature-num">1</div>
-    <div class="feature-content">
-      <div class="feature-title">Lower proposal threshold</div>
-      <div class="feature-desc">On Ethereum, the proposal threshold for Uniswap is 2.5 million UNI tokens (worth millions of dollars) to prevent spam proposals that waste gas. On MST, you can set the threshold as low as 1,000 tokens, enabling grassroots proposals from small holders without worrying about gas costs for voters evaluating and voting on those proposals.</div>
-    </div>
-  </div>
-  <div class="feature-item">
-    <div class="feature-num">2</div>
-    <div class="feature-content">
-      <div class="feature-title">Shorter voting periods</div>
-      <div class="feature-desc">Because voting is practically free on MST, you can shorten the voting period from 7 days (common on Ethereum) to 3 days or even 48 hours for routine operational decisions. Urgent proposals can have even shorter windows with higher quorum requirements to compensate for the reduced deliberation time. This allows MST DAOs to respond to market conditions and opportunities far more quickly than their Ethereum counterparts.</div>
-    </div>
-  </div>
-  <div class="feature-item">
-    <div class="feature-num">3</div>
-    <div class="feature-content">
-      <div class="feature-title">On-chain temperature checks</div>
-      <div class="feature-desc">On Ethereum, DAOs use off-chain tools like Snapshot for preliminary polling because on-chain voting is expensive. On MST, even temperature checks and informal polls can be fully on-chain, creating a transparent and immutable record of community sentiment at every stage of decision-making. This eliminates the trust assumption required by off-chain voting tools and provides a single source of truth for the DAO's deliberation history.</div>
-    </div>
-  </div>
-</div>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">Step 3: Treasury Architecture</h3>
-<p>A DAO on MST can use a tiered treasury structure: a <strong>cold treasury</strong> (large multisig with a high signing threshold, e.g., 5-of-9) for long-term reserves, and a <strong>hot treasury</strong> (governed directly by the Governor contract) for routine payouts and grants. The near-zero transaction costs on MST make it practical to split treasury operations across multiple contracts without incurring prohibitive gas overhead. Contributors can be paid weekly or even daily through streaming payment contracts - something impractical on Ethereum due to the gas cost of each payment transaction.</p>
-
-<div class="highlight-strip">
-  <strong>MST advantage:</strong> On Ethereum, a DAO paying 50 contributors monthly spends over Rs 25,000 in gas fees just for salary disbursement. On MST, the same 50 transactions cost less than Rs 1 total. This frees up treasury funds for actual productive work instead of network fees - a critical advantage for bootstrapped DAOs operating with limited resources.
 </div>
 
 <!-- 09 COMMON PITFALLS -->
@@ -439,100 +294,6 @@ governanceToken.delegate(aliceAddress);
   </div>
 </div>
 
-<!-- 10A THE DAO HACK OF 2016 -->
-<div class="section-label">10A &nbsp; Deep Dive Case Study</div>
-<h2 class="section-title">The DAO Hack of 2016 - A $60 Million Lesson in Smart Contract Security</h2>
-<p>"The DAO" was not just any DAO - it was <em>the</em> DAO, the first major experiment in decentralized venture capital on Ethereum. Launched in April 2016, it raised 12.7 million ETH (approximately $150 million at the time) from over 11,000 investors in what was then the largest crowdfunding event in history. The concept was revolutionary: token holders would vote on which projects to fund, and profits would flow back to the DAO. It held nearly 14% of all Ether in circulation. Then, on June 17, 2016, everything went wrong.</p>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">What Happened: The Reentrancy Attack</h3>
-<p>The DAO's smart contract had a function called <code>splitDAO()</code> that allowed dissatisfied members to withdraw their funds into a "child DAO." The vulnerability lay in the order of operations within this function. The contract sent ETH to the caller <strong>before</strong> updating the caller's balance in its internal ledger. An attacker exploited this by writing a malicious contract with a <code>fallback()</code> function that, upon receiving ETH, immediately called <code>splitDAO()</code> again - before the first call had finished executing.</p>
-<p>This is a <strong>reentrancy attack</strong>. The attacker's contract re-entered the withdrawal function repeatedly, each time receiving ETH because the balance had not yet been decremented. The sequence looked like this:</p>
-
-<div class="diagram-wrap">
-  <div class="diagram-title">FIGURE 15.1-B - The Reentrancy Attack on The DAO</div>
-  <pre>  Attacker calls splitDAO()
-    |
-    +---> DAO checks balance: sufficient
-    |
-    +---> DAO sends ETH to attacker's contract
-    |       |
-    |       +---> Attacker's fallback() function triggers
-    |               |
-    |               +---> Calls splitDAO() AGAIN (re-enters)
-    |                       |
-    |                       +---> DAO checks balance: STILL sufficient (not updated yet!)
-    |                       |
-    |                       +---> DAO sends ETH again
-    |                       |       |
-    |                       |       +---> Calls splitDAO() AGAIN...
-    |                       |               (repeats until gas runs out)
-    |                       |
-    |                       +---> Balance finally updated (too late)
-    |
-    +---> Original balance update (too late - ETH already drained)
-  </pre>
-  <div class="diagram-caption">The attacker re-entered the withdrawal function repeatedly before the contract could update the balance, draining approximately 3.6 million ETH ($60 million at the time).</div>
-</div>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">The Vulnerable Code Pattern</h3>
-<p>The vulnerability was a classic "check-effects-interactions" violation. The contract interacted with an external address (sending ETH) before applying the effect (updating the balance). The secure pattern reverses this order: first update the balance (effect), then send the ETH (interaction). Here is the difference in pseudocode:</p>
-
-<pre style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px 16px; font-family:var(--mono); font-size:13px; color:var(--ink-2); line-height:1.7; margin:12px 0;">// VULNERABLE pattern (what The DAO did):
-function withdraw(uint amount) {
-    require(balances[msg.sender] >= amount);
-    msg.sender.call{value: amount}("");  // Sends ETH FIRST
-    balances[msg.sender] -= amount;       // Updates balance AFTER (too late!)
-}
-
-// SECURE pattern (checks-effects-interactions):
-function withdraw(uint amount) {
-    require(balances[msg.sender] >= amount);  // CHECK
-    balances[msg.sender] -= amount;           // EFFECT (update state first)
-    msg.sender.call{value: amount}("");       // INTERACTION (send ETH last)
-}
-</pre>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">The Aftermath: Ethereum's Most Controversial Hard Fork</h3>
-<p>The attack drained 3.6 million ETH into a child DAO controlled by the attacker. Fortunately, due to The DAO's built-in timelock (a 28-day waiting period before funds could be withdrawn from a child DAO), the Ethereum community had time to respond. After weeks of intense debate across forums, social media, and developer calls, the community voted to execute a <strong>hard fork</strong> - a change to Ethereum's protocol that effectively reversed the hack by moving The DAO's funds to a recovery contract where investors could reclaim their ETH.</p>
-<p>This decision was deeply controversial. Many argued that "code is law" and that reversing a transaction, even a malicious one, violated the fundamental principle of blockchain immutability. If the community could reverse one hack, what would stop them from reversing others? Those who opposed the fork continued running the original unforked chain, which became <strong>Ethereum Classic (ETC)</strong>. The split persists to this day - a permanent reminder of the philosophical divide between pragmatism and immutability absolutism.</p>
-
-<div class="callout analogy">
-  <div class="callout-label">Indian Context</div>
-  <p>The DAO hack debate is analogous to a situation in Indian banking. When a bank's internal software has a bug that allows a hacker to withdraw crores, the RBI can order the bank to reverse the transactions. But in blockchain, there is no RBI. The community itself must decide whether to "reverse" the hack or let the code stand as written. The Ethereum fork was, in effect, the community acting as its own regulator - a precedent that continues to shape how blockchain communities think about governance, immutability, and intervention.</p>
-</div>
-
-<h3 style="font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink);">Lessons for Modern DAOs and Smart Contract Security</h3>
-<div class="feature-list">
-  <div class="feature-item">
-    <div class="feature-num" style="background: var(--blue);">1</div>
-    <div class="feature-content">
-      <div class="feature-title">Always follow the checks-effects-interactions pattern</div>
-      <div class="feature-desc">Update contract state before making external calls. This single rule would have prevented The DAO hack entirely. Modern Solidity compilers and static analysis tools like Slither and Mythril automatically flag violations of this pattern during development.</div>
-    </div>
-  </div>
-  <div class="feature-item">
-    <div class="feature-num" style="background: var(--blue);">2</div>
-    <div class="feature-content">
-      <div class="feature-title">Use reentrancy guards</div>
-      <div class="feature-desc">OpenZeppelin's <code>ReentrancyGuard</code> modifier uses a simple boolean lock to prevent a function from being called again before the first invocation completes. Adding <code>nonReentrant</code> to any function that sends ETH or calls external contracts is now considered mandatory in professional Solidity development.</div>
-    </div>
-  </div>
-  <div class="feature-item">
-    <div class="feature-num" style="background: var(--blue);">3</div>
-    <div class="feature-content">
-      <div class="feature-title">Professional security audits are non-negotiable</div>
-      <div class="feature-desc">The DAO's code was reviewed informally but never formally audited by a professional security firm. Today, reputable DAOs undergo multiple independent audits from firms like Trail of Bits, OpenZeppelin Security, and Consensys Diligence, and run bug bounty programs on platforms like Immunefi offering up to $10 million for critical vulnerability disclosures.</div>
-    </div>
-  </div>
-  <div class="feature-item">
-    <div class="feature-num" style="background: var(--blue);">4</div>
-    <div class="feature-content">
-      <div class="feature-title">Use battle-tested libraries instead of custom code</div>
-      <div class="feature-desc">Instead of writing governance and financial contracts from scratch, modern DAOs use OpenZeppelin's Governor framework and related contracts, which have been audited multiple times and are deployed by hundreds of production DAOs. The DAO hack directly motivated the creation of these standardized, rigorously tested building blocks that the entire ecosystem relies on today.</div>
-    </div>
-  </div>
-</div>
-
 <!-- 11 ASSESSMENT PREP -->
 <div class="section-label">11 &nbsp; Assessment Preparation</div>
 <h2 class="section-title">Top Facts - Know These for the Exam</h2>
@@ -573,12 +334,6 @@ function withdraw(uint amount) {
   <div class="glossary-item"><div class="glossary-term">Timelock</div><div class="glossary-def">A smart contract that delays the execution of a passed proposal, giving stakeholders time to react or exit before changes take effect.</div></div>
   <div class="glossary-item"><div class="glossary-term">Liquid Democracy</div><div class="glossary-def">A governance model where token holders can either vote directly on issues or delegate their voting power to representatives.</div></div>
   <div class="glossary-item"><div class="glossary-term">Plutocracy</div><div class="glossary-def">Rule by the wealthy - a risk in token-voting systems where large holders can dominate decisions.</div></div>
-  <div class="glossary-item"><div class="glossary-term">Rage Quit</div><div class="glossary-def">A mechanism (pioneered by Moloch DAO) that allows dissenting members to burn their governance tokens and withdraw their proportional share of the treasury before a passed proposal executes.</div></div>
-  <div class="glossary-item"><div class="glossary-term">Snapshot Voting</div><div class="glossary-def">An off-chain, gasless voting system where token holders sign messages with their wallets to cast votes. Results are stored on IPFS and are typically non-binding, used for temperature checks before formal on-chain proposals.</div></div>
-  <div class="glossary-item"><div class="glossary-term">Multisig</div><div class="glossary-def">A multi-signature wallet that requires M-of-N authorized signers to approve a transaction (e.g., 3-of-5). Used by DAOs to secure treasury funds and execute high-value operations with distributed trust.</div></div>
-  <div class="glossary-item"><div class="glossary-term">Governor Contract</div><div class="glossary-def">The core smart contract of a DAO that manages the proposal lifecycle - creation, voting, queuing, and execution. OpenZeppelin's Governor is the most widely used implementation on EVM-compatible chains.</div></div>
-  <div class="glossary-item"><div class="glossary-term">Proposal Threshold</div><div class="glossary-def">The minimum number of governance tokens a member must hold (or have delegated to them) to submit a new proposal. This prevents spam proposals and ensures proposers have meaningful stake in the DAO's outcome.</div></div>
-  <div class="glossary-item"><div class="glossary-term">Quadratic Voting</div><div class="glossary-def">A voting mechanism where the cost of each additional vote increases quadratically (1 vote = 1 token, 2 votes = 4 tokens, 3 votes = 9 tokens), reducing the influence of wealthy participants and favoring broad community support.</div></div>
 </div>
 
 <div class="page-footer">

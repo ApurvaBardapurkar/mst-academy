@@ -72,26 +72,6 @@ Only tests 2 scenarios.                 by default, finds edge cases
 
     <p><strong>Why fuzzing is critical for smart contracts:</strong> Smart contracts are immutable and control real money. A single unhandled edge case can drain the contract. Fuzzing systematically searches for those edge cases, giving you confidence that your contract is correct across the entire input space, not just the few examples you tested manually.</p>
 
-    <div class="callout analogy">
-        <div class="callout-label">🔍 Analogy: Fuzzing Is Like Stress-Testing a Bridge</div>
-        <p>When engineers build a bridge in India - say the Bandra-Worli Sea Link - they do not just test it with one car weighing 1,000 kg. They test with hundreds of random loads: trucks at 40,000 kg, rush-hour traffic, monsoon winds at 120 km/h, and earthquakes. They simulate combinations that seem unlikely but are physically possible. Fuzzing does the same for your smart contract. Instead of testing with <code>amount = 100</code>, the fuzzer tests with <code>amount = 0</code>, <code>amount = 1</code>, <code>amount = 2^255</code>, and thousands of random values in between. If any combination breaks the contract, the fuzzer reports it before your users discover it the hard way.</p>
-    </div>
-
-    <p><strong>Types of testing - a complete spectrum:</strong></p>
-    <div class="table-wrap">
-        <table>
-            <thead><tr><th>Testing Type</th><th>What It Tests</th><th>Coverage</th><th>Speed</th><th>Catches</th></tr></thead>
-            <tbody>
-                <tr><td><strong>Unit Tests</strong></td><td>Specific scenarios with hard-coded values</td><td>Low (only what you write)</td><td>Fast</td><td>Known bugs, expected behavior</td></tr>
-                <tr><td><strong>Fuzz Tests</strong></td><td>Properties with random single-function inputs</td><td>Medium (random exploration)</td><td>Fast</td><td>Edge cases, overflow, boundary issues</td></tr>
-                <tr><td><strong>Invariant Tests</strong></td><td>System-wide properties after random call sequences</td><td>High (compositions of operations)</td><td>Slower</td><td>State corruption, complex interaction bugs</td></tr>
-                <tr><td><strong>Differential Tests</strong></td><td>Two implementations against the same inputs</td><td>Medium-High</td><td>Medium</td><td>Logic drift, rounding errors, upgrade regressions</td></tr>
-                <tr><td><strong>Formal Verification</strong></td><td>Mathematical proofs of correctness</td><td>Complete (for specified properties)</td><td>Very slow</td><td>All bugs covered by the spec</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <p>In practice, professional smart contract teams use all of these in layers. Unit tests are the foundation, fuzz and invariant tests cover the middle, and formal verification (covered in sub-module 10.5) is the final safety net for critical functions.</p>
-
     <div class="section-label">04 &nbsp; Foundry - The Fuzzing Powerhouse</div>
     <h2 class="section-title">Setting Up Foundry for Solidity Fuzzing</h2>
     <p><strong>Foundry</strong> is a blazing-fast Ethereum development toolkit written in Rust. It includes <strong>Forge</strong> for testing, which has a built-in fuzzer. Unlike Hardhat, which runs JavaScript tests, Foundry tests are written in Solidity itself. This gives you direct access to contract internals, cheatcodes for manipulating blockchain state, and significantly faster execution.</p>
@@ -150,33 +130,6 @@ contract VaultTest is Test {
 }</pre></div>
 
     <p><strong>The <code>bound</code> cheatcode:</strong> <code>bound(x, min, max)</code> constrains a fuzzed value to a specific range. This prevents the fuzzer from wasting runs on values that are trivially invalid (like amount=0 or amount exceeding balance). You should still have separate tests for those boundary conditions.</p>
-
-    <p><strong>Configuring fuzzing depth:</strong> By default, Foundry runs 256 random inputs per fuzz test. You can increase this in <code>foundry.toml</code> for more thorough exploration:</p>
-    <div class="code-block-wrap"><pre>[fuzz]
-runs = 1000          # More runs = more coverage (default: 256)
-max_test_rejects = 65536  # Max rejected assumptions before failure
-seed = 42            # Fixed seed for reproducible results
-
-[invariant]
-runs = 256           # Number of invariant test campaigns
-depth = 15           # Max function calls per campaign
-fail_on_revert = false  # Don't fail on reverts (expected for some inputs)</pre></div>
-
-    <p><strong>Debugging a failed fuzz test:</strong> When the fuzzer finds a failing input, Foundry displays the exact values that broke the property. You then write a unit test with those specific values to reproduce and debug the issue:</p>
-    <div class="code-block-wrap"><pre>// Fuzzer found: testDeposit(amount=115792089237316195423570985008687907853269984665640564039457584007913129639935)
-// That's type(uint256).max! Let's write a specific test:
-function testDeposit_MaxUint() public {
-    uint256 maxAmount = type(uint256).max;
-    // This should revert cleanly, not overflow
-    vm.expectRevert();
-    vault.deposit{value: maxAmount}();
-}</pre></div>
-    <p>This workflow - fuzz to discover, then unit test to isolate - is the standard debugging process for professional smart contract teams.</p>
-
-    <div class="callout key">
-        <div class="callout-label">🔑 The Shrinking Feature</div>
-        <p>When Foundry finds a failing input, it automatically tries to <strong>shrink</strong> it to the smallest possible value that still causes the failure. If the fuzzer finds that <code>amount = 9,223,372,036,854,775,808</code> breaks your contract, it will keep reducing the value to find the smallest breaking input - perhaps <code>amount = 2^63</code>. This makes debugging much easier because you get the simplest reproduction case, not a random large number.</p>
-    </div>
 
     <div class="section-label">05 &nbsp; Invariant Testing - The Ultimate Safety Net</div>
     <h2 class="section-title">Rules That Must Never, Ever Break</h2>
@@ -256,40 +209,6 @@ contract DifferentialTest is Test {
 
     <p><strong>Real-world use:</strong> When Uniswap V3 was developed, the team used differential fuzzing against a Python model of the math. Every tick calculation, every swap formula was fuzzed against the Python reference to ensure the Solidity implementation was mathematically identical.</p>
 
-    <div class="callout analogy">
-        <div class="callout-label">🧮 Indian Context: Differential Fuzzing for GST Calculations</div>
-        <p>Imagine you are building an on-chain invoice system for Indian businesses that calculates GST (Goods and Services Tax). You have a reference implementation in JavaScript that correctly computes 18% GST on various amounts, including edge cases with rounding, inter-state IGST, and composition scheme rates. Your Solidity implementation uses fixed-point arithmetic to handle decimals. Differential fuzzing feeds random invoice amounts (from 1 paisa to 10 crore rupees) into both implementations and compares the GST output. If your Solidity version ever disagrees with the JavaScript reference by even 1 wei, the fuzzer reports the exact amount that caused the discrepancy. This is how you catch rounding errors that would silently misallocate funds.</p>
-    </div>
-
-    <p><strong>Common invariants to test in DeFi contracts:</strong></p>
-    <div class="feature-list">
-        <div class="feature-item">
-            <div class="feature-num">1</div>
-            <div class="feature-title">Token Conservation</div>
-            <div class="feature-desc">"The sum of all user balances must always equal totalSupply." Test after every mint, burn, and transfer sequence.</div>
-        </div>
-        <div class="feature-item">
-            <div class="feature-num">2</div>
-            <div class="feature-title">Solvency</div>
-            <div class="feature-desc">"The contract's ETH/token balance must always be at least equal to the sum of all user deposits minus all withdrawals." If this breaks, the contract is insolvent.</div>
-        </div>
-        <div class="feature-item">
-            <div class="feature-num">3</div>
-            <div class="feature-title">AMM Invariant</div>
-            <div class="feature-desc">"After any swap, the product of reserves (x * y) must be greater than or equal to the previous product." This is the core constant-product invariant.</div>
-        </div>
-        <div class="feature-item">
-            <div class="feature-num">4</div>
-            <div class="feature-title">Access Control</div>
-            <div class="feature-desc">"No non-owner address should ever be able to call admin-only functions." Invariant testing can verify this by having the fuzzer call admin functions from random addresses.</div>
-        </div>
-        <div class="feature-item">
-            <div class="feature-num">5</div>
-            <div class="feature-title">Monotonicity</div>
-            <div class="feature-desc">"Staking rewards should only increase over time, never decrease." If a user's pending rewards decrease without a withdrawal, there is a bug in the reward accumulator.</div>
-        </div>
-    </div>
-
     <div class="section-label">07 &nbsp; Advanced Fuzzing Techniques</div>
     <h2 class="section-title">Cheatcodes, Assumptions, and Gas Tracking</h2>
     <p><strong>1. vm.assume(condition):</strong> Skips the current fuzz run if the condition is false. Use this to reject inputs that are trivially invalid, so the fuzzer spends its energy exploring meaningful inputs.</p>
@@ -322,40 +241,6 @@ contract DifferentialTest is Test {
         <p>Fuzzing doesn't prove your contract is correct - it proves your contract <strong>survives</strong> a certain number of random attempts. But every run that doesn't find a bug increases your confidence. Combine fuzzing with unit tests, formal verification, and manual code review for defense in depth.</p>
     </div>
 
-    <p><strong>Writing effective fuzz test properties:</strong> The quality of your fuzz tests depends entirely on the properties you define. Poorly chosen properties give false confidence. Here are guidelines for writing strong properties:</p>
-    <div class="feature-list">
-        <div class="feature-item">
-            <div class="feature-num">📐</div>
-            <div class="feature-title">Think in "for all" statements</div>
-            <div class="feature-desc">A fuzz property should express a universal truth: "For ALL valid deposit amounts, the user's balance must increase by exactly that amount." If you find yourself thinking about specific values, you are writing a unit test, not a fuzz property.</div>
-        </div>
-        <div class="feature-item">
-            <div class="feature-num">🔄</div>
-            <div class="feature-title">Test round-trip operations</div>
-            <div class="feature-desc">Deposit followed by full withdrawal should return exactly the deposited amount. Encoding followed by decoding should return the original data. These "round-trip" properties are powerful because any loss of information indicates a bug.</div>
-        </div>
-        <div class="feature-item">
-            <div class="feature-num">📊</div>
-            <div class="feature-title">Test ordering independence</div>
-            <div class="feature-desc">If two operations should be commutative (order-independent), fuzz them in both orders and assert the same result. For example, two independent deposits should result in the same total balance regardless of which happens first.</div>
-        </div>
-        <div class="feature-item">
-            <div class="feature-num">🚫</div>
-            <div class="feature-title">Test negative cases</div>
-            <div class="feature-desc">Properties are not just about what should happen - they also define what should never happen. "For all amounts greater than the user's balance, a withdrawal must revert." Use <code>vm.expectRevert()</code> with fuzzed amounts to test this.</div>
-        </div>
-    </div>
-
-    <p><strong>Real-world fuzzing case study - the Euler Finance hack:</strong> In March 2023, Euler Finance was exploited for $197 million due to a logic error in their donation function. The attacker deposited collateral, borrowed against it, donated the collateral to the reserve, then triggered a liquidation that left the protocol insolvent. A carefully designed invariant test - "the protocol must always remain solvent after any sequence of deposit, borrow, donate, and liquidate operations" - would have caught this bug during development. The attack required a specific four-step sequence that unit tests would never have covered, but an invariant fuzzer exploring random function call sequences would have found it in minutes.</p>
-
-    <div class="callout warning">
-        <div class="callout-label">⚠️ Common Fuzzing Pitfalls</div>
-        <p><strong>1. Over-constraining inputs:</strong> If you bound every parameter too tightly, the fuzzer only explores a tiny portion of the input space. Use loose bounds and let the fuzzer surprise you.</p>
-        <p><strong>2. Ignoring failing runs:</strong> If a fuzz test is failing on some inputs but you add <code>vm.assume()</code> to skip those cases, you might be hiding real bugs. Only use <code>vm.assume()</code> for genuinely invalid inputs, not for inputs that reveal problems.</p>
-        <p><strong>3. Not running enough iterations:</strong> 256 runs is a bare minimum. For contracts handling significant value, run 10,000 or even 100,000 iterations in CI. The probability of finding a rare bug increases with each run.</p>
-        <p><strong>4. Testing only happy paths:</strong> Fuzz tests should also verify that invalid operations revert correctly. A contract that silently accepts invalid input is more dangerous than one that reverts loudly.</p>
-    </div>
-
     <div class="section-label">09 &nbsp; Assessment Preparation</div>
     <h2 class="section-title">Top Facts - Know These Cold</h2>
     <div class="fact-card"><div class="fact-num">01</div><div class="fact-text"><strong>Fuzzing replaces hard-coded test values with random inputs.</strong> Foundry automatically treats test function parameters as fuzzing inputs, running 256 random variations by default.</div></div>
@@ -377,10 +262,6 @@ contract DifferentialTest is Test {
         <div class="glossary-card"><div class="g-term">bound</div><div class="g-def">A Foundry cheatcode that constrains a fuzzed value to a specific numeric range, preventing wasted runs on trivially invalid inputs.</div></div>
         <div class="glossary-card"><div class="g-term">vm.assume</div><div class="g-def">A cheatcode that skips the current fuzz run if a condition is not met. Used to filter out invalid test scenarios without failing the test.</div></div>
         <div class="glossary-card"><div class="g-term">Gas Tracking</div><div class="g-def">Measuring the gas consumption of fuzzed functions to identify unexpectedly expensive edge cases that could make the contract unusable.</div></div>
-        <div class="glossary-card"><div class="g-term">Shrinking</div><div class="g-def">The fuzzer's automatic process of reducing a failing input to the smallest possible value that still causes the test to fail, making debugging easier.</div></div>
-        <div class="glossary-card"><div class="g-term">Property-Based Testing</div><div class="g-def">A testing approach where you define universal properties ("for all X, Y must hold") instead of specific test cases. The framework generates random inputs to attempt to falsify the property.</div></div>
-        <div class="glossary-card"><div class="g-term">Round-Trip Test</div><div class="g-def">A fuzz test pattern that verifies an operation and its inverse produce the original value (e.g., encode then decode, deposit then withdraw). Any information loss indicates a bug.</div></div>
-        <div class="glossary-card"><div class="g-term">Solvency Invariant</div><div class="g-def">A critical property asserting that a contract's token or ETH balance is always sufficient to cover all user claims. If this invariant breaks, the contract is bankrupt.</div></div>
     </div>
 
     <div class="page-footer">

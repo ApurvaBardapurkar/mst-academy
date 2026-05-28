@@ -164,8 +164,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Low fees are the game‑changer. They allow active strategies and micro‑positions that would be obliterated by gas on Ethereum.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Low fees are the game‑changer. They allow active strategies and micro‑positions that would be obliterated by gas on Ethereum.</p>"
+      "explanation": "Low fees are the game-changer. They allow active strategies and micro-positions that would be obliterated by gas on Ethereum.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct: A</div><p>Low fees are the game-changer. They allow active strategies and micro-positions that would be obliterated by gas on Ethereum.</p>"
     },
     {
       "id": "q6",

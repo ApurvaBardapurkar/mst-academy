@@ -17,7 +17,7 @@
         },
         {
           "key": "B",
-          "text": "The double coincidence of wants – both parties must want what the other offers at the same time",
+          "text": "The double coincidence of wants - both parties must want what the other offers at the same time",
           "isCorrect": true
         },
         {
@@ -32,8 +32,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Barter fails because each party must desire the other's goods simultaneously. Money acts as a universally accepted intermediate good, breaking this requirement and enabling multi‑party trade across time and space.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>Barter fails because each party must desire the other's goods simultaneously. Money acts as a universally accepted intermediate good, breaking this requirement and enabling multi‑party trade across time and space.</p>"
+      "explanation": "Barter fails because each party must desire the other's goods simultaneously. Money acts as a universally accepted intermediate good, breaking this requirement and enabling multi-party trade across time and space.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>Barter fails because each party must desire the other's goods simultaneously. Money acts as a universally accepted intermediate good, breaking this requirement and enabling multi-party trade across time and space.</p>"
     },
     {
       "id": "q2",
@@ -83,7 +83,7 @@
         },
         {
           "key": "B",
-          "text": "They are payment rails that move existing bank‑issued fiat rupees; they do not create a new monetary asset",
+          "text": "They are payment rails that move existing bank-issued fiat rupees; they do not create a new monetary asset",
           "isCorrect": true
         },
         {
@@ -109,8 +109,8 @@
       "marks": 2,
       "text": "\"The invention of UPI and Paytm has made cryptocurrency unnecessary, because we can now send digital money instantly and cheaply without the volatility of Bitcoin.\"",
       "correctAnswer": "FALSE",
-      "explanation": "1 mark: Correctly states FALSE and explains that UPI moves existing fiat rupees rather than creating a new form of money.+1 mark: Explains that cryptocurrency solves problems UPI cannot – specifically mentioning at least two of: scarcity (fixed supply), censorship resistance, decentralization, or trustlessness.",
-      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> Correctly states FALSE and explains that UPI moves existing fiat rupees rather than creating a new form of money.<br><strong>+1 mark:</strong> Explains that cryptocurrency solves problems UPI cannot – specifically mentioning at least two of: scarcity (fixed supply), censorship resistance, decentralization, or trustlessness.</p><div class=\"marks-bd\"><span>Examiner note:</span> A response that simply says \"False – UPI is not crypto\" without explaining WHY earns 0 marks. The justification must demonstrate understanding of the fundamental difference between payment rails and monetary assets.</div>",
+      "explanation": "1 mark: Correctly states FALSE and explains that UPI moves existing fiat rupees rather than creating a new form of money.+1 mark: Explains that cryptocurrency solves problems UPI cannot - specifically mentioning at least two of: scarcity (fixed supply), censorship resistance, decentralization, or trustlessness.",
+      "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div><p><strong>1 mark:</strong> Correctly states FALSE and explains that UPI moves existing fiat rupees rather than creating a new form of money.<br><strong>+1 mark:</strong> Explains that cryptocurrency solves problems UPI cannot - specifically mentioning at least two of: scarcity (fixed supply), censorship resistance, decentralization, or trustlessness.</p><div class=\"marks-bd\"><span>Examiner note:</span> A response that simply says \"False - UPI is not crypto\" without explaining WHY earns 0 marks. The justification must demonstrate understanding of the fundamental difference between payment rails and monetary assets.</div>",
       "tfVerdict": "FALSE"
     }
   ]

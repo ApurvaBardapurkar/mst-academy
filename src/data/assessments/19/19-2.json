@@ -164,8 +164,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Traction proves that the team can ship and that the problem resonates with users. It is the strongest de‑risking signal.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div>\n                <p>Traction proves that the team can ship and that the problem resonates with users. It is the strongest de‑risking signal.</p>"
+      "explanation": "Traction proves that the team can ship and that the problem resonates with users. It is the strongest de-risking signal.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div>\n                <p>Traction proves that the team can ship and that the problem resonates with users. It is the strongest de-risking signal.</p>"
     },
     {
       "id": "q6",
@@ -203,7 +203,7 @@
       "type": "descriptive",
       "difficulty": "Medium",
       "marks": 3,
-      "text": "Below is a draft of a Traction slide for a fictional dApp. Critique it in 3‑4 sentences, and then rewrite it as a strong Traction slide bullet list.",
+      "text": "Below is a draft of a Traction slide for a fictional dApp. Critique it in 3-4 sentences, and then rewrite it as a strong Traction slide bullet list.",
       "explanation": "1 mark: identifies vagueness, lack of numbers. 1 mark: provides specific numbers (e.g., \"520 testnet users, 1,200 transactions\"). 1 mark: includes a tangible metric and a timeline.",
       "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Guide</div>\n                <p>1 mark: identifies vagueness, lack of numbers. <br>1 mark: provides specific numbers (e.g., \"520 testnet users, 1,200 transactions\"). <br>1 mark: includes a tangible metric and a timeline.</p>"
     },
@@ -213,7 +213,7 @@
       "type": "other",
       "difficulty": "Hard",
       "marks": 25,
-      "text": "Create a 10‑15 slide pitch deck for your capstone project (or a hypothetical MST dApp) following the master sequence taught in this sub‑module. Submit as a PDF.",
+      "text": "Create a 10-15 slide pitch deck for your capstone project (or a hypothetical MST dApp) following the master sequence taught in this sub-module. Submit as a PDF.",
       "explanation": "Structure & Flow (5 marks): Slides follow the recommended order; logical narrative.\n                    Problem & Solution Clarity (5 marks): Problem is visceral; solution is obvious and demos well.\n                    Market & Traction (4 marks): TAM/SAM/SOM with sources; traction data (even testnet) is present.\n                    Tokenomics & Business Model (4 marks): Token utility is clear; revenue/economic model explained.\n                    Team & Ask (4 marks): Team faces and credentials; explicit Ask with allocation and milestones.\n                    MST Integration (3 marks): At least one slide explicitly shows why MST (SARAL, WASMify, gas). Design and visual appeal (bonus consideration).",
       "modelAnswer": "<div class=\"answer-box-label\">📊 Rubric (25 Marks)</div>\n                <p>\n                    <strong>Structure &amp; Flow (5 marks):</strong> Slides follow the recommended order; logical narrative.<br>\n                    <strong>Problem &amp; Solution Clarity (5 marks):</strong> Problem is visceral; solution is obvious and demos well.<br>\n                    <strong>Market &amp; Traction (4 marks):</strong> TAM/SAM/SOM with sources; traction data (even testnet) is present.<br>\n                    <strong>Tokenomics &amp; Business Model (4 marks):</strong> Token utility is clear; revenue/economic model explained.<br>\n                    <strong>Team &amp; Ask (4 marks):</strong> Team faces and credentials; explicit Ask with allocation and milestones.<br>\n                    <strong>MST Integration (3 marks):</strong> At least one slide explicitly shows why MST (SARAL, WASMify, gas). Design and visual appeal (bonus consideration).\n                </p>\n                <div class=\"marks-bd\"><span>Submission:</span> Upload a single PDF file named <code>Capstone_PitchDeck_YourName.pdf</code>. Include a link to your live testnet demo if available.</div>"
     }

@@ -679,6 +679,7 @@ export function FullscreenAssessment({
         <AssessmentCameraProctor
           active={assessmentStarted && !assessmentViolated}
           onViolation={handleCameraViolation}
+          placement={codingQuestionActive ? "bottom" : "top"}
         />
       )}
 

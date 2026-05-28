@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "C",
-      "explanation": "Providing value by answering questions builds trust and visibility. Job requests and self‑promotion before contribution are considered spam and damage reputation.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C</div><p>Providing value by answering questions builds trust and visibility. Job requests and self‑promotion before contribution are considered spam and damage reputation.</p>"
+      "explanation": "Providing value by answering questions builds trust and visibility. Job requests and self-promotion before contribution are considered spam and damage reputation.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: C</div><p>Providing value by answering questions builds trust and visibility. Job requests and self-promotion before contribution are considered spam and damage reputation.</p>"
     },
     {
       "id": "q3",
@@ -83,7 +83,7 @@
         },
         {
           "key": "B",
-          "text": "“Solidity Dev | Deployed staking pool on MST Testnet | Prev: ERC‑721 marketplace | Open to freelance”",
+          "text": "“Solidity Dev | Deployed staking pool on MST Testnet | Prev: ERC-721 marketplace | Open to freelance”",
           "isCorrect": true
         },
         {
@@ -182,7 +182,7 @@
         },
         {
           "key": "B",
-          "text": "It funds your project, provides mentorship, and signals ecosystem credibility — making grant recipients heavily recruited by MST ecosystem startups",
+          "text": "It funds your project, provides mentorship, and signals ecosystem credibility - making grant recipients heavily recruited by MST ecosystem startups",
           "isCorrect": true
         },
         {
@@ -239,11 +239,11 @@
       "type": "mcq",
       "difficulty": "Hard",
       "marks": 1,
-      "text": "You have zero Web3 experience and a brand‑new GitHub account. What is the most effective long‑term strategy to build a network from scratch?",
+      "text": "You have zero Web3 experience and a brand-new GitHub account. What is the most effective long-term strategy to build a network from scratch?",
       "options": [
         {
           "key": "A",
-          "text": "Pick one ecosystem (MST), learn its tech deeply, join its Discord/Forum, answer questions daily, build public projects, and document the journey on Twitter — for at least 6 months",
+          "text": "Pick one ecosystem (MST), learn its tech deeply, join its Discord/Forum, answer questions daily, build public projects, and document the journey on Twitter - for at least 6 months",
           "isCorrect": true
         },
         {
@@ -263,8 +263,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Deep ecosystem focus, consistent public contribution, and documenting the learning journey build a reputation that attracts opportunities. Spray‑and‑pray CV sending and follower‑chasing are ineffective.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div><p>Deep ecosystem focus, consistent public contribution, and documenting the learning journey build a reputation that attracts opportunities. Spray‑and‑pray CV sending and follower‑chasing are ineffective.</p>"
+      "explanation": "Deep ecosystem focus, consistent public contribution, and documenting the learning journey build a reputation that attracts opportunities. Spray-and-pray CV sending and follower-chasing are ineffective.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div><p>Deep ecosystem focus, consistent public contribution, and documenting the learning journey build a reputation that attracts opportunities. Spray-and-pray CV sending and follower-chasing are ineffective.</p>"
     },
     {
       "id": "q9",
@@ -296,8 +296,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Unsolicited job‑seeking DMs are the fastest way to be marked as spam and ignored. Honest mistakes or inactivity are far less damaging.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>Unsolicited job‑seeking DMs are the fastest way to be marked as spam and ignored. Honest mistakes or inactivity are far less damaging.</p>"
+      "explanation": "Unsolicited job-seeking DMs are the fastest way to be marked as spam and ignored. Honest mistakes or inactivity are far less damaging.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div><p>Unsolicited job-seeking DMs are the fastest way to be marked as spam and ignored. Honest mistakes or inactivity are far less damaging.</p>"
     },
     {
       "id": "q10",
@@ -305,11 +305,11 @@
       "type": "mcq",
       "difficulty": "Hard",
       "marks": 1,
-      "text": "A well‑known MST core developer tweets: “Interesting challenge: how would you design a gas‑efficient way to batch 100 token transfers?” You have a good idea. What should you do?",
+      "text": "A well-known MST core developer tweets: “Interesting challenge: how would you design a gas-efficient way to batch 100 token transfers?” You have a good idea. What should you do?",
       "options": [
         {
           "key": "A",
-          "text": "Reply with a concise technical thread explaining your approach (e.g., using a multi‑call pattern), and include a link to a code snippet if possible",
+          "text": "Reply with a concise technical thread explaining your approach (e.g., using a multi-call pattern), and include a link to a code snippet if possible",
           "isCorrect": true
         },
         {

@@ -8,7 +8,7 @@
       "type": "mcq",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "What does it mean for MST to be \"fully EVM‑compatible\"?",
+      "text": "What does it mean for MST to be \"fully EVM-compatible\"?",
       "options": [
         {
           "key": "A",
@@ -32,8 +32,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Full EVM compatibility means MST's execution layer implements the Ethereum Virtual Machine specification exactly: same opcodes, same precompiled contracts (0x01‑0x09), and same gas costs per opcode. A Solidity contract compiles to the same bytecode and behaves identically on both chains.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div>\n        <p>Full EVM compatibility means MST's execution layer implements the Ethereum Virtual Machine specification exactly: same opcodes, same precompiled contracts (0x01‑0x09), and same gas costs per opcode. A Solidity contract compiles to the same bytecode and behaves identically on both chains.</p>"
+      "explanation": "Full EVM compatibility means MST's execution layer implements the Ethereum Virtual Machine specification exactly: same opcodes, same precompiled contracts (0x01-0x09), and same gas costs per opcode. A Solidity contract compiles to the same bytecode and behaves identically on both chains.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div>\n        <p>Full EVM compatibility means MST's execution layer implements the Ethereum Virtual Machine specification exactly: same opcodes, same precompiled contracts (0x01-0x09), and same gas costs per opcode. A Solidity contract compiles to the same bytecode and behaves identically on both chains.</p>"
     },
     {
       "id": "q2",
@@ -65,8 +65,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Hardhat, ethers.js, and OpenZeppelin are Ethereum‑native tools that interact with any EVM‑compatible chain via standard JSON‑RPC. They work on MST with zero modifications. Solana CLI (B), Anchor (C), and NEAR SDK (D) are for non‑EVM chains and are irrelevant.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div>\n        <p>Hardhat, ethers.js, and OpenZeppelin are Ethereum‑native tools that interact with any EVM‑compatible chain via standard JSON‑RPC. They work on MST with zero modifications. Solana CLI (B), Anchor (C), and NEAR SDK (D) are for non‑EVM chains and are irrelevant.</p>"
+      "explanation": "Hardhat, ethers.js, and OpenZeppelin are Ethereum-native tools that interact with any EVM-compatible chain via standard JSON-RPC. They work on MST with zero modifications. Solana CLI (B), Anchor (C), and NEAR SDK (D) are for non-EVM chains and are irrelevant.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div>\n        <p>Hardhat, ethers.js, and OpenZeppelin are Ethereum-native tools that interact with any EVM-compatible chain via standard JSON-RPC. They work on MST with zero modifications. Solana CLI (B), Anchor (C), and NEAR SDK (D) are for non-EVM chains and are irrelevant.</p>"
     },
     {
       "id": "q3",
@@ -74,16 +74,16 @@
       "type": "mcq",
       "difficulty": "Medium",
       "marks": 1,
-      "text": "A DeFi protocol uses OpenZeppelin's ERC‑20 contract and a custom staking contract. They want to deploy on MST. What changes are required in the smart contract code?",
+      "text": "A DeFi protocol uses OpenZeppelin's ERC-20 contract and a custom staking contract. They want to deploy on MST. What changes are required in the smart contract code?",
       "options": [
         {
           "key": "A",
-          "text": "No changes — the contracts deploy as‑is on MST",
+          "text": "No changes - the contracts deploy as-is on MST",
           "isCorrect": true
         },
         {
           "key": "B",
-          "text": "Replace all OpenZeppelin imports with MST‑specific libraries",
+          "text": "Replace all OpenZeppelin imports with MST-specific libraries",
           "isCorrect": false
         },
         {
@@ -98,8 +98,8 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Because MST is fully EVM‑compatible, standard Solidity contracts compile to the same bytecode. OpenZeppelin contracts are chain‑agnostic and work on any EVM chain. No code changes are needed for the contracts themselves — only the deployment RPC endpoint and chain ID in the frontend.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div>\n        <p>Because MST is fully EVM‑compatible, standard Solidity contracts compile to the same bytecode. OpenZeppelin contracts are chain‑agnostic and work on any EVM chain. No code changes are needed for the contracts themselves — only the deployment RPC endpoint and chain ID in the frontend.</p>"
+      "explanation": "Because MST is fully EVM-compatible, standard Solidity contracts compile to the same bytecode. OpenZeppelin contracts are chain-agnostic and work on any EVM chain. No code changes are needed for the contracts themselves - only the deployment RPC endpoint and chain ID in the frontend.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: A</div>\n        <p>Because MST is fully EVM-compatible, standard Solidity contracts compile to the same bytecode. OpenZeppelin contracts are chain-agnostic and work on any EVM chain. No code changes are needed for the contracts themselves - only the deployment RPC endpoint and chain ID in the frontend.</p>"
     },
     {
       "id": "q4",
@@ -111,7 +111,7 @@
       "options": [
         {
           "key": "A",
-          "text": "SHA‑256 hashing",
+          "text": "SHA-256 hashing",
           "isCorrect": false
         },
         {
@@ -131,8 +131,8 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "Precompile 0x01 is ecrecover, which recovers the Ethereum address from a message hash and signature (v, r, s). It's essential for validating signatures in smart contracts (e.g., meta‑transactions, multi‑sig). MST implements it identically, so any contract relying on signature verification works seamlessly.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div>\n        <p>Precompile 0x01 is <code>ecrecover</code>, which recovers the Ethereum address from a message hash and signature (v, r, s). It's essential for validating signatures in smart contracts (e.g., meta‑transactions, multi‑sig). MST implements it identically, so any contract relying on signature verification works seamlessly.</p>"
+      "explanation": "Precompile 0x01 is ecrecover, which recovers the Ethereum address from a message hash and signature (v, r, s). It's essential for validating signatures in smart contracts (e.g., meta-transactions, multi-sig). MST implements it identically, so any contract relying on signature verification works seamlessly.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Correct Answer: B</div>\n        <p>Precompile 0x01 is <code>ecrecover</code>, which recovers the Ethereum address from a message hash and signature (v, r, s). It's essential for validating signatures in smart contracts (e.g., meta-transactions, multi-sig). MST implements it identically, so any contract relying on signature verification works seamlessly.</p>"
     },
     {
       "id": "q5",
@@ -149,7 +149,7 @@
         },
         {
           "key": "B",
-          "text": "To preserve security assumptions and anti‑spam mechanisms that depend on relative opcode costs",
+          "text": "To preserve security assumptions and anti-spam mechanisms that depend on relative opcode costs",
           "isCorrect": true
         },
         {
@@ -174,8 +174,8 @@
       "difficulty": "Hard",
       "marks": 4,
       "text": "Consider the following Solidity contract deployed on MST mainnet (chain ID 2001). The contract is identical to one deployed on Ethereum Sepolia (chain ID 11155111). What will the function <code>getChainId()</code> return when called on MST, and why? Explain any difference from the Ethereum deployment.",
-      "explanation": "Output on MST: getChainId() returns 2001. isMST() returns true.\n        Why: The global variable block.chainid is an EVM opcode (CHAINID) that returns the chain identifier configured in the node. On MST mainnet, the chain ID is 2001. On Ethereum Sepolia, it would be 11155111. The contract itself has no chain‑specific code — it simply reads the environment variable. Because MST is fully EVM‑compatible, the CHAINID opcode works identically; the only difference is the value returned, which is determined by the node configuration, not the contract bytecode.",
-      "modelAnswer": "<div class=\"answer-box-label\">✅ Expected Answer &amp; Marks Breakdown</div>\n        <p><strong>Output on MST:</strong> <code>getChainId()</code> returns <strong>2001</strong>. <code>isMST()</code> returns <strong>true</strong>.<br><br>\n        <strong>Why:</strong> The global variable <code>block.chainid</code> is an EVM opcode (<code>CHAINID</code>) that returns the chain identifier configured in the node. On MST mainnet, the chain ID is 2001. On Ethereum Sepolia, it would be 11155111. The contract itself has <strong>no chain‑specific code</strong> — it simply reads the environment variable. Because MST is fully EVM‑compatible, the <code>CHAINID</code> opcode works identically; the only difference is the value returned, which is determined by the node configuration, not the contract bytecode.</p>\n        <div class=\"marks-bd\">\n          <span>Marks breakdown (4 marks):</span><br>\n          • <strong>1 mark:</strong> Correctly states that <code>getChainId()</code> returns 2001 on MST.<br>\n          • <strong>1 mark:</strong> Correctly states that <code>isMST()</code> returns true.<br>\n          • <strong>1 mark:</strong> Explains that <code>block.chainid</code> is an EVM opcode that reads the node's configured chain ID.<br>\n          • <strong>1 mark:</strong> Explains that EVM compatibility ensures the opcode works identically; the value is environment‑dependent, not contract‑dependent.\n        </div>"
+      "explanation": "Output on MST: getChainId() returns 2001. isMST() returns true.\n        Why: The global variable block.chainid is an EVM opcode (CHAINID) that returns the chain identifier configured in the node. On MST mainnet, the chain ID is 2001. On Ethereum Sepolia, it would be 11155111. The contract itself has no chain-specific code - it simply reads the environment variable. Because MST is fully EVM-compatible, the CHAINID opcode works identically; the only difference is the value returned, which is determined by the node configuration, not the contract bytecode.",
+      "modelAnswer": "<div class=\"answer-box-label\">✅ Expected Answer &amp; Marks Breakdown</div>\n        <p><strong>Output on MST:</strong> <code>getChainId()</code> returns <strong>2001</strong>. <code>isMST()</code> returns <strong>true</strong>.<br><br>\n        <strong>Why:</strong> The global variable <code>block.chainid</code> is an EVM opcode (<code>CHAINID</code>) that returns the chain identifier configured in the node. On MST mainnet, the chain ID is 2001. On Ethereum Sepolia, it would be 11155111. The contract itself has <strong>no chain-specific code</strong> - it simply reads the environment variable. Because MST is fully EVM-compatible, the <code>CHAINID</code> opcode works identically; the only difference is the value returned, which is determined by the node configuration, not the contract bytecode.</p>\n        <div class=\"marks-bd\">\n          <span>Marks breakdown (4 marks):</span><br>\n          • <strong>1 mark:</strong> Correctly states that <code>getChainId()</code> returns 2001 on MST.<br>\n          • <strong>1 mark:</strong> Correctly states that <code>isMST()</code> returns true.<br>\n          • <strong>1 mark:</strong> Explains that <code>block.chainid</code> is an EVM opcode that reads the node's configured chain ID.<br>\n          • <strong>1 mark:</strong> Explains that EVM compatibility ensures the opcode works identically; the value is environment-dependent, not contract-dependent.\n        </div>"
     },
     {
       "id": "q7",
@@ -183,7 +183,7 @@
       "type": "true_false",
       "difficulty": "Easy",
       "marks": 1,
-      "text": "\"A smart contract that uses OpenZeppelin's ERC‑721 implementation and has been audited on Ethereum will require a new security audit after being deployed unchanged on MST.\"",
+      "text": "\"A smart contract that uses OpenZeppelin's ERC-721 implementation and has been audited on Ethereum will require a new security audit after being deployed unchanged on MST.\"",
       "correctAnswer": "FALSE",
       "explanation": "1 mark: Correctly states FALSE and explains that the bytecode and EVM environment are identical, so the audit's findings remain valid.",
       "modelAnswer": "<div class=\"answer-box-label\">📊 Marks Breakdown</div>\n        <p><strong>1 mark:</strong> Correctly states FALSE and explains that the bytecode and EVM environment are identical, so the audit's findings remain valid.</p>",
